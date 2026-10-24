@@ -6,7 +6,7 @@
 **Java:** `17`  
 **Package:** `com.relicweave`  
 **Mod ID:** `relicweave`
-**Authors:** Dutch and Claude
+**Authors:** `Dutch and Claude`
 
 ## 1. Goal
 
