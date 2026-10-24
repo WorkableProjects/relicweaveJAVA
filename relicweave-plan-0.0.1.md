@@ -2,7 +2,7 @@
 
 **Target release:** `0.0.1`  
 **Minecraft:** Java Edition `1.20.1`  
-**Mod loader:** Minecraft Forge `47.3.0+`  
+**Mod loader:** Minecraft Forge `47.4.28` 
 **Java:** `17`  
 **Package:** `com.relicweave`  
 **Mod ID:** `relicweave`
