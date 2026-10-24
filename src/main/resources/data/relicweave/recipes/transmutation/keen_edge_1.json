@@ -1,0 +1,10 @@
+{
+  "type": "relicweave:transmutation",
+  "input": { "item": "minecraft:diamond" },
+  "input_count": 1,
+  "catalyst": { "item": "minecraft:amethyst_shard" },
+  "catalyst_count": 1,
+  "enchantment": "relicweave:keen_edge",
+  "level": 1,
+  "process_time": 100
+}

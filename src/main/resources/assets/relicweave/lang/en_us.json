@@ -1,0 +1,12 @@
+{
+  "block.relicweave.transmutation_table": "Transmutation Table",
+  "container.relicweave.transmutation_table": "Transmutation Table",
+  "enchantment.relicweave.keen_edge": "Keen Edge",
+  "enchantment.relicweave.keen_edge.desc": "Increases melee damage dealt with Swords and Axes.",
+  "enchantment.relicweave.purling": "Purling",
+  "enchantment.relicweave.purling.desc": "Press the Purling key to throw an Ender Pearl from your inventory without taking teleport damage.",
+  "key.categories.relicweave": "RelicWeave",
+  "key.relicweave.purling": "Purling: Throw Ender Pearl",
+  "message.relicweave.purling.cooldown": "Purling recharging: %s s",
+  "message.relicweave.purling.no_pearl": "Purling needs an Ender Pearl"
+}

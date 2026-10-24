@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "relicweave:block/transmutation_table_top",
+    "side": "relicweave:block/transmutation_table_side",
+    "bottom": "relicweave:block/transmutation_table_bottom"
+  }
+}
