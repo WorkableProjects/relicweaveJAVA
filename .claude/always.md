@@ -1,0 +1,3 @@
+- When finishing a version, ALWAYS fill in the changes into the file: docs/Changelog.md
+- When Implementing enchantments and infusions ensures it works with JEI.
+- When implementing a keybind, ensure it works with the mod’s controls so the player can change it after the player downloads it.
