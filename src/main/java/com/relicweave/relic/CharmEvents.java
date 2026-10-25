@@ -83,15 +83,8 @@ public final class CharmEvents {
 
     private static Set<CharmType> carriedCharms(Player player) {
         Set<CharmType> found = EnumSet.noneOf(CharmType.class);
-        for (ItemStack stack : player.getInventory().items) {
-            if (stack.getItem() instanceof CharmItem charm) {
-                found.add(charm.getCharmType());
-            }
-        }
-        for (ItemStack stack : player.getInventory().offhand) {
-            if (stack.getItem() instanceof CharmItem charm) {
-                found.add(charm.getCharmType());
-            }
+        for (ItemStack stack : RelicLocator.find(player, s -> s.getItem() instanceof CharmItem)) {
+            found.add(((CharmItem) stack.getItem()).getCharmType());
         }
         return found;
     }

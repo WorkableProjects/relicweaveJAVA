@@ -4,9 +4,12 @@ import com.relicweave.config.RelicWeaveConfig;
 import com.relicweave.compat.curios.CuriosCompat;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import com.relicweave.item.RelicItem;
 
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
+import java.util.Set;
 import java.util.function.Predicate;
 
 /**
@@ -39,6 +42,26 @@ public final class RelicLocator {
 
     public static boolean has(Player player, Predicate<ItemStack> filter) {
         return !find(player, filter).isEmpty();
+    }
+
+    /** True if the player carries {@code type} in a valid location. */
+    public static boolean has(Player player, RelicType type) {
+        return has(player, stack -> stack.getItem() instanceof RelicItem relic && relic.getRelicType() == type);
+    }
+
+    /** Every relic type the player carries in a valid location, in {@link RelicType#values()} order. */
+    public static Set<RelicType> carried(Player player) {
+        Set<RelicType> types = EnumSet.noneOf(RelicType.class);
+        for (ItemStack stack : find(player, s -> s.getItem() instanceof RelicItem)) {
+            types.add(((RelicItem) stack.getItem()).getRelicType());
+        }
+        return types;
+    }
+
+    /** First stack of {@code type} in a valid location, or {@link ItemStack#EMPTY}. */
+    public static ItemStack first(Player player, RelicType type) {
+        List<ItemStack> stacks = find(player, s -> s.getItem() instanceof RelicItem relic && relic.getRelicType() == type);
+        return stacks.isEmpty() ? ItemStack.EMPTY : stacks.get(0);
     }
 
     private static RelicWeaveConfig.CharmActivation mode() {
