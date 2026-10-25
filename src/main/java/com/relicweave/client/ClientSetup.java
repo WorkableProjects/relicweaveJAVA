@@ -9,7 +9,9 @@ import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
+import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -34,6 +36,13 @@ public final class ClientSetup {
         @SubscribeEvent
         public static void onRegisterKeyMappings(RegisterKeyMappingsEvent event) {
             event.register(ModKeyMappings.PURLING);
+            event.register(ModKeyMappings.ACTIVATE_RELIC);
+            event.register(ModKeyMappings.CYCLE_RELIC);
+        }
+
+        @SubscribeEvent
+        public static void onRegisterGuiOverlays(RegisterGuiOverlaysEvent event) {
+            event.registerAbove(VanillaGuiOverlay.HOTBAR.id(), "selected_relic", RelicHud.OVERLAY);
         }
     }
 

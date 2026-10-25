@@ -1,0 +1,14 @@
+{
+  "type": "relicweave:transmutation",
+  "input": {
+    "tag": "relicweave:attunement_sources/undertow"
+  },
+  "input_count": 8,
+  "catalyst": {
+    "item": "minecraft:amethyst_shard"
+  },
+  "catalyst_count": 1,
+  "enchantment": "relicweave:undertow",
+  "level": 1,
+  "process_time": 100
+}

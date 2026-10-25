@@ -1,6 +1,8 @@
 package com.relicweave.relic;
 
 import com.relicweave.RelicWeave;
+import com.relicweave.compat.curios.CuriosCompat;
+import com.relicweave.config.RelicWeaveConfig;
 import com.relicweave.item.RelicTotemItem;
 import com.relicweave.item.TotemTier;
 import net.minecraft.server.level.ServerPlayer;
@@ -74,7 +76,12 @@ public final class TotemEvents {
         if (mainHand.getItem() instanceof RelicTotemItem totem && totem.getTier().worksInMainHand()) {
             result.add(mainHand);
         }
-        // Stable sort keeps the offhand ahead of the main hand when tiers tie.
+        if (RelicWeaveConfig.SPEC.isLoaded() && RelicWeaveConfig.CURIOS_TOTEMS.get() && CuriosCompat.isLoaded()) {
+            for (ItemStack stack : CuriosCompat.findEquipped(player, s -> s.getItem() instanceof RelicTotemItem)) {
+                result.add(stack);
+            }
+        }
+        // Stable sort keeps the offhand ahead of the main hand, and both ahead of Curios slots, when tiers tie.
         result.sort(Comparator.comparing(TotemEvents::tierOf).reversed());
         return result;
     }

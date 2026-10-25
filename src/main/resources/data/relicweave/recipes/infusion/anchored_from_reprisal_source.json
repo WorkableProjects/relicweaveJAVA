@@ -1,0 +1,9 @@
+{
+  "type": "relicweave:infusion",
+  "ingredient": {
+    "tag": "relicweave:attunement_sources/reprisal"
+  },
+  "count": 32,
+  "infusion": "relicweave:anchored",
+  "process_time": 200
+}

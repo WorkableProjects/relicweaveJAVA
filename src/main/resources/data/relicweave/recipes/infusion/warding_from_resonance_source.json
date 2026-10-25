@@ -1,0 +1,9 @@
+{
+  "type": "relicweave:infusion",
+  "ingredient": {
+    "tag": "relicweave:attunement_sources/resonance"
+  },
+  "count": 4,
+  "infusion": "relicweave:warding",
+  "process_time": 200
+}

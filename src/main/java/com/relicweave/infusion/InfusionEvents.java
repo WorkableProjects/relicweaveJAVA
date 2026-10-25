@@ -21,6 +21,9 @@ public final class InfusionEvents {
         }
         int slotIndex = armor.getEquipmentSlot().getIndex();
         for (InfusionType infusion : Infusions.get(stack)) {
+            if (!infusion.hasAttribute()) {
+                continue; // effect infusions are handled in com.relicweave.infusion.effects
+            }
             event.addModifier(infusion.attribute(), new AttributeModifier(infusion.modifierId(slotIndex),
                     RelicWeave.MOD_ID + ":infusion/" + infusion.id().getPath(), infusion.amount(), infusion.operation()));
         }

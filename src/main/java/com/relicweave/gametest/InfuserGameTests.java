@@ -189,7 +189,8 @@ public final class InfuserGameTests {
     @GameTest(template = TEMPLATE)
     public static void allInfusionRecipesLoad(GameTestHelper helper) {
         List<InfusionRecipe> recipes = helper.getLevel().getRecipeManager().getAllRecipesFor(ModRecipes.INFUSION_TYPE.get());
-        helper.assertTrue(recipes.size() == 10, "Expected 10 infusion recipes, found " + recipes.size());
+        // 10 from 0.0.2 + 6 Attunement source recipes (one per AttunementMapping row) in 0.0.3.
+        helper.assertTrue(recipes.size() == 16, "Expected 16 infusion recipes, found " + recipes.size());
         Set<InfusionType> covered = EnumSet.noneOf(InfusionType.class);
         for (InfusionRecipe recipe : recipes) {
             covered.add(recipe.getInfusion());

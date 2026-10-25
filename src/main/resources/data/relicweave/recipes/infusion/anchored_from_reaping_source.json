@@ -1,0 +1,9 @@
+{
+  "type": "relicweave:infusion",
+  "ingredient": {
+    "tag": "relicweave:attunement_sources/reaping"
+  },
+  "count": 32,
+  "infusion": "relicweave:anchored",
+  "process_time": 200
+}

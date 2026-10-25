@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " S ",
+    "FMF",
+    " F "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:string"
+    },
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "M": {
+      "item": "minecraft:phantom_membrane"
+    }
+  },
+  "result": {
+    "item": "relicweave:featherwoven_charm"
+  }
+}

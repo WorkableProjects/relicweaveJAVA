@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "GSG",
+    "SDS",
+    "GSG"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:gold_block"
+    },
+    "S": {
+      "item": "minecraft:shield"
+    },
+    "D": {
+      "item": "relicweave:diamond_charm"
+    }
+  },
+  "result": {
+    "item": "relicweave:guardian_relic"
+  }
+}

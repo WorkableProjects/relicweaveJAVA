@@ -1,5 +1,6 @@
 package com.relicweave;
 
+import com.relicweave.config.RelicWeaveConfig;
 import com.relicweave.network.PurlingNetwork;
 import com.relicweave.registry.ModBlockEntities;
 import com.relicweave.registry.ModBlocks;
@@ -8,11 +9,14 @@ import com.relicweave.registry.ModItems;
 import com.relicweave.registry.ModEnchantments;
 import com.relicweave.registry.ModMenus;
 import com.relicweave.registry.ModRecipes;
+import com.relicweave.registry.ModSounds;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
@@ -32,6 +36,9 @@ public class RelicWeave {
         ModEnchantments.ENCHANTMENTS.register(modBus);
         ModRecipes.RECIPE_TYPES.register(modBus);
         ModRecipes.RECIPE_SERIALIZERS.register(modBus);
+        ModSounds.SOUNDS.register(modBus);
+
+        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, RelicWeaveConfig.SPEC);
 
         modBus.addListener(this::commonSetup);
         modBus.addListener(this::addCreative);

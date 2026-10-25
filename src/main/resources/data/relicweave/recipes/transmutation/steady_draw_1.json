@@ -1,0 +1,14 @@
+{
+  "type": "relicweave:transmutation",
+  "input": {
+    "tag": "relicweave:attunement_sources/steady_draw"
+  },
+  "input_count": 4,
+  "catalyst": {
+    "item": "minecraft:amethyst_shard"
+  },
+  "catalyst_count": 1,
+  "enchantment": "relicweave:steady_draw",
+  "level": 1,
+  "process_time": 100
+}

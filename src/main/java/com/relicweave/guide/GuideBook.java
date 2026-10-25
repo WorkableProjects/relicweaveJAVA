@@ -20,11 +20,15 @@ import net.minecraftforge.fml.common.Mod;
  */
 @Mod.EventBusSubscriber(modid = RelicWeave.MOD_ID)
 public final class GuideBook {
-    public static final int PAGE_COUNT = 13;
+    public static final int PAGE_COUNT = 24;
     public static final String TITLE = "RelicWeave Guide";
     public static final String AUTHOR = "Dutch and Claude";
     /** Stored in Forge's persisted player data, which survives death and respawn. */
     private static final String RECEIVED_TAG = RelicWeave.MOD_ID + ":received_guide";
+    /** Guide edition last given to the player. Bumped when the guide gains pages, so upgrading players get it again. */
+    private static final String EDITION_TAG = RelicWeave.MOD_ID + ":guide_edition";
+    /** 1 = 0.0.1/0.0.2 guide (13 pages; players who have it carry no edition tag), 2 = 0.0.3 Attunement guide. */
+    public static final int EDITION = 2;
 
     private GuideBook() {}
 
@@ -41,18 +45,27 @@ public final class GuideBook {
         return book;
     }
 
-    /** Gives the guide if this player has never received it. Returns true if a book was given. */
+    /**
+     * Gives the guide if this player has never received it, or has only received an older edition (then the new
+     * edition is given once, with a chat note). Returns true if a book was given.
+     */
     public static boolean giveIfFirstJoin(ServerPlayer player) {
         CompoundTag persisted = player.getPersistentData().getCompound(Player.PERSISTED_NBT_TAG);
-        if (persisted.getBoolean(RECEIVED_TAG)) {
+        boolean hadOlder = persisted.getBoolean(RECEIVED_TAG);
+        int edition = persisted.contains(EDITION_TAG) ? persisted.getInt(EDITION_TAG) : (hadOlder ? 1 : 0);
+        if (edition >= EDITION) {
             return false;
         }
         persisted.putBoolean(RECEIVED_TAG, true);
+        persisted.putInt(EDITION_TAG, EDITION);
         player.getPersistentData().put(Player.PERSISTED_NBT_TAG, persisted);
 
         ItemStack book = create();
         if (!player.getInventory().add(book)) {
             player.drop(book, false);
+        }
+        if (hadOlder) {
+            player.sendSystemMessage(Component.translatable("message.relicweave.guide_updated"));
         }
         return true;
     }
