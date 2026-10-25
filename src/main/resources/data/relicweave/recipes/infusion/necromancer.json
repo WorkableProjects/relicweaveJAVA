@@ -1,0 +1,9 @@
+{
+  "type": "relicweave:infusion",
+  "ingredient": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "count": 1,
+  "infusion": "relicweave:necromancer",
+  "process_time": 200
+}
