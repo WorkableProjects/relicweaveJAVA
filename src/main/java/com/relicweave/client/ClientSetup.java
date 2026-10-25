@@ -25,7 +25,10 @@ public final class ClientSetup {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            event.enqueueWork(() -> MenuScreens.register(ModMenus.TRANSMUTATION_TABLE.get(), TransmutationTableScreen::new));
+            event.enqueueWork(() -> {
+                MenuScreens.register(ModMenus.TRANSMUTATION_TABLE.get(), TransmutationTableScreen::new);
+                MenuScreens.register(ModMenus.CELESTIAL_INFUSER.get(), CelestialInfuserScreen::new);
+            });
         }
 
         @SubscribeEvent

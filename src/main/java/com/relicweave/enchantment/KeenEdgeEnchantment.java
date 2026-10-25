@@ -1,23 +1,17 @@
 package com.relicweave.enchantment;
 
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.EnchantmentCategory;
 
 /**
  * Swords and Axes. The damage bonus itself is applied by {@link KeenEdgeEvents}. Obtainable only through
  * transmutation (not from enchanting tables, loot, or villagers); books apply and combine at the anvil.
  */
 public class KeenEdgeEnchantment extends Enchantment {
-    public static final EnchantmentCategory SWORD_OR_AXE =
-            EnchantmentCategory.create("RELICWEAVE_SWORD_OR_AXE", item -> item instanceof SwordItem || item instanceof AxeItem);
-
     public static final int MAX_LEVEL = 3;
 
     public KeenEdgeEnchantment() {
-        super(Rarity.UNCOMMON, SWORD_OR_AXE, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+        super(Rarity.UNCOMMON, ModEnchantmentCategories.SWORD_OR_AXE, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
 
     @Override

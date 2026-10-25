@@ -3,6 +3,8 @@ package com.relicweave;
 import com.relicweave.network.PurlingNetwork;
 import com.relicweave.registry.ModBlockEntities;
 import com.relicweave.registry.ModBlocks;
+import com.relicweave.registry.ModCreativeTabs;
+import com.relicweave.registry.ModItems;
 import com.relicweave.registry.ModEnchantments;
 import com.relicweave.registry.ModMenus;
 import com.relicweave.registry.ModRecipes;
@@ -23,6 +25,8 @@ public class RelicWeave {
 
         ModBlocks.BLOCKS.register(modBus);
         ModBlocks.ITEMS.register(modBus);
+        ModItems.ITEMS.register(modBus);
+        ModCreativeTabs.TABS.register(modBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modBus);
         ModMenus.MENUS.register(modBus);
         ModEnchantments.ENCHANTMENTS.register(modBus);
