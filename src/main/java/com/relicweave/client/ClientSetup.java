@@ -47,6 +47,7 @@ public final class ClientSetup {
                 return;
             }
             Minecraft minecraft = Minecraft.getInstance();
+            UpboundClient.onClientTick(minecraft);
             while (ModKeyMappings.PURLING.consumeClick()) {
                 // Skip obviously useless requests; the server re-validates everything.
                 if (minecraft.player != null && EnchantmentHelper.getItemEnchantmentLevel(
