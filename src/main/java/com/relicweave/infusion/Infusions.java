@@ -6,6 +6,8 @@ import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 
 import java.util.ArrayList;
@@ -15,6 +17,7 @@ import java.util.List;
 public final class Infusions {
     public static final String TAG = "RelicWeaveInfusions";
     public static final int MAX_INFUSIONS = 3;
+    private static final EquipmentSlot[] ARMOR_SLOTS = {EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET};
 
     private Infusions() {}
 
@@ -39,13 +42,44 @@ public final class Infusions {
         return get(stack).contains(type);
     }
 
-    /** True if {@code stack} is Celestial armor with a free infusion slot that does not already hold {@code type}. */
+    /**
+     * True if {@code stack} is Celestial armor that {@code type} fits ({@link InfusionType#fits}), with a free infusion
+     * slot that does not already hold {@code type}.
+     */
     public static boolean canInfuse(ItemStack stack, InfusionType type) {
-        if (!(stack.getItem() instanceof CelestialArmorItem)) {
-            return false;
+        return check(stack, type) == Result.OK;
+    }
+
+    /** Why an infusion can or cannot be applied; used for machine status messages. */
+    public enum Result { OK, NOT_CELESTIAL, WRONG_PIECE, ALREADY_PRESENT, LIMIT_REACHED }
+
+    public static Result check(ItemStack stack, InfusionType type) {
+        if (!(stack.getItem() instanceof CelestialArmorItem armor)) {
+            return Result.NOT_CELESTIAL;
+        }
+        if (!type.fits(armor.getEquipmentSlot())) {
+            return Result.WRONG_PIECE;
         }
         List<InfusionType> current = get(stack);
-        return current.size() < MAX_INFUSIONS && !current.contains(type);
+        if (current.contains(type)) {
+            return Result.ALREADY_PRESENT;
+        }
+        return current.size() < MAX_INFUSIONS ? Result.OK : Result.LIMIT_REACHED;
+    }
+
+    /** True if {@code entity} wears a Celestial armor piece carrying {@code type} in that piece's own slot. */
+    public static boolean isWearing(LivingEntity entity, InfusionType type) {
+        if (type.slot() != null) {
+            ItemStack worn = entity.getItemBySlot(type.slot());
+            return worn.getItem() instanceof CelestialArmorItem && has(worn, type);
+        }
+        for (EquipmentSlot slot : ARMOR_SLOTS) {
+            ItemStack worn = entity.getItemBySlot(slot);
+            if (worn.getItem() instanceof CelestialArmorItem && has(worn, type)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /** Returns a copy of {@code stack} (count 1) with {@code type} added. Caller must check {@link #canInfuse} first. */

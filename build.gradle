@@ -75,7 +75,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Mixin-based dev dependencies (Controlling) need their refmaps remapped to official names.
-            if (project.hasProperty('withControlling')) {
+            if (project.hasProperty('withControlling') || project.hasProperty('withCurios')) {
                 property 'mixin.env.remapRefMap', 'true'
                 property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             }
@@ -124,6 +124,12 @@ repositories {
         url = 'https://maven.blamejared.com'
         content { includeGroup 'mezz.jei' }
     }
+    // Curios API (optional integration; compile-time API only, never bundled)
+    maven {
+        name = 'Curios'
+        url = 'https://maven.theillusivec4.top/'
+        content { includeGroup 'top.theillusivec4.curios' }
+    }
     if (project.hasProperty('withControlling')) {
         maven {
             name = 'Modrinth'
@@ -153,6 +159,13 @@ dependencies {
     compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
     compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")
     runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
+
+    // Curios: compile against the API only. Dev runs include the full mod only with -PwithCurios, so the default dev
+    // runs (and GameTests) prove RelicWeave works without it.
+    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}:api")
+    if (project.hasProperty('withCurios')) {
+        runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
+    }
 
     // Optional dev-only test of keybind editing with Controlling: ./gradlew runClient -PwithControlling
     // Never bundled or required; normal builds skip this.

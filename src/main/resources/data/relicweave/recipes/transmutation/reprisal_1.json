@@ -1,0 +1,14 @@
+{
+  "type": "relicweave:transmutation",
+  "input": {
+    "tag": "relicweave:attunement_sources/reprisal"
+  },
+  "input_count": 8,
+  "catalyst": {
+    "item": "minecraft:lapis_lazuli"
+  },
+  "catalyst_count": 4,
+  "enchantment": "relicweave:reprisal",
+  "level": 1,
+  "process_time": 100
+}

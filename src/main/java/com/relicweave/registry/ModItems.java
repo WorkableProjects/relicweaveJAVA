@@ -6,8 +6,10 @@ import com.relicweave.item.CelestialMaterials;
 import com.relicweave.item.CharmItem;
 import com.relicweave.item.CharmType;
 import com.relicweave.item.ModFoods;
+import com.relicweave.item.RelicItem;
 import com.relicweave.item.RelicTotemItem;
 import com.relicweave.item.TotemTier;
+import com.relicweave.relic.RelicType;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.HoeItem;
@@ -31,6 +33,14 @@ public final class ModItems {
     public static final RegistryObject<Item> DIAMOND_CHARM = charm("diamond_charm", CharmType.DIAMOND, Rarity.RARE);
     public static final RegistryObject<Item> NETHERITE_CHARM = ITEMS.register("netherite_charm",
             () -> new CharmItem(CharmType.NETHERITE, new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
+
+    // ---- Relics: 0.0.3 Attunement relics (see RelicType) ----
+    public static final RegistryObject<Item> LODESTONE_CHARM = relic(RelicType.LODESTONE, Rarity.UNCOMMON);
+    public static final RegistryObject<Item> TIDAL_CHARM = relic(RelicType.TIDAL, Rarity.UNCOMMON);
+    public static final RegistryObject<Item> FEATHERWOVEN_CHARM = relic(RelicType.FEATHERWOVEN, Rarity.UNCOMMON);
+    public static final RegistryObject<Item> WAYFARERS_RELIC = relic(RelicType.WAYFARER, Rarity.RARE);
+    public static final RegistryObject<Item> ECHO_CHARM = relic(RelicType.ECHO, Rarity.RARE);
+    public static final RegistryObject<Item> GUARDIAN_RELIC = relic(RelicType.GUARDIAN, Rarity.EPIC);
 
     // ---- Relics: totems (offhand; Ultra works in either hand) ----
     public static final RegistryObject<Item> DIAMOND_TOTEM = ITEMS.register("diamond_totem",
@@ -74,6 +84,10 @@ public final class ModItems {
 
     private static RegistryObject<Item> charm(String name, CharmType type, Rarity rarity) {
         return ITEMS.register(name, () -> new CharmItem(type, new Item.Properties().stacksTo(1).rarity(rarity)));
+    }
+
+    private static RegistryObject<Item> relic(RelicType type, Rarity rarity) {
+        return ITEMS.register(type.itemPath(), () -> new RelicItem(type, new Item.Properties().stacksTo(1).rarity(rarity)));
     }
 
     private static RegistryObject<Item> armor(String name, ArmorItem.Type type) {

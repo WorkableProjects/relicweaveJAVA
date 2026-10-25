@@ -27,7 +27,7 @@ public final class ModEnchantments {
             () -> new RelicEnchantment(Enchantment.Rarity.UNCOMMON, ModEnchantmentCategories.SWORD_OR_AXE, 3, EquipmentSlot.MAINHAND));
     public static final RegistryObject<Enchantment> CONDUCTIVE = ENCHANTMENTS.register("conductive",
             () -> new RelicEnchantment(Enchantment.Rarity.UNCOMMON, EnchantmentCategory.DIGGER, 3,
-                    other -> other == Enchantments.BLOCK_EFFICIENCY, EquipmentSlot.MAINHAND));
+                    other -> other == Enchantments.BLOCK_EFFICIENCY || other == ModEnchantments.RESONANCE.get(), EquipmentSlot.MAINHAND));
     public static final RegistryObject<Enchantment> GOLEMED = ENCHANTMENTS.register("golemed",
             () -> new RelicEnchantment(Enchantment.Rarity.UNCOMMON, EnchantmentCategory.ARMOR_CHEST, 3, EquipmentSlot.CHEST));
     public static final RegistryObject<Enchantment> PIGLINIFIED = ENCHANTMENTS.register("piglinified",
@@ -40,6 +40,22 @@ public final class ModEnchantments {
             () -> new RelicEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentCategory.ARMOR_HEAD, 1, EquipmentSlot.HEAD));
     public static final RegistryObject<Enchantment> UPBOUND = ENCHANTMENTS.register("upbound",
             () -> new RelicEnchantment(Enchantment.Rarity.VERY_RARE, EnchantmentCategory.ARMOR_FEET, 2, EquipmentSlot.FEET));
+
+    // 0.0.3 Attunement (effects: com.relicweave.enchantment.attunement; source items: com.relicweave.attunement.AttunementMapping)
+    public static final RegistryObject<Enchantment> REAPING = ENCHANTMENTS.register("reaping",
+            () -> new RelicEnchantment(Enchantment.Rarity.UNCOMMON, ModEnchantmentCategories.HOE, 3, EquipmentSlot.MAINHAND));
+    public static final RegistryObject<Enchantment> UNDERTOW = ENCHANTMENTS.register("undertow",
+            () -> new RelicEnchantment(Enchantment.Rarity.UNCOMMON, EnchantmentCategory.TRIDENT, 3, EquipmentSlot.MAINHAND));
+    /** Incompatible with Conductive, so the two mining-speed bonuses never combine. */
+    public static final RegistryObject<Enchantment> RESONANCE = ENCHANTMENTS.register("resonance",
+            () -> new RelicEnchantment(Enchantment.Rarity.RARE, ModEnchantmentCategories.PICKAXE, 3,
+                    other -> other == ModEnchantments.CONDUCTIVE.get(), EquipmentSlot.MAINHAND));
+    public static final RegistryObject<Enchantment> SOULGUARD = ENCHANTMENTS.register("soulguard",
+            () -> new RelicEnchantment(Enchantment.Rarity.RARE, EnchantmentCategory.ARMOR_CHEST, 2, EquipmentSlot.CHEST));
+    public static final RegistryObject<Enchantment> STEADY_DRAW = ENCHANTMENTS.register("steady_draw",
+            () -> new RelicEnchantment(Enchantment.Rarity.UNCOMMON, EnchantmentCategory.BOW, 2, EquipmentSlot.MAINHAND, EquipmentSlot.OFFHAND));
+    public static final RegistryObject<Enchantment> REPRISAL = ENCHANTMENTS.register("reprisal",
+            () -> new RelicEnchantment(Enchantment.Rarity.UNCOMMON, ModEnchantmentCategories.SHIELD, 3, EquipmentSlot.MAINHAND, EquipmentSlot.OFFHAND));
 
     private ModEnchantments() {}
 }

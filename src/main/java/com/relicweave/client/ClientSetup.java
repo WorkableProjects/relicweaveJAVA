@@ -34,6 +34,8 @@ public final class ClientSetup {
         @SubscribeEvent
         public static void onRegisterKeyMappings(RegisterKeyMappingsEvent event) {
             event.register(ModKeyMappings.PURLING);
+            event.register(ModKeyMappings.ACTIVATE_RELIC);
+            event.register(ModKeyMappings.CYCLE_RELIC);
         }
     }
 

@@ -3,6 +3,8 @@ package com.relicweave.network;
 import com.relicweave.RelicWeave;
 import com.relicweave.enchantment.PurlingHandler;
 import com.relicweave.enchantment.upbound.UpboundHandler;
+import com.relicweave.relic.RelicActivation;
+import com.relicweave.relic.RelicType;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkDirection;
@@ -31,6 +33,36 @@ public final class PurlingNetwork {
                 .decoder(UpboundJumpPacket::decode)
                 .consumerMainThread(UpboundJumpPacket::handle)
                 .add();
+        CHANNEL.messageBuilder(ActivateRelicPacket.class, 2, NetworkDirection.PLAY_TO_SERVER)
+                .encoder(ActivateRelicPacket::encode)
+                .decoder(ActivateRelicPacket::decode)
+                .consumerMainThread(ActivateRelicPacket::handle)
+                .add();
+    }
+
+    /**
+     * Client -> server: "activate my selected relic". Carries only the relic's item path; the server checks that the
+     * player really carries that relic in a valid location and that it is off cooldown.
+     */
+    public record ActivateRelicPacket(String relic) {
+        private static final int MAX_LENGTH = 64;
+
+        public void encode(FriendlyByteBuf buf) {
+            buf.writeUtf(relic, MAX_LENGTH);
+        }
+
+        public static ActivateRelicPacket decode(FriendlyByteBuf buf) {
+            return new ActivateRelicPacket(buf.readUtf(MAX_LENGTH));
+        }
+
+        public void handle(Supplier<NetworkEvent.Context> ctx) {
+            ServerPlayer sender = ctx.get().getSender();
+            RelicType type = RelicType.byItemPath(relic);
+            if (sender != null && type != null) {
+                RelicActivation.tryActivate(sender, type);
+            }
+            ctx.get().setPacketHandled(true);
+        }
     }
 
     /** Client -> server: "I performed an Upbound air jump". Carries no data; the server validates everything. */

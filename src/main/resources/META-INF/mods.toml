@@ -68,3 +68,11 @@ description='''${mod_description}'''
 # stop your mod loading on the server for example.
 #[features.${mod_id}]
 #openGLVersion="[3.2,)"
+
+# Optional: Curios adds a "charm" slot for RelicWeave charms. Not required.
+[[dependencies.${mod_id}]]
+    modId="curios"
+    mandatory=false
+    versionRange="[5.4,)"
+    ordering="NONE"
+    side="BOTH"
