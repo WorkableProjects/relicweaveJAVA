@@ -26,3 +26,6 @@ forge*changelog.txt
 
 # run dirs
 run-data
+
+# plan-and-delegate working files
+.claude/delegation/
