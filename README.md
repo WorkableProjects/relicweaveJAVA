@@ -24,22 +24,48 @@ Put an input material and a catalyst into the table. After a short process, it g
 | The Necromancer (I–III) | Netherite | Swords, Axes | Slain monsters may rise as a friendly Husk that fights for you for 30 s |
 | Necromanced (I) | Wither Skeleton Skull + Soul Sand | Helmets | Undead ignore you unless you attack them; immune to Wither |
 | Upbound (I–II) | Nether Star | Boots | Double jump: one extra mid-air jump per level |
+| Reaping (I–III) | Oak Sapling | Hoes | Breaking a mature crop harvests and replants mature crops around it (3×3 / 5×5 / 7×7) |
+| Undertow (I–III) | Prismarine Shard | Tridents | Hits on targets in water slow them and give you Dolphin's Grace |
+| Resonance (I–III) | Echo Shard | Pickaxes | Mining the same block type in a row gets faster, up to +10% per level. Not combinable with Conductive |
+| Soulguard (I–II) | Ghast Tear | Chestplates | Killing a hostile mob gives a small, short absorption shield |
+| Steady Draw (I–II) | Phantom Membrane | Bows | Walk faster while drawing a bow |
+| Reprisal (I–III) | Copper Ingot + Lapis | Shields | Blocking right after raising your shield weakens and slows the attacker |
+
+### Attunement (new in 0.0.3)
+Six source items each have **two separate uses**: in the Transmutation Table they make one of the six new enchantments above, and in the Celestial Infuser they make one of four new armor infusions. You pick one use per item; the two effects are never applied together.
+
+| Source item | Transmutation Table | Celestial Infuser |
+|---|---|---|
+| Prismarine Shard | Undertow | **Tidal** (helmet): water breathing underwater |
+| Echo Shard | Resonance | **Warding** (chestplate): a ward softens one hit, recharges every 20 s |
+| Phantom Membrane | Steady Draw | **Pursuit** (leggings): short speed burst after killing a hostile mob |
+| Copper Ingot | Reprisal | **Anchored** (boots): crouch to take 75% less knockback |
+| Ghast Tear | Soulguard | **Warding** (chestplate) |
+| Oak Sapling | Reaping | **Anchored** (boots) |
+
+Source items are set by item tags (`relicweave:attunement_sources/<name>`), so datapacks can swap them without changing recipes.
 
 ### Relics
 - **Charms** (Copper, Iron, Gold, Diamond, Netherite) work from anywhere in your inventory. They give speed, armor, luck, max health, and fire resistance respectively.
 - **Totems** (Diamond, Netherite, Ultra) give passive buffs while held in your offhand. They also save you from death. They are **never used up** and go on a cooldown instead. The Ultra Totem works from any slot in inventory, not just the offhand.
+- **New relics (0.0.3):** Lodestone Charm (toggle: pulls nearby drops to you), Tidal Charm (water breathing and clearer water), Featherwoven Charm (half fall damage, slow falling on long falls), Wayfarer's Relic (bind a spot, then channel for 3 s to return to it), Echo Charm (nearby hostile mobs glow) and Guardian Relic (an absorption shield when a hit leaves you at 3 hearts or less).
+- **One key for all active relics:** **Cycle Relic** (default **G**) picks which relic to use, shown next to your hotbar; **Activate Relic** (default **R**) uses it. Both can be rebound under *Options → Controls → Key Binds → RelicWeave*.
+- Relic cooldowns are kept per player, so swapping, dropping or re-equipping a relic, dying or relogging never resets them.
 - **Diamond and Netherite Steaks** are top-tier food with regeneration, absorption and protective effects.
 
 ### Celestial
 - **Celestial Ore** generates in End Stone, and more rarely in Netherrack. It drops Celestial Shards.
 - Combine 4 Celestial Shards and 1 Netherite Ingot into a **Celestial Ingot**.
 - Upgrade any Netherite tool or armor piece at a **Smithing Table** with a Celestial Ingot. Celestial gear is more durable, faster and stronger than Netherite.
-- The **Celestial Infuser** adds up to 3 different infusions to each Celestial armor piece, for example +1 armor, +2 max health or reduced gravity. There are 9 infusions, one for each Transmutation enchantment plus some extra utility effects.
+- The **Celestial Infuser** adds up to 3 different infusions to each Celestial armor piece, for example +1 armor, +2 max health or reduced gravity. There are 13 infusions: 9 attribute infusions that fit any piece and stack across pieces, and 4 effect infusions (0.0.3) that each fit one piece.
+- Both machines now say why they stopped (*Missing ingredient*, *Output full*, *Maximum infusions reached*, …) and play a short sound, particles and a flash when they finish.
 
 ### Details
 - Everything can be obtained in survival. Transmutation and infusion recipes are datapack JSON, so modpack makers can add or change them.
-- Every player gets a **RelicWeave Guide** book the first time they join a world. It explains the Transmutation Table, the Celestial Infuser and every recipe.
-- **Just Enough Items (JEI) support (optional):** every Transmutation Table and Celestial Infuser recipe has its own JEI page with counts and process times. Click the arrow in either machine's GUI to open them. JEI is not required.
+- Every player gets a **RelicWeave Guide** book the first time they join a world. It explains the Transmutation Table, the Celestial Infuser, Attunement, relics, controls and every recipe. Players who had the 0.0.2 guide get the new edition once.
+- **Just Enough Items (JEI) support (optional):** every Transmutation Table and Celestial Infuser recipe has its own JEI page with counts and process times, and each Attunement source item has an info page listing both of its uses. Click the arrow in either machine's GUI to open them. JEI is not required.
+- **Curios support (optional):** with [Curios](https://www.curseforge.com/minecraft/mc-mods/curios) installed, players get a charm slot for charms and relics. Curios is not required.
+- **Server config** (`serverconfig/relicweave-server.toml`): relic cooldowns, whether charms work anywhere in the inventory or only when equipped, whether totems may sit in a Curios slot, and the absorption cap.
 - All items are listed in the **RelicWeave** creative tab.
 - Requires Forge. Must be installed on both the client and the server.
 
@@ -47,7 +73,7 @@ Put an input material and a catalyst into the table. After a short process, it g
 
 | | |
 |---|---|
-| Mod version | 0.0.2 |
+| Mod version | 0.0.3 |
 | Minecraft | Java Edition 1.20.1 |
 | Mod loader | Forge 47.3.0 or newer |
 | Java | 17 |
