@@ -1,13 +1,18 @@
 package com.relicweave.block.infuser;
 
 import com.mojang.datafixers.util.Pair;
+import com.relicweave.block.MachineStatus;
 import com.relicweave.item.CelestialArmorItem;
 import com.relicweave.registry.ModBlockEntities;
 import com.relicweave.registry.ModRecipes;
+import com.relicweave.registry.ModSounds;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -38,7 +43,13 @@ public class CelestialInfuserBlockEntity extends BlockEntity implements MenuProv
 
     public static final int DATA_PROGRESS = 0;
     public static final int DATA_MAX_PROGRESS = 1;
-    public static final int DATA_COUNT = 2;
+    /** {@link MachineStatus#ordinal()}; recomputed every tick, not saved. */
+    public static final int DATA_STATUS = 2;
+    /** Successful completions, wrapping at 32767 because data slots sync as shorts; the GUI flashes when it changes. */
+    public static final int DATA_COMPLETIONS = 3;
+    public static final int DATA_COUNT = 4;
+    /** Ticks between the resonance and the chime sound. */
+    public static final int CHIME_DELAY_TICKS = 6;
 
     private final ItemStackHandler items = new ItemStackHandler(SLOT_COUNT) {
         @Override
@@ -58,6 +69,10 @@ public class CelestialInfuserBlockEntity extends BlockEntity implements MenuProv
     private final RecipeWrapper recipeContainer = new RecipeWrapper(items);
 
     private int progress;
+    private MachineStatus status = MachineStatus.IDLE;
+    private int completions;
+    /** Ticks until the completion chime plays; 0 = none pending. Transient: skipped if the block unloads. */
+    private int chimeDelay;
     private int maxProgress = InfusionRecipeSerializer.DEFAULT_PROCESS_TIME;
     @Nullable
     private ResourceLocation activeRecipeId;
@@ -68,6 +83,8 @@ public class CelestialInfuserBlockEntity extends BlockEntity implements MenuProv
             return switch (index) {
                 case DATA_PROGRESS -> progress;
                 case DATA_MAX_PROGRESS -> maxProgress;
+                case DATA_STATUS -> status.ordinal();
+                case DATA_COMPLETIONS -> completions;
                 default -> 0;
             };
         }
@@ -93,13 +110,21 @@ public class CelestialInfuserBlockEntity extends BlockEntity implements MenuProv
 
     private void tick(Level level) {
         // Armor does not stack, so a non-empty output always blocks the next operation.
+        if (chimeDelay > 0 && --chimeDelay == 0) {
+            level.playSound(null, worldPosition, ModSounds.INFUSER_CHIME.get(), SoundSource.BLOCKS, 0.5F, 1.0F);
+        }
+        ItemStack armor = items.getStackInSlot(SLOT_ARMOR);
+        ItemStack material = items.getStackInSlot(SLOT_MATERIAL);
+        boolean inputsPresent = !armor.isEmpty() && !material.isEmpty();
         if (!items.getStackInSlot(SLOT_OUTPUT).isEmpty()) {
+            status = inputsPresent ? MachineStatus.OUTPUT_FULL : MachineStatus.IDLE;
             resetProgress();
             return;
         }
         Optional<Pair<ResourceLocation, InfusionRecipe>> match = level.getRecipeManager()
                 .getRecipeFor(ModRecipes.INFUSION_TYPE.get(), recipeContainer, level, activeRecipeId);
         if (match.isEmpty()) {
+            status = inputsPresent ? InfusionRecipe.diagnose(level, armor, material) : MachineStatus.IDLE;
             resetProgress();
             return;
         }
@@ -108,6 +133,7 @@ public class CelestialInfuserBlockEntity extends BlockEntity implements MenuProv
         InfusionRecipe recipe = match.get().getSecond();
         ItemStack result = recipe.assemble(recipeContainer, level.registryAccess());
         if (result.isEmpty()) {
+            status = MachineStatus.MISSING_INGREDIENT;
             resetProgress();
             return;
         }
@@ -116,6 +142,7 @@ public class CelestialInfuserBlockEntity extends BlockEntity implements MenuProv
             activeRecipeId = recipeId;
             progress = 0;
         }
+        status = MachineStatus.WORKING;
         maxProgress = recipe.getProcessTime();
         progress++;
 
@@ -137,6 +164,15 @@ public class CelestialInfuserBlockEntity extends BlockEntity implements MenuProv
         // shrink() mutates stacks in place, so notify the input slots explicitly.
         items.setStackInSlot(SLOT_ARMOR, items.getStackInSlot(SLOT_ARMOR));
         items.setStackInSlot(SLOT_MATERIAL, items.getStackInSlot(SLOT_MATERIAL));
+
+        completions = (completions + 1) & 0x7FFF;
+        if (level instanceof ServerLevel serverLevel) {
+            BlockPos pos = getBlockPos();
+            serverLevel.playSound(null, pos, ModSounds.INFUSER_RESONANCE.get(), SoundSource.BLOCKS, 0.6F, 0.8F);
+            chimeDelay = CHIME_DELAY_TICKS;
+            serverLevel.sendParticles(ParticleTypes.END_ROD, pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5,
+                    16, 0.3, 0.2, 0.3, 0.02);
+        }
     }
 
     private void resetProgress() {
@@ -161,6 +197,14 @@ public class CelestialInfuserBlockEntity extends BlockEntity implements MenuProv
 
     public int getProgress() {
         return progress;
+    }
+
+    public MachineStatus getStatus() {
+        return status;
+    }
+
+    public int getCompletions() {
+        return completions;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.relicweave.menu;
 
+import com.relicweave.block.MachineStatus;
 import com.relicweave.block.TransmutationTableBlockEntity;
 import com.relicweave.recipe.TransmutationRecipe;
 import com.relicweave.registry.ModBlocks;
@@ -125,6 +126,15 @@ public class TransmutationTableMenu extends AbstractContainerMenu {
 
     public int getMaxProgress() {
         return data.get(TransmutationTableBlockEntity.DATA_MAX_PROGRESS);
+    }
+
+    public MachineStatus getStatus() {
+        return MachineStatus.byOrdinal(data.get(TransmutationTableBlockEntity.DATA_STATUS));
+    }
+
+    /** Counter that changes on every completed operation; the screen flashes when it differs from the last value. */
+    public int getCompletions() {
+        return data.get(TransmutationTableBlockEntity.DATA_COMPLETIONS);
     }
 
     /** Arrow width in pixels for the progress indicator. */

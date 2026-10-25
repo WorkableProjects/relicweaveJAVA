@@ -1,5 +1,6 @@
 package com.relicweave.block.infuser;
 
+import com.relicweave.block.MachineStatus;
 import com.relicweave.infusion.InfusionType;
 import com.relicweave.infusion.Infusions;
 import com.relicweave.item.CelestialArmorItem;
@@ -92,6 +93,34 @@ public class InfusionRecipe implements Recipe<Container> {
     public int getCount() { return count; }
     public InfusionType getInfusion() { return infusion; }
     public int getProcessTime() { return processTime; }
+
+    /**
+     * Explains why no recipe matches {@code armor} + {@code material}, for the machine status line. Only call when
+     * {@link #matches} failed for every recipe; it never affects matching.
+     */
+    public static MachineStatus diagnose(Level level, ItemStack armor, ItemStack material) {
+        InfusionRecipe first = null;
+        for (InfusionRecipe recipe : level.getRecipeManager().getAllRecipesFor(ModRecipes.INFUSION_TYPE.get())) {
+            if (!recipe.ingredient.test(material)) {
+                continue;
+            }
+            if (Infusions.check(armor, recipe.infusion) == Infusions.Result.OK) {
+                return MachineStatus.MISSING_INGREDIENT; // only the material count is short
+            }
+            if (first == null) {
+                first = recipe;
+            }
+        }
+        if (first == null) {
+            return MachineStatus.MISSING_INGREDIENT;
+        }
+        return switch (Infusions.check(armor, first.infusion)) {
+            case WRONG_PIECE -> MachineStatus.WRONG_ARMOR_PIECE;
+            case ALREADY_PRESENT -> MachineStatus.ALREADY_INFUSED;
+            case LIMIT_REACHED -> MachineStatus.MAX_INFUSIONS;
+            case NOT_CELESTIAL, OK -> MachineStatus.MISSING_INGREDIENT;
+        };
+    }
 
     /** True if any loaded infusion recipe accepts {@code stack} as its material. */
     public static boolean isAnyMaterial(Level level, ItemStack stack) {
