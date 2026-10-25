@@ -1,0 +1,10 @@
+{
+  "type": "relicweave:transmutation",
+  "input": { "item": "minecraft:emerald" },
+  "input_count": 8,
+  "catalyst": { "item": "minecraft:amethyst_shard" },
+  "catalyst_count": 2,
+  "enchantment": "relicweave:villagers_best_friend",
+  "level": 1,
+  "process_time": 100
+}

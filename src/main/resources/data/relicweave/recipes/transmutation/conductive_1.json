@@ -1,0 +1,10 @@
+{
+  "type": "relicweave:transmutation",
+  "input": { "item": "minecraft:redstone" },
+  "input_count": 16,
+  "catalyst": { "item": "minecraft:amethyst_shard" },
+  "catalyst_count": 1,
+  "enchantment": "relicweave:conductive",
+  "level": 1,
+  "process_time": 100
+}
