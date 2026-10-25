@@ -91,5 +91,11 @@
   "book.relicweave.guide.page10": "§3§lUsing the Infuser§r\n\n§lTop-left:§r\n Celestial armor\n§lBottom-left:§r\n infusion material\n\nWhen the arrow is\nfull, take the armor\nfrom the right slot.\n\nOnly Celestial\narmor works.",
   "book.relicweave.guide.page11": "§3§lInfusion Rules§r\n\nEach armor piece\nholds up to §l3§r\ndifferent\ninfusions.\n\nThe bonus is the\nsame on every\npiece, and the same\ninfusion on more\npieces stacks.",
   "book.relicweave.guide.page12": "§3§lInfusions 1/2§r\n\n32 Cobblestone:\n +1 Armor\nCopper Block:\n +4% Speed\nRedstone Block:\n +6% Attack Speed\nIron Block:\n +Knockback Resist\nGold Block:\n +1 Luck",
-  "book.relicweave.guide.page13": "§3§lInfusions 2/2§r\n\nEmerald Block:\n +2 Max Health\nNetherite Ingot:\n +1 Attack Damage\nWither Skull or\n32 Soul Sand:\n +1 Toughness\nNether Star:\n -6% Gravity"
+  "book.relicweave.guide.page13": "§3§lInfusions 2/2§r\n\nEmerald Block:\n +2 Max Health\nNetherite Ingot:\n +1 Attack Damage\nWither Skull or\n32 Soul Sand:\n +1 Toughness\nNether Star:\n -6% Gravity",
+  "jei.relicweave.process_time": "%s s",
+  "jei.relicweave.infusion_limit": "Up to %s different per piece",
+  "jei.relicweave.info.transmutation_table": "Turns a material and a catalyst into an enchanted book. Put the material in the top-left slot and the catalyst in the bottom-left slot. When the arrow fills, take the book from the right slot. Ingredients are used only when the book is made. Apply books at an anvil, and combine two of the same level to level up.",
+  "jei.relicweave.info.celestial_infuser": "Adds an infusion to Celestial armor. Put a Celestial armor piece in the top-left slot and an infusion material in the bottom-left slot. When the arrow fills, take the armor from the right slot. Each piece holds up to 3 different infusions, and only Celestial armor is accepted.",
+  "jei.relicweave.info.celestial_ore": "Celestial Ore generates in End Stone in the End, and more rarely in Netherrack in the Nether. Mine it with a diamond pickaxe or better to get Celestial Shards (Fortune increases the drop). 4 Celestial Shards + 1 Netherite Ingot make a Celestial Ingot.",
+  "jei.relicweave.info.celestial_armor": "Made by upgrading Netherite armor with a Celestial Ingot at a Smithing Table. Celestial armor can be infused at a Celestial Infuser: up to 3 different infusions per piece, each adding a bonus."
 }

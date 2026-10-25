@@ -1,0 +1,78 @@
+package com.relicweave.compat.jei;
+
+import com.relicweave.RelicWeave;
+import com.relicweave.block.infuser.InfusionRecipe;
+import com.relicweave.client.CelestialInfuserScreen;
+import com.relicweave.client.TransmutationTableScreen;
+import com.relicweave.recipe.TransmutationRecipe;
+import com.relicweave.registry.ModBlocks;
+import com.relicweave.registry.ModItems;
+import com.relicweave.registry.ModRecipes;
+import mezz.jei.api.IModPlugin;
+import mezz.jei.api.JeiPlugin;
+import mezz.jei.api.helpers.IGuiHelper;
+import mezz.jei.api.recipe.RecipeType;
+import mezz.jei.api.registration.IGuiHandlerRegistration;
+import mezz.jei.api.registration.IRecipeCatalystRegistration;
+import mezz.jei.api.registration.IRecipeCategoryRegistration;
+import mezz.jei.api.registration.IRecipeRegistration;
+import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.crafting.RecipeManager;
+
+/**
+ * Optional Just Enough Items integration: shows every Transmutation Table and Celestial Infuser recipe, plus info
+ * pages for the machines and Celestial materials. Loaded by JEI only when it is installed.
+ */
+@JeiPlugin
+public class RelicWeaveJeiPlugin implements IModPlugin {
+    public static final RecipeType<TransmutationRecipe> TRANSMUTATION =
+            RecipeType.create(RelicWeave.MOD_ID, "transmutation", TransmutationRecipe.class);
+    public static final RecipeType<InfusionRecipe> INFUSION =
+            RecipeType.create(RelicWeave.MOD_ID, "infusion", InfusionRecipe.class);
+
+    @Override
+    public ResourceLocation getPluginUid() {
+        return RelicWeave.id("jei_plugin");
+    }
+
+    @Override
+    public void registerCategories(IRecipeCategoryRegistration registration) {
+        IGuiHelper guiHelper = registration.getJeiHelpers().getGuiHelper();
+        registration.addRecipeCategories(new TransmutationCategory(guiHelper), new InfusionCategory(guiHelper));
+    }
+
+    @Override
+    public void registerRecipes(IRecipeRegistration registration) {
+        if (Minecraft.getInstance().level == null) {
+            return;
+        }
+        RecipeManager recipes = Minecraft.getInstance().level.getRecipeManager();
+        registration.addRecipes(TRANSMUTATION, recipes.getAllRecipesFor(ModRecipes.TRANSMUTATION_TYPE.get()));
+        registration.addRecipes(INFUSION, recipes.getAllRecipesFor(ModRecipes.INFUSION_TYPE.get()));
+
+        registration.addIngredientInfo(ModBlocks.TRANSMUTATION_TABLE_ITEM.get(), Component.translatable("jei.relicweave.info.transmutation_table"));
+        registration.addIngredientInfo(ModBlocks.CELESTIAL_INFUSER_ITEM.get(), Component.translatable("jei.relicweave.info.celestial_infuser"));
+        registration.addIngredientInfo(ModBlocks.CELESTIAL_ORE_ITEM.get(), Component.translatable("jei.relicweave.info.celestial_ore"));
+        registration.addIngredientInfo(ModBlocks.NETHER_CELESTIAL_ORE_ITEM.get(), Component.translatable("jei.relicweave.info.celestial_ore"));
+        registration.addIngredientInfo(ModItems.CELESTIAL_SHARD.get(), Component.translatable("jei.relicweave.info.celestial_ore"));
+        for (var armor : new net.minecraft.world.item.Item[]{ModItems.CELESTIAL_HELMET.get(), ModItems.CELESTIAL_CHESTPLATE.get(),
+                ModItems.CELESTIAL_LEGGINGS.get(), ModItems.CELESTIAL_BOOTS.get()}) {
+            registration.addIngredientInfo(armor, Component.translatable("jei.relicweave.info.celestial_armor"));
+        }
+    }
+
+    @Override
+    public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
+        registration.addRecipeCatalyst(ModBlocks.TRANSMUTATION_TABLE_ITEM.get(), TRANSMUTATION);
+        registration.addRecipeCatalyst(ModBlocks.CELESTIAL_INFUSER_ITEM.get(), INFUSION);
+    }
+
+    @Override
+    public void registerGuiHandlers(IGuiHandlerRegistration registration) {
+        // Clicking the progress arrow in either machine's GUI opens its JEI recipes.
+        registration.addRecipeClickArea(TransmutationTableScreen.class, 79, 34, 24, 17, TRANSMUTATION);
+        registration.addRecipeClickArea(CelestialInfuserScreen.class, 79, 34, 24, 17, INFUSION);
+    }
+}

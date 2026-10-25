@@ -118,6 +118,12 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
+    // JEI (optional integration; compile-time API only, never bundled)
+    maven {
+        name = 'BlameJared'
+        url = 'https://maven.blamejared.com'
+        content { includeGroup 'mezz.jei' }
+    }
     if (project.hasProperty('withControlling')) {
         maven {
             name = 'Modrinth'
@@ -142,6 +148,11 @@ dependencies {
     // If the group id is "net.minecraft" and the artifact id is one of ["client", "server", "joined"],
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    // JEI: compile against the API; run the full mod in dev so the integration can be tested. Not required at runtime.
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")
+    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
 
     // Optional dev-only test of keybind editing with Controlling: ./gradlew runClient -PwithControlling
     // Never bundled or required; normal builds skip this.

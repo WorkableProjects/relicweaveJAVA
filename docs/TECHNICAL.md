@@ -108,6 +108,16 @@ Works like the Transmutation Table, but takes **Celestial armor + an infusion ma
 
 Infusing takes 10 s. The bonuses show in the armor tooltip. Craft the infuser with `" I "`, `"ATA"`, `"OOO"`: I = Celestial Ingot, A = Amethyst Shard, T = Transmutation Table, O = Crying Obsidian.
 
+### JEI integration
+
+If [Just Enough Items](https://www.curseforge.com/minecraft/mc-mods/jei) is installed, `com.relicweave.compat.jei.RelicWeaveJeiPlugin` adds the following. JEI is a compile-only dependency and is never required at runtime.
+- **Transmutation Table** category: input ×count, catalyst ×count, then the enchanted book, with an animated arrow timed to `process_time`.
+- **Celestial Infuser** category: each Celestial armor piece, then the same piece with the infusion applied (they cycle together), plus the material ×count, the infusion's bonus, and the 3-per-piece limit.
+- Both machines are registered as catalysts. Clicking the progress arrow in either GUI opens its recipes.
+- Info pages for both machines, Celestial Ore and Shards, and Celestial armor.
+
+All crafting, smithing and smelting recipes for RelicWeave items show up in JEI's vanilla categories automatically. `./gradlew runClient` includes JEI.
+
 ### Guide book
 
 Each player receives a written **RelicWeave Guide** (13 pages) once, on their first login to a world. It covers how to use the Transmutation Table and Celestial Infuser and lists every recipe and infusion. The "already received" flag is stored in Forge's persisted player data, so it survives death. The page text lives in the lang file (`book.relicweave.guide.page1` to `page13`).
