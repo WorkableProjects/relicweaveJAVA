@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "III",
+    "III",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "relicweave:celestial_ingot"
+    }
+  },
+  "result": {
+    "item": "relicweave:celestial_block"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_end",
+  "features": "relicweave:ore_celestial_end",
+  "step": "underground_ores"
+}

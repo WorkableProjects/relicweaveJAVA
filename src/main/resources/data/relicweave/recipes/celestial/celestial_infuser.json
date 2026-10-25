@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " I ",
+    "ATA",
+    "OOO"
+  ],
+  "key": {
+    "I": {
+      "item": "relicweave:celestial_ingot"
+    },
+    "A": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "T": {
+      "item": "relicweave:transmutation_table"
+    },
+    "O": {
+      "item": "minecraft:crying_obsidian"
+    }
+  },
+  "result": {
+    "item": "relicweave:celestial_infuser"
+  }
+}

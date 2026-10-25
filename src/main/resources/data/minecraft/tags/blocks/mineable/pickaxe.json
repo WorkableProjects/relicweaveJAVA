@@ -1,4 +1,10 @@
 {
   "replace": false,
-  "values": [ "relicweave:transmutation_table" ]
+  "values": [
+    "relicweave:transmutation_table",
+    "relicweave:celestial_ore",
+    "relicweave:nether_celestial_ore",
+    "relicweave:celestial_block",
+    "relicweave:celestial_infuser"
+  ]
 }
