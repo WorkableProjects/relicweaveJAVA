@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "relicweave:copper_charm",
+    "relicweave:iron_charm",
+    "relicweave:gold_charm",
+    "relicweave:diamond_charm",
+    "relicweave:netherite_charm",
+    "relicweave:lodestone_charm",
+    "relicweave:tidal_charm",
+    "relicweave:featherwoven_charm",
+    "relicweave:wayfarers_relic",
+    "relicweave:echo_charm",
+    "relicweave:guardian_relic",
+    "relicweave:diamond_totem",
+    "relicweave:netherite_totem",
+    "relicweave:ultra_totem"
+  ]
+}

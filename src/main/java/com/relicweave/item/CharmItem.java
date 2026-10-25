@@ -24,7 +24,7 @@ public class CharmItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
-        tooltip.add(Component.translatable("tooltip.relicweave.charm").withStyle(ChatFormatting.GRAY));
+        tooltip.add(RelicTooltips.locationLine());
         tooltip.add(Component.translatable(getDescriptionId() + ".desc").withStyle(ChatFormatting.BLUE));
     }
 }

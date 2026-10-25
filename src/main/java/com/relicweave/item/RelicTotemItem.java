@@ -24,7 +24,8 @@ public class RelicTotemItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
-        tooltip.add(Component.translatable(tier.worksInMainHand() ? "tooltip.relicweave.totem.either_hand" : "tooltip.relicweave.totem.offhand")
+        tooltip.add(Component.translatable((tier.worksInMainHand() ? "tooltip.relicweave.totem.either_hand" : "tooltip.relicweave.totem.offhand")
+                + (RelicTooltips.totemsInCharmSlot() ? "_or_slot" : ""))
                 .withStyle(ChatFormatting.GRAY));
         tooltip.add(Component.translatable(getDescriptionId() + ".passive").withStyle(ChatFormatting.BLUE));
         tooltip.add(Component.translatable(getDescriptionId() + ".save").withStyle(ChatFormatting.GOLD));

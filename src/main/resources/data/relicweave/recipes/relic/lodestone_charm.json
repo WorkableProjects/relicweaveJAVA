@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " S ",
+    "MLM",
+    " M "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:string"
+    },
+    "M": {
+      "item": "minecraft:iron_ingot"
+    },
+    "L": {
+      "item": "minecraft:lodestone"
+    }
+  },
+  "result": {
+    "item": "relicweave:lodestone_charm"
+  }
+}
