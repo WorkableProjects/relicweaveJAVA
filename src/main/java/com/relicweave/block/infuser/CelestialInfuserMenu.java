@@ -1,5 +1,6 @@
 package com.relicweave.block.infuser;
 
+import com.relicweave.block.MachineStatus;
 import com.relicweave.item.CelestialArmorItem;
 import com.relicweave.registry.ModBlocks;
 import com.relicweave.registry.ModMenus;
@@ -129,6 +130,15 @@ public class CelestialInfuserMenu extends AbstractContainerMenu {
 
     public int getMaxProgress() {
         return data.get(CelestialInfuserBlockEntity.DATA_MAX_PROGRESS);
+    }
+
+    public MachineStatus getStatus() {
+        return MachineStatus.byOrdinal(data.get(CelestialInfuserBlockEntity.DATA_STATUS));
+    }
+
+    /** Counter that changes on every completed operation; the screen flashes when it differs from the last value. */
+    public int getCompletions() {
+        return data.get(CelestialInfuserBlockEntity.DATA_COMPLETIONS);
     }
 
     /** Arrow width in pixels for the progress indicator. */

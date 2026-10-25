@@ -5,11 +5,15 @@ import com.relicweave.recipe.TransmutationRecipe;
 import com.relicweave.recipe.TransmutationRecipeSerializer;
 import com.relicweave.registry.ModBlockEntities;
 import com.relicweave.registry.ModRecipes;
+import com.relicweave.registry.ModSounds;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -40,7 +44,11 @@ public class TransmutationTableBlockEntity extends BlockEntity implements MenuPr
 
     public static final int DATA_PROGRESS = 0;
     public static final int DATA_MAX_PROGRESS = 1;
-    public static final int DATA_COUNT = 2;
+    /** {@link MachineStatus#ordinal()}; recomputed every tick, not saved. */
+    public static final int DATA_STATUS = 2;
+    /** Successful completions, wrapping at 32767 because data slots sync as shorts; the GUI flashes when it changes. */
+    public static final int DATA_COMPLETIONS = 3;
+    public static final int DATA_COUNT = 4;
 
     private final ItemStackHandler items = new ItemStackHandler(SLOT_COUNT) {
         @Override
@@ -63,6 +71,8 @@ public class TransmutationTableBlockEntity extends BlockEntity implements MenuPr
     private final RecipeWrapper recipeContainer = new RecipeWrapper(items);
 
     private int progress;
+    private MachineStatus status = MachineStatus.IDLE;
+    private int completions;
     private int maxProgress = TransmutationRecipeSerializer.DEFAULT_PROCESS_TIME;
     @Nullable
     private ResourceLocation activeRecipeId;
@@ -73,6 +83,8 @@ public class TransmutationTableBlockEntity extends BlockEntity implements MenuPr
             return switch (index) {
                 case DATA_PROGRESS -> progress;
                 case DATA_MAX_PROGRESS -> maxProgress;
+                case DATA_STATUS -> status.ordinal();
+                case DATA_COMPLETIONS -> completions;
                 default -> 0;
             };
         }
@@ -101,6 +113,8 @@ public class TransmutationTableBlockEntity extends BlockEntity implements MenuPr
                 .getRecipeFor(ModRecipes.TRANSMUTATION_TYPE.get(), recipeContainer, level, activeRecipeId);
 
         if (match.isEmpty()) {
+            boolean filled = !items.getStackInSlot(SLOT_INPUT).isEmpty() && !items.getStackInSlot(SLOT_CATALYST).isEmpty();
+            status = filled ? MachineStatus.MISSING_INGREDIENT : MachineStatus.IDLE;
             resetProgress();
             return;
         }
@@ -109,6 +123,7 @@ public class TransmutationTableBlockEntity extends BlockEntity implements MenuPr
         TransmutationRecipe recipe = match.get().getSecond();
         ItemStack result = recipe.createResult();
         if (result.isEmpty() || !canAcceptOutput(result)) {
+            status = result.isEmpty() ? MachineStatus.MISSING_INGREDIENT : MachineStatus.OUTPUT_FULL;
             resetProgress();
             return;
         }
@@ -117,6 +132,7 @@ public class TransmutationTableBlockEntity extends BlockEntity implements MenuPr
             activeRecipeId = recipeId;
             progress = 0;
         }
+        status = MachineStatus.WORKING;
         maxProgress = recipe.getProcessTime();
         progress++;
 
@@ -145,6 +161,14 @@ public class TransmutationTableBlockEntity extends BlockEntity implements MenuPr
         items.setStackInSlot(SLOT_INPUT, items.getStackInSlot(SLOT_INPUT));
         items.setStackInSlot(SLOT_CATALYST, items.getStackInSlot(SLOT_CATALYST));
         items.setStackInSlot(SLOT_OUTPUT, items.getStackInSlot(SLOT_OUTPUT));
+
+        completions = (completions + 1) & 0x7FFF;
+        if (level instanceof ServerLevel serverLevel) {
+            BlockPos pos = getBlockPos();
+            serverLevel.playSound(null, pos, ModSounds.TRANSMUTATION_COMPLETE.get(), SoundSource.BLOCKS, 0.6F, 1.0F);
+            serverLevel.sendParticles(ParticleTypes.ENCHANT, pos.getX() + 0.5, pos.getY() + 1.1, pos.getZ() + 0.5,
+                    24, 0.3, 0.2, 0.3, 0.6);
+        }
     }
 
     private boolean canAcceptOutput(ItemStack result) {
@@ -178,6 +202,14 @@ public class TransmutationTableBlockEntity extends BlockEntity implements MenuPr
 
     public int getProgress() {
         return progress;
+    }
+
+    public MachineStatus getStatus() {
+        return status;
+    }
+
+    public int getCompletions() {
+        return completions;
     }
 
     @Override
