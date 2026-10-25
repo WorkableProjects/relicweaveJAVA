@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " S ",
+    "SDS",
+    " S "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:netherite_scrap"
+    },
+    "D": {
+      "item": "relicweave:diamond_steak"
+    }
+  },
+  "result": {
+    "item": "relicweave:netherite_steak"
+  }
+}
