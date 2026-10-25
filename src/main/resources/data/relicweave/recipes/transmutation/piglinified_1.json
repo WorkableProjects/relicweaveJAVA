@@ -1,0 +1,10 @@
+{
+  "type": "relicweave:transmutation",
+  "input": { "item": "minecraft:gold_ingot" },
+  "input_count": 8,
+  "catalyst": { "item": "minecraft:amethyst_shard" },
+  "catalyst_count": 2,
+  "enchantment": "relicweave:piglinified",
+  "level": 1,
+  "process_time": 100
+}

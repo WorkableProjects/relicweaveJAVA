@@ -1,0 +1,9 @@
+{
+  "type": "relicweave:infusion",
+  "ingredient": {
+    "item": "minecraft:soul_sand"
+  },
+  "count": 32,
+  "infusion": "relicweave:necromanced",
+  "process_time": 200
+}

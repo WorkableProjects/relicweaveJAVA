@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " B ",
+    "ADA",
+    "OOO"
+  ],
+  "key": {
+    "B": { "item": "minecraft:book" },
+    "A": { "item": "minecraft:amethyst_shard" },
+    "D": { "item": "minecraft:diamond" },
+    "O": { "item": "minecraft:obsidian" }
+  },
+  "result": { "item": "relicweave:transmutation_table" }
+}

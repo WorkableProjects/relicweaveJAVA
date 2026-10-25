@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "relicweave:celestial_ore",
+    "relicweave:nether_celestial_ore",
+    "relicweave:celestial_block",
+    "relicweave:celestial_infuser"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "relicweave:celestial_shard"
+    },
+    {
+      "item": "relicweave:celestial_shard"
+    },
+    {
+      "item": "relicweave:celestial_shard"
+    },
+    {
+      "item": "relicweave:celestial_shard"
+    },
+    {
+      "item": "minecraft:netherite_ingot"
+    }
+  ],
+  "result": {
+    "item": "relicweave:celestial_ingot"
+  }
+}

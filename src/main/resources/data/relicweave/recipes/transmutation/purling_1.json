@@ -1,0 +1,10 @@
+{
+  "type": "relicweave:transmutation",
+  "input": { "item": "minecraft:ender_pearl" },
+  "input_count": 1,
+  "catalyst": { "item": "minecraft:amethyst_shard" },
+  "catalyst_count": 1,
+  "enchantment": "relicweave:purling",
+  "level": 1,
+  "process_time": 100
+}

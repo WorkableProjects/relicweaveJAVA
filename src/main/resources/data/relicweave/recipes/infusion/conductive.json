@@ -1,0 +1,9 @@
+{
+  "type": "relicweave:infusion",
+  "ingredient": {
+    "item": "minecraft:redstone_block"
+  },
+  "count": 1,
+  "infusion": "relicweave:conductive",
+  "process_time": 200
+}

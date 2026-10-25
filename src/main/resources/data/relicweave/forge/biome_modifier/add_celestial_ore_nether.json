@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_nether",
+  "features": "relicweave:ore_celestial_nether",
+  "step": "underground_ores"
+}

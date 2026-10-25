@@ -1,0 +1,10 @@
+{
+  "type": "relicweave:transmutation",
+  "input": { "item": "minecraft:iron_ingot" },
+  "input_count": 8,
+  "catalyst": { "item": "minecraft:amethyst_shard" },
+  "catalyst_count": 2,
+  "enchantment": "relicweave:golemed",
+  "level": 1,
+  "process_time": 100
+}

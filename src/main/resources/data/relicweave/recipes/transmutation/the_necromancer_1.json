@@ -1,0 +1,10 @@
+{
+  "type": "relicweave:transmutation",
+  "input": { "item": "minecraft:netherite_ingot" },
+  "input_count": 1,
+  "catalyst": { "item": "minecraft:echo_shard" },
+  "catalyst_count": 1,
+  "enchantment": "relicweave:the_necromancer",
+  "level": 1,
+  "process_time": 200
+}

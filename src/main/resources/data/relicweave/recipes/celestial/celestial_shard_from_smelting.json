@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": [
+    {
+      "item": "relicweave:celestial_ore"
+    },
+    {
+      "item": "relicweave:nether_celestial_ore"
+    }
+  ],
+  "result": "relicweave:celestial_shard",
+  "experience": 2.0,
+  "cookingtime": 200
+}

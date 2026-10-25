@@ -1,0 +1,10 @@
+{
+  "type": "relicweave:transmutation",
+  "input": { "item": "minecraft:wither_skeleton_skull" },
+  "input_count": 1,
+  "catalyst": { "item": "minecraft:soul_sand" },
+  "catalyst_count": 8,
+  "enchantment": "relicweave:necromanced",
+  "level": 1,
+  "process_time": 200
+}

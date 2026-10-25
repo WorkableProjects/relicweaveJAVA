@@ -1,0 +1,10 @@
+{
+  "type": "relicweave:transmutation",
+  "input": { "item": "minecraft:cobblestone" },
+  "input_count": 32,
+  "catalyst": { "item": "minecraft:amethyst_shard" },
+  "catalyst_count": 1,
+  "enchantment": "relicweave:cobbled_up",
+  "level": 1,
+  "process_time": 100
+}
