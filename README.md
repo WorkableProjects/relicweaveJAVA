@@ -4,7 +4,7 @@ A Minecraft Forge mod that turns items and catalysts into enchanted books carryi
 
 | | |
 |---|---|
-| Version | `0.0.1b` |
+| Version | `0.0.1c` |
 | Minecraft | Java Edition `1.20.1` |
 | Forge | `47.3.0+` |
 | Java | `17` |
@@ -36,13 +36,13 @@ The table is the only source of these enchantments: they never show up at enchan
 | Enchantment | Applies to | Max level | Effect |
 |---|---|---|---|
 | **Keen Edge** | Swords, Axes | III | +1 melee damage per level (`KeenEdgeEvents.DAMAGE_PER_LEVEL`). Only counts direct player melee hits, including sweeps. It doesn't apply to projectiles, thorns, mobs holding the weapon, or any other damage source. |
-| **Purling** | Boots | I | Press the Purling key to throw an Ender Pearl from your inventory (offhand first, then the main inventory). Pearls thrown this way do no teleport landing damage. Cooldown is 30 seconds (600 ticks), enforced by the server. |
+| **Purling** | Boots | I | Press the Purling key to throw a conjured Ender Pearl. You don't need to carry pearls and none are used. Pearls thrown this way do no teleport landing damage. Cooldown is 30 seconds (600 ticks), enforced by the server. |
 
 #### Purling details
 
-- The client only sends a "key pressed" packet. The server checks that you're alive and not in spectator mode, are wearing Purling boots, are off cooldown, and have an Ender Pearl.
-- A failed attempt (no pearl, or still on cooldown) consumes nothing and doesn't start the cooldown. A message on the action bar says why it failed.
-- Creative players keep their pearl, like in vanilla, but still need one in their inventory.
+- The client only sends a "key pressed" packet. The server checks that you're alive and not in spectator mode, are wearing Purling boots, and are off cooldown.
+- Purling never needs or uses Ender Pearls (since 0.0.1c). The cooldown is its only limit.
+- Pressing the key during the cooldown does nothing except show the time remaining on the action bar.
 - Only pearls thrown by Purling lose their landing damage. Normal pearls and fall damage are unaffected.
 - Cooldowns are kept per player while the server runs. They carry over through death, respawn, and relogging, and reset when the server restarts.
 
@@ -113,13 +113,13 @@ You need a JDK 17 or newer to run Gradle. The build compiles with a Java 17 tool
 - Slot rules, including output-insert rejection and shift-click routing.
 - Recipe JSON validation: missing fields, unknown enchantment or item, out-of-range level, count, or time.
 - Keen Edge: the bonus at levels I and III, no bonus for non-melee damage, unenchanted weapons, or ineligible items.
-- Purling: consumes one pearl, ignores spam during the cooldown, the cooldown ends at 600 ticks, nothing happens without boots or pearls, failed attempts don't start the cooldown, and landing-damage removal only applies to Purling pearls.
+- Purling: works without pearls and never uses carried pearls, ignores spam during the cooldown, the cooldown ends at 600 ticks, nothing happens without boots, and landing-damage removal only applies to Purling pearls.
 
 ### Manual in-client check
 
 0.0.1b: with Controlling 12.0.2 installed, I searched for the Purling key, rebound it from `V` to `G`, and confirmed that `G` throws the pearl while `V` no longer does. The new binding was saved to `options.txt`.
 
-Checked in a single-player dev client: the block model and textures, opening the GUI, shift-click insertion, the progress arrow, Keen Edge I books produced and the output slot blocking further work, combining Keen Edge I + I into II at the anvil, applying it to an iron sword, and Purling (pearl consumed, no landing damage, cooldown message on a second press).
+Checked in a single-player dev client: the block model and textures, opening the GUI, shift-click insertion, the progress arrow, Keen Edge I books produced and the output slot blocking further work, combining Keen Edge I + I into II at the anvil, applying it to an iron sword, and Purling (no landing damage, cooldown message on a second press).
 
 ## Known limitations (0.0.1)
 

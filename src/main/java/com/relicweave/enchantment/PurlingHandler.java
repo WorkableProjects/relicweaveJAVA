@@ -9,7 +9,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.projectile.ThrownEnderpearl;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -26,7 +25,8 @@ import java.util.UUID;
 
 /**
  * Server-side Purling logic: activation validation, the per-player cooldown, and teleport-damage protection for
- * pearls launched by Purling.
+ * pearls launched by Purling. Purling conjures its own pearl: it never requires or consumes Ender Pearls, so the
+ * cooldown is its only limit.
  * <p>
  * Cooldowns are keyed by player UUID and measured in server ticks, so they persist across death, respawn, and
  * relogging for as long as the server runs. They reset when the server stops.
@@ -59,12 +59,6 @@ public final class PurlingHandler {
             return;
         }
 
-        ItemStack pearls = findEnderPearls(player.getInventory());
-        if (pearls.isEmpty()) {
-            player.displayClientMessage(Component.translatable("message.relicweave.purling.no_pearl"), true);
-            return;
-        }
-
         ServerLevel level = player.serverLevel();
         ThrownEnderpearl pearl = new ThrownEnderpearl(level, player);
         pearl.setItem(new ItemStack(Items.ENDER_PEARL));
@@ -74,26 +68,9 @@ public final class PurlingHandler {
             return;
         }
 
-        // Match vanilla: creative players keep their pearl.
-        if (!player.getAbilities().instabuild) {
-            pearls.shrink(1);
-        }
         level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENDER_PEARL_THROW,
                 SoundSource.NEUTRAL, 0.5F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
         READY_AT_TICK.put(player.getUUID(), now + COOLDOWN_TICKS);
-    }
-
-    private static ItemStack findEnderPearls(Inventory inventory) {
-        ItemStack offhand = inventory.offhand.get(0);
-        if (offhand.is(Items.ENDER_PEARL)) {
-            return offhand;
-        }
-        for (ItemStack stack : inventory.items) {
-            if (stack.is(Items.ENDER_PEARL)) {
-                return stack;
-            }
-        }
-        return ItemStack.EMPTY;
     }
 
     public static boolean isPurlingPearl(Entity entity) {

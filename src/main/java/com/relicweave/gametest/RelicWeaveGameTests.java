@@ -39,7 +39,6 @@ import net.minecraftforge.gametest.GameTestHolder;
 import net.minecraftforge.gametest.PrefixGameTestTemplate;
 import net.minecraftforge.items.ItemStackHandler;
 
-import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -208,49 +207,46 @@ public final class RelicWeaveGameTests {
     // ---- Purling ----
 
     @GameTest(template = TEMPLATE, timeoutTicks = 700)
-    public static void purlingConsumesPearlAndEnforcesCooldown(GameTestHelper helper) {
+    public static void purlingWorksWithoutPearlsAndEnforcesCooldown(GameTestHelper helper) {
         ServerPlayer player = makeServerPlayer(helper);
         player.getInventory().setItem(5, new ItemStack(Items.ENDER_PEARL, 3));
 
         // No Purling boots: nothing happens.
         PurlingHandler.tryActivate(player);
-        helper.assertTrue(player.getInventory().countItem(Items.ENDER_PEARL) == 3, "Activated without Purling boots");
+        helper.assertTrue(countPurlingPearls(helper, player) == 0, "Activated without Purling boots");
 
         player.setItemSlot(EquipmentSlot.FEET, enchanted(Items.IRON_BOOTS, ModEnchantments.PURLING.get(), 1));
         PurlingHandler.tryActivate(player);
-        helper.assertTrue(player.getInventory().countItem(Items.ENDER_PEARL) == 2, "Should consume exactly one pearl");
-        List<ThrownEnderpearl> pearls = helper.getLevel().getEntitiesOfClass(ThrownEnderpearl.class,
-                new AABB(player.blockPosition()).inflate(4), PurlingHandler::isPurlingPearl);
-        helper.assertTrue(pearls.size() == 1, "Expected one Purling pearl, found " + pearls.size());
+        helper.assertTrue(countPurlingPearls(helper, player) == 1, "Expected one Purling pearl");
+        helper.assertTrue(player.getInventory().countItem(Items.ENDER_PEARL) == 3, "Purling must not consume carried pearls");
 
         // Packet spam during cooldown does nothing.
         for (int i = 0; i < 20; i++) {
             PurlingHandler.tryActivate(player);
         }
-        helper.assertTrue(player.getInventory().countItem(Items.ENDER_PEARL) == 2, "Cooldown not enforced");
+        helper.assertTrue(countPurlingPearls(helper, player) == 1, "Cooldown not enforced");
 
         helper.runAfterDelay(PurlingHandler.COOLDOWN_TICKS - 20, () -> {
+            discardPurlingPearls(helper);
             PurlingHandler.tryActivate(player);
-            helper.assertTrue(player.getInventory().countItem(Items.ENDER_PEARL) == 2, "Cooldown ended early");
+            helper.assertTrue(countPurlingPearls(helper, player) == 0, "Cooldown ended early");
         });
         helper.runAfterDelay(PurlingHandler.COOLDOWN_TICKS + 2, () -> {
             PurlingHandler.tryActivate(player);
-            helper.assertTrue(player.getInventory().countItem(Items.ENDER_PEARL) == 1, "Should activate after cooldown");
+            helper.assertTrue(countPurlingPearls(helper, player) == 1, "Should activate after cooldown");
+            discardPurlingPearls(helper);
             helper.succeed();
         });
     }
 
     @GameTest(template = TEMPLATE)
-    public static void purlingFailsCleanlyWithoutPearls(GameTestHelper helper) {
+    public static void purlingNeedsNoPearls(GameTestHelper helper) {
         ServerPlayer player = makeServerPlayer(helper);
         player.setItemSlot(EquipmentSlot.FEET, enchanted(Items.IRON_BOOTS, ModEnchantments.PURLING.get(), 1));
+        helper.assertTrue(player.getInventory().countItem(Items.ENDER_PEARL) == 0, "Test player should start with no pearls");
         PurlingHandler.tryActivate(player);
-        helper.assertTrue(helper.getLevel().getEntitiesOfClass(ThrownEnderpearl.class,
-                new AABB(player.blockPosition()).inflate(8)).isEmpty(), "No pearl should be thrown");
-        // A failed attempt must not start the cooldown.
-        player.getInventory().setItem(0, new ItemStack(Items.ENDER_PEARL));
-        PurlingHandler.tryActivate(player);
-        helper.assertTrue(player.getInventory().countItem(Items.ENDER_PEARL) == 0, "Failed attempt started the cooldown");
+        helper.assertTrue(countPurlingPearls(helper, player) == 1, "Purling should throw a pearl even with none carried");
+        discardPurlingPearls(helper);
         helper.succeed();
     }
 
@@ -258,7 +254,6 @@ public final class RelicWeaveGameTests {
     public static void purlingProtectionIsScopedToPurlingPearls(GameTestHelper helper) {
         ServerPlayer player = makeServerPlayer(helper);
         player.setItemSlot(EquipmentSlot.FEET, enchanted(Items.IRON_BOOTS, ModEnchantments.PURLING.get(), 1));
-        player.getInventory().setItem(0, new ItemStack(Items.ENDER_PEARL));
         PurlingHandler.tryActivate(player);
         ThrownEnderpearl purlingPearl = helper.getLevel().getEntitiesOfClass(ThrownEnderpearl.class,
                 new AABB(player.blockPosition()).inflate(4), PurlingHandler::isPurlingPearl).get(0);
@@ -285,6 +280,17 @@ public final class RelicWeaveGameTests {
         Vec3 pos = helper.absoluteVec(new Vec3(2.5, 1.0, 2.5));
         player.moveTo(pos.x, pos.y, pos.z, 0.0F, 0.0F);
         return player;
+    }
+
+    private static int countPurlingPearls(GameTestHelper helper, ServerPlayer player) {
+        return helper.getLevel().getEntitiesOfClass(ThrownEnderpearl.class,
+                new AABB(player.blockPosition()).inflate(4), PurlingHandler::isPurlingPearl).size();
+    }
+
+    private static void discardPurlingPearls(GameTestHelper helper) {
+        helper.getLevel().getEntitiesOfClass(ThrownEnderpearl.class,
+                new AABB(helper.absolutePos(BlockPos.ZERO)).inflate(8), PurlingHandler::isPurlingPearl)
+                .forEach(net.minecraft.world.entity.Entity::discard);
     }
 
     private static TransmutationTableBlockEntity placeTable(GameTestHelper helper, ItemStack input, ItemStack catalyst) {
