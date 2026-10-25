@@ -1,0 +1,9 @@
+{
+  "type": "relicweave:infusion",
+  "ingredient": {
+    "item": "minecraft:cobblestone"
+  },
+  "count": 32,
+  "infusion": "relicweave:cobbled",
+  "process_time": 200
+}

@@ -1,0 +1,9 @@
+{
+  "type": "relicweave:infusion",
+  "ingredient": {
+    "item": "minecraft:wither_skeleton_skull"
+  },
+  "count": 1,
+  "infusion": "relicweave:necromanced",
+  "process_time": 200
+}
