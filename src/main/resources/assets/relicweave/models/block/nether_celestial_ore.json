@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "relicweave:block/nether_celestial_ore"
+  }
+}

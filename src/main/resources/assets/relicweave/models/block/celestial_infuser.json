@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "relicweave:block/celestial_infuser_top",
+    "side": "relicweave:block/celestial_infuser_side",
+    "bottom": "relicweave:block/celestial_infuser_bottom"
+  }
+}
