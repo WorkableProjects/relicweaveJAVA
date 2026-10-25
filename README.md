@@ -2,10 +2,14 @@
 
 ## Description
 
-RelicWeave adds a **Transmutation Table** that turns materials into enchanted books with new enchantments. It also adds **relics** (charms, totems and steaks) and **Celestial**, a material tier above Netherite whose armor you can infuse with extra bonuses.
+RelicWeave adds a **Transmutation Table** that turns materials into enchanted books with new enchantments. It also adds **relics** (charms, totems and steaks) and **Celestial**, a material tier above Netherite.
+
+### CurseForge
+
+RelicWeave is a Forge mod for Minecraft Java Edition 1.20.1 that adds a new transmutation system, powerful relic gear, and celestial-tier upgrades. It turns materials into enchanted books, grants passive buffs through charms and totems, and lets players push their gear beyond standard Netherite. The mod focuses on progression, experimentation, and utility, with each feature obtainable through survival play and supported by datapack-based recipes. It gives players a deeper sense of customization without sacrificing the vanilla feel. The diverse enchantments, relics, and infusion mechanics are designed to reward exploration, combat, and resource gathering. For modpack creators and players alike, RelicWeave adds a flexible, expansion-focused layer to the endgame.
 
 ### Transmutation Table
-Put an input material and a catalyst into the table. After a short process, it gives you an enchanted book. Apply the book at an anvil, and combine two books to raise the level. These enchantments come only from the table: never from enchanting tables, loot or villagers.
+Put an input material and a catalyst into the table. After a short process, it gives you an enchanted book. Apply the book at an anvil, and combine two books to raise the level. These enchantments are fully compatible with vanilla anvils and can be boosted through combining.
 
 | Enchantment | Made from | Goes on | What it does |
 |---|---|---|---|
@@ -23,14 +27,14 @@ Put an input material and a catalyst into the table. After a short process, it g
 
 ### Relics
 - **Charms** (Copper, Iron, Gold, Diamond, Netherite) work from anywhere in your inventory. They give speed, armor, luck, max health, and fire resistance respectively.
-- **Totems** (Diamond, Netherite, Ultra) give passive buffs while held in your offhand. They also save you from death. They are **never used up** and go on a cooldown instead. The Ultra Totem works in either hand and gives the strongest save.
+- **Totems** (Diamond, Netherite, Ultra) give passive buffs while held in your offhand. They also save you from death. They are **never used up** and go on a cooldown instead. The Ultra Totem works from any slot in inventory, not just the offhand.
 - **Diamond and Netherite Steaks** are top-tier food with regeneration, absorption and protective effects.
 
 ### Celestial
 - **Celestial Ore** generates in End Stone, and more rarely in Netherrack. It drops Celestial Shards.
 - Combine 4 Celestial Shards and 1 Netherite Ingot into a **Celestial Ingot**.
 - Upgrade any Netherite tool or armor piece at a **Smithing Table** with a Celestial Ingot. Celestial gear is more durable, faster and stronger than Netherite.
-- The **Celestial Infuser** adds up to 3 different infusions to each Celestial armor piece, for example +1 armor, +2 max health or reduced gravity. There are 9 infusions, one for each Transmutation Table material.
+- The **Celestial Infuser** adds up to 3 different infusions to each Celestial armor piece, for example +1 armor, +2 max health or reduced gravity. There are 9 infusions, one for each Transmutation enchantment plus some extra utility effects.
 
 ### Details
 - Everything can be obtained in survival. Transmutation and infusion recipes are datapack JSON, so modpack makers can add or change them.
