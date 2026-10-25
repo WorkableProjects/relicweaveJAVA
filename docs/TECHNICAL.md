@@ -108,6 +108,10 @@ Works like the Transmutation Table, but takes **Celestial armor + an infusion ma
 
 Infusing takes 10 s. The bonuses show in the armor tooltip. Craft the infuser with `" I "`, `"ATA"`, `"OOO"`: I = Celestial Ingot, A = Amethyst Shard, T = Transmutation Table, O = Crying Obsidian.
 
+### Guide book
+
+Each player receives a written **RelicWeave Guide** (13 pages) once, on their first login to a world. It covers how to use the Transmutation Table and Celestial Infuser and lists every recipe and infusion. The "already received" flag is stored in Forge's persisted player data, so it survives death. The page text lives in the lang file (`book.relicweave.guide.page1` to `page13`).
+
 ## Controls
 
 | Action | Default key |

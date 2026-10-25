@@ -34,6 +34,7 @@ Put an input material and a catalyst into the table. After a short process, it g
 
 ### Details
 - Everything can be obtained in survival. Transmutation and infusion recipes are datapack JSON, so modpack makers can add or change them.
+- Every player gets a **RelicWeave Guide** book the first time they join a world. It explains the Transmutation Table, the Celestial Infuser and every recipe.
 - All items are listed in the **RelicWeave** creative tab.
 - Requires Forge. Must be installed on both the client and the server.
 
