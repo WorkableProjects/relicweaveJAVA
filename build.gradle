@@ -74,6 +74,12 @@ minecraft {
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
             property 'forge.logging.console.level', 'debug'
 
+            // Mixin-based dev dependencies (Controlling) need their refmaps remapped to official names.
+            if (project.hasProperty('withControlling')) {
+                property 'mixin.env.remapRefMap', 'true'
+                property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            }
+
             mods {
                 "${mod_id}" {
                     source sourceSets.main
@@ -112,6 +118,13 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
+    if (project.hasProperty('withControlling')) {
+        maven {
+            name = 'Modrinth'
+            url = 'https://api.modrinth.com/maven'
+            content { includeGroup 'maven.modrinth' }
+        }
+    }
     // Put repositories for dependencies here
     // ForgeGradle automatically adds the Forge maven and Maven Central for you
 
@@ -129,6 +142,13 @@ dependencies {
     // If the group id is "net.minecraft" and the artifact id is one of ["client", "server", "joined"],
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    // Optional dev-only test of keybind editing with Controlling: ./gradlew runClient -PwithControlling
+    // Never bundled or required; normal builds skip this.
+    if (project.hasProperty('withControlling')) {
+        runtimeOnly fg.deobf("maven.modrinth:controlling:${controlling_version_id}")
+        runtimeOnly fg.deobf("maven.modrinth:searchables:${searchables_version_id}")
+    }
 
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime

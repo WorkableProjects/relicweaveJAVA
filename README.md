@@ -4,7 +4,7 @@ A Minecraft Forge mod that turns items and catalysts into enchanted books carryi
 
 | | |
 |---|---|
-| Version | `0.0.1` |
+| Version | `0.0.1b` |
 | Minecraft | Java Edition `1.20.1` |
 | Forge | `47.3.0+` |
 | Java | `17` |
@@ -50,7 +50,9 @@ The table is the only source of these enchantments: they never show up at enchan
 
 | Action | Default key |
 |---|---|
-| Purling: Throw Ender Pearl | `V` (change it under *Options → Controls → Key Binds → RelicWeave*) |
+| Purling: Throw Ender Pearl | `V` |
+
+You can rebind the Purling key in game under *Options → Controls → Key Binds → RelicWeave*. Key-binding mods such as [Controlling](https://modrinth.com/mod/controlling) also list it, and you can search for it, rebind it, reset it, or check it for conflicts there. Your choice is saved in `options.txt` as `key_key.relicweave.purling`.
 
 ## Recipes
 
@@ -93,7 +95,10 @@ If a recipe is malformed or out of range, it's rejected and the error is logged 
 ./gradlew runClient          # dev client
 ./gradlew runServer          # dev dedicated server (accept run/eula.txt first)
 ./gradlew runGameTestServer  # runs the automated GameTests headlessly, exits non-zero on failure
+./gradlew runClient -PwithControlling  # dev client with Controlling + Searchables from Modrinth, for testing key binds
 ```
+
+`-PwithControlling` is optional and only affects dev runs. RelicWeave never bundles or requires Controlling.
 
 You need a JDK 17 or newer to run Gradle. The build compiles with a Java 17 toolchain and downloads one through the Foojay resolver if none is installed.
 
@@ -111,6 +116,8 @@ You need a JDK 17 or newer to run Gradle. The build compiles with a Java 17 tool
 - Purling: consumes one pearl, ignores spam during the cooldown, the cooldown ends at 600 ticks, nothing happens without boots or pearls, failed attempts don't start the cooldown, and landing-damage removal only applies to Purling pearls.
 
 ### Manual in-client check
+
+0.0.1b: with Controlling 12.0.2 installed, I searched for the Purling key, rebound it from `V` to `G`, and confirmed that `G` throws the pearl while `V` no longer does. The new binding was saved to `options.txt`.
 
 Checked in a single-player dev client: the block model and textures, opening the GUI, shift-click insertion, the progress arrow, Keen Edge I books produced and the output slot blocking further work, combining Keen Edge I + I into II at the anvil, applying it to an iron sword, and Purling (pearl consumed, no landing damage, cooldown message on a second press).
 
