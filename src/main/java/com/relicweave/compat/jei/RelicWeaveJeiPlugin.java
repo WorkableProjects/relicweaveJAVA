@@ -1,7 +1,9 @@
 package com.relicweave.compat.jei;
 
 import com.relicweave.RelicWeave;
+import com.relicweave.attunement.AttunementMapping;
 import com.relicweave.block.infuser.InfusionRecipe;
+import com.relicweave.infusion.InfusionType;
 import com.relicweave.client.CelestialInfuserScreen;
 import com.relicweave.client.TransmutationTableScreen;
 import com.relicweave.recipe.TransmutationRecipe;
@@ -17,9 +19,16 @@ import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeManager;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Optional Just Enough Items integration: shows every Transmutation Table and Celestial Infuser recipe, plus info
@@ -57,10 +66,32 @@ public class RelicWeaveJeiPlugin implements IModPlugin {
         registration.addIngredientInfo(ModBlocks.CELESTIAL_ORE_ITEM.get(), Component.translatable("jei.relicweave.info.celestial_ore"));
         registration.addIngredientInfo(ModBlocks.NETHER_CELESTIAL_ORE_ITEM.get(), Component.translatable("jei.relicweave.info.celestial_ore"));
         registration.addIngredientInfo(ModItems.CELESTIAL_SHARD.get(), Component.translatable("jei.relicweave.info.celestial_ore"));
+        for (AttunementMapping row : AttunementMapping.values()) {
+            List<ItemStack> sources = new ArrayList<>();
+            for (Holder<Item> holder : BuiltInRegistries.ITEM.getTagOrEmpty(row.sourceTag())) {
+                sources.add(new ItemStack(holder.value()));
+            }
+            if (sources.isEmpty()) {
+                continue;
+            }
+            Component enchantment = Component.translatable(row.enchantment().getDescriptionId());
+            Component piece = new ItemStack(pieceFor(row.infusion())).getHoverName();
+            registration.addItemStackInfo(sources, Component.translatable("jei.relicweave.info.attunement_source",
+                    enchantment, row.infusion().displayName(), piece));
+        }
         for (var armor : new net.minecraft.world.item.Item[]{ModItems.CELESTIAL_HELMET.get(), ModItems.CELESTIAL_CHESTPLATE.get(),
                 ModItems.CELESTIAL_LEGGINGS.get(), ModItems.CELESTIAL_BOOTS.get()}) {
             registration.addIngredientInfo(armor, Component.translatable("jei.relicweave.info.celestial_armor"));
         }
+    }
+
+    private static Item pieceFor(InfusionType infusion) {
+        return switch (infusion.slot()) {
+            case HEAD -> ModItems.CELESTIAL_HELMET.get();
+            case CHEST -> ModItems.CELESTIAL_CHESTPLATE.get();
+            case LEGS -> ModItems.CELESTIAL_LEGGINGS.get();
+            default -> ModItems.CELESTIAL_BOOTS.get();
+        };
     }
 
     @Override
