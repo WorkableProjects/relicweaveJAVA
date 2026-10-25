@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "relicweave:celestial_helmet",
+    "relicweave:celestial_chestplate",
+    "relicweave:celestial_leggings",
+    "relicweave:celestial_boots"
+  ]
+}

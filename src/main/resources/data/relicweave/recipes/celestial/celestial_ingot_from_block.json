@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "relicweave:celestial_block"
+    }
+  ],
+  "result": {
+    "item": "relicweave:celestial_ingot",
+    "count": 9
+  }
+}
