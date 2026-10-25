@@ -17,4 +17,15 @@ final class CuriosAccess {
                 .map(handler -> handler.findCurios(filter).stream().map(SlotResult::stack).toList())
                 .orElse(List.of());
     }
+
+    static boolean equip(Player player, String slot, ItemStack stack) {
+        return CuriosApi.getCuriosInventory(player).resolve()
+                .flatMap(handler -> handler.getStacksHandler(slot))
+                .filter(stacks -> stacks.getSlots() > 0)
+                .map(stacks -> {
+                    stacks.getStacks().setStackInSlot(0, stack);
+                    return true;
+                })
+                .orElse(false);
+    }
 }

@@ -54,8 +54,11 @@ public final class AttunementRelicGameTests {
     @GameTest(template = TEMPLATE)
     public static void relicsWorkFromInventoryWithoutCurios(GameTestHelper helper) {
         ServerPlayer player = makePlayer(helper);
-        helper.assertTrue(!CuriosCompat.isLoaded(), "Curios must not be loaded in the test environment");
-        helper.assertTrue(CuriosCompat.findEquipped(player, s -> true).isEmpty(), "No Curios results expected");
+        // Default runs never include Curios; -PwithCurios runs exercise the Curios path in curiosCharmSlotCountsOnce.
+        if (!CuriosCompat.isLoaded()) {
+            helper.assertTrue(CuriosCompat.findEquipped(player, s -> true).isEmpty(), "No Curios results expected");
+            helper.assertFalse(CuriosCompat.equip(player, "charm", new ItemStack(ModItems.ECHO_CHARM.get())), "Nothing to equip into");
+        }
         helper.assertTrue(!RelicLocator.has(player, RelicType.ECHO), "Nothing carried yet");
         player.getInventory().setItem(7, new ItemStack(ModItems.ECHO_CHARM.get()));
         helper.assertTrue(RelicLocator.has(player, RelicType.ECHO), "Echo Charm in the inventory should count");
@@ -63,6 +66,24 @@ public final class AttunementRelicGameTests {
         player.getInventory().setItem(7, ItemStack.EMPTY);
         player.setItemSlot(EquipmentSlot.OFFHAND, new ItemStack(ModItems.ECHO_CHARM.get()));
         helper.assertTrue(RelicLocator.has(player, RelicType.ECHO), "Echo Charm in the offhand should count");
+        helper.succeed();
+    }
+
+    /** Only meaningful with Curios installed (./gradlew runGameTestServer -PwithCurios); passes trivially otherwise. */
+    @GameTest(template = TEMPLATE)
+    public static void curiosCharmSlotCountsOnce(GameTestHelper helper) {
+        if (!CuriosCompat.isLoaded()) {
+            helper.succeed();
+            return;
+        }
+        ServerPlayer player = makePlayer(helper);
+        helper.assertTrue(CuriosCompat.equip(player, "charm", new ItemStack(ModItems.ECHO_CHARM.get())),
+                "Players should have a Curios charm slot");
+        helper.assertTrue(RelicLocator.has(player, RelicType.ECHO), "Echo Charm in the charm slot should count");
+        player.getInventory().setItem(0, new ItemStack(ModItems.ECHO_CHARM.get()));
+        helper.assertTrue(RelicLocator.carried(player).size() == 1, "Duplicates across inventory and Curios count once");
+        helper.assertTrue(RelicActivation.tryActivate(player, RelicType.ECHO), "Echo should activate from Curios");
+        helper.assertFalse(RelicActivation.tryActivate(player, RelicType.ECHO), "A second copy must not bypass the cooldown");
         helper.succeed();
     }
 

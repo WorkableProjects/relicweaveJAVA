@@ -31,4 +31,9 @@ public final class CuriosCompat {
     public static List<ItemStack> findEquipped(Player player, Predicate<ItemStack> filter) {
         return isLoaded() ? CuriosAccess.findEquipped(player, filter) : List.of();
     }
+
+    /** Puts {@code stack} in the first slot of the player's {@code slot} Curios slot. False if absent (GameTests). */
+    public static boolean equip(Player player, String slot, ItemStack stack) {
+        return isLoaded() && CuriosAccess.equip(player, slot, stack);
+    }
 }

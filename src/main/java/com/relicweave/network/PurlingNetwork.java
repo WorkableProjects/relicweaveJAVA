@@ -1,12 +1,16 @@
 package com.relicweave.network;
 
 import com.relicweave.RelicWeave;
+import com.relicweave.client.ClientPacketHandlers;
 import com.relicweave.enchantment.PurlingHandler;
 import com.relicweave.enchantment.upbound.UpboundHandler;
 import com.relicweave.relic.RelicActivation;
 import com.relicweave.relic.RelicType;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.network.NetworkRegistry;
@@ -15,7 +19,8 @@ import net.minecraftforge.network.simple.SimpleChannel;
 import java.util.function.Supplier;
 
 public final class PurlingNetwork {
-    private static final String PROTOCOL_VERSION = "1";
+    /** "2" since 0.0.3 (relic activation and Resonance streak packets). */
+    private static final String PROTOCOL_VERSION = "2";
 
     public static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
             RelicWeave.id("main"), () -> PROTOCOL_VERSION, PROTOCOL_VERSION::equals, PROTOCOL_VERSION::equals);
@@ -38,6 +43,31 @@ public final class PurlingNetwork {
                 .decoder(ActivateRelicPacket::decode)
                 .consumerMainThread(ActivateRelicPacket::handle)
                 .add();
+        CHANNEL.messageBuilder(ResonanceStreakPacket.class, 3, NetworkDirection.PLAY_TO_CLIENT)
+                .encoder(ResonanceStreakPacket::encode)
+                .decoder(ResonanceStreakPacket::decode)
+                .consumerMainThread(ResonanceStreakPacket::handle)
+                .add();
+    }
+
+    /**
+     * Server -> client: the miner's current Resonance streak, so the client predicts the same break speed as the
+     * server. Only touches common code, so it is safe to register on a dedicated server.
+     */
+    public record ResonanceStreakPacket(ResourceLocation block, int count) {
+        public void encode(FriendlyByteBuf buf) {
+            buf.writeResourceLocation(block);
+            buf.writeVarInt(count);
+        }
+
+        public static ResonanceStreakPacket decode(FriendlyByteBuf buf) {
+            return new ResonanceStreakPacket(buf.readResourceLocation(), buf.readVarInt());
+        }
+
+        public void handle(Supplier<NetworkEvent.Context> ctx) {
+            DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> ClientPacketHandlers.resonanceStreak(block, count));
+            ctx.get().setPacketHandled(true);
+        }
     }
 
     /**
