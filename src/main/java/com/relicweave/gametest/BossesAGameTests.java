@@ -50,7 +50,8 @@ import java.util.UUID;
 @PrefixGameTestTemplate(false)
 public final class BossesAGameTests {
     private static final String TEMPLATE = "bosses_a_arena";
-    private static final List<Player> MOCKS = new ArrayList<>();
+    /** Mock players per running test; tests run concurrently, so one test must never discard another's mocks. */
+    private static final java.util.Map<GameTestHelper, List<Player>> MOCKS = new java.util.IdentityHashMap<>();
 
     private BossesAGameTests() {}
 
@@ -68,15 +69,17 @@ public final class BossesAGameTests {
         player.setNoGravity(true);
         player.setDeltaMovement(Vec3.ZERO);
         helper.getLevel().addFreshEntity(player);
-        MOCKS.add(player);
+        MOCKS.computeIfAbsent(helper, h -> new ArrayList<>()).add(player);
         return player;
     }
 
-    private static void discardMocks() {
-        for (Player p : MOCKS) {
-            p.discard();
+    private static void discardMocks(GameTestHelper helper) {
+        List<Player> mine = MOCKS.remove(helper);
+        if (mine != null) {
+            for (Player p : mine) {
+                p.discard();
+            }
         }
-        MOCKS.clear();
     }
 
     private static ServerPlayer fakePlayer(GameTestHelper helper) {
@@ -224,7 +227,7 @@ public final class BossesAGameTests {
             helper.assertTrue(regent.cooldown(ThornedRegent.VOLLEY) > 0, "Volley goes on cooldown");
             helper.succeed();
         } finally {
-            discardMocks();
+            discardMocks(helper);
         }
     }
 
@@ -254,7 +257,7 @@ public final class BossesAGameTests {
             helper.assertTrue(regent.isExposed() && regent.exposedTicks() == ThornedRegent.CORE_TICKS, "Core exposed for 60 ticks");
             helper.succeed();
         } finally {
-            discardMocks();
+            discardMocks(helper);
         }
     }
 
@@ -277,7 +280,7 @@ public final class BossesAGameTests {
             assertDamaged(helper, victim, false, "Victim of an exposed Regent");
             helper.succeed();
         } finally {
-            discardMocks();
+            discardMocks(helper);
         }
     }
 
@@ -306,11 +309,11 @@ public final class BossesAGameTests {
                     assertDamaged(helper, walker, true, "Walker pressed against the roots");
                     helper.succeed();
                 } finally {
-                    discardMocks();
+                    discardMocks(helper);
                 }
             });
         } catch (RuntimeException e) {
-            discardMocks();
+            discardMocks(helper);
             throw e;
         }
     }
@@ -330,11 +333,11 @@ public final class BossesAGameTests {
                     helper.assertTrue(countNear(helper, ThornRoot.class) == 0, "Roots despawn after 200 ticks");
                     helper.succeed();
                 } finally {
-                    discardMocks();
+                    discardMocks(helper);
                 }
             });
         } catch (RuntimeException e) {
-            discardMocks();
+            discardMocks(helper);
             throw e;
         }
     }
@@ -490,7 +493,7 @@ public final class BossesAGameTests {
             assertDamaged(helper, offline, false, "Player off the line");
             helper.succeed();
         } finally {
-            discardMocks();
+            discardMocks(helper);
         }
     }
 
@@ -519,7 +522,7 @@ public final class BossesAGameTests {
             helper.assertFalse(outside.hasEffect(MobEffects.DARKNESS), "No Darkness outside");
             helper.succeed();
         } finally {
-            discardMocks();
+            discardMocks(helper);
         }
     }
 
@@ -552,7 +555,7 @@ public final class BossesAGameTests {
             assertDamaged(helper, low, highIsSafe, "Low-half player");
             helper.succeed();
         } finally {
-            discardMocks();
+            discardMocks(helper);
         }
     }
 
@@ -581,7 +584,7 @@ public final class BossesAGameTests {
             helper.assertTrue(choir.cooldown(ChoirUnheard.LANCE) <= 45, "Phase 3 cooldowns are x0.75, got " + choir.cooldown(ChoirUnheard.LANCE));
             helper.succeed();
         } finally {
-            discardMocks();
+            discardMocks(helper);
         }
     }
 
@@ -603,7 +606,7 @@ public final class BossesAGameTests {
             helper.assertTrue(copy.home() != null && copy.home().equals(choir.home()), "Home kept");
             helper.succeed();
         } finally {
-            discardMocks();
+            discardMocks(helper);
         }
     }
 

@@ -130,7 +130,9 @@ public final class BeastMobGameTests {
         RuinHound hound = helper.spawnWithNoFreeWill(BeastMobs.RUIN_HOUND.get(), 1.5F, 2.0F, 1.5F);
         checkStats(helper, hound, 22, 5, 0);
         helper.assertTrue(near(hound.getAttributeValue(Attributes.MOVEMENT_SPEED), 0.35), "Speed 0.35");
-        helper.assertTrue(hound.isIsolated(), "A lone hound is isolated");
+        // Neighbouring GameTests may hold hounds of their own; only a hound with no other hound in range must be isolated.
+        boolean othersNear = !helper.getLevel().getEntitiesOfClass(RuinHound.class, hound.getBoundingBox().inflate(16.0), h -> h != hound).isEmpty();
+        helper.assertTrue(othersNear || hound.isIsolated(), "A lone hound is isolated");
         RuinHound mate = helper.spawnWithNoFreeWill(BeastMobs.RUIN_HOUND.get(), 3.5F, 2.0F, 3.5F);
         helper.assertTrue(!hound.isIsolated() && !mate.isIsolated(), "Hounds within 16 blocks form a pack");
         hound.setFleeTimer(55);
