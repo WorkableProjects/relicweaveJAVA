@@ -11,6 +11,7 @@ import com.relicweave.registry.ModEnchantments;
 import com.relicweave.registry.ModMenus;
 import com.relicweave.registry.ModRecipes;
 import com.relicweave.registry.ModSounds;
+import com.relicweave.vestige.VestigeBootstrap;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -38,6 +39,7 @@ public class RelicWeave {
         ModRecipes.RECIPE_TYPES.register(modBus);
         ModRecipes.RECIPE_SERIALIZERS.register(modBus);
         ModSounds.SOUNDS.register(modBus);
+        VestigeBootstrap.register(modBus);
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, RelicWeaveConfig.SPEC);
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, RelicWeaveClientConfig.SPEC);
