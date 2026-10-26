@@ -721,5 +721,104 @@
         "pitch": 0.6
       }
     ]
+  },
+  "entity.warden_of_seals.slam": {
+    "subtitle": "subtitles.relicweave.entity.warden_of_seals.slam",
+    "sounds": [
+      {
+        "name": "minecraft:entity.iron_golem.attack",
+        "type": "event",
+        "volume": 1.5,
+        "pitch": 0.5
+      }
+    ]
+  },
+  "entity.warden_of_seals.lances": {
+    "subtitle": "subtitles.relicweave.entity.warden_of_seals.lances",
+    "sounds": [
+      {
+        "name": "minecraft:block.amethyst_block.resonate",
+        "type": "event",
+        "volume": 1.5,
+        "pitch": 1.4
+      }
+    ]
+  },
+  "entity.warden_of_seals.summon": {
+    "subtitle": "subtitles.relicweave.entity.warden_of_seals.summon",
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.prepare_summon",
+        "type": "event",
+        "volume": 1.5,
+        "pitch": 0.8
+      }
+    ]
+  },
+  "entity.seal_node.exposed": {
+    "subtitle": "subtitles.relicweave.entity.seal_node.exposed",
+    "sounds": [
+      {
+        "name": "minecraft:block.amethyst_cluster.break",
+        "type": "event",
+        "volume": 1.5,
+        "pitch": 0.6
+      }
+    ]
+  },
+  "entity.archivist_prime.lances": {
+    "subtitle": "subtitles.relicweave.entity.archivist_prime.lances",
+    "sounds": [
+      {
+        "name": "minecraft:block.amethyst_block.resonate",
+        "type": "event",
+        "volume": 1.5,
+        "pitch": 1.7
+      }
+    ]
+  },
+  "entity.archivist_prime.volley": {
+    "subtitle": "subtitles.relicweave.entity.archivist_prime.volley",
+    "sounds": [
+      {
+        "name": "minecraft:item.book.page_turn",
+        "type": "event",
+        "volume": 1.5,
+        "pitch": 0.6
+      }
+    ]
+  },
+  "entity.archivist_prime.rings": {
+    "subtitle": "subtitles.relicweave.entity.archivist_prime.rings",
+    "sounds": [
+      {
+        "name": "minecraft:block.beacon.power_select",
+        "type": "event",
+        "volume": 1.5,
+        "pitch": 0.7
+      }
+    ]
+  },
+  "entity.archivist_prime.cycle_shift": {
+    "subtitle": "subtitles.relicweave.entity.archivist_prime.cycle_shift",
+    "sounds": [
+      {
+        "name": "minecraft:block.beacon.activate",
+        "type": "event",
+        "volume": 2.0,
+        "pitch": 1.4
+      }
+    ]
+  },
+  "entity.archivist_prime.final_seal": {
+    "subtitle": "subtitles.relicweave.entity.archivist_prime.final_seal",
+    "sounds": [
+      {
+        "name": "minecraft:block.end_portal.spawn",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 1.0
+      }
+    ]
   }
 }

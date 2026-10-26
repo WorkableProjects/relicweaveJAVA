@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "relicweave:thorned_regent",
-    "relicweave:choir_unheard"
+    "relicweave:choir_unheard",
+    "relicweave:warden_of_seals",
+    "relicweave:archivist_prime"
   ]
 }
