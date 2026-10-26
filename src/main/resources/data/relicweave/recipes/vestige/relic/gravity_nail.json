@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "I",
+    "H",
+    "I"
+  ],
+  "key": {
+    "I": {
+      "item": "relicweave:aetherite_ingot"
+    },
+    "H": {
+      "item": "relicweave:gravity_heart"
+    }
+  },
+  "result": {
+    "item": "relicweave:gravity_nail",
+    "count": 1
+  }
+}

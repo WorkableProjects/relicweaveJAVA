@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " P ",
+    "ICI",
+    " P "
+  ],
+  "key": {
+    "P": {
+      "item": "relicweave:inscribed_page"
+    },
+    "I": {
+      "item": "relicweave:aetherite_ingot"
+    },
+    "C": {
+      "item": "minecraft:clock"
+    }
+  },
+  "result": {
+    "item": "relicweave:cycle_dial",
+    "count": 1
+  }
+}
