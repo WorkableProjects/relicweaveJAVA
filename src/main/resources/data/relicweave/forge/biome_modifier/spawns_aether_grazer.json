@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "relicweave:crownfall_basin"
+  ],
+  "spawners": {
+    "type": "relicweave:aether_grazer",
+    "weight": 30,
+    "minCount": 2,
+    "maxCount": 3
+  }
+}
