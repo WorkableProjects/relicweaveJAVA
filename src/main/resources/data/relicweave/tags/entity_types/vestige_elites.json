@@ -2,6 +2,9 @@
   "replace": false,
   "values": [
     "relicweave:oathbreaker_knight",
-    "relicweave:rift_archer"
+    "relicweave:rift_archer",
+    "relicweave:concordance_guardian",
+    "relicweave:sealed_custodian",
+    "relicweave:rune_warden"
   ]
 }
