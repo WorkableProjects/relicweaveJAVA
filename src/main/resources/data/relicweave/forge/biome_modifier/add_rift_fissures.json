@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#relicweave:rift_fissure_biomes",
+  "features": "relicweave:rift_fissure",
+  "step": "surface_structures"
+}

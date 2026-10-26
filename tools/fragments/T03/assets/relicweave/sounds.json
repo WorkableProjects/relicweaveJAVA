@@ -1,0 +1,92 @@
+{
+  "ambient.vestige.cycle.quiet": {
+    "subtitle": "subtitles.relicweave.ambient.vestige.cycle.quiet",
+    "sounds": [
+      {
+        "name": "minecraft:block/amethyst/resonate1",
+        "volume": 0.8,
+        "pitch": 0.7
+      }
+    ]
+  },
+  "ambient.vestige.cycle.resonance": {
+    "subtitle": "subtitles.relicweave.ambient.vestige.cycle.resonance",
+    "sounds": [
+      {
+        "name": "minecraft:block/beacon/activate",
+        "volume": 0.7,
+        "pitch": 1.0
+      }
+    ]
+  },
+  "ambient.vestige.cycle.convergence": {
+    "subtitle": "subtitles.relicweave.ambient.vestige.cycle.convergence",
+    "sounds": [
+      {
+        "name": "minecraft:block/respawn_anchor/charge1",
+        "volume": 0.9,
+        "pitch": 0.8
+      },
+      {
+        "name": "minecraft:block/respawn_anchor/charge2",
+        "volume": 0.9,
+        "pitch": 0.8
+      }
+    ]
+  },
+  "ambient.vestige.cycle.warning": {
+    "subtitle": "subtitles.relicweave.ambient.vestige.cycle.warning",
+    "sounds": [
+      {
+        "name": "minecraft:block/respawn_anchor/charge3",
+        "volume": 0.9,
+        "pitch": 0.9
+      },
+      {
+        "name": "minecraft:block/amethyst/resonate2",
+        "volume": 0.9,
+        "pitch": 0.9
+      }
+    ]
+  },
+  "hazard.rift.warning": {
+    "subtitle": "subtitles.relicweave.hazard.rift.warning",
+    "sounds": [
+      {
+        "name": "minecraft:block/amethyst/resonate3",
+        "volume": 0.8,
+        "pitch": 0.6
+      },
+      {
+        "name": "minecraft:block/amethyst/resonate4",
+        "volume": 0.8,
+        "pitch": 0.6
+      }
+    ]
+  },
+  "hazard.rift.sickness": {
+    "subtitle": "subtitles.relicweave.hazard.rift.sickness",
+    "sounds": [
+      {
+        "name": "minecraft:block/respawn_anchor/deplete1",
+        "volume": 0.8,
+        "pitch": 1.0
+      },
+      {
+        "name": "minecraft:block/respawn_anchor/deplete2",
+        "volume": 0.8,
+        "pitch": 1.0
+      }
+    ]
+  },
+  "item.ward_salve.drink": {
+    "subtitle": "subtitles.relicweave.item.ward_salve.drink",
+    "sounds": [
+      {
+        "name": "minecraft:random/drink",
+        "volume": 0.8,
+        "pitch": 1.1
+      }
+    ]
+  }
+}
