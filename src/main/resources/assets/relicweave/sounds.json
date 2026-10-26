@@ -2,31 +2,282 @@
   "block.transmutation_table.complete": {
     "subtitle": "subtitles.relicweave.block.transmutation_table.complete",
     "sounds": [
-      {"name": "minecraft:block/amethyst/resonate1", "volume": 0.8},
-      {"name": "minecraft:block/amethyst/resonate2", "volume": 0.8},
-      {"name": "minecraft:block/amethyst/resonate3", "volume": 0.8},
-      {"name": "minecraft:block/amethyst/resonate4", "volume": 0.8},
-      {"name": "minecraft:block/enchantment_table/enchant1", "volume": 0.5}
+      {
+        "name": "minecraft:block/amethyst/resonate1",
+        "volume": 0.8
+      },
+      {
+        "name": "minecraft:block/amethyst/resonate2",
+        "volume": 0.8
+      },
+      {
+        "name": "minecraft:block/amethyst/resonate3",
+        "volume": 0.8
+      },
+      {
+        "name": "minecraft:block/amethyst/resonate4",
+        "volume": 0.8
+      },
+      {
+        "name": "minecraft:block/enchantment_table/enchant1",
+        "volume": 0.5
+      }
     ]
   },
   "block.celestial_infuser.resonance": {
     "subtitle": "subtitles.relicweave.block.celestial_infuser.resonance",
     "sounds": [
-      {"name": "minecraft:block/beacon/activate", "volume": 0.6, "pitch": 0.7}
+      {
+        "name": "minecraft:block/beacon/activate",
+        "volume": 0.6,
+        "pitch": 0.7
+      }
     ]
   },
   "block.celestial_infuser.chime": {
     "subtitle": "subtitles.relicweave.block.celestial_infuser.chime",
     "sounds": [
-      {"name": "minecraft:block/amethyst/shimmer", "volume": 0.6},
-      {"name": "minecraft:block/bell/resonate", "volume": 0.3}
+      {
+        "name": "minecraft:block/amethyst/shimmer",
+        "volume": 0.6
+      },
+      {
+        "name": "minecraft:block/bell/resonate",
+        "volume": 0.3
+      }
     ]
   },
   "item.relic.activate": {
     "subtitle": "subtitles.relicweave.item.relic.activate",
     "sounds": [
-      {"name": "minecraft:block/amethyst_cluster/break1", "volume": 0.6},
-      {"name": "minecraft:block/amethyst_cluster/break2", "volume": 0.6}
+      {
+        "name": "minecraft:block/amethyst_cluster/break1",
+        "volume": 0.6
+      },
+      {
+        "name": "minecraft:block/amethyst_cluster/break2",
+        "volume": 0.6
+      }
+    ]
+  },
+  "music.vestige": {
+    "sounds": [
+      {
+        "name": "minecraft:music.end",
+        "type": "event",
+        "volume": 0.7
+      },
+      {
+        "name": "minecraft:music.nether.soul_sand_valley",
+        "type": "event",
+        "volume": 0.7
+      }
+    ]
+  },
+  "ambient.vestige.crownfall_basin": {
+    "sounds": [
+      {
+        "name": "minecraft:ambient.warped_forest.loop",
+        "type": "event",
+        "volume": 0.4,
+        "pitch": 0.8
+      }
+    ]
+  },
+  "ambient.vestige.glassroot_wilds": {
+    "sounds": [
+      {
+        "name": "minecraft:ambient.crimson_forest.loop",
+        "type": "event",
+        "volume": 0.4,
+        "pitch": 1.0
+      }
+    ]
+  },
+  "ambient.vestige.aurelian_canopy": {
+    "sounds": [
+      {
+        "name": "minecraft:ambient.warped_forest.loop",
+        "type": "event",
+        "volume": 0.45,
+        "pitch": 1.2
+      }
+    ]
+  },
+  "ambient.vestige.hushfen": {
+    "sounds": [
+      {
+        "name": "minecraft:ambient.underwater.loop",
+        "type": "event",
+        "volume": 0.5,
+        "pitch": 0.7
+      }
+    ]
+  },
+  "ambient.vestige.sundered_reach": {
+    "sounds": [
+      {
+        "name": "minecraft:ambient.basalt_deltas.loop",
+        "type": "event",
+        "volume": 0.4,
+        "pitch": 1.0
+      }
+    ]
+  },
+  "ambient.vestige.starfall_caldera": {
+    "sounds": [
+      {
+        "name": "minecraft:ambient.nether_wastes.loop",
+        "type": "event",
+        "volume": 0.45,
+        "pitch": 0.8
+      }
+    ]
+  },
+  "ambient.vestige.gloam_archive": {
+    "sounds": [
+      {
+        "name": "minecraft:ambient.soul_sand_valley.loop",
+        "type": "event",
+        "volume": 0.4,
+        "pitch": 0.8
+      }
+    ]
+  },
+  "ambient.vestige.crown_of_concordance": {
+    "sounds": [
+      {
+        "name": "minecraft:ambient.soul_sand_valley.loop",
+        "type": "event",
+        "volume": 0.5,
+        "pitch": 1.2
+      }
+    ]
+  },
+  "block.concordance_gate.activate": {
+    "subtitle": "subtitles.relicweave.block.concordance_gate.activate",
+    "sounds": [
+      {
+        "name": "minecraft:block/beacon/activate",
+        "volume": 0.9
+      },
+      {
+        "name": "minecraft:block/amethyst/resonate1",
+        "volume": 0.8
+      }
+    ]
+  },
+  "block.concordance_gate.channel": {
+    "subtitle": "subtitles.relicweave.block.concordance_gate.channel",
+    "sounds": [
+      {
+        "name": "minecraft:block/amethyst/resonate2",
+        "volume": 0.6
+      },
+      {
+        "name": "minecraft:block/amethyst/resonate3",
+        "volume": 0.6
+      }
+    ]
+  },
+  "block.concordance_gate.teleport": {
+    "subtitle": "subtitles.relicweave.block.concordance_gate.teleport",
+    "sounds": [
+      {
+        "name": "minecraft:entity/enderman/teleport",
+        "volume": 0.7,
+        "pitch": 0.7
+      }
+    ]
+  },
+  "ambient.vestige.cycle.quiet": {
+    "subtitle": "subtitles.relicweave.ambient.vestige.cycle.quiet",
+    "sounds": [
+      {
+        "name": "minecraft:block/amethyst/resonate1",
+        "volume": 0.8,
+        "pitch": 0.7
+      }
+    ]
+  },
+  "ambient.vestige.cycle.resonance": {
+    "subtitle": "subtitles.relicweave.ambient.vestige.cycle.resonance",
+    "sounds": [
+      {
+        "name": "minecraft:block/beacon/activate",
+        "volume": 0.7,
+        "pitch": 1.0
+      }
+    ]
+  },
+  "ambient.vestige.cycle.convergence": {
+    "subtitle": "subtitles.relicweave.ambient.vestige.cycle.convergence",
+    "sounds": [
+      {
+        "name": "minecraft:block/respawn_anchor/charge1",
+        "volume": 0.9,
+        "pitch": 0.8
+      },
+      {
+        "name": "minecraft:block/respawn_anchor/charge2",
+        "volume": 0.9,
+        "pitch": 0.8
+      }
+    ]
+  },
+  "ambient.vestige.cycle.warning": {
+    "subtitle": "subtitles.relicweave.ambient.vestige.cycle.warning",
+    "sounds": [
+      {
+        "name": "minecraft:block/respawn_anchor/charge3",
+        "volume": 0.9,
+        "pitch": 0.9
+      },
+      {
+        "name": "minecraft:block/amethyst/resonate2",
+        "volume": 0.9,
+        "pitch": 0.9
+      }
+    ]
+  },
+  "hazard.rift.warning": {
+    "subtitle": "subtitles.relicweave.hazard.rift.warning",
+    "sounds": [
+      {
+        "name": "minecraft:block/amethyst/resonate3",
+        "volume": 0.8,
+        "pitch": 0.6
+      },
+      {
+        "name": "minecraft:block/amethyst/resonate4",
+        "volume": 0.8,
+        "pitch": 0.6
+      }
+    ]
+  },
+  "hazard.rift.sickness": {
+    "subtitle": "subtitles.relicweave.hazard.rift.sickness",
+    "sounds": [
+      {
+        "name": "minecraft:block/respawn_anchor/deplete1",
+        "volume": 0.8,
+        "pitch": 1.0
+      },
+      {
+        "name": "minecraft:block/respawn_anchor/deplete2",
+        "volume": 0.8,
+        "pitch": 1.0
+      }
+    ]
+  },
+  "item.ward_salve.drink": {
+    "subtitle": "subtitles.relicweave.item.ward_salve.drink",
+    "sounds": [
+      {
+        "name": "minecraft:random/drink",
+        "volume": 0.8,
+        "pitch": 1.1
+      }
     ]
   }
 }

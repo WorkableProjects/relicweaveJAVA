@@ -15,6 +15,33 @@
       },
       {
         "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "relicweave:concordant_paving"
+        },
+        "state": {
+          "Name": "relicweave:rift_fissure"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "relicweave:fractured_vestige_stone"
+        },
+        "state": {
+          "Name": "relicweave:rift_fissure"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "relicweave:starfall_slag"
+        },
+        "state": {
+          "Name": "relicweave:rift_fissure"
+        }
+      },
+      {
+        "target": {
           "predicate_type": "minecraft:tag_match",
           "tag": "minecraft:base_stone_overworld"
         },

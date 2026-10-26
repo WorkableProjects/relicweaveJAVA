@@ -1,7 +1,6 @@
 package com.relicweave.gametest;
 
 import com.relicweave.RelicWeave;
-import com.relicweave.vestige.VestigeConfig;
 import com.relicweave.vestige.cycle.ConcordanceCycle;
 import com.relicweave.vestige.cycle.CyclePhase;
 import com.relicweave.vestige.cycle.CycleTicker;
@@ -55,22 +54,15 @@ public final class CycleGameTests {
 
     @GameTest(template = TEMPLATE)
     public static void disabledCycleStaysQuiet(GameTestHelper helper) {
-        if (!VestigeConfig.SPEC.isLoaded()) {
-            // Without a loaded config the cycle is always enabled; nothing to toggle.
-            helper.assertTrue(ConcordanceCycle.enabled(), "Cycle is enabled by default");
-            helper.succeed();
-            return;
-        }
-        boolean before = VestigeConfig.CYCLE_ENABLED.get();
         try {
-            VestigeConfig.CYCLE_ENABLED.set(false);
+            ConcordanceCycle.overrideEnabledForTests(false);
             helper.assertFalse(ConcordanceCycle.enabled(), "Cycle should report disabled");
             for (long t : new long[] {0, QUIET, QUIET + RESONANCE, CYCLE - 1, CYCLE * 3 + QUIET + 5}) {
                 helper.assertTrue(ConcordanceCycle.phaseAt(t) == CyclePhase.QUIET, "Quiet forever at " + t);
             }
             helper.assertTrue(ConcordanceCycle.ticksUntilNextPhase(0) == Long.MAX_VALUE, "No next phase when disabled");
         } finally {
-            VestigeConfig.CYCLE_ENABLED.set(before);
+            ConcordanceCycle.overrideEnabledForTests(null);
         }
         helper.assertTrue(ConcordanceCycle.phaseAt(QUIET) == CyclePhase.RESONANCE, "Restored");
         helper.succeed();

@@ -2,6 +2,7 @@ package com.relicweave.vestige.cycle;
 
 import com.relicweave.vestige.VestigeConfig;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Pure Concordance Cycle arithmetic. The phase is a function of the world's game time (which keeps counting across
@@ -13,10 +14,22 @@ public final class ConcordanceCycle {
     public static final int DEFAULT_RESONANCE_SECONDS = 360;
     public static final int DEFAULT_CONVERGENCE_SECONDS = 240;
 
+    /** GameTest-only override of {@code cycle.enabled}; Forge config values cannot be toggled reliably at runtime. */
+    @Nullable
+    private static Boolean enabledOverride;
+
     private ConcordanceCycle() {}
 
     public static boolean enabled() {
+        if (enabledOverride != null) {
+            return enabledOverride;
+        }
         return !VestigeConfig.SPEC.isLoaded() || VestigeConfig.CYCLE_ENABLED.get();
+    }
+
+    /** Tests only: force the enabled state ({@code null} restores the config value). */
+    public static void overrideEnabledForTests(@Nullable Boolean enabled) {
+        enabledOverride = enabled;
     }
 
     /** Length of {@code phase} in ticks (always at least 20). */
