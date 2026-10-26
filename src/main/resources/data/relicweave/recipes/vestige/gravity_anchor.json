@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "GAG",
+    "AOA",
+    "GAG"
+  ],
+  "key": {
+    "G": { "item": "minecraft:gold_ingot" },
+    "A": { "item": "relicweave:aetherite_ingot" },
+    "O": { "item": "minecraft:crying_obsidian" }
+  },
+  "result": {
+    "item": "relicweave:gravity_anchor",
+    "count": 2
+  }
+}
