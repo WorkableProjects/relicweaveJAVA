@@ -408,5 +408,20 @@
   "subtitles.relicweave.entity.shardback_brute.charge": "Shardback Brute lowers its head",
   "subtitles.relicweave.entity.starfall_strider.charge": "Starfall Strider flares",
   "subtitles.relicweave.entity.gravity_leech.pull": "Gravity Leech draws power",
-  "subtitles.relicweave.entity.archive_mimic.creak": "Chest creaks"
+  "subtitles.relicweave.entity.archive_mimic.creak": "Chest creaks",
+  "block.relicweave.boss_altar": "Boss Altar",
+  "block.relicweave.seal_gate": "Seal Gate",
+  "item.relicweave.vestige_upgrade_template": "Smithing Template",
+  "upgrade.relicweave.vestige_upgrade": "Vestige Upgrade",
+  "item.relicweave.smithing_template.vestige_upgrade.applies_to": "Netherite Equipment",
+  "item.relicweave.smithing_template.vestige_upgrade.ingredients": "Concordant Alloy",
+  "item.relicweave.smithing_template.vestige_upgrade.base_slot_description": "Add netherite armor, weapon, or tool",
+  "item.relicweave.smithing_template.vestige_upgrade.additions_slot_description": "Add Concordant Alloy",
+  "message.relicweave.altar.empty": "The altar is silent",
+  "message.relicweave.altar.awake": "Its guardian is already awake",
+  "message.relicweave.altar.slumbering": "Its guardian sleeps for good (rematches are disabled on this server)",
+  "message.relicweave.altar.cooldown": "The altar is recovering: %s s",
+  "message.relicweave.altar.awakening": "Something stirs beneath the altar...",
+  "message.relicweave.seal_gate.sealed": "Sealed. Only those who defeated the Warden of Seals may pass.",
+  "message.relicweave.seal_gate.blocked": "Something blocks the way beyond the gate"
 }

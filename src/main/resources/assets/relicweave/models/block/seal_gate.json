@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "relicweave:block/seal_gate_front",
+    "side": "relicweave:block/seal_gate_side",
+    "top": "relicweave:block/seal_gate_side"
+  }
+}

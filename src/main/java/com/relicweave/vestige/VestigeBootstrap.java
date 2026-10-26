@@ -1,6 +1,10 @@
 package com.relicweave.vestige;
 
 import com.relicweave.RelicWeave;
+import com.relicweave.vestige.boss.BossRegistry;
+import com.relicweave.vestige.boss.a.BossesA;
+import com.relicweave.vestige.boss.b.BossesB;
+import com.relicweave.vestige.boss.c.BossesC;
 import com.relicweave.vestige.entity.beast.BeastMobs;
 import com.relicweave.vestige.entity.ethereal.EtherealMobs;
 import com.relicweave.vestige.entity.humanoid.HumanoidMobs;
@@ -41,7 +45,11 @@ public final class VestigeBootstrap {
             VestigeMaterials.ITEMS,
             HumanoidMobs.ITEMS,
             BeastMobs.ITEMS,
-            EtherealMobs.ITEMS);
+            EtherealMobs.ITEMS,
+            BossRegistry.ITEMS,
+            BossesA.ITEMS,
+            BossesB.ITEMS,
+            BossesC.ITEMS);
 
     public static final RegistryObject<CreativeModeTab> VESTIGE_TAB = TABS.register("the_vestige", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.relicweave.the_vestige"))
@@ -75,7 +83,11 @@ public final class VestigeBootstrap {
         for (DeferredRegister<?> register : List.of(
                 HumanoidMobs.ENTITIES, HumanoidMobs.ITEMS, HumanoidMobs.SOUNDS,
                 BeastMobs.ENTITIES, BeastMobs.ITEMS, BeastMobs.SOUNDS,
-                EtherealMobs.ENTITIES, EtherealMobs.ITEMS, EtherealMobs.SOUNDS)) {
+                EtherealMobs.ENTITIES, EtherealMobs.ITEMS, EtherealMobs.SOUNDS,
+                BossRegistry.BLOCKS, BossRegistry.ITEMS, BossRegistry.BLOCK_ENTITIES,
+                BossesA.ENTITIES, BossesA.ITEMS, BossesA.SOUNDS,
+                BossesB.ENTITIES, BossesB.ITEMS, BossesB.SOUNDS,
+                BossesC.ENTITIES, BossesC.ITEMS, BossesC.SOUNDS)) {
             register.register(modBus);
         }
         VestigeSounds.SOUNDS.register(modBus);
