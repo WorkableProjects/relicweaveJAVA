@@ -12,6 +12,14 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import com.relicweave.vestige.VestigeKeys;
+import com.relicweave.vestige.relic.GravityNail;
+import com.relicweave.vestige.relic.MnemonicSpindle;
+import com.relicweave.vestige.relic.RiftglassLantern;
+import com.relicweave.vestige.relic.SealkeepersSignet;
+import com.relicweave.vestige.relic.SurveyorScan;
+import com.relicweave.vestige.relic.VestigeRelics;
 
 /**
  * Server-side entry point for the Activate Relic key (and right-clicking a Wayfarer's Relic). Re-validates everything:
@@ -47,6 +55,11 @@ public final class RelicActivation {
             case LODESTONE -> toggleLodestone(player);
             case WAYFARER -> WayfarerChannel.start(player);
             case ECHO -> echoPulse(player);
+            case SURVEYORS_LENS -> surveyorPulse(player);
+            case GRAVITY_NAIL -> gravityNail(player);
+            case RIFTGLASS_LANTERN -> riftglassLantern(player);
+            case MNEMONIC_SPINDLE -> mnemonicSpindle(player);
+            case SEALKEEPERS_SIGNET -> sealkeepersSignet(player);
             default -> false;
         };
     }
@@ -79,6 +92,79 @@ public final class RelicActivation {
         }
         player.level().playSound(null, player.blockPosition(), ModSounds.RELIC_ACTIVATE.get(), SoundSource.PLAYERS, 1.0F, 1.0F);
         RelicCooldowns.start(player, RelicType.ECHO);
+        return true;
+    }
+
+    // ---- 0.0.4 Vestige relics (cooldown starts only when the relic actually did something) ----
+
+    private static boolean inVestige(ServerPlayer player) {
+        return player.level().dimension() == VestigeKeys.THE_VESTIGE;
+    }
+
+    private static boolean vestigeOnly(ServerPlayer player, RelicType type) {
+        if (inVestige(player)) {
+            return true;
+        }
+        player.displayClientMessage(Component.translatable("message.relicweave.relic.vestige_only", type.displayName()), true);
+        return false;
+    }
+
+    private static void finishVestige(ServerPlayer player, RelicType type, ItemStack stack) {
+        player.level().playSound(null, player.blockPosition(), ModSounds.RELIC_ACTIVATE.get(), SoundSource.PLAYERS, 1.0F, 1.0F);
+        RelicCooldowns.start(player, type, VestigeRelics.cooldownTicks(type, stack));
+    }
+
+    private static boolean surveyorPulse(ServerPlayer player) {
+        ItemStack stack = RelicLocator.first(player, RelicType.SURVEYORS_LENS);
+        int found = SurveyorScan.pulse(player, stack);
+        player.displayClientMessage(Component.translatable(found > 0 ? "message.relicweave.surveyor.found" : "message.relicweave.surveyor.none", found), true);
+        finishVestige(player, RelicType.SURVEYORS_LENS, stack);
+        return true;
+    }
+
+    private static boolean gravityNail(ServerPlayer player) {
+        if (!vestigeOnly(player, RelicType.GRAVITY_NAIL)) {
+            return false;
+        }
+        ItemStack stack = RelicLocator.first(player, RelicType.GRAVITY_NAIL);
+        GravityNail.anchor(player, GravityNail.durationTicks(stack));
+        player.displayClientMessage(Component.translatable("message.relicweave.gravity_nail.anchored"), true);
+        finishVestige(player, RelicType.GRAVITY_NAIL, stack);
+        return true;
+    }
+
+    private static boolean riftglassLantern(ServerPlayer player) {
+        if (!vestigeOnly(player, RelicType.RIFTGLASS_LANTERN)) {
+            return false;
+        }
+        ItemStack stack = RelicLocator.first(player, RelicType.RIFTGLASS_LANTERN);
+        RiftglassLantern.create(player, stack);
+        player.displayClientMessage(Component.translatable("message.relicweave.lantern.lit"), true);
+        finishVestige(player, RelicType.RIFTGLASS_LANTERN, stack);
+        return true;
+    }
+
+    private static boolean mnemonicSpindle(ServerPlayer player) {
+        if (!MnemonicSpindle.terminalNearby(player.serverLevel(), player.blockPosition())) {
+            player.displayClientMessage(Component.translatable("message.relicweave.spindle.no_terminal"), true);
+            return false;
+        }
+        ItemStack stack = RelicLocator.first(player, RelicType.MNEMONIC_SPINDLE);
+        MnemonicSpindle.decode(player, stack);
+        finishVestige(player, RelicType.MNEMONIC_SPINDLE, stack);
+        return true;
+    }
+
+    private static boolean sealkeepersSignet(ServerPlayer player) {
+        if (!vestigeOnly(player, RelicType.SEALKEEPERS_SIGNET)) {
+            return false;
+        }
+        ItemStack stack = RelicLocator.first(player, RelicType.SEALKEEPERS_SIGNET);
+        if (SealkeepersSignet.pulse(player, stack) == 0) {
+            player.displayClientMessage(Component.translatable("message.relicweave.signet.nothing"), true);
+            return false;
+        }
+        finishVestige(player, RelicType.SEALKEEPERS_SIGNET, stack);
         return true;
     }
 }

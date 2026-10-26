@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "relicweave:surveyors_lens",
+    "relicweave:gravity_nail",
+    "relicweave:cycle_dial",
+    "relicweave:riftglass_lantern",
+    "relicweave:mnemonic_spindle",
+    "relicweave:sealkeepers_signet"
+  ]
+}

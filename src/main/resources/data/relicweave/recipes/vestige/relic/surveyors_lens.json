@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " G ",
+    "GLG",
+    " P "
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "L": {
+      "item": "relicweave:riftglass_lens"
+    },
+    "P": {
+      "item": "relicweave:inscribed_page"
+    }
+  },
+  "result": {
+    "item": "relicweave:surveyors_lens",
+    "count": 1
+  }
+}

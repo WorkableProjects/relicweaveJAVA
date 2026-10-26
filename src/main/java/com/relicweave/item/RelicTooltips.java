@@ -3,6 +3,7 @@ package com.relicweave.item;
 import com.relicweave.client.RelicClient;
 import com.relicweave.compat.curios.CuriosCompat;
 import com.relicweave.config.RelicWeaveConfig;
+import com.relicweave.relic.RelicAugment;
 import com.relicweave.relic.RelicType;
 import com.relicweave.relic.WayfarerChannel;
 import net.minecraft.ChatFormatting;
@@ -45,10 +46,16 @@ public final class RelicTooltips {
         if (type == RelicType.ECHO) {
             tooltip.add(Component.translatable("tooltip.relicweave.echo.glowing").withStyle(ChatFormatting.DARK_GRAY));
         }
+        if (type.vestige()) {
+            String key = "tooltip.relicweave." + type.itemPath();
+            tooltip.add(Component.translatable(key + ".where").withStyle(ChatFormatting.GRAY));
+            tooltip.add(Component.translatable(key + ".caps").withStyle(ChatFormatting.DARK_GRAY));
+        }
         if (type.hasCooldown()) {
             tooltip.add(Component.translatable("tooltip.relicweave.relic.cooldown", cooldownSeconds(type)).withStyle(ChatFormatting.DARK_GRAY));
         }
         tooltip.add(Component.translatable("tooltip.relicweave.relic.no_stack").withStyle(ChatFormatting.DARK_GRAY));
+        RelicAugment.appendTooltip(stack, tooltip);
     }
 
     /** "Works anywhere in your inventory..." or "Works from your offhand..." depending on {@code charmActivation}. */
@@ -73,6 +80,11 @@ public final class RelicTooltips {
             case WAYFARER -> 300;
             case ECHO -> 45;
             case GUARDIAN -> 120;
+            case SURVEYORS_LENS -> 30;
+            case GRAVITY_NAIL -> 20;
+            case RIFTGLASS_LANTERN -> 90;
+            case MNEMONIC_SPINDLE -> 10;
+            case SEALKEEPERS_SIGNET -> 60;
             default -> 0;
         };
     }
