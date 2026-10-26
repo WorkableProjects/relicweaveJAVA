@@ -86,7 +86,9 @@ public final class FieldHazardGameTests {
         helper.runAfterDelay(WARNING - 5, () -> helper.assertTrue(near.getHealth() == nearBefore, "No damage before the warning ends"));
         helper.runAfterDelay(WARNING + 5, () -> {
             helper.assertTrue(near.getHealth() < nearBefore, "Zombie inside the ring is hurt, health " + near.getHealth());
-            helper.assertTrue(far.getHealth() == farBefore, "Zombie outside the ring is untouched, health " + far.getHealth());
+            // Other parallel tests can nick the far zombie, so check the starfall never hit it rather than raw health.
+            helper.assertTrue(far.getLastDamageSource() == null || !far.getLastDamageSource().is(StarfallImpacts.DAMAGE_TYPE),
+                    "Zombie outside the ring was hit by the starfall, health " + far.getHealth() + " (was " + farBefore + ")");
             helper.succeed();
         });
     }
