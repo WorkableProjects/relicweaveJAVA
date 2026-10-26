@@ -32,6 +32,7 @@
     "relicweave:gravity_anchor",
     "relicweave:false_wall",
     "relicweave:hidden_glyph",
-    "relicweave:glyph_seal"
+    "relicweave:glyph_seal",
+    "relicweave:reliquary_loom"
   ]
 }
