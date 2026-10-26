@@ -2,6 +2,7 @@ package com.relicweave.relic;
 
 import com.relicweave.RelicWeave;
 import com.relicweave.registry.ModSounds;
+import com.relicweave.vestige.hazard.field.NullPockets;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -30,6 +31,11 @@ public final class RelicActivation {
     /** Called on the server thread. Returns true if the relic activated (or toggled). */
     public static boolean tryActivate(ServerPlayer player, RelicType type) {
         if (!player.isAlive() || player.isSpectator() || !type.activatable() || !RelicLocator.has(player, type)) {
+            return false;
+        }
+        if (NullPockets.isSuppressed(player)) {
+            // Null Pocket (0.0.4): active relics do nothing here; cooldowns and charges are untouched.
+            player.displayClientMessage(Component.translatable("message.relicweave.null_pocket.suppressed", type.displayName()), true);
             return false;
         }
         if (type.hasCooldown() && !RelicCooldowns.isReady(player, type)) {
