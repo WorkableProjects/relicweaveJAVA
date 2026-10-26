@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "relicweave:crown_of_concordance"
+  ],
+  "spawners": {
+    "type": "relicweave:oathbreaker_knight",
+    "weight": 8,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}

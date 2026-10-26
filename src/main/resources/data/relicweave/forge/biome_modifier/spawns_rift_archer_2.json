@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "relicweave:crown_of_concordance"
+  ],
+  "spawners": {
+    "type": "relicweave:rift_archer",
+    "weight": 12,
+    "minCount": 1,
+    "maxCount": 2
+  }
+}

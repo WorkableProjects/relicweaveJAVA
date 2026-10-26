@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "relicweave:hushfen"
+  ],
+  "spawners": {
+    "type": "relicweave:mirebound_cantor",
+    "weight": 35,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}

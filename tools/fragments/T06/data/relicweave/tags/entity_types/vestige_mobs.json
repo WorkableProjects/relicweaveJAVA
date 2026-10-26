@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "relicweave:reliquary_sentinel",
+    "relicweave:scriptbound_scribe",
+    "relicweave:gilded_husk",
+    "relicweave:mirebound_cantor",
+    "relicweave:oathbreaker_knight",
+    "relicweave:vestige_drifter",
+    "relicweave:rift_archer",
+    "relicweave:echo_weaver"
+  ]
+}
