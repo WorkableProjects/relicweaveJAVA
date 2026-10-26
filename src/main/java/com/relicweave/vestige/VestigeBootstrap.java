@@ -60,9 +60,11 @@ public final class VestigeBootstrap {
         RiftRegistry.BLOCKS.register(modBus);
         RiftRegistry.ITEMS.register(modBus);
         RiftRegistry.EFFECTS.register(modBus);
+        RiftRegistry.POI_TYPES.register(modBus);
         FieldRegistry.BLOCKS.register(modBus);
         FieldRegistry.ITEMS.register(modBus);
         FieldRegistry.ENTITIES.register(modBus);
+        FieldRegistry.POI_TYPES.register(modBus);
         VestigeMaterials.ITEMS.register(modBus);
         VestigeSounds.SOUNDS.register(modBus);
         TABS.register(modBus);
