@@ -40,15 +40,26 @@ public final class VestigeSpawnRules {
         if (!mob.getType().is(VestigeKeys.VESTIGE_MOBS)) {
             return false;
         }
-        double rate = VestigeConfig.SPEC.isLoaded() ? VestigeConfig.NATURAL_SPAWN_RATE.get() : 1.0;
-        if (mob.getType().is(VestigeKeys.VESTIGE_ELITES)) {
-            rate *= Math.min(1.0, VestigeConfig.SPEC.isLoaded() ? VestigeConfig.ELITE_SPAWN_RATE.get() : 1.0);
-        }
-        if (rate < 1.0 && level.random.nextDouble() >= rate) {
+        boolean enemy = mob instanceof Enemy;
+        return shouldRefuse(mob.getType().is(VestigeKeys.VESTIGE_ELITES), enemy,
+                enemy ? nearbyHostiles(level, mob) : 0,
+                VestigeConfig.SPEC.isLoaded() ? VestigeConfig.NATURAL_SPAWN_RATE.get() : 1.0,
+                VestigeConfig.SPEC.isLoaded() ? VestigeConfig.ELITE_SPAWN_RATE.get() : 1.0,
+                VestigeConfig.SPEC.isLoaded() ? VestigeConfig.LOCAL_HOSTILE_CAP.get() : 14,
+                level.random.nextDouble());
+    }
+
+    /**
+     * The decision for one natural spawn of a Vestige mob. {@code roll} is uniform in [0, 1). Elite rates above 1 do not
+     * add spawns (elites only come from their biome weight); below 1 they thin elites out further.
+     */
+    public static boolean shouldRefuse(boolean elite, boolean enemy, int nearbyHostiles, double rate, double eliteRate,
+                                       int cap, double roll) {
+        double allowed = rate * (elite ? Math.min(1.0, eliteRate) : 1.0);
+        if (roll >= allowed) {
             return true;
         }
-        int cap = VestigeConfig.SPEC.isLoaded() ? VestigeConfig.LOCAL_HOSTILE_CAP.get() : 14;
-        return mob instanceof Enemy && nearbyHostiles(level, mob) >= cap;
+        return enemy && nearbyHostiles >= cap;
     }
 
     @SubscribeEvent(priority = EventPriority.LOW)
