@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "relicweave:block/reliquary_loom_top",
+    "side": "relicweave:block/reliquary_loom_side",
+    "bottom": "relicweave:block/reliquary_loom_bottom"
+  }
+}

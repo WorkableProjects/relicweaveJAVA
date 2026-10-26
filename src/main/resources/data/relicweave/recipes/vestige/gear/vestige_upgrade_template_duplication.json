@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "DTD",
+    "DAD",
+    "DDD"
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "T": {
+      "item": "relicweave:vestige_upgrade_template"
+    },
+    "A": {
+      "item": "relicweave:concordant_alloy"
+    }
+  },
+  "result": {
+    "item": "relicweave:vestige_upgrade_template",
+    "count": 2
+  }
+}

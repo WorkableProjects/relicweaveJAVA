@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IFI",
+    "VAV",
+    "VVV"
+  ],
+  "key": {
+    "I": {
+      "item": "relicweave:aetherite_ingot"
+    },
+    "F": {
+      "item": "relicweave:mnemonic_filament"
+    },
+    "A": {
+      "tag": "minecraft:wool"
+    },
+    "V": {
+      "item": "relicweave:vestige_bricks"
+    }
+  },
+  "result": {
+    "item": "relicweave:reliquary_loom",
+    "count": 1
+  }
+}
