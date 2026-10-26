@@ -480,5 +480,12 @@
   "structure.relicweave.hall_of_nine_seals": "Hall of Nine Seals",
   "structure.relicweave.crown_bastion": "Crown Bastion",
   "structure.relicweave.crown_of_concordance": "Crown of Concordance",
-  "structure.relicweave.rift_scar": "Rift Scar"
+  "structure.relicweave.rift_scar": "Rift Scar",
+  "structure.relicweave.waystone_monolith": "Waystone Monolith",
+  "structure.relicweave.archivists_outpost": "Archivist's Outpost",
+  "structure.relicweave.ruined_aether_aqueduct": "Ruined Aether Aqueduct",
+  "structure.relicweave.gilded_civic_temple": "Gilded Civic Temple",
+  "structure.relicweave.glassroot_warren": "Glassroot Warren",
+  "structure.relicweave.hush_archive": "Hush Archive",
+  "structure.relicweave.sundered_observatory": "Sundered Observatory"
 }
