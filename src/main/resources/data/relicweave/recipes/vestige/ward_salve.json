@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "relicweave:aetherite_dust"
+    },
+    {
+      "item": "relicweave:aetherite_dust"
+    },
+    {
+      "item": "relicweave:riftglass"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "item": "relicweave:ward_salve",
+    "count": 1
+  }
+}
