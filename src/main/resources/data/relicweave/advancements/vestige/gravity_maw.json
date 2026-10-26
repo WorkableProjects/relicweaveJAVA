@@ -1,5 +1,5 @@
 {
-  "parent": "relicweave:vestige/root",
+  "parent": "relicweave:vestige/choir_unheard",
   "display": {
     "icon": {
       "item": "relicweave:gravity_heart"
@@ -10,11 +10,22 @@
     "description": {
       "translate": "advancements.relicweave.vestige.gravity_maw.description"
     },
-    "frame": "challenge"
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
   },
   "criteria": {
     "defeated": {
       "trigger": "minecraft:impossible"
     }
+  },
+  "requirements": [
+    [
+      "defeated"
+    ]
+  ],
+  "rewards": {
+    "experience": 300
   }
 }

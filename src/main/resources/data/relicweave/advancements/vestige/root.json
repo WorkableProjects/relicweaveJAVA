@@ -9,11 +9,11 @@
     "description": {
       "translate": "advancements.relicweave.vestige.root.description"
     },
-    "background": "relicweave:textures/block/vestige_bricks.png",
     "frame": "task",
     "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
+    "announce_to_chat": false,
+    "hidden": false,
+    "background": "relicweave:textures/block/vestige_bricks.png"
   },
   "criteria": {
     "enter_vestige": {
@@ -22,5 +22,16 @@
         "to": "relicweave:the_vestige"
       }
     }
+  },
+  "requirements": [
+    [
+      "enter_vestige"
+    ]
+  ],
+  "rewards": {
+    "experience": 50,
+    "loot": [
+      "relicweave:quests/first_crossing"
+    ]
   }
 }

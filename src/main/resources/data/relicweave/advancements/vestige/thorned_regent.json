@@ -1,5 +1,5 @@
 {
-  "parent": "relicweave:vestige/root",
+  "parent": "relicweave:vestige/altar_call",
   "display": {
     "icon": {
       "item": "relicweave:sovereign_thorn"
@@ -10,11 +10,22 @@
     "description": {
       "translate": "advancements.relicweave.vestige.thorned_regent.description"
     },
-    "frame": "challenge"
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
   },
   "criteria": {
     "defeated": {
       "trigger": "minecraft:impossible"
     }
+  },
+  "requirements": [
+    [
+      "defeated"
+    ]
+  ],
+  "rewards": {
+    "experience": 200
   }
 }

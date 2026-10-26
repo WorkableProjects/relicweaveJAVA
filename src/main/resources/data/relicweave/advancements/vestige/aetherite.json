@@ -1,0 +1,40 @@
+{
+  "parent": "relicweave:vestige/root",
+  "display": {
+    "icon": {
+      "item": "relicweave:aetherite_shard"
+    },
+    "title": {
+      "translate": "advancements.relicweave.vestige.aetherite.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.vestige.aetherite.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "shard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:aetherite_shard"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "shard"
+    ]
+  ],
+  "rewards": {
+    "experience": 30
+  }
+}

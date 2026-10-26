@@ -1,0 +1,177 @@
+{
+  "parent": "relicweave:vestige/first_ruin",
+  "display": {
+    "icon": {
+      "item": "minecraft:filled_map"
+    },
+    "title": {
+      "translate": "advancements.relicweave.vestige.cartographer.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.vestige.cartographer.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "crownfall_basin": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "relicweave:crownfall_basin"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "glassroot_wilds": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "relicweave:glassroot_wilds"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "aurelian_canopy": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "relicweave:aurelian_canopy"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "hushfen": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "relicweave:hushfen"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "sundered_reach": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "relicweave:sundered_reach"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "starfall_caldera": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "relicweave:starfall_caldera"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "gloam_archive": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "relicweave:gloam_archive"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "crown_of_concordance": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "relicweave:crown_of_concordance"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "crownfall_basin"
+    ],
+    [
+      "glassroot_wilds"
+    ],
+    [
+      "aurelian_canopy"
+    ],
+    [
+      "hushfen"
+    ],
+    [
+      "sundered_reach"
+    ],
+    [
+      "starfall_caldera"
+    ],
+    [
+      "gloam_archive"
+    ],
+    [
+      "crown_of_concordance"
+    ]
+  ],
+  "rewards": {
+    "experience": 300
+  }
+}

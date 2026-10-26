@@ -1,5 +1,6 @@
 package com.relicweave.vestige.gear;
 
+import com.relicweave.quest.QuestEvents;
 import com.relicweave.item.RelicItem;
 import com.relicweave.relic.RelicAugment;
 import com.relicweave.vestige.VestigeConfig;
@@ -176,6 +177,9 @@ public class ReliquaryLoomMenu extends AbstractContainerMenu {
             take(SLOT_FILAMENT, augmentFilamentCost());
             take(SLOT_MATERIAL, RelicAugment.MATERIAL_COST);
             augment.apply(relic);
+            if (player instanceof net.minecraft.server.level.ServerPlayer serverPlayer) {
+                QuestEvents.fire(serverPlayer, QuestEvents.LOOM_AUGMENT);
+            }
         }
         if (items instanceof ItemStackHandler handler) {
             handler.setStackInSlot(SLOT_RELIC, relic);

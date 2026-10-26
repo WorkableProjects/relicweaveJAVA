@@ -1,0 +1,144 @@
+{
+  "parent": "relicweave:relicweave/celestial_ingot",
+  "display": {
+    "icon": {
+      "item": "relicweave:celestial_sword"
+    },
+    "title": {
+      "translate": "advancements.relicweave.relicweave.celestial_gear.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.relicweave.celestial_gear.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "celestial_helmet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_helmet"
+            ]
+          }
+        ]
+      }
+    },
+    "celestial_chestplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_chestplate"
+            ]
+          }
+        ]
+      }
+    },
+    "celestial_leggings": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_leggings"
+            ]
+          }
+        ]
+      }
+    },
+    "celestial_boots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_boots"
+            ]
+          }
+        ]
+      }
+    },
+    "celestial_sword": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_sword"
+            ]
+          }
+        ]
+      }
+    },
+    "celestial_pickaxe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_pickaxe"
+            ]
+          }
+        ]
+      }
+    },
+    "celestial_axe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_axe"
+            ]
+          }
+        ]
+      }
+    },
+    "celestial_shovel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_shovel"
+            ]
+          }
+        ]
+      }
+    },
+    "celestial_hoe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_hoe"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "celestial_helmet",
+      "celestial_chestplate",
+      "celestial_leggings",
+      "celestial_boots",
+      "celestial_sword",
+      "celestial_pickaxe",
+      "celestial_axe",
+      "celestial_shovel",
+      "celestial_hoe"
+    ]
+  ],
+  "rewards": {
+    "experience": 50
+  }
+}

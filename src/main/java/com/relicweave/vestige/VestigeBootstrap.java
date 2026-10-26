@@ -1,5 +1,6 @@
 package com.relicweave.vestige;
 
+import com.relicweave.quest.QuestEvents;
 import com.relicweave.RelicWeave;
 import com.relicweave.enchantment.vestige.VestigeEnchantEffects;
 import com.relicweave.vestige.boss.BossRegistry;
@@ -110,5 +111,6 @@ public final class VestigeBootstrap {
 
     private static void commonSetup(FMLCommonSetupEvent event) {
         event.enqueueWork(VestigeNetwork::register);
+        event.enqueueWork(QuestEvents::register);
     }
 }

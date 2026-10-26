@@ -1,5 +1,6 @@
 package com.relicweave.vestige.boss;
 
+import com.relicweave.quest.QuestEvents;
 import com.relicweave.RelicWeave;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -66,6 +67,7 @@ public class SealGateBlock extends HorizontalDirectionalBlock {
                     && level.getBlockState(feet.above()).getCollisionShape(level, feet.above()).isEmpty()
                     && !level.getBlockState(feet.below()).getCollisionShape(level, feet.below()).isEmpty()) {
                 serverPlayer.teleportTo(feet.getX() + 0.5, feet.getY(), feet.getZ() + 0.5);
+                QuestEvents.fire(serverPlayer, QuestEvents.SEAL_GATE_PASSED);
                 level.playSound(null, feet, SoundEvents.ENDERMAN_TELEPORT, SoundSource.BLOCKS, 0.8F, 1.4F);
                 return InteractionResult.CONSUME;
             }

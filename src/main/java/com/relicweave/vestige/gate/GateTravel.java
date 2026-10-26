@@ -1,5 +1,6 @@
 package com.relicweave.vestige.gate;
 
+import com.relicweave.quest.QuestEvents;
 import com.relicweave.RelicWeave;
 import com.relicweave.vestige.VestigeConfig;
 import com.relicweave.vestige.VestigeKeys;
@@ -167,11 +168,15 @@ public final class GateTravel {
 
     /** Full gate use: {@link #prepare} then teleport. */
     public static boolean travel(ServerPlayer player) {
+        boolean leaving = inVestige(player);
         Destination destination = prepare(player);
         if (destination == null) {
             return false;
         }
         teleport(player, destination);
+        if (leaving && !inVestige(player)) {
+            QuestEvents.fire(player, QuestEvents.RETURNED_FROM_VESTIGE);
+        }
         return true;
     }
 

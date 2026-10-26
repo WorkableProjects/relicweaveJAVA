@@ -1,0 +1,40 @@
+{
+  "parent": "relicweave:vestige/thorned_regent",
+  "display": {
+    "icon": {
+      "item": "relicweave:concordant_alloy"
+    },
+    "title": {
+      "translate": "advancements.relicweave.vestige.concordant_alloy.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.vestige.concordant_alloy.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "alloy": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:concordant_alloy"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "alloy"
+    ]
+  ],
+  "rewards": {
+    "experience": 80
+  }
+}

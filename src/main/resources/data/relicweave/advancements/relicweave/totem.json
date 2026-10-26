@@ -1,0 +1,66 @@
+{
+  "parent": "relicweave:relicweave/first_charm",
+  "display": {
+    "icon": {
+      "item": "relicweave:diamond_totem"
+    },
+    "title": {
+      "translate": "advancements.relicweave.relicweave.totem.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.relicweave.totem.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "diamond_totem": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:diamond_totem"
+            ]
+          }
+        ]
+      }
+    },
+    "netherite_totem": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:netherite_totem"
+            ]
+          }
+        ]
+      }
+    },
+    "ultra_totem": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:ultra_totem"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "diamond_totem",
+      "netherite_totem",
+      "ultra_totem"
+    ]
+  ],
+  "rewards": {
+    "experience": 50
+  }
+}

@@ -1,5 +1,6 @@
 package com.relicweave.vestige.boss;
 
+import com.relicweave.quest.QuestEvents;
 import com.relicweave.vestige.VestigeConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -91,6 +92,7 @@ public class BossAltarBlockEntity extends BlockEntity {
             return;
         }
         summonTicks = 0;
+        QuestEvents.fire(player, QuestEvents.BOSS_SUMMONED);
         level.playSound(null, worldPosition, SoundEvents.BEACON_ACTIVATE, SoundSource.HOSTILE, 1.5F, 0.6F);
         player.displayClientMessage(Component.translatable("message.relicweave.altar.awakening"), true);
         setChanged();

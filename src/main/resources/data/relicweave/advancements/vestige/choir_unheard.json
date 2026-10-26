@@ -1,5 +1,5 @@
 {
-  "parent": "relicweave:vestige/root",
+  "parent": "relicweave:vestige/thorned_regent",
   "display": {
     "icon": {
       "item": "relicweave:liminal_chord"
@@ -10,11 +10,22 @@
     "description": {
       "translate": "advancements.relicweave.vestige.choir_unheard.description"
     },
-    "frame": "challenge"
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
   },
   "criteria": {
     "defeated": {
       "trigger": "minecraft:impossible"
     }
+  },
+  "requirements": [
+    [
+      "defeated"
+    ]
+  ],
+  "rewards": {
+    "experience": 250
   }
 }

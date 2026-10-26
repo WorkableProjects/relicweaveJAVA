@@ -1,0 +1,40 @@
+{
+  "parent": "relicweave:relicweave/beyond_the_dragon",
+  "display": {
+    "icon": {
+      "item": "relicweave:threshold_sigil"
+    },
+    "title": {
+      "translate": "advancements.relicweave.relicweave.threshold_sigil.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.relicweave.threshold_sigil.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "sigil": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:threshold_sigil"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "sigil"
+    ]
+  ],
+  "rewards": {
+    "experience": 50
+  }
+}

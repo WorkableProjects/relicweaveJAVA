@@ -1,5 +1,6 @@
 package com.relicweave.vestige.gate;
 
+import com.relicweave.quest.QuestEvents;
 import com.relicweave.vestige.VestigeConfig;
 import com.relicweave.vestige.registry.VestigeSounds;
 import net.minecraft.advancements.Advancement;
@@ -129,6 +130,7 @@ public class GateKeystoneBlockEntity extends BlockEntity {
         level.setBlock(pos, getBlockState().setValue(GateKeystoneBlock.ACTIVE, true), 3);
         level.playSound(null, pos, VestigeSounds.GATE_ACTIVATE.get(), SoundSource.BLOCKS, 1.0F, 1.0F);
         player.displayClientMessage(Component.translatable("message.relicweave.gate.activated"), true);
+        QuestEvents.fire(player, QuestEvents.GATE_ACTIVATED);
     }
 
     private static boolean consumeSigil(ServerPlayer player) {

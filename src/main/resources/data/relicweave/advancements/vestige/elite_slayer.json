@@ -1,0 +1,42 @@
+{
+  "parent": "relicweave:vestige/first_blood",
+  "display": {
+    "icon": {
+      "item": "minecraft:netherite_sword"
+    },
+    "title": {
+      "translate": "advancements.relicweave.vestige.elite_slayer.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.vestige.elite_slayer.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "elite": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "#relicweave:vestige_elites"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "elite"
+    ]
+  ],
+  "rewards": {
+    "experience": 80
+  }
+}

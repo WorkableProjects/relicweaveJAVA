@@ -1,0 +1,265 @@
+{
+  "parent": "relicweave:vestige/root",
+  "display": {
+    "icon": {
+      "item": "relicweave:carved_vestige_stone"
+    },
+    "title": {
+      "translate": "advancements.relicweave.vestige.first_ruin.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.vestige.first_ruin.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "waystone_monolith": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "relicweave:waystone_monolith"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "archivists_outpost": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "relicweave:archivists_outpost"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "ruined_aether_aqueduct": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "relicweave:ruined_aether_aqueduct"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "gilded_civic_temple": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "relicweave:gilded_civic_temple"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "glassroot_warren": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "relicweave:glassroot_warren"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "hush_archive": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "relicweave:hush_archive"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "sundered_observatory": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "relicweave:sundered_observatory"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "gravity_vault": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "relicweave:gravity_vault"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "starfall_forge": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "relicweave:starfall_forge"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "cycle_observatory": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "relicweave:cycle_observatory"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "hall_of_nine_seals": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "relicweave:hall_of_nine_seals"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "crown_bastion": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "relicweave:crown_bastion"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "crown_of_concordance": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "relicweave:crown_of_concordance"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "rift_scar": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "relicweave:rift_scar"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "waystone_monolith",
+      "archivists_outpost",
+      "ruined_aether_aqueduct",
+      "gilded_civic_temple",
+      "glassroot_warren",
+      "hush_archive",
+      "sundered_observatory",
+      "gravity_vault",
+      "starfall_forge",
+      "cycle_observatory",
+      "hall_of_nine_seals",
+      "crown_bastion",
+      "crown_of_concordance",
+      "rift_scar"
+    ]
+  ],
+  "rewards": {
+    "experience": 40
+  }
+}

@@ -75,6 +75,18 @@ Waystone Monolith, Archivist's Outpost, Ruined Aether Aqueduct, Gilded Civic Tem
 - Riftwalker and Gravitic Tread share a 50% cap. The 3-infusion limit per Celestial piece is unchanged.
 - JEI shows all the new machine recipes, an info page per source item, and the Reliquary Loom augments.
 
+### Traveler's Primer and quest line
+- **The Vestige: A Traveler's Primer**, an 11-page, spoiler-free book on how to start:
+  - covers the Threshold Sigil, Concordance Frame and Gate Keystone recipes, how to lay out and wake the gate, crossing over, getting home, packing, and general safety;
+  - given once when you defeat the Ender Dragon (players who already have, get it at their next login);
+  - can also be crafted from a Book, an Eye of Ender and an Amethyst Shard.
+- **Quest line** in two advancement tabs (the vanilla Advancements screen, no extra mod needed):
+  - **RelicWeave** (22 quests): the Transmutation Table and its books, Celestial ore and gear, the Celestial Infuser and infusions, charms, relics and totems, steaks, the Ender Dragon, the Threshold Sigil and waking a gate.
+  - **The Vestige** (35 quests): first crossing and the way home, the Cycle, hazards and Ward Salves, Aetherite and Riftglass, structures and biomes, creatures (including a full bestiary challenge), the new relics, the Loom and augments, the new enchantments and infusions, all six bosses in order, the Seal Gate, Concordant Alloy, the upgrade template and Aetherforged gear.
+  - Quests give experience. The first crossing also gives 2 Ward Salves and some food.
+  - Custom steps use a new advancement trigger, `relicweave:quest`.
+  - The six boss quests keep their existing ids; they are now chained in order.
+
 ### Configuration, UI and guide
 - New server config `relicweave-vestige-server.toml`: gate, cycle, hazards, mobs, bosses, relics and Loom.
 - New client config `relicweave-client.toml`: music, ambience, particle density, distortion, hazard HUD.
@@ -84,7 +96,7 @@ Waystone Monolith, Archivist's Outpost, Ruined Aether Aqueduct, Gilded Civic Tem
 - The network gained a separate `relicweave:vestige` channel, so clients and servers must both run 0.0.4.
 
 ### Tests
-- 329 GameTests (102 in 0.0.3), all passing both without Curios and with `-PwithCurios`. They cover the mapping baseline, worldgen, gate travel, the cycle, hazards, all mobs, structures, bosses, gear, the Loom, relics, enchantments and infusions.
+- 334 GameTests (102 in 0.0.3), all passing both without Curios and with `-PwithCurios`. They cover the mapping baseline, worldgen, gate travel, the cycle, hazards, all mobs, structures, bosses, gear, the Loom, relics, enchantments, infusions, the quest line and the primer.
 - A dedicated server boots with no client-only class loading.
 
 ### Known limitations

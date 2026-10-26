@@ -1,0 +1,105 @@
+{
+  "parent": "relicweave:relicweave/first_charm",
+  "display": {
+    "icon": {
+      "item": "relicweave:wayfarers_relic"
+    },
+    "title": {
+      "translate": "advancements.relicweave.relicweave.relic_hunter.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.relicweave.relic_hunter.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "lodestone_charm": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:lodestone_charm"
+            ]
+          }
+        ]
+      }
+    },
+    "tidal_charm": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:tidal_charm"
+            ]
+          }
+        ]
+      }
+    },
+    "featherwoven_charm": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:featherwoven_charm"
+            ]
+          }
+        ]
+      }
+    },
+    "wayfarers_relic": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:wayfarers_relic"
+            ]
+          }
+        ]
+      }
+    },
+    "echo_charm": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:echo_charm"
+            ]
+          }
+        ]
+      }
+    },
+    "guardian_relic": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:guardian_relic"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "lodestone_charm",
+      "tidal_charm",
+      "featherwoven_charm",
+      "wayfarers_relic",
+      "echo_charm",
+      "guardian_relic"
+    ]
+  ],
+  "rewards": {
+    "experience": 40
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:book"
+    },
+    {
+      "item": "minecraft:ender_eye"
+    },
+    {
+      "item": "minecraft:amethyst_shard"
+    }
+  ],
+  "result": {
+    "item": "minecraft:written_book",
+    "count": 1,
+    "nbt": "{title:\"The Vestige: A Traveler's Primer\",author:\"An Unknown Archivist\",pages:['{\"translate\": \"book.relicweave.primer.page1\"}','{\"translate\": \"book.relicweave.primer.page2\"}','{\"translate\": \"book.relicweave.primer.page3\"}','{\"translate\": \"book.relicweave.primer.page4\"}','{\"translate\": \"book.relicweave.primer.page5\"}','{\"translate\": \"book.relicweave.primer.page6\"}','{\"translate\": \"book.relicweave.primer.page7\"}','{\"translate\": \"book.relicweave.primer.page8\"}','{\"translate\": \"book.relicweave.primer.page9\"}','{\"translate\": \"book.relicweave.primer.page10\"}','{\"translate\": \"book.relicweave.primer.page11\"}']}"
+  }
+}

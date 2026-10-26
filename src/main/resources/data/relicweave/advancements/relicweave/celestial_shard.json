@@ -1,0 +1,40 @@
+{
+  "parent": "relicweave:relicweave/root",
+  "display": {
+    "icon": {
+      "item": "relicweave:celestial_shard"
+    },
+    "title": {
+      "translate": "advancements.relicweave.relicweave.celestial_shard.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.relicweave.celestial_shard.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "shard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_shard"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "shard"
+    ]
+  ],
+  "rewards": {
+    "experience": 30
+  }
+}

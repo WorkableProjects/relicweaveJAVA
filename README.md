@@ -73,6 +73,8 @@ A post-End dimension: the ruins of the Concordance, a civilization that tried to
 - **Aetherforged gear:** upgrade Netherite gear at a Smithing Table with a **Vestige Upgrade Template** and **Concordant Alloy** (Aetherite Ingots + a boss core). It is a sidegrade to Netherite with slightly more durability and toughness, and it softens Rift Saturation. Celestial stays the strongest tier.
 - **Reliquary Loom:** gives each of the six new relics one of two reversible augments, Exploration or Stability.
 - **Six new relics:** Surveyor's Lens, Gravity Nail, Cycle Dial, Riftglass Lantern, Mnemonic Spindle and Sealkeeper's Signet. They use the same Activate/Cycle Relic keys.
+- **Getting started:** defeating the Ender Dragon gives you **The Vestige: A Traveler's Primer**, a short spoiler-free book on building and waking a gate and getting home. It can also be crafted from a Book, an Eye of Ender and an Amethyst Shard.
+- **Quest line:** two advancement tabs, *RelicWeave* (the machines and earlier content) and *The Vestige* (57 quests in all). They guide you from your first Transmutation Table to Archivist-Prime.
 - **New Attunement rows:** six Vestige materials each make one new enchantment *or* one new infusion. The 0.0.2 and 0.0.3 recipes are unchanged.
 
 | Source item | Transmutation Table | Celestial Infuser |

@@ -1,0 +1,34 @@
+{
+  "parent": "relicweave:relicweave/relic_hunter",
+  "display": {
+    "icon": {
+      "item": "relicweave:echo_charm"
+    },
+    "title": {
+      "translate": "advancements.relicweave.relicweave.relic_activated.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.relicweave.relic_activated.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "activated": {
+      "trigger": "relicweave:quest",
+      "conditions": {
+        "event": "relic_activated"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "activated"
+    ]
+  ],
+  "rewards": {
+    "experience": 30
+  }
+}

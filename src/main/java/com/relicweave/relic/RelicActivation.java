@@ -1,5 +1,6 @@
 package com.relicweave.relic;
 
+import com.relicweave.quest.QuestEvents;
 import com.relicweave.RelicWeave;
 import com.relicweave.registry.ModSounds;
 import com.relicweave.vestige.hazard.field.NullPockets;
@@ -51,7 +52,7 @@ public final class RelicActivation {
             player.displayClientMessage(Component.translatable("message.relicweave.relic.cooldown", type.displayName(), seconds), true);
             return false;
         }
-        return switch (type) {
+        boolean activated = switch (type) {
             case LODESTONE -> toggleLodestone(player);
             case WAYFARER -> WayfarerChannel.start(player);
             case ECHO -> echoPulse(player);
@@ -62,6 +63,10 @@ public final class RelicActivation {
             case SEALKEEPERS_SIGNET -> sealkeepersSignet(player);
             default -> false;
         };
+        if (activated) {
+            QuestEvents.fire(player, QuestEvents.RELIC_ACTIVATED);
+        }
+        return activated;
     }
 
     // ---- Lodestone ----
@@ -151,6 +156,7 @@ public final class RelicActivation {
         }
         ItemStack stack = RelicLocator.first(player, RelicType.MNEMONIC_SPINDLE);
         MnemonicSpindle.decode(player, stack);
+        QuestEvents.fire(player, QuestEvents.TERMINAL_DECODED);
         finishVestige(player, RelicType.MNEMONIC_SPINDLE, stack);
         return true;
     }

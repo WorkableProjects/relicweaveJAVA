@@ -1,0 +1,34 @@
+{
+  "parent": "relicweave:vestige/warden_of_seals",
+  "display": {
+    "icon": {
+      "item": "relicweave:seal_gate"
+    },
+    "title": {
+      "translate": "advancements.relicweave.vestige.seal_gate.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.vestige.seal_gate.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "passed": {
+      "trigger": "relicweave:quest",
+      "conditions": {
+        "event": "seal_gate_passed"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "passed"
+    ]
+  ],
+  "rewards": {
+    "experience": 150
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "parent": "relicweave:relicweave/root",
+  "display": {
+    "icon": {
+      "item": "relicweave:transmutation_table"
+    },
+    "title": {
+      "translate": "advancements.relicweave.relicweave.transmutation_table.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.relicweave.transmutation_table.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "table": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:transmutation_table"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "table"
+    ]
+  ],
+  "rewards": {
+    "experience": 20
+  }
+}

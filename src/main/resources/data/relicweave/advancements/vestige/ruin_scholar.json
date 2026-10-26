@@ -1,0 +1,158 @@
+{
+  "parent": "relicweave:vestige/first_ruin",
+  "display": {
+    "icon": {
+      "item": "relicweave:ancient_terminal"
+    },
+    "title": {
+      "translate": "advancements.relicweave.vestige.ruin_scholar.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.vestige.ruin_scholar.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "waystone_monolith": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "relicweave:waystone_monolith"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "archivists_outpost": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "relicweave:archivists_outpost"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "ruined_aether_aqueduct": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "relicweave:ruined_aether_aqueduct"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "gilded_civic_temple": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "relicweave:gilded_civic_temple"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "sundered_observatory": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "relicweave:sundered_observatory"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "cycle_observatory": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "relicweave:cycle_observatory"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "rift_scar": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "relicweave:rift_scar"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "waystone_monolith"
+    ],
+    [
+      "archivists_outpost"
+    ],
+    [
+      "ruined_aether_aqueduct"
+    ],
+    [
+      "gilded_civic_temple"
+    ],
+    [
+      "sundered_observatory"
+    ],
+    [
+      "cycle_observatory"
+    ],
+    [
+      "rift_scar"
+    ]
+  ],
+  "rewards": {
+    "experience": 200
+  }
+}
