@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "key": {
+    "S": {
+      "item": "relicweave:vestige_stone"
+    }
+  },
+  "result": {
+    "item": "relicweave:polished_vestige_stone",
+    "count": 4
+  }
+}

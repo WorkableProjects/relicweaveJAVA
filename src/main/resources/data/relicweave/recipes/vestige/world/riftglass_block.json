@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "RR",
+    "RR"
+  ],
+  "key": {
+    "R": {
+      "item": "relicweave:riftglass"
+    }
+  },
+  "result": {
+    "item": "relicweave:riftglass_block",
+    "count": 1
+  }
+}

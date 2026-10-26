@@ -1,0 +1,31 @@
+{
+  "feature": "relicweave:vestige_canopy_tree",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 4
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "WORLD_SURFACE_WG"
+    },
+    {
+      "type": "minecraft:biome"
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:matching_blocks",
+        "blocks": "relicweave:aureate_moss",
+        "offset": [
+          0,
+          -1,
+          0
+        ]
+      }
+    }
+  ]
+}

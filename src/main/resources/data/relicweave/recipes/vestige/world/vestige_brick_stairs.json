@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "B  ",
+    "BB ",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "relicweave:vestige_bricks"
+    }
+  },
+  "result": {
+    "item": "relicweave:vestige_brick_stairs",
+    "count": 4
+  }
+}

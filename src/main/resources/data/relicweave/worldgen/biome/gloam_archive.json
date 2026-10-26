@@ -1,0 +1,59 @@
+{
+  "has_precipitation": false,
+  "temperature": 0.25,
+  "downfall": 0.1,
+  "effects": {
+    "fog_color": 5003392,
+    "sky_color": 3951740,
+    "water_color": 3428488,
+    "water_fog_color": 1055808,
+    "grass_color": 5794968,
+    "foliage_color": 5005452,
+    "ambient_sound": "relicweave:ambient.vestige.gloam_archive",
+    "mood_sound": {
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2.0
+    },
+    "music": {
+      "sound": "relicweave:music.vestige",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": false
+    },
+    "particle": {
+      "options": {
+        "type": "minecraft:white_ash"
+      },
+      "probability": 0.003
+    }
+  },
+  "spawners": {
+    "monster": [],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "relicweave:vestige_ore_aetherite"
+    ]
+  ]
+}

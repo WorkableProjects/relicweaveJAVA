@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "relicweave:block/canopy_leaves"
+  },
+  "render_type": "minecraft:cutout_mipped"
+}

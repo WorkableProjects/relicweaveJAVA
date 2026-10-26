@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "P",
+    "P"
+  ],
+  "key": {
+    "P": {
+      "item": "relicweave:polished_vestige_stone"
+    }
+  },
+  "result": {
+    "item": "relicweave:vestige_pillar",
+    "count": 2
+  }
+}

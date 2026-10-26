@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "relicweave:block/vestige_pillar"
+    },
+    "axis=z": {
+      "model": "relicweave:block/vestige_pillar_horizontal",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "relicweave:block/vestige_pillar_horizontal",
+      "x": 90,
+      "y": 90
+    }
+  }
+}
