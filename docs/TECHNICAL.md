@@ -4,7 +4,7 @@ A Minecraft Forge mod that turns items and catalysts into enchanted books carryi
 
 | | |
 |---|---|
-| Version | `0.0.3` |
+| Version | `0.0.4` |
 | Minecraft | Java Edition `1.20.1` |
 | Forge | `47.3.0+` |
 | Java | `17` |
@@ -156,7 +156,7 @@ All crafting, smithing and smelting recipes for RelicWeave items show up in JEI'
 
 ### Guide book
 
-Each player receives a written **RelicWeave Guide** (24 pages) once, on their first login to a world. It covers the Transmutation Table, the Celestial Infuser, Attunement sources, the new enchantments and infusions, relics, cooldowns, controls and Curios. The received edition is stored in Forge's persisted player data, so it survives death; players who received the 0.0.2 guide (13 pages) get the new edition once, with a chat note. The page text lives in the lang file (`book.relicweave.guide.page1` to `page24`).
+Each player receives a written **RelicWeave Guide** (45 pages since 0.0.4) once, on their first login to a world. It covers the Transmutation Table, the Celestial Infuser, Attunement sources, the new enchantments and infusions, relics, cooldowns, controls and Curios. The received edition is stored in Forge's persisted player data, so it survives death; players who received an older edition (0.0.2: 13 pages, 0.0.3: 24 pages) get the new edition once, with a chat note. The page text lives in the lang file (`book.relicweave.guide.page1` to `page45`).
 
 ### Attunement source items (0.0.3)
 
@@ -172,6 +172,28 @@ Each player receives a written **RelicWeave Guide** (24 pages) once, on their fi
 | `reaping` | Oak Sapling | 16 + 1 Amethyst Shard → Reaping I (5 s) | 32 → Anchored |
 
 Reprisal uses Lapis Lazuli as its catalyst because 8 Copper Ingots + Amethyst Shard is already Oxidation.
+
+### The Vestige (0.0.4)
+
+All 0.0.4 code lives under `com.relicweave.vestige` (plus the new rows in `AttunementMapping`, `ModEnchantments`, `InfusionType` and `RelicType`). `VestigeBootstrap` registers every 0.0.4 `DeferredRegister`; each feature area owns its own registry class.
+
+| Area | Package / data | Notes |
+|---|---|---|
+| IDs | `VestigeKeys` | Dimension `relicweave:the_vestige`, 8 biome keys, 14 structure keys, biome/entity/block tags. Never rename them: worlds store them. |
+| Dimension | `data/relicweave/dimension*`, `worldgen/noise_settings/the_vestige.json`, `worldgen/biome/*` | Data-driven. Vanilla overworld noise router, multi-noise source with 8 biomes, `vestige_stone` default block, sea level 48. Client sky and fog in `vestige/client/world`. Terrain blocks: `world/VestigeWorldBlocks`. Data generator: `tools/gen_world_data.py`. |
+| Gate | `vestige/gate` | Keystone ritual (block entity), `GateTravel` (return point in persisted player data, safe-spot search, cooldown), `ArrivalPlaza` + `VestigeWorldData` (built once). Advancement `relicweave:vestige/root`. |
+| Cycle | `vestige/cycle` | `ConcordanceCycle` is a pure function of world game time. `CycleTicker` fires `VestigeCycleEvent.PhaseChanged` and syncs `CycleSyncPacket`. HUD: `vestige/client/cycle`. |
+| Hazards | `vestige/hazard` | `HazardProtection` (contributors combine multiplicatively, capped by `maxHazardProtection`) and `HazardStatus` (HUD flags). Rift Saturation: `hazard/rift` (meter in persisted player data). Gravity, Starfall, Null Pockets, Hush: `hazard/field`. |
+| Network | `vestige/network/VestigeNetwork` | Separate channel `relicweave:vestige`, server → client only: cycle, hazard state and block reveals. |
+| Mobs | `vestige/entity/{humanoid,beast,ethereal}` | `VestigeSpawnRules` is the single natural-spawn gate (rate, elite rate, local cap). `Telegraph` provides wind-up cues. Spawns come from `forge/biome_modifier/spawns_*.json`. |
+| Structures | `tools/structures/nbtgen.py`, `gen_part1.py`, `gen_part2.py` | Python generators write the NBT templates and the jigsaw structure, pool, structure-set and biome-tag JSON. Re-running them reproduces identical files. |
+| Puzzle blocks | `vestige/puzzle/PuzzleBlocks` | False Wall, Hidden Glyph (`#relicweave:hidden_glyphs`), Glyph Seal (`#relicweave:breakable_seals`), Ancient Terminal. |
+| Bosses | `vestige/boss` (framework), `boss/{a,b,c}` | `VestigeBoss`: arena leash, boss bar, reset, scaling, phases. `BossAltarBlockEntity`: summon, rematch cooldown. `BossRewards`: per-player advancement `relicweave:vestige/<boss>`, awarded once. `SealGateBlock`: lets through only players who beat the Warden. |
+| Gear and Loom | `vestige/gear` | Aetherforged tier and perk, smithing recipes, Reliquary Loom (menu buttons validated on the server). JEI: `compat/jei/vestige/VestigeJeiPlugin`. |
+| Relics | `relic/RelicType` (appended), `relic/RelicAugment`, `vestige/relic` | Same activation, cooldown and locator code as 0.0.3. Augments are stored as `{"relicweave:augment":{id,v:1}}`; unknown data reads as no augment. |
+| Enchantments / infusions | `enchantment/vestige`, `infusion/effects/vestige` | Six new `AttunementMapping` rows with source tags and recipes. The 0.0.2/0.0.3 recipes are frozen by `MappingBaselineGameTests`. |
+
+Configs: `relicweave-vestige-server.toml` (`VestigeConfig`: every 0.0.4 balance value) and `relicweave-client.toml` (`RelicWeaveClientConfig`). Resource fragments from parallel work were merged with `tools/merge_fragments.py`. Textures are generated by `tools/textures/gen_*.py` from one shared palette (`vestige_palette.py`).
 
 ### Curios (optional)
 
@@ -332,6 +354,9 @@ Checked in a single-player dev client: the block model and textures, opening the
 
 ## Known limitations
 
+- **0.0.4 client-side content has not been viewed in a client yet:** Vestige sky and fog, mob and boss models and textures, HUDs, the Loom screen, reveal outlines and JEI pages. Structures were verified by their generators and GameTests, not walked in-game.
+- GameTest fake players cannot receive advancements, so boss and gate advancements are not tested end to end.
+- Sealed Custodian chests can still be emptied by hoppers or explosions.
 - **0.0.3 client-side features are not checked in a client yet:** the relic HUD, key handling, Tidal fog, Steady Draw movement, the machine status line and flash, and the JEI layout compile and follow the APIs, but no one has looked at them in a running client.
 - Wayfarer's Relic: GameTests confirm the channel completes and starts the cooldown, but the test player cannot actually move, so the teleport itself is untested.
 - Echo Charm uses vanilla Glowing, which every player can see.

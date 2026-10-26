@@ -19,7 +19,7 @@ Either clone it:
 ```
 git clone https://github.com/WorkableProjects/relicweaveJAVA.git
 cd relicweaveJAVA
-git checkout claude/inspiring-einstein-efvbbg
+git checkout claude/relaxed-faraday-dqdd80
 ```
 
 or on GitHub choose the branch, then **Code → Download ZIP**, and unzip it.
@@ -38,7 +38,7 @@ Wait for `BUILD SUCCESSFUL`.
 The finished mod is at:
 
 ```
-build/libs/relicweave-0.0.3.jar
+build/libs/relicweave-0.0.4.jar
 ```
 
 That file is ready to upload to CurseForge or to install. The file name follows `mod_version` in `gradle.properties`.
@@ -46,7 +46,7 @@ That file is ready to upload to CurseForge or to install. The file name follows 
 ## 5. Install it (to test)
 
 1. Install **Forge 47.3.0 or newer** for **Minecraft 1.20.1**.
-2. Copy `relicweave-0.0.3.jar` into the `mods` folder of your Minecraft instance (and of your server, for multiplayer).
+2. Copy `relicweave-0.0.4.jar` into the `mods` folder of your Minecraft instance (and of your server, for multiplayer).
 3. Start Minecraft with the Forge profile.
 
 ## Troubleshooting
