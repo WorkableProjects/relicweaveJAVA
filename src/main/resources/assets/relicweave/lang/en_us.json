@@ -603,5 +603,9 @@
   "jei.relicweave.info.concordant_alloy": "Craft 4 Aetherite Ingots with 1 boss component (Sovereign Thorn, Liminal Chord, Gravity Heart or Starforged Core) to get 2 Concordant Alloy. Alloy upgrades Netherite gear at a smithing table and repairs Aetherforged gear.",
   "jei.relicweave.info.vestige_upgrade_template": "Upgrades Netherite gear into Aetherforged gear at a smithing table together with Concordant Alloy; enchantments and names are kept. Duplicate it with 7 diamonds and 1 Concordant Alloy (makes 2).",
   "jei.relicweave.info.aetherforged": "Smith Netherite gear with a Vestige Upgrade Template and Concordant Alloy. Aetherforged is a sidegrade: slightly more durability, toughness and enchantability. Perk: armor gives 6% Rift Saturation protection per piece, and tools mine Vestige blocks 15% faster.",
-  "jei.relicweave.info.reliquary_loom": "Optional relic customization. Choose one of two augment paths for a supported relic, paying Mnemonic Filament and a path material. Augments are reversible: removing one returns the base relic."
+  "jei.relicweave.info.reliquary_loom": "Optional relic customization. Choose one of two augment paths for a supported relic, paying Mnemonic Filament and a path material. Augments are reversible: removing one returns the base relic.",
+  "effect.relicweave.archivists_mark": "Archivist's Mark",
+  "message.relicweave.cyclebound.on": "Cyclebound: the Resonance quickens your step",
+  "message.relicweave.sealguard.blocked": "Sealguard absorbed the Starfall",
+  "message.relicweave.sealguard.ready": "Sealguard is ready"
 }
