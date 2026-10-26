@@ -556,5 +556,71 @@
         "type": "event"
       }
     ]
+  },
+  "entity.glassroot_stalker.reveal": {
+    "subtitle": "subtitles.relicweave.entity.glassroot_stalker.reveal",
+    "sounds": [
+      {
+        "name": "minecraft:block.amethyst_block.resonate",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.8
+      }
+    ]
+  },
+  "entity.shardback_brute.slam": {
+    "subtitle": "subtitles.relicweave.entity.shardback_brute.slam",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.roar",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.7
+      }
+    ]
+  },
+  "entity.shardback_brute.charge": {
+    "subtitle": "subtitles.relicweave.entity.shardback_brute.charge",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.stunned",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.8
+      }
+    ]
+  },
+  "entity.starfall_strider.charge": {
+    "subtitle": "subtitles.relicweave.entity.starfall_strider.charge",
+    "sounds": [
+      {
+        "name": "minecraft:entity.blaze.shoot",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.8
+      }
+    ]
+  },
+  "entity.gravity_leech.pull": {
+    "subtitle": "subtitles.relicweave.entity.gravity_leech.pull",
+    "sounds": [
+      {
+        "name": "minecraft:block.portal.ambient",
+        "type": "event",
+        "volume": 0.6,
+        "pitch": 1.2
+      }
+    ]
+  },
+  "entity.archive_mimic.creak": {
+    "subtitle": "subtitles.relicweave.entity.archive_mimic.creak",
+    "sounds": [
+      {
+        "name": "minecraft:block.chest.open",
+        "type": "event",
+        "volume": 0.7,
+        "pitch": 0.6
+      }
+    ]
   }
 }
