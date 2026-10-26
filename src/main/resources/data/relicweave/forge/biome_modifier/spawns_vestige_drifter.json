@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "relicweave:crownfall_basin"
+  ],
+  "spawners": {
+    "type": "relicweave:vestige_drifter",
+    "weight": 10,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}
