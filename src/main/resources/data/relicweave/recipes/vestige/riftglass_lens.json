@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " R ",
+    "RAR",
+    " R "
+  ],
+  "key": {
+    "R": {
+      "item": "relicweave:riftglass"
+    },
+    "A": {
+      "item": "minecraft:amethyst_shard"
+    }
+  },
+  "result": {
+    "item": "relicweave:riftglass_lens",
+    "count": 1
+  }
+}
