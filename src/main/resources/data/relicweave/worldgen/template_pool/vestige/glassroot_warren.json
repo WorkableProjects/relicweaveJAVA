@@ -1,0 +1,15 @@
+{
+  "name": "relicweave:vestige/glassroot_warren",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "relicweave:vestige/glassroot_warren",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      }
+    }
+  ]
+}

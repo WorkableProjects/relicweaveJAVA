@@ -1,0 +1,15 @@
+{
+  "name": "relicweave:vestige/archivists_outpost",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "relicweave:vestige/archivists_outpost",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      }
+    }
+  ]
+}
