@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "relicweave:aetherite_ingot"
+    },
+    {
+      "item": "relicweave:aetherite_ingot"
+    },
+    {
+      "item": "relicweave:aetherite_ingot"
+    },
+    {
+      "item": "relicweave:aetherite_ingot"
+    },
+    {
+      "tag": "relicweave:alloy_catalysts"
+    }
+  ],
+  "result": {
+    "item": "relicweave:concordant_alloy",
+    "count": 2
+  }
+}
