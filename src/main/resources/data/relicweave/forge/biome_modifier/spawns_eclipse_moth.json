@@ -1,0 +1,13 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "relicweave:crownfall_basin",
+    "relicweave:aurelian_canopy"
+  ],
+  "spawners": {
+    "type": "relicweave:eclipse_moth",
+    "weight": 15,
+    "minCount": 1,
+    "maxCount": 3
+  }
+}
