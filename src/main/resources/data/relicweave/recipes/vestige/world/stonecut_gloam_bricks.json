@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "relicweave:gloam_stone"
+  },
+  "result": "relicweave:gloam_bricks",
+  "count": 1
+}

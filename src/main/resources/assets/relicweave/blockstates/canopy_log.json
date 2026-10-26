@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "relicweave:block/canopy_log"
+    },
+    "axis=z": {
+      "model": "relicweave:block/canopy_log_horizontal",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "relicweave:block/canopy_log_horizontal",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

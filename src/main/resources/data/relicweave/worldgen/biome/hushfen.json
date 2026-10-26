@@ -1,0 +1,64 @@
+{
+  "has_precipitation": true,
+  "temperature": 0.6,
+  "downfall": 1.0,
+  "effects": {
+    "fog_color": 9216168,
+    "sky_color": 7639208,
+    "water_color": 2639976,
+    "water_fog_color": 1056824,
+    "grass_color": 7113836,
+    "foliage_color": 6061160,
+    "ambient_sound": "relicweave:ambient.vestige.hushfen",
+    "mood_sound": {
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2.0
+    },
+    "music": {
+      "sound": "relicweave:music.vestige",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": false
+    },
+    "particle": {
+      "options": {
+        "type": "minecraft:ash"
+      },
+      "probability": 0.003
+    }
+  },
+  "spawners": {
+    "monster": [],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "relicweave:vestige_ore_aetherite"
+    ],
+    [],
+    [],
+    [
+      "relicweave:vestige_hushfen_reed"
+    ]
+  ]
+}

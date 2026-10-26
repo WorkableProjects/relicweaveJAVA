@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "relicweave:block/glassroot_sprout"
+  },
+  "render_type": "minecraft:cutout"
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "SG",
+    "GS"
+  ],
+  "key": {
+    "S": {
+      "item": "relicweave:polished_vestige_stone"
+    },
+    "G": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "result": {
+    "item": "relicweave:concordant_paving",
+    "count": 4
+  }
+}

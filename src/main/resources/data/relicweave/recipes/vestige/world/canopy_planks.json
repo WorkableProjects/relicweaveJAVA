@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "relicweave:canopy_log"
+    }
+  ],
+  "result": {
+    "item": "relicweave:canopy_planks",
+    "count": 4
+  }
+}

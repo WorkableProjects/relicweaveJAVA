@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "relicweave:vestige_stone"
+  },
+  "result": "relicweave:vestige_pillar",
+  "count": 2
+}

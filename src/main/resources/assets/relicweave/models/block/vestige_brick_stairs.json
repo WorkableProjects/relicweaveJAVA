@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "relicweave:block/vestige_bricks",
+    "top": "relicweave:block/vestige_bricks",
+    "side": "relicweave:block/vestige_bricks"
+  }
+}

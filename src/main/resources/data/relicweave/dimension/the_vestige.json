@@ -1,0 +1,255 @@
+{
+  "type": "relicweave:the_vestige",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "relicweave:the_vestige",
+    "biome_source": {
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "relicweave:crownfall_basin",
+          "parameters": {
+            "temperature": [
+              -0.4,
+              0.4
+            ],
+            "humidity": [
+              -1,
+              0.05
+            ],
+            "continentalness": [
+              -0.25,
+              0.55
+            ],
+            "erosion": [
+              -0.35,
+              1
+            ],
+            "depth": 0.0,
+            "weirdness": [
+              -1,
+              1
+            ],
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "relicweave:glassroot_wilds",
+          "parameters": {
+            "temperature": [
+              -0.45,
+              0.1
+            ],
+            "humidity": [
+              0.05,
+              1
+            ],
+            "continentalness": [
+              -0.25,
+              0.55
+            ],
+            "erosion": [
+              -0.35,
+              1
+            ],
+            "depth": 0.0,
+            "weirdness": [
+              -1,
+              1
+            ],
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "relicweave:glassroot_wilds",
+          "parameters": {
+            "temperature": [
+              -1,
+              -0.4
+            ],
+            "humidity": [
+              0.05,
+              1
+            ],
+            "continentalness": [
+              -0.25,
+              0.55
+            ],
+            "erosion": [
+              -0.35,
+              1
+            ],
+            "depth": 0.0,
+            "weirdness": [
+              -1,
+              1
+            ],
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "relicweave:aurelian_canopy",
+          "parameters": {
+            "temperature": [
+              0.1,
+              1
+            ],
+            "humidity": [
+              0.05,
+              1
+            ],
+            "continentalness": [
+              -0.25,
+              0.55
+            ],
+            "erosion": [
+              -0.35,
+              1
+            ],
+            "depth": 0.0,
+            "weirdness": [
+              -1,
+              1
+            ],
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "relicweave:hushfen",
+          "parameters": {
+            "temperature": [
+              -0.45,
+              0.45
+            ],
+            "humidity": [
+              -1,
+              1
+            ],
+            "continentalness": [
+              -1,
+              -0.25
+            ],
+            "erosion": [
+              -1,
+              1
+            ],
+            "depth": 0.0,
+            "weirdness": [
+              -1,
+              1
+            ],
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "relicweave:sundered_reach",
+          "parameters": {
+            "temperature": [
+              -1,
+              1
+            ],
+            "humidity": [
+              -1,
+              1
+            ],
+            "continentalness": [
+              -0.1,
+              0.55
+            ],
+            "erosion": [
+              -1,
+              -0.35
+            ],
+            "depth": 0.0,
+            "weirdness": [
+              -1,
+              1
+            ],
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "relicweave:starfall_caldera",
+          "parameters": {
+            "temperature": [
+              0.4,
+              1
+            ],
+            "humidity": [
+              -1,
+              0.05
+            ],
+            "continentalness": [
+              -1,
+              0.55
+            ],
+            "erosion": [
+              -0.35,
+              1
+            ],
+            "depth": 0.0,
+            "weirdness": [
+              -1,
+              1
+            ],
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "relicweave:gloam_archive",
+          "parameters": {
+            "temperature": [
+              -1,
+              -0.4
+            ],
+            "humidity": [
+              -1,
+              0.05
+            ],
+            "continentalness": [
+              -0.25,
+              0.55
+            ],
+            "erosion": [
+              -0.35,
+              1
+            ],
+            "depth": 0.0,
+            "weirdness": [
+              -1,
+              1
+            ],
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "relicweave:crown_of_concordance",
+          "parameters": {
+            "temperature": [
+              -1,
+              1
+            ],
+            "humidity": [
+              -1,
+              1
+            ],
+            "continentalness": [
+              0.6,
+              1
+            ],
+            "erosion": [
+              -1,
+              -0.35
+            ],
+            "depth": 0.0,
+            "weirdness": [
+              -1,
+              1
+            ],
+            "offset": 0.0
+          }
+        }
+      ]
+    }
+  }
+}
