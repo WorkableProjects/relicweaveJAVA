@@ -820,5 +820,93 @@
         "pitch": 1.0
       }
     ]
+  },
+  "entity.gravity_maw.inhale": {
+    "subtitle": "subtitles.relicweave.entity.gravity_maw.inhale",
+    "sounds": [
+      {
+        "name": "minecraft:entity.warden.sonic_charge",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.6
+      }
+    ]
+  },
+  "entity.gravity_maw.repulse": {
+    "subtitle": "subtitles.relicweave.entity.gravity_maw.repulse",
+    "sounds": [
+      {
+        "name": "minecraft:entity.warden.sonic_boom",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.8
+      }
+    ]
+  },
+  "entity.gravity_maw.bite": {
+    "subtitle": "subtitles.relicweave.entity.gravity_maw.bite",
+    "sounds": [
+      {
+        "name": "minecraft:entity.warden.attack_impact",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.7
+      }
+    ]
+  },
+  "entity.gravity_maw.debris": {
+    "subtitle": "subtitles.relicweave.entity.gravity_maw.debris",
+    "sounds": [
+      {
+        "name": "minecraft:entity.generic.explode",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.5
+      }
+    ]
+  },
+  "entity.starforged_colossus.overheat": {
+    "subtitle": "subtitles.relicweave.entity.starforged_colossus.overheat",
+    "sounds": [
+      {
+        "name": "minecraft:block.fire.ambient",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.6
+      }
+    ]
+  },
+  "entity.starforged_colossus.slam": {
+    "subtitle": "subtitles.relicweave.entity.starforged_colossus.slam",
+    "sounds": [
+      {
+        "name": "minecraft:entity.iron_golem.attack",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.5
+      }
+    ]
+  },
+  "entity.starforged_colossus.heat_pulse": {
+    "subtitle": "subtitles.relicweave.entity.starforged_colossus.heat_pulse",
+    "sounds": [
+      {
+        "name": "minecraft:entity.blaze.shoot",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.6
+      }
+    ]
+  },
+  "entity.starforged_colossus.barrage": {
+    "subtitle": "subtitles.relicweave.entity.starforged_colossus.barrage",
+    "sounds": [
+      {
+        "name": "minecraft:entity.firework_rocket.launch",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.6
+      }
+    ]
   }
 }
