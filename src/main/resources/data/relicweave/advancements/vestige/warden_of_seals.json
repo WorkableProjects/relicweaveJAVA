@@ -1,0 +1,20 @@
+{
+  "parent": "relicweave:vestige/root",
+  "display": {
+    "icon": {
+      "item": "relicweave:concordant_seal"
+    },
+    "title": {
+      "translate": "advancements.relicweave.vestige.warden_of_seals.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.vestige.warden_of_seals.description"
+    },
+    "frame": "challenge"
+  },
+  "criteria": {
+    "defeated": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "parent": "relicweave:vestige/root",
+  "display": {
+    "icon": {
+      "item": "relicweave:prime_mnemonic_core"
+    },
+    "title": {
+      "translate": "advancements.relicweave.vestige.archivist_prime.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.vestige.archivist_prime.description"
+    },
+    "frame": "challenge"
+  },
+  "criteria": {
+    "defeated": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
