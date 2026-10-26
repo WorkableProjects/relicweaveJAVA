@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "relicweave:glassroot_wilds"
+  ],
+  "spawners": {
+    "type": "relicweave:aether_grazer",
+    "weight": 20,
+    "minCount": 2,
+    "maxCount": 3
+  }
+}

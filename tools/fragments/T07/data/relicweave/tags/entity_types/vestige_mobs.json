@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "relicweave:glassroot_stalker",
+    "relicweave:ruin_hound",
+    "relicweave:aether_grazer",
+    "relicweave:shardback_brute",
+    "relicweave:starfall_strider",
+    "relicweave:gravity_leech",
+    "relicweave:archive_mimic"
+  ]
+}
