@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "relicweave:crown_of_concordance",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 64,
+    "separation": 24,
+    "salt": 40400206
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "relicweave:vestige/hall_of_nine_seals",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "relicweave:vestige/hall_of_nine_seals",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      }
+    }
+  ]
+}
