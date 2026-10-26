@@ -423,5 +423,10 @@
   "message.relicweave.altar.cooldown": "The altar is recovering: %s s",
   "message.relicweave.altar.awakening": "Something stirs beneath the altar...",
   "message.relicweave.seal_gate.sealed": "Sealed. Only those who defeated the Warden of Seals may pass.",
-  "message.relicweave.seal_gate.blocked": "Something blocks the way beyond the gate"
+  "message.relicweave.seal_gate.blocked": "Something blocks the way beyond the gate",
+  "block.relicweave.false_wall": "Vestige Bricks (False Wall)",
+  "block.relicweave.hidden_glyph": "Hidden Glyph",
+  "block.relicweave.glyph_seal": "Glyph Seal",
+  "block.relicweave.ancient_terminal": "Ancient Terminal",
+  "message.relicweave.terminal.unreadable": "The terminal's script shifts, unreadable. A Mnemonic Spindle could decode it."
 }

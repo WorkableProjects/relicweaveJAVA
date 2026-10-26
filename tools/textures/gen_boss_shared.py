@@ -43,3 +43,24 @@ for x, y in [(7, 4), (8, 4), (6, 5), (9, 5), (6, 6), (9, 6), (7, 7), (8, 7), (7,
     tpl.putpixel((x, y), rgba(TEAL[3] if y < 8 else GOLD[3]))
 outline(tpl, IVORY[0])
 save(tpl, "item/vestige_upgrade_template")
+
+# ---- Puzzle blocks (false wall uses the vestige_bricks texture directly) ----
+glyph = bricks(new(16), IVORY, seed=405, mortar=IVORY[1])
+for x, y in [(5, 5), (6, 6), (7, 7), (8, 6), (9, 5), (7, 8), (7, 9), (6, 10), (8, 10)]:
+    glyph.putpixel((x, y), rgba(IVORY[4]))
+save(glyph, "block/hidden_glyph")
+seal = noise_fill(new(16), INK, seed=406, lo=1, hi=2)
+for x in range(16):
+    for y in range(16):
+        d = ((x - 7.5) ** 2 + (y - 7.5) ** 2) ** 0.5
+        if d < 6.5:
+            seal.putpixel((x, y), rgba(GOLD[3] if d > 5 else (TEAL[3] if (x * y) % 3 else GOLD[2])))
+save(seal, "block/glyph_seal")
+term = noise_fill(new(16), INK, seed=407, lo=0, hi=1)
+for y in range(3, 13):
+    for x in range(3, 13):
+        term.putpixel((x, y), rgba(TEAL[1]))
+for y in (5, 7, 9, 11):
+    for x in range(4, 12, 2):
+        term.putpixel((x, y), rgba(TEAL[4] if (x + y) % 4 else GOLD[4]))
+save(term, "block/ancient_terminal")

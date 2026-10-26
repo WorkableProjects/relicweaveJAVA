@@ -12,6 +12,7 @@ import com.relicweave.vestige.gate.GateRegistry;
 import com.relicweave.vestige.hazard.FieldRegistry;
 import com.relicweave.vestige.hazard.RiftRegistry;
 import com.relicweave.vestige.network.VestigeNetwork;
+import com.relicweave.vestige.puzzle.PuzzleBlocks;
 import com.relicweave.vestige.registry.VestigeMaterials;
 import com.relicweave.vestige.registry.VestigeSounds;
 import com.relicweave.vestige.world.VestigeWorldBlocks;
@@ -47,6 +48,7 @@ public final class VestigeBootstrap {
             BeastMobs.ITEMS,
             EtherealMobs.ITEMS,
             BossRegistry.ITEMS,
+            PuzzleBlocks.ITEMS,
             BossesA.ITEMS,
             BossesB.ITEMS,
             BossesC.ITEMS);
@@ -85,6 +87,7 @@ public final class VestigeBootstrap {
                 BeastMobs.ENTITIES, BeastMobs.ITEMS, BeastMobs.SOUNDS,
                 EtherealMobs.ENTITIES, EtherealMobs.ITEMS, EtherealMobs.SOUNDS,
                 BossRegistry.BLOCKS, BossRegistry.ITEMS, BossRegistry.BLOCK_ENTITIES,
+                PuzzleBlocks.BLOCKS, PuzzleBlocks.ITEMS,
                 BossesA.ENTITIES, BossesA.ITEMS, BossesA.SOUNDS,
                 BossesB.ENTITIES, BossesB.ITEMS, BossesB.SOUNDS,
                 BossesC.ENTITIES, BossesC.ITEMS, BossesC.SOUNDS)) {
