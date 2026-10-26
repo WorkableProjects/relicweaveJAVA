@@ -1,0 +1,9 @@
+{
+  "type": "relicweave:infusion",
+  "ingredient": {
+    "tag": "relicweave:attunement_sources/archivists_mark"
+  },
+  "count": 1,
+  "infusion": "relicweave:sealguard",
+  "process_time": 200
+}

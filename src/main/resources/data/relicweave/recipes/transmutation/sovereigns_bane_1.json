@@ -1,0 +1,14 @@
+{
+  "type": "relicweave:transmutation",
+  "input": {
+    "tag": "relicweave:attunement_sources/sovereigns_bane"
+  },
+  "input_count": 1,
+  "catalyst": {
+    "item": "minecraft:amethyst_shard"
+  },
+  "catalyst_count": 2,
+  "enchantment": "relicweave:sovereigns_bane",
+  "level": 1,
+  "process_time": 200
+}

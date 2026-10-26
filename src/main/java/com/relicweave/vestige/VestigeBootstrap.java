@@ -1,6 +1,7 @@
 package com.relicweave.vestige;
 
 import com.relicweave.RelicWeave;
+import com.relicweave.enchantment.vestige.VestigeEnchantEffects;
 import com.relicweave.vestige.boss.BossRegistry;
 import com.relicweave.vestige.boss.a.BossesA;
 import com.relicweave.vestige.boss.b.BossesB;
@@ -9,11 +10,13 @@ import com.relicweave.vestige.entity.beast.BeastMobs;
 import com.relicweave.vestige.entity.ethereal.EtherealMobs;
 import com.relicweave.vestige.entity.humanoid.HumanoidMobs;
 import com.relicweave.vestige.gate.GateRegistry;
+import com.relicweave.vestige.gear.GearRegistry;
 import com.relicweave.vestige.hazard.FieldRegistry;
 import com.relicweave.vestige.hazard.RiftRegistry;
 import com.relicweave.vestige.network.VestigeNetwork;
 import com.relicweave.vestige.puzzle.PuzzleBlocks;
 import com.relicweave.vestige.registry.VestigeMaterials;
+import com.relicweave.vestige.relic.VestigeRelics;
 import com.relicweave.vestige.registry.VestigeSounds;
 import com.relicweave.vestige.world.VestigeWorldBlocks;
 import net.minecraft.core.registries.Registries;
@@ -49,6 +52,8 @@ public final class VestigeBootstrap {
             EtherealMobs.ITEMS,
             BossRegistry.ITEMS,
             PuzzleBlocks.ITEMS,
+            VestigeRelics.ITEMS,
+            GearRegistry.ITEMS,
             BossesA.ITEMS,
             BossesB.ITEMS,
             BossesC.ITEMS);
@@ -88,6 +93,9 @@ public final class VestigeBootstrap {
                 EtherealMobs.ENTITIES, EtherealMobs.ITEMS, EtherealMobs.SOUNDS,
                 BossRegistry.BLOCKS, BossRegistry.ITEMS, BossRegistry.BLOCK_ENTITIES,
                 PuzzleBlocks.BLOCKS, PuzzleBlocks.ITEMS,
+                VestigeRelics.ITEMS, VestigeRelics.BLOCKS, VestigeRelics.BLOCK_ENTITIES, VestigeRelics.MENUS,
+                GearRegistry.ITEMS, GearRegistry.BLOCKS, GearRegistry.BLOCK_ENTITIES, GearRegistry.MENUS,
+                VestigeEnchantEffects.EFFECTS,
                 BossesA.ENTITIES, BossesA.ITEMS, BossesA.SOUNDS,
                 BossesB.ENTITIES, BossesB.ITEMS, BossesB.SOUNDS,
                 BossesC.ENTITIES, BossesC.ITEMS, BossesC.SOUNDS)) {

@@ -1,0 +1,9 @@
+{
+  "type": "relicweave:infusion",
+  "ingredient": {
+    "tag": "relicweave:attunement_sources/sealbreaker"
+  },
+  "count": 4,
+  "infusion": "relicweave:gravitic_tread",
+  "process_time": 200
+}

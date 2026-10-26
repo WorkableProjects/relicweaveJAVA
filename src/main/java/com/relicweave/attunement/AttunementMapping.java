@@ -11,7 +11,7 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraftforge.registries.RegistryObject;
 
 /**
- * The canonical 0.0.3 Attunement source-item matrix. Every row has <b>both</b> a Transmutation Table enchantment and a
+ * The canonical Attunement source-item matrix (0.0.3 rows, then the 0.0.4 Vestige rows). Every row has <b>both</b> a Transmutation Table enchantment and a
  * Celestial Infuser infusion; the two are separate recipes and never applied together.
  * <p>
  * Source items are not hard-coded: each row reads the item tag {@code relicweave:attunement_sources/<row>}, and both
@@ -31,7 +31,21 @@ public enum AttunementMapping {
     /** Default source: Ghast Tear. */
     SOULGUARD("soulguard", ModEnchantments.SOULGUARD, InfusionType.WARDING),
     /** Default source: Oak Sapling. */
-    REAPING("reaping", ModEnchantments.REAPING, InfusionType.ANCHORED);
+    REAPING("reaping", ModEnchantments.REAPING, InfusionType.ANCHORED),
+
+    // ---- 0.0.4 Vestige rows (new-dimension source items only; the rows above are frozen) ----
+    /** Default source: Aetherite Shard. */
+    RIFTWALKER("riftwalker", ModEnchantments.RIFTWALKER, InfusionType.GRAVITIC_TREAD),
+    /** Default source: Inscribed Page. */
+    GLYPHFINDER("glyphfinder", ModEnchantments.GLYPHFINDER, InfusionType.RIFTWARD),
+    /** Default source: Sovereign Thorn. */
+    SOVEREIGNS_BANE("sovereigns_bane", ModEnchantments.SOVEREIGNS_BANE, InfusionType.SEALGUARD),
+    /** Default source: Mnemonic Filament. */
+    CYCLEBOUND("cyclebound", ModEnchantments.CYCLEBOUND, InfusionType.CYCLEWEAVE),
+    /** Default source: Riftglass Lens. */
+    SEALBREAKER("sealbreaker", ModEnchantments.SEALBREAKER, InfusionType.GRAVITIC_TREAD),
+    /** Default source: Concordant Seal. */
+    ARCHIVISTS_MARK("archivists_mark", ModEnchantments.ARCHIVISTS_MARK, InfusionType.SEALGUARD);
 
     private final String key;
     private final RegistryObject<Enchantment> enchantment;

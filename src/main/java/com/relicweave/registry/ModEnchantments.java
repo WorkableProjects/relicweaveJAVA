@@ -57,5 +57,26 @@ public final class ModEnchantments {
     public static final RegistryObject<Enchantment> REPRISAL = ENCHANTMENTS.register("reprisal",
             () -> new RelicEnchantment(Enchantment.Rarity.UNCOMMON, ModEnchantmentCategories.SHIELD, 3, EquipmentSlot.MAINHAND, EquipmentSlot.OFFHAND));
 
+    // 0.0.4 Vestige (effects: com.relicweave.enchantment.vestige; source items: AttunementMapping rows added in 0.0.4)
+    /** Boots: less gravity displacement in The Vestige; shares a combined cap with the Gravitic Tread infusion. */
+    public static final RegistryObject<Enchantment> RIFTWALKER = ENCHANTMENTS.register("riftwalker",
+            () -> new RelicEnchantment(Enchantment.Rarity.RARE, EnchantmentCategory.ARMOR_FEET, 2, EquipmentSlot.FEET));
+    /** Helmet: periodically outlines nearby hidden glyphs and false walls. */
+    public static final RegistryObject<Enchantment> GLYPHFINDER = ENCHANTMENTS.register("glyphfinder",
+            () -> new RelicEnchantment(Enchantment.Rarity.RARE, EnchantmentCategory.ARMOR_HEAD, 2, EquipmentSlot.HEAD));
+    /** Swords/axes: modest bonus damage against Vestige elites and bosses (boss bonus capped). */
+    public static final RegistryObject<Enchantment> SOVEREIGNS_BANE = ENCHANTMENTS.register("sovereigns_bane",
+            () -> new RelicEnchantment(Enchantment.Rarity.VERY_RARE, ModEnchantmentCategories.SWORD_OR_AXE, 3, EquipmentSlot.MAINHAND));
+    /** Leggings: small movement bonus in The Vestige during Resonance. */
+    public static final RegistryObject<Enchantment> CYCLEBOUND = ENCHANTMENTS.register("cyclebound",
+            () -> new RelicEnchantment(Enchantment.Rarity.RARE, EnchantmentCategory.ARMOR_LEGS, 2, EquipmentSlot.LEGS));
+    /** Pickaxes: breaks tagged glyph seals faster; never boss locks or Seal Gates. */
+    public static final RegistryObject<Enchantment> SEALBREAKER = ENCHANTMENTS.register("sealbreaker",
+            () -> new RelicEnchantment(Enchantment.Rarity.UNCOMMON, ModEnchantmentCategories.PICKAXE, 3, EquipmentSlot.MAINHAND));
+    /** Bows/crossbows: struck targets are briefly marked (glowing, slightly more damage from players). */
+    public static final RegistryObject<Enchantment> ARCHIVISTS_MARK = ENCHANTMENTS.register("archivists_mark",
+            () -> new RelicEnchantment(Enchantment.Rarity.VERY_RARE, ModEnchantmentCategories.BOW_OR_CROSSBOW, 2,
+                    EquipmentSlot.MAINHAND, EquipmentSlot.OFFHAND));
+
     private ModEnchantments() {}
 }

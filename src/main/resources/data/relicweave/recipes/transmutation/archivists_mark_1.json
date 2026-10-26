@@ -1,0 +1,14 @@
+{
+  "type": "relicweave:transmutation",
+  "input": {
+    "tag": "relicweave:attunement_sources/archivists_mark"
+  },
+  "input_count": 1,
+  "catalyst": {
+    "item": "minecraft:amethyst_shard"
+  },
+  "catalyst_count": 2,
+  "enchantment": "relicweave:archivists_mark",
+  "level": 1,
+  "process_time": 200
+}
