@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "relicweave:block/return_waystone"
+    }
+  }
+}

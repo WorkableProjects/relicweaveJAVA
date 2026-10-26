@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "relicweave:gate_keystone"
+    },
+    "title": {
+      "translate": "advancements.relicweave.vestige.root.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.vestige.root.description"
+    },
+    "background": "relicweave:textures/block/vestige_bricks.png",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "enter_vestige": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "relicweave:the_vestige"
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "relicweave:block/gate_keystone_top_active",
+    "side": "relicweave:block/gate_keystone_side_active"
+  }
+}
