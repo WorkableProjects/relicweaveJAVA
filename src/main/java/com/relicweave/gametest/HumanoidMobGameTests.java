@@ -243,7 +243,8 @@ public final class HumanoidMobGameTests {
         MireboundCantor cantor = helper.spawnWithNoFreeWill(HumanoidMobs.MIREBOUND_CANTOR.get(), 2.5F, 2.0F, 2.5F);
         ReliquarySentinel ally = helper.spawnWithNoFreeWill(HumanoidMobs.RELIQUARY_SENTINEL.get(), 1.5F, 2.0F, 1.5F);
         OathbreakerKnight elite = helper.spawnWithNoFreeWill(HumanoidMobs.OATHBREAKER_KNIGHT.get(), 3.5F, 2.0F, 3.5F);
-        helper.assertTrue(cantor.completeChant() == 1, "exactly the plain Vestige mob is buffed");
+        // Neighbouring GameTests may also have Vestige mobs within the chant radius, so only assert on our two mobs.
+        helper.assertTrue(cantor.completeChant() >= 1, "at least the plain Vestige mob is buffed");
         helper.assertTrue(ally.hasEffect(MobEffects.DAMAGE_RESISTANCE) && ally.hasEffect(MobEffects.DAMAGE_BOOST), "ally gets Resistance and Strength");
         helper.assertTrue(!elite.hasEffect(MobEffects.DAMAGE_RESISTANCE) && !elite.hasEffect(MobEffects.DAMAGE_BOOST), "elite is not buffed");
         helper.succeed();
