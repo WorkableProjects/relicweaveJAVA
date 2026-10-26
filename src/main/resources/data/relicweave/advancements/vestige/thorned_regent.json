@@ -1,0 +1,20 @@
+{
+  "parent": "relicweave:vestige/root",
+  "display": {
+    "icon": {
+      "item": "relicweave:sovereign_thorn"
+    },
+    "title": {
+      "translate": "advancements.relicweave.vestige.thorned_regent.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.vestige.thorned_regent.description"
+    },
+    "frame": "challenge"
+  },
+  "criteria": {
+    "defeated": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
