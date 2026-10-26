@@ -84,7 +84,7 @@ Waystone Monolith, Archivist's Outpost, Ruined Aether Aqueduct, Gilded Civic Tem
 - The network gained a separate `relicweave:vestige` channel, so clients and servers must both run 0.0.4.
 
 ### Tests
-- TEST_COUNT GameTests (102 in 0.0.3). They cover the mapping baseline, worldgen, gate travel, the cycle, hazards, all mobs, structures, bosses, gear, the Loom, relics, enchantments and infusions.
+- 329 GameTests (102 in 0.0.3), all passing both without Curios and with `-PwithCurios`. They cover the mapping baseline, worldgen, gate travel, the cycle, hazards, all mobs, structures, bosses, gear, the Loom, relics, enchantments and infusions.
 - A dedicated server boots with no client-only class loading.
 
 ### Known limitations

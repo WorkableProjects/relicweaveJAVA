@@ -301,7 +301,9 @@ You need a JDK 17 or newer to run Gradle. The build compiles with a Java 17 tool
 
 ## Automated tests
 
-There are 102 Forge GameTests in `com.relicweave.gametest`: `RelicWeaveGameTests` (11), `EnchantmentGameTests`, `RelicGameTests`, `InfuserGameTests`, `CelestialGameTests`, `UpboundGameTests`, `GuideGameTests`, and for 0.0.3 `AttunementGameTests`, `MachineFeedbackGameTests`, `AttunementEnchantmentGameTests`, `AttunementInfusionGameTests` and `AttunementRelicGameTests`. All 102 pass both without Curios and with `-PwithCurios`. They run on a dedicated-server dist, so they also confirm that no client-only class loads on a server. They cover:
+**0.0.4:** 329 GameTests, all passing without Curios and with `-PwithCurios`. The 0.0.4 classes are `MappingBaselineGameTests` (freezes every 0.0.2/0.0.3 machine recipe), `VestigeWorldGameTests`, `GateGameTests`, `CycleGameTests`, `RiftGameTests`, `FieldHazardGameTests`, `SpawnRulesGameTests`, `HumanoidMobGameTests`, `BeastMobGameTests`, `EtherealMobGameTests`, `StructurePart1GameTests`, `StructurePart2GameTests`, `BossesAGameTests`, `BossesBGameTests`, `BossesCGameTests`, `GearGameTests`, `LoomGameTests`, `VestigeRelicGameTests`, `VestigeEnchantmentGameTests` and `VestigeInfusionGameTests`. GameTests run concurrently in a grid, so tests assert only on the entities they spawned.
+
+The 0.0.3 suite had 102 Forge GameTests in `com.relicweave.gametest`: `RelicWeaveGameTests` (11), `EnchantmentGameTests`, `RelicGameTests`, `InfuserGameTests`, `CelestialGameTests`, `UpboundGameTests`, `GuideGameTests`, and for 0.0.3 `AttunementGameTests`, `MachineFeedbackGameTests`, `AttunementEnchantmentGameTests`, `AttunementInfusionGameTests` and `AttunementRelicGameTests`. All 102 pass both without Curios and with `-PwithCurios`. They run on a dedicated-server dist, so they also confirm that no client-only class loads on a server. They cover:
 
 - Both recipes produce exactly one correctly enchanted book after `process_time`, and consume exactly the right ingredients.
 - A full output slot blocks further processing without consuming anything.

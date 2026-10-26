@@ -2,7 +2,6 @@ package com.relicweave.gametest;
 
 import com.mojang.authlib.GameProfile;
 import com.relicweave.RelicWeave;
-import com.relicweave.item.RelicItem;
 import com.relicweave.registry.ModItems;
 import com.relicweave.relic.RelicAugment;
 import com.relicweave.relic.RelicType;
@@ -20,20 +19,15 @@ import net.minecraft.nbt.StringTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.inventory.ContainerLevelAccess;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.FakePlayerFactory;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.gametest.GameTestHolder;
 import net.minecraftforge.gametest.PrefixGameTestTemplate;
 import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegisterEvent;
 
 import java.util.UUID;
 
@@ -44,37 +38,10 @@ public final class LoomGameTests {
     private static final String TEMPLATE = "platform";
     private static final String CUSTOM_TAG = "relicweave_test_marker";
 
-    /**
-     * Used only when the real Surveyor's Lens is not registered (the Vestige relic items come from another task). It is a
-     * genuine {@link RelicItem}, registered only in development runs (the GameTest system property is set) and behaves
-     * identically for the Loom.
-     */
-    private static Item fallbackLens;
-
-    /** Registers the fallback relic while the item registry is still open; never active in a normal game. */
-    @Mod.EventBusSubscriber(modid = RelicWeave.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-    public static final class TestItems {
-        private TestItems() {}
-
-        @SubscribeEvent
-        public static void onRegister(RegisterEvent event) {
-            if (System.getProperty("forge.enabledGameTestNamespaces") == null) {
-                return;
-            }
-            event.register(ForgeRegistries.Keys.ITEMS, helper -> {
-                if (!ForgeRegistries.ITEMS.containsKey(RelicType.SURVEYORS_LENS.itemId())) {
-                    fallbackLens = new RelicItem(RelicType.SURVEYORS_LENS, new Item.Properties().stacksTo(1));
-                    helper.register(RelicWeave.id("loom_test_lens"), fallbackLens);
-                }
-            });
-        }
-    }
-
     private LoomGameTests() {}
 
     private static ItemStack lens() {
-        Item registered = BuiltInRegistries.ITEM.get(RelicType.SURVEYORS_LENS.itemId());
-        return new ItemStack(registered == Items.AIR ? fallbackLens : registered);
+        return new ItemStack(BuiltInRegistries.ITEM.get(RelicType.SURVEYORS_LENS.itemId()));
     }
 
     private static ItemStack taggedLens() {
