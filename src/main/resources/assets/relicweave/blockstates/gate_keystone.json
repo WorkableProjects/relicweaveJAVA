@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "active=false": {
+      "model": "relicweave:block/gate_keystone"
+    },
+    "active=true": {
+      "model": "relicweave:block/gate_keystone_active"
+    }
+  }
+}
