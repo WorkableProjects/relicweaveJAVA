@@ -1,0 +1,20 @@
+{
+  "parent": "relicweave:vestige/root",
+  "display": {
+    "icon": {
+      "item": "relicweave:gravity_heart"
+    },
+    "title": {
+      "translate": "advancements.relicweave.vestige.gravity_maw.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.vestige.gravity_maw.description"
+    },
+    "frame": "challenge"
+  },
+  "criteria": {
+    "defeated": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
