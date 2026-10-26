@@ -56,6 +56,7 @@ public final class ClientSetup {
                 return;
             }
             Minecraft minecraft = Minecraft.getInstance();
+            ModKeyMappings.migrateCycleKey(minecraft);
             UpboundClient.onClientTick(minecraft);
             while (ModKeyMappings.PURLING.consumeClick()) {
                 // Skip obviously useless requests; the server re-validates everything.

@@ -84,7 +84,7 @@ public final class RelicClient {
         List<RelicType> carried = carriedActivatable(player);
         if (carried.isEmpty()) {
             selected = null;
-            player.displayClientMessage(Component.translatable("message.relicweave.relic.none"), true);
+            player.displayClientMessage(noneMessage(player), true);
             return;
         }
         int index = selected == null ? -1 : carried.indexOf(selected);
@@ -95,11 +95,21 @@ public final class RelicClient {
     private static void activate(LocalPlayer player) {
         RelicType type = validSelection(player);
         if (type == null) {
-            player.displayClientMessage(Component.translatable("message.relicweave.relic.none"), true);
+            player.displayClientMessage(noneMessage(player), true);
             return;
         }
         selected = type;
         PurlingNetwork.CHANNEL.sendToServer(new PurlingNetwork.ActivateRelicPacket(type.itemPath()));
+    }
+
+    /** "No activatable relic", or, when only passive relics are carried, which one works on its own. */
+    private static Component noneMessage(LocalPlayer player) {
+        for (RelicType type : RelicLocator.carried(player)) {
+            if (!type.activatable()) {
+                return Component.translatable("message.relicweave.relic.only_passive", type.displayName());
+            }
+        }
+        return Component.translatable("message.relicweave.relic.none");
     }
 
     /** Tidal Charm: see much further underwater. Forge needs the event cancelled for fog changes to apply. */

@@ -1,5 +1,6 @@
 package com.relicweave;
 
+import com.relicweave.config.RelicWeaveClientConfig;
 import com.relicweave.config.RelicWeaveConfig;
 import com.relicweave.network.PurlingNetwork;
 import com.relicweave.registry.ModBlockEntities;
@@ -39,6 +40,7 @@ public class RelicWeave {
         ModSounds.SOUNDS.register(modBus);
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, RelicWeaveConfig.SPEC);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, RelicWeaveClientConfig.SPEC);
 
         modBus.addListener(this::commonSetup);
         modBus.addListener(this::addCreative);

@@ -49,7 +49,7 @@ Source items are set by item tags (`relicweave:attunement_sources/<name>`), so d
 - **Charms** (Copper, Iron, Gold, Diamond, Netherite) work from anywhere in your inventory. They give speed, armor, luck, max health, and fire resistance respectively.
 - **Totems** (Diamond, Netherite, Ultra) give passive buffs while held in your offhand. They also save you from death. They are **never used up** and go on a cooldown instead. The Ultra Totem works from any slot in inventory, not just the offhand.
 - **New relics (0.0.3):** Lodestone Charm (toggle: pulls nearby drops to you), Tidal Charm (water breathing and clearer water), Featherwoven Charm (half fall damage, slow falling on long falls), Wayfarer's Relic (bind a spot, then channel for 3 s to return to it), Echo Charm (nearby hostile mobs glow) and Guardian Relic (an absorption shield when a hit leaves you at 3 hearts or less).
-- **One key for all active relics:** **Cycle Relic** (default **G**) picks which relic to use, shown next to your hotbar; **Activate Relic** (default **R**) uses it. Both can be rebound under *Options → Controls → Key Binds → RelicWeave*.
+- **One key for all active relics:** **Cycle Relic** (default **Z**) picks which relic to use, shown next to your hotbar; **Activate Relic** (default **R**) uses it. Both can be rebound under *Options → Controls → Key Binds → RelicWeave*.
 - Relic cooldowns are kept per player, so swapping, dropping or re-equipping a relic, dying or relogging never resets them.
 - **Diamond and Netherite Steaks** are top-tier food with regeneration, absorption and protective effects.
 

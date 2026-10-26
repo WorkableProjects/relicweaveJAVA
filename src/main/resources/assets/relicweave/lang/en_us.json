@@ -162,6 +162,7 @@
   "key.relicweave.cycle_relic": "Cycle Relic",
   "message.relicweave.relic.selected": "Selected relic: %s",
   "message.relicweave.relic.none": "No activatable relic",
+  "message.relicweave.relic.only_passive": "%s is passive: it works on its own and has nothing to activate",
   "message.relicweave.relic.cooldown": "%s recharging: %s s",
   "message.relicweave.lodestone.on": "Lodestone Charm: on",
   "message.relicweave.lodestone.off": "Lodestone Charm: off",

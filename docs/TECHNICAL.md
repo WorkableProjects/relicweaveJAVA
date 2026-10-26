@@ -93,7 +93,7 @@ The table is the only source of these enchantments: they never show up at enchan
 
 - `charmActivation` (server config) is `INVENTORY_OR_EQUIPPED` by default: charms and relics work anywhere in the main inventory, the offhand, or a Curios slot. `EQUIPPED_ONLY` limits them to the offhand and Curios slots.
 - Totems keep their hand requirements. `curiosTotems = true` (off by default) also lets a totem work from a Curios slot.
-- **Cycle Relic** (default `G`) picks the next active relic you carry (Lodestone, Wayfarer's, Echo); the selection is shown left of the hotbar with its key and cooldown. **Activate Relic** (default `R`) sends one packet naming the relic; the server checks that you are alive, carry it in a valid location, and that it is off cooldown.
+- **Cycle Relic** (default `Z`; `G` before 0.0.4) picks the next active relic you carry (Lodestone, Wayfarer's, Echo); the selection is shown left of the hotbar with its key and cooldown. **Activate Relic** (default `R`) sends one packet naming the relic; the server checks that you are alive, carry it in a valid location, and that it is off cooldown.
 - Cooldowns are stored per player and per relic type in Forge's persisted player data as an absolute overworld game time, so moving, dropping, duplicating or re-equipping a relic, dying, respawning, changing dimension, relogging and server restarts never reset them. The vanilla item cooldown overlay is only a visual hint.
 - Guardian Relic, Soulguard and Warding add absorption only through `AbsorptionShields`, so together they never exceed `absorptionCap` (default 8 half-hearts), and any of their absorption left when the shield expires is removed. Absorption from other sources is kept.
 
@@ -194,7 +194,7 @@ Curios is a compile-only dependency and is never bundled or required. With Curio
 |---|---|
 | Purling: Throw Ender Pearl | `V` |
 | Activate Relic | `R` |
-| Cycle Relic | `G` |
+| Cycle Relic | `Z` (was `G` in 0.0.3; moved automatically if it clashes with Curios) |
 
 You can rebind all three keys in game under *Options → Controls → Key Binds → RelicWeave*. Key-binding mods such as [Controlling](https://modrinth.com/mod/controlling) also list them, and you can search for them, rebind, reset, or check for conflicts there. Your choices are saved in `options.txt` as `key_key.relicweave.purling`, `key_key.relicweave.activate_relic` and `key_key.relicweave.cycle_relic`. Tooltips and the relic HUD show the current bindings.
 
