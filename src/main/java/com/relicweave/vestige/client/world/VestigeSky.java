@@ -160,22 +160,29 @@ public final class VestigeSky {
         event.setCanceled(true);
     }
 
-    /** Darkens the fog with {@code dread} and tints it toward the cycle phase, strongest (and bloodiest) in Convergence. */
+    /** Dread fog colour: a deep purple haze; a redder purple in Convergence. */
+    private static final float[] PURPLE_FOG = {0.20F, 0.06F, 0.32F};
+    private static final float[] CONVERGENCE_FOG = {0.30F, 0.04F, 0.20F};
+
+    /**
+     * Tints the fog toward the cycle phase, darkens it with {@code dread}, then pulls it toward a deep purple haze
+     * (70 % at full dread). The sky dome's horizon uses this colour too.
+     */
     @SubscribeEvent
     public static void onFogColor(ViewportEvent.ComputeFogColor event) {
         if (!inVestige() || event.getCamera().getFluidInCamera() != FogType.NONE) {
             return;
         }
-        double dread = RelicWeaveClientConfig.DREAD.get();
+        float dread = RelicWeaveClientConfig.DREAD.get().floatValue();
         float dark = DreadPalette.fogScale(dread);
         float[] rgb = phaseColor();
-        if (VestigeClientState.phase == CyclePhase.CONVERGENCE && dread > 0.0) {
-            rgb = new float[]{0.55F, 0.08F, 0.16F};
-        }
         float mix = VestigeClientState.phase == CyclePhase.CONVERGENCE ? 0.22F
                 : VestigeClientState.phase == CyclePhase.RESONANCE ? 0.12F : 0.06F;
-        event.setRed(Mth.lerp(mix, event.getRed(), rgb[0]) * dark);
-        event.setGreen(Mth.lerp(mix, event.getGreen(), rgb[1]) * dark);
-        event.setBlue(Mth.lerp(mix, event.getBlue(), rgb[2]) * dark);
+        float[] purple = VestigeClientState.cycleEnabled && VestigeClientState.phase == CyclePhase.CONVERGENCE
+                ? CONVERGENCE_FOG : PURPLE_FOG;
+        float toPurple = 0.7F * dread;
+        event.setRed(Mth.lerp(toPurple, Mth.lerp(mix, event.getRed(), rgb[0]) * dark, purple[0]));
+        event.setGreen(Mth.lerp(toPurple, Mth.lerp(mix, event.getGreen(), rgb[1]) * dark, purple[1]));
+        event.setBlue(Mth.lerp(toPurple, Mth.lerp(mix, event.getBlue(), rgb[2]) * dark, purple[2]));
     }
 }

@@ -56,7 +56,7 @@ Tip: a creative world with cheats on makes this faster. `/relicweave gate tp` ta
 - [ ] Wear Scuba Gear in the ocean: no air bubbles drop, the water is clear, mining is fast and swimming is quick. The armor bar stays empty.
 
 ## 0.0.4.5.b Dread
-- [ ] In The Vestige: the sky is near-black, the fog is close and dark, and ash drifts around you.
+- [ ] In The Vestige: the sky is near-black, the fog is close and purple, and ash drifts around you.
 - [ ] Torches still light things up properly. Caves are very dark.
 - [ ] Hearts and the XP bar are black and purple with a slow shimmer, and the hotbar is dark. Purple veins creep at the screen edges. Everything goes back to normal when you leave.
 - [ ] Drop below 40% health: the screen edges pulse red.

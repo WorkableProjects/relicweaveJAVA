@@ -7,7 +7,7 @@ Client-side look and HUD only. No gameplay, recipe or save-data changes.
 ### A darker Vestige
 - **Sky:** a near-black dome that fades into the fog at the horizon, with faint cold stars that turn red during Convergence. No sun glare and no clouds. The Concordance rings now glow dimly against the dark.
 - **Light:** daylight and ambient light are up to 55% dimmer. Block light (torches, lava, glowing blocks) is as bright as ever, so carrying a light matters. Caves are close to pitch black.
-- **Fog:** dark and close. It starts a few blocks away and is a solid wall at about 72 blocks (52 in Convergence). It turns blood red in Convergence. Hushfield fog now thickens it further (before, the Vestige haze stopped Hushfield fog from applying).
+- **Fog:** dark and close. It starts a few blocks away and is a solid wall at about 72 blocks (52 in Convergence). It is a deep purple haze, a redder purple in Convergence, and the horizon of the sky takes the same colour. Hushfield fog now thickens it further (before, the Vestige haze stopped Hushfield fog from applying).
 - **Ambience:** ash drifts through the air around you (follows *Particle density*). Souls rise during Convergence. Every 1.5–4 minutes a distant cave sound comes from somewhere in the fog (follows *Ambience*).
 
 ### A darker HUD (while in The Vestige)
