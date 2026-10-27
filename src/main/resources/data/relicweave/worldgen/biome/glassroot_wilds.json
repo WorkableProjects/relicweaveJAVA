@@ -54,7 +54,10 @@
     [],
     [],
     [],
-    [],
+    [
+      "relicweave:vestige_crystal_spire_glassroot",
+      "relicweave:vestige_root_arch"
+    ],
     [],
     [
       "relicweave:vestige_ore_aetherite_common"

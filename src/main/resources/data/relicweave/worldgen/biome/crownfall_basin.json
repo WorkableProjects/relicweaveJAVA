@@ -54,7 +54,12 @@
     [],
     [],
     [],
-    [],
+    [
+      "relicweave:vestige_floating_ruin",
+      "relicweave:vestige_broken_arch",
+      "relicweave:vestige_fallen_statue",
+      "relicweave:vestige_ruined_colonnade"
+    ],
     [],
     [
       "relicweave:vestige_ore_aetherite"

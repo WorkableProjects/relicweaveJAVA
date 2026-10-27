@@ -45,5 +45,14 @@
   },
   "spawn_costs": {},
   "carvers": {},
-  "features": []
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [
+      "relicweave:vestige_broken_arch_common",
+      "relicweave:vestige_ruined_colonnade_dense"
+    ]
+  ]
 }

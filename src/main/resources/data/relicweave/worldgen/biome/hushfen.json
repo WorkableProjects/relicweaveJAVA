@@ -54,7 +54,9 @@
     [],
     [],
     [],
-    [],
+    [
+      "relicweave:vestige_fallen_statue"
+    ],
     [],
     [
       "relicweave:vestige_ore_aetherite"

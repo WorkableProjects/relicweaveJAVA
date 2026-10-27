@@ -1,0 +1,11 @@
+{
+  "type": "relicweave:ruined_colonnade",
+  "config": {
+    "state": {
+      "Name": "relicweave:vestige_pillar",
+      "Properties": {
+        "axis": "y"
+      }
+    }
+  }
+}
