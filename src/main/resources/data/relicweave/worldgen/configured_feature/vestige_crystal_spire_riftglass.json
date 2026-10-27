@@ -1,0 +1,8 @@
+{
+  "type": "relicweave:crystal_spire",
+  "config": {
+    "state": {
+      "Name": "relicweave:riftglass_block"
+    }
+  }
+}
