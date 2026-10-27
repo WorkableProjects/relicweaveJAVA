@@ -35,7 +35,7 @@ public final class ArrivalPlaza {
     /** Blocks above the waystone level that are cleared. */
     public static final int CLEAR_HEIGHT = 8;
     /** Half-size of the terraced area around the plaza (terrain above a gentle slope is cut back). */
-    public static final int TERRACE = HALF + 8;
+    public static final int TERRACE = HALF + 18;
     private static final int FLAGS = Block.UPDATE_CLIENTS;
     private static final int MAX_FILL_DEPTH = 48;
 
@@ -122,7 +122,7 @@ public final class ArrivalPlaza {
                 }
                 int limit = y - 2 + (m - HALF - 1);
                 boolean cut = false;
-                for (int yy = y + CLEAR_HEIGHT + 12; yy > limit; yy--) {
+                for (int yy = y + CLEAR_HEIGHT + 24; yy > limit; yy--) {
                     BlockPos pos = new BlockPos(x + dx, yy, z + dz);
                     BlockState existing = level.getBlockState(pos);
                     if (!existing.isAir() && existing.getFluidState().isEmpty()) {
