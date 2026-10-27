@@ -61,7 +61,7 @@ Source items are set by item tags (`relicweave:attunement_sources/<name>`), so d
 - Both machines now say why they stopped (*Missing ingredient*, *Output full*, *Maximum infusions reached*, …) and play a short sound, particles and a flash when they finish.
 
 ### Dread (new in 0.0.4.5.b)
-The Vestige is now dark and oppressive: a near-black sky, close dark fog, dim daylight (torches stay bright), drifting ash and distant sounds. While you are there the HUD darkens too, with blood-red hearts, a dark hotbar and a creeping vignette that pulses at low health. Adjust it with `dread` and `darkHud` in the client config.
+The Vestige is now dark and oppressive: a near-black sky, close dark fog, dim daylight (torches stay bright), drifting ash and distant sounds. While you are there the HUD darkens too, with shimmering black-and-purple hearts and XP bar, a dark hotbar and creeping purple veins that pulses at low health. Adjust it with `dread` and `darkHud` in the client config.
 
 ### Toolkit (new in 0.0.4.5)
 - **Multitool** (Iron, Diamond, Netherite, Celestial): a sword, an axe and a pickaxe in one tool. Takes all three tools' enchantments.

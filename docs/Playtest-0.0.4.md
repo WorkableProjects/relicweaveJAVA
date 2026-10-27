@@ -58,6 +58,6 @@ Tip: a creative world with cheats on makes this faster. `/relicweave gate tp` ta
 ## 0.0.4.5.b Dread
 - [ ] In The Vestige: the sky is near-black, the fog is close and dark, and ash drifts around you.
 - [ ] Torches still light things up properly. Caves are very dark.
-- [ ] Hearts, hunger, XP bar and hotbar look darker. They go back to normal when you leave.
+- [ ] Hearts and the XP bar are black and purple with a slow shimmer, and the hotbar is dark. Purple veins creep at the screen edges. Everything goes back to normal when you leave.
 - [ ] Drop below 40% health: the screen edges pulse red.
 - [ ] Set `dread = 0` and `darkHud = false` in `relicweave-client.toml`. The old look comes back.

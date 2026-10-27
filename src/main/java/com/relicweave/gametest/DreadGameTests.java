@@ -46,4 +46,21 @@ public final class DreadGameTests {
         helper.assertTrue((grey & 0xFF) > ((grey >> 8) & 0xFF), "Grey frames shift toward violet");
         helper.succeed();
     }
+
+    @GameTest(template = "platform")
+    public static void heartsAndXpTurnBlackAndPurple(GameTestHelper helper) {
+        int heart = DreadPalette.voidPurple(0xFFFF1313, 0.5F);
+        int r = (heart >> 16) & 0xFF;
+        int g = (heart >> 8) & 0xFF;
+        int b = heart & 0xFF;
+        helper.assertTrue(heart >>> 24 == 0xFF, "Alpha kept");
+        helper.assertTrue(b > g && r > g && b >= r - 40, "Bright red becomes purple, got " + Integer.toHexString(heart));
+        int outline = DreadPalette.voidPurple(0xFF000000, 1.0F);
+        helper.assertTrue((outline & 0xFFFFFF) == 0x06020A, "Black outlines stay near-black");
+        int xp = DreadPalette.voidPurple(0xFF80FF20, 0.0F);
+        helper.assertTrue((xp & 0xFF) > ((xp >> 8) & 0xFF), "XP green becomes purple");
+        helper.assertTrue((DreadPalette.voidPurple(0xFF802020, 1.0F) & 0xFF) > (DreadPalette.voidPurple(0xFF802020, 0.0F) & 0xFF),
+                "Shimmer brightens");
+        helper.succeed();
+    }
 }

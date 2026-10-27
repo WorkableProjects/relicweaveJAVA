@@ -57,4 +57,34 @@ public final class DreadPalette {
         b = Math.round(b * 0.58F);
         return (a << 24) | (r << 16) | (g << 8) | b;
     }
+
+    /** Black-to-purple gradient stops for hearts and the XP bar: {position, r, g, b}. */
+    private static final float[][] VOID_PURPLE = {
+            {0.00F, 6, 2, 10}, {0.40F, 52, 12, 88}, {0.75F, 140, 60, 210}, {1.00F, 214, 168, 255}};
+
+    /**
+     * Hearts and XP bar recolour (ARGB): the pixel's brightness picks a colour on a black-to-purple gradient, so
+     * outlines stay black and the fill turns violet. {@code glow} 0..1 brightens it a little (the shimmer). Alpha kept.
+     */
+    public static int voidPurple(int argb, float glow) {
+        int a = argb >>> 24;
+        float r = ((argb >> 16) & 0xFF) / 255.0F;
+        float g = ((argb >> 8) & 0xFF) / 255.0F;
+        float b = (argb & 0xFF) / 255.0F;
+        // Max channel rather than luminance, so saturated reds and greens still read as bright.
+        float t = Math.max(r, Math.max(g, b));
+        t = Mth.clamp(t * (0.85F + 0.3F * glow), 0.0F, 1.0F);
+        for (int i = 1; i < VOID_PURPLE.length; i++) {
+            float[] lo = VOID_PURPLE[i - 1];
+            float[] hi = VOID_PURPLE[i];
+            if (t <= hi[0]) {
+                float f = (t - lo[0]) / (hi[0] - lo[0]);
+                int rr = Math.round(Mth.lerp(f, lo[1], hi[1]));
+                int gg = Math.round(Mth.lerp(f, lo[2], hi[2]));
+                int bb = Math.round(Mth.lerp(f, lo[3], hi[3]));
+                return (a << 24) | (rr << 16) | (gg << 8) | bb;
+            }
+        }
+        return (a << 24) | 0xD6A8FF;
+    }
 }

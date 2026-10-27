@@ -15,7 +15,8 @@ import net.minecraftforge.client.gui.overlay.IGuiOverlay;
 
 /**
  * The dread vignette, drawn under the rest of the HUD while in The Vestige with {@code darkHud} on: a slowly
- * breathing black vignette and dark veins creeping in from the screen edges (bruise violet; crimson in Convergence).
+ * breathing black vignette and two layers of purple veins that slowly creep in and out at the screen edges (crimson
+ * in Convergence).
  * Below 40 % health the veins pulse blood red like a heartbeat.
  */
 public final class DreadOverlay {
@@ -56,22 +57,47 @@ public final class DreadOverlay {
         RenderSystem.defaultBlendFunc();
         RenderSystem.depthMask(false);
 
-        float vignette = Mth.clamp(0.62F * dread * breathe + 0.25F * beat, 0.0F, 0.95F);
+        float vignette = Mth.clamp(0.72F * dread * breathe + 0.25F * beat, 0.0F, 0.95F);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, vignette);
         graphics.blit(VIGNETTE, 0, 0, width, height, 0.0F, 0.0F, 256, 256, 256, 256);
 
-        float r = convergence ? 0.62F : 0.30F;
-        float g = convergence ? 0.05F : 0.08F;
-        float b = convergence ? 0.12F : 0.36F;
-        r = Mth.lerp(beat, r, 0.75F);
-        g = Mth.lerp(beat, g, 0.02F);
-        b = Mth.lerp(beat, b, 0.04F);
-        float veins = Mth.clamp((convergence ? 0.62F : 0.42F) * dread * breathe + 0.45F * beat, 0.0F, 0.95F);
-        RenderSystem.setShaderColor(r, g, b, veins);
-        graphics.blit(VEINS, 0, 0, width, height, 0.0F, 0.0F, 256, 256, 256, 256);
+        // Veins: bright bruise purple (crimson in Convergence, blood red on a heartbeat), two layers that swell and
+        // shrink out of step so the tendrils seem to creep along the edges.
+        float r = convergence ? 0.78F : 0.58F;
+        float g = convergence ? 0.08F : 0.18F;
+        float b = convergence ? 0.20F : 0.92F;
+        r = Mth.lerp(beat, r, 0.85F);
+        g = Mth.lerp(beat, g, 0.03F);
+        b = Mth.lerp(beat, b, 0.06F);
+        float base = (convergence ? 0.75F : 0.6F) * dread;
+        float waveA = 0.5F + 0.5F * Mth.sin(time * 0.045F);
+        float waveB = 0.5F + 0.5F * Mth.sin(time * 0.045F + Mth.PI);
+        veins(graphics, width, height, 1.0F + 0.05F * waveA, false, r, g, b,
+                Mth.clamp(base * (0.55F + 0.45F * waveA) + 0.45F * beat, 0.0F, 0.95F));
+        veins(graphics, width, height, 1.0F + 0.05F * waveB, true, r, g, b,
+                Mth.clamp(base * (0.35F + 0.45F * waveB) + 0.3F * beat, 0.0F, 0.95F));
 
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.depthMask(true);
         RenderSystem.disableBlend();
+    }
+
+    /**
+     * One veins layer, scaled about the screen centre by {@code zoom} (above 1 pulls the tendrils outward), optionally
+     * turned 180 degrees so the second layer's tendrils sit in different places.
+     */
+    private static void veins(GuiGraphics graphics, int width, int height, float zoom, boolean turned,
+                              float r, float g, float b, float alpha) {
+        if (alpha <= 0.0F) {
+            return;
+        }
+        var pose = graphics.pose();
+        pose.pushPose();
+        pose.translate(width / 2.0F, height / 2.0F, 0.0F);
+        pose.scale(turned ? -zoom : zoom, turned ? -zoom : zoom, 1.0F);
+        pose.translate(-width / 2.0F, -height / 2.0F, 0.0F);
+        RenderSystem.setShaderColor(r, g, b, alpha);
+        graphics.blit(VEINS, 0, 0, width, height, 0.0F, 0.0F, 256, 256, 256, 256);
+        pose.popPose();
     }
 }

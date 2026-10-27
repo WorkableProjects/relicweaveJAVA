@@ -11,8 +11,8 @@ Client-side look and HUD only. No gameplay, recipe or save-data changes.
 - **Ambience:** ash drifts through the air around you (follows *Particle density*). Souls rise during Convergence. Every 1.5–4 minutes a distant cave sound comes from somewhere in the fog (follows *Ambience*).
 
 ### A darker HUD (while in The Vestige)
-- **Vanilla HUD darkened:** hearts turn blood red, and hunger, armor, air, the XP bar, the hotbar frame and the selected slot are all darker. The darkened textures are made at runtime from your active resource pack, and the originals come back when you leave. The crosshair is not changed.
-- **Dread vignette:** a slowly breathing black vignette with dark veins creeping in from the screen edges (violet, crimson in Convergence). Below 40% health the veins pulse red like a heartbeat.
+- **Vanilla HUD darkened:** hearts and the XP bar turn black and purple, with a slow purple shimmer moving across them. Hunger, armor, air, the hotbar frame and the selected slot are all darker. The darkened textures are made at runtime from your active resource pack, and the originals come back when you leave. The crosshair is not changed.
+- **Dread vignette:** a slowly breathing black vignette and two layers of purple veins that creep in and out at the screen edges (crimson in Convergence). Below 40% health the veins pulse red like a heartbeat.
 - **Cycle and hazard readouts** sit on a dark plate with bone-white text and a crimson Convergence warning.
 
 ### Settings (`config/relicweave-client.toml`, `[vestige]`)
@@ -20,7 +20,7 @@ Client-side look and HUD only. No gameplay, recipe or save-data changes.
 - `darkHud` (default true): darkened HUD and the dread vignette.
 
 ### Tests
-- 3 new GameTests in `DreadGameTests` cover the fog, light and HUD colour math. 358 in total, all passing.
+- 4 new GameTests in `DreadGameTests` cover the fog, light and HUD colour math. 359 in total, all passing.
 
 ## 0.0.4.5 — The Toolkit Update
 
