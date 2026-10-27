@@ -51,6 +51,8 @@ That file is ready to upload to CurseForge or to install. The file name follows 
 
 ## Troubleshooting
 
+- **macOS: build hangs on `processResources`, or fails with "Cannot access a file in the destination directory" / "Failed to create MD5 hash" / `last-build.bin (Operation timed out)`:** the project is in a folder that iCloud Drive syncs, usually `Documents` or `Desktop` (GitHub Desktop clones into `~/Documents/GitHub` by default). iCloud offloads files, and Gradle then times out reading them. Clone the project into a folder iCloud doesn't sync, for example `~/dev`, and build there.
+
 - **`JAVA_HOME is not set` / `java not found`:** Java isn't installed or isn't on your PATH. Reinstall the JDK and tick "Set JAVA_HOME" in the installer.
 - **Download errors or timeouts:** run the build again. Gradle resumes where it stopped.
 - **Old jars in `build/libs`:** only use the one whose version matches `gradle.properties`. Run `gradlew clean build` to start fresh.
