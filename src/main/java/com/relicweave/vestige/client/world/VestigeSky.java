@@ -10,7 +10,11 @@ import com.mojang.blaze3d.vertex.VertexFormat;
 import com.mojang.math.Axis;
 import com.relicweave.RelicWeave;
 import com.relicweave.vestige.VestigeKeys;
+import com.relicweave.config.RelicWeaveClientConfig;
 import com.relicweave.vestige.client.VestigeClientState;
+import com.relicweave.vestige.client.dread.DreadPalette;
+import com.relicweave.vestige.client.field.HushFog;
+import com.relicweave.vestige.network.VestigeNetwork.HazardSyncPacket;
 import com.relicweave.vestige.cycle.CyclePhase;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -29,7 +33,8 @@ import org.joml.Matrix4f;
 /**
  * The Vestige's sky and atmosphere: the "sky-spanning mechanism" of the Concordance — four vast concentric rune rings
  * hanging in the northern sky, each turning tinted by the current cycle phase (teal Quiet, gold Resonance, violet Convergence) — plus a soft distance haze
- * and a phase tint on the fog. Purely cosmetic; shader packs may replace sky and fog with their own.
+ * and a phase tint on the fog. With the client {@code dread} setting the fog is close and dark ({@link DreadPalette}).
+ * Purely cosmetic; shader packs may replace sky and fog with their own.
  */
 @Mod.EventBusSubscriber(modid = RelicWeave.MOD_ID, value = Dist.CLIENT)
 public final class VestigeSky {
@@ -76,6 +81,8 @@ public final class VestigeSky {
         // Rings fade a little in full daylight so they read as something huge and distant, never as UI.
         float daylight = level.getSkyDarken(event.getPartialTick());
         float alphaScale = Mth.lerp(daylight, 0.55F, 0.32F);
+        // Against the dread sky the rings would blaze; keep them a dim, distant glow.
+        alphaScale *= 1.0F - 0.3F * RelicWeaveClientConfig.DREAD.get().floatValue();
         if (VestigeClientState.convergenceWarning) {
             alphaScale *= 0.85F + 0.15F * Mth.sin(time * 0.25F);
         }
@@ -131,30 +138,44 @@ public final class VestigeSky {
         buffer.vertex(m, c0 * out, 0.0F, s0 * out).color(rgb[0], rgb[1], rgb[2], 0.0F).endVertex();
     }
 
-    /** Distance haze: terrain fog starts closer so far ruins fade into the biome's fog colour. */
+    /**
+     * Distance fog: with {@code dread} it closes in to a wall about 72 blocks out (52 in Convergence), starting almost
+     * at your feet. A Hushfield thickens it further ({@link HushFog}; this handler cancels the event, so it applies that
+     * itself).
+     */
     @SubscribeEvent(priority = EventPriority.HIGH)
     public static void onRenderFog(ViewportEvent.RenderFog event) {
         if (!inVestige() || event.getMode() != FogRenderer.FogMode.FOG_TERRAIN
                 || event.getCamera().getFluidInCamera() != FogType.NONE) {
             return;
         }
-        float far = event.getFarPlaneDistance();
-        event.setNearPlaneDistance(far * 0.35F);
-        event.setFarPlaneDistance(far * 0.92F);
+        double dread = RelicWeaveClientConfig.DREAD.get();
+        boolean convergence = VestigeClientState.cycleEnabled && VestigeClientState.phase == CyclePhase.CONVERGENCE;
+        float far = DreadPalette.fogFar(event.getFarPlaneDistance(), dread, convergence);
+        if ((VestigeClientState.hazardFlags & HazardSyncPacket.IN_HUSHFIELD) != 0) {
+            far = Math.min(far, HushFog.farPlane(far, RelicWeaveClientConfig.DISTORTION_INTENSITY.get()));
+        }
+        event.setNearPlaneDistance(DreadPalette.fogNear(far, dread));
+        event.setFarPlaneDistance(far);
         event.setCanceled(true);
     }
 
-    /** Tints the fog slightly toward the cycle phase, strongest in Convergence. */
+    /** Darkens the fog with {@code dread} and tints it toward the cycle phase, strongest (and bloodiest) in Convergence. */
     @SubscribeEvent
     public static void onFogColor(ViewportEvent.ComputeFogColor event) {
         if (!inVestige() || event.getCamera().getFluidInCamera() != FogType.NONE) {
             return;
         }
+        double dread = RelicWeaveClientConfig.DREAD.get();
+        float dark = DreadPalette.fogScale(dread);
         float[] rgb = phaseColor();
+        if (VestigeClientState.phase == CyclePhase.CONVERGENCE && dread > 0.0) {
+            rgb = new float[]{0.55F, 0.08F, 0.16F};
+        }
         float mix = VestigeClientState.phase == CyclePhase.CONVERGENCE ? 0.22F
                 : VestigeClientState.phase == CyclePhase.RESONANCE ? 0.12F : 0.06F;
-        event.setRed(Mth.lerp(mix, event.getRed(), rgb[0]));
-        event.setGreen(Mth.lerp(mix, event.getGreen(), rgb[1]));
-        event.setBlue(Mth.lerp(mix, event.getBlue(), rgb[2]));
+        event.setRed(Mth.lerp(mix, event.getRed(), rgb[0]) * dark);
+        event.setGreen(Mth.lerp(mix, event.getGreen(), rgb[1]) * dark);
+        event.setBlue(Mth.lerp(mix, event.getBlue(), rgb[2]) * dark);
     }
 }

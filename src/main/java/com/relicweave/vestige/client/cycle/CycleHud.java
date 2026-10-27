@@ -2,6 +2,7 @@ package com.relicweave.vestige.client.cycle;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.relicweave.RelicWeave;
+import com.relicweave.config.RelicWeaveClientConfig;
 import com.relicweave.vestige.VestigeKeys;
 import com.relicweave.vestige.client.VestigeClientState;
 import net.minecraft.client.Minecraft;
@@ -52,16 +53,24 @@ public final class CycleHud {
         int x = width - 4 - textWidth - 12;
         int y = 4;
 
+        boolean dark = RelicWeaveClientConfig.DARK_HUD.get();
+        if (dark) {
+            // Dark plate with a thin bruise-violet rule, in keeping with the darkened HUD.
+            int left = x - 4;
+            int bottom = y + (warning ? 22 : 11);
+            graphics.fill(left, y - 2, width - 1, bottom, 0xA8050208);
+            graphics.fill(left, bottom, width - 1, bottom + 1, 0xC0401838);
+        }
         float alpha = warning ? 0.55F + 0.45F * (float) Math.sin((gameTime + partialTick) * 0.4) : 1.0F;
         RenderSystem.enableBlend();
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, alpha);
         graphics.blit(GLYPHS, x, y, VestigeClientState.phase.ordinal() * 9, 0, 9, 9, 27, 9);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-        graphics.drawString(font, name, x + 12, y + 1, 0xFFFFFF, true);
+        graphics.drawString(font, name, x + 12, y + 1, dark ? 0xC9B8B0 : 0xFFFFFF, true);
 
         if (warning) {
             Component line = Component.translatable("hud.relicweave.cycle.warning");
-            graphics.drawString(font, line, width - 4 - font.width(line), y + 12, 0xE0A0FF, true);
+            graphics.drawString(font, line, width - 4 - font.width(line), y + 12, dark ? 0xD84050 : 0xE0A0FF, true);
         }
     }
 }

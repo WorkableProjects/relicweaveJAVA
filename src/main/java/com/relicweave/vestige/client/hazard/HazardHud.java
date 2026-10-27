@@ -111,7 +111,7 @@ public final class HazardHud {
             int y = baseY - row * 10;
             graphics.blit(ICONS, x - 2, y, FLAG_ICON[i] * 9, 0, 9, 9, 45, 9);
             if (!minimal) {
-                graphics.drawString(font, Component.translatable("hud.relicweave.hazard." + FLAG_KEY[i]), x + 9, y + 1, 0xE0E0E0, true);
+                graphics.drawString(font, Component.translatable("hud.relicweave.hazard." + FLAG_KEY[i]), x + 9, y + 1, RelicWeaveClientConfig.DARK_HUD.get() ? 0xC0B0B0 : 0xE0E0E0, true);
             }
             row++;
         }

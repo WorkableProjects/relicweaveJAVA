@@ -24,6 +24,8 @@ public final class RelicWeaveClientConfig {
     public static final ForgeConfigSpec.EnumValue<ParticleDensity> PARTICLE_DENSITY;
     public static final ForgeConfigSpec.DoubleValue DISTORTION_INTENSITY;
     public static final ForgeConfigSpec.EnumValue<HazardHud> HAZARD_HUD;
+    public static final ForgeConfigSpec.DoubleValue DREAD;
+    public static final ForgeConfigSpec.BooleanValue DARK_HUD;
 
     static {
         ForgeConfigSpec.Builder b = new ForgeConfigSpec.Builder();
@@ -47,6 +49,12 @@ public final class RelicWeaveClientConfig {
                 .defineInRange("distortionIntensity", 1.0, 0.0, 1.0);
         HAZARD_HUD = b.comment("FULL shows the exposure meter with labels; MINIMAL shows only an icon while exposure is rising.")
                 .defineEnum("hazardHud", HazardHud.FULL);
+        DREAD = b.comment("How dark and oppressive The Vestige looks: night-black sky, close dark fog, dimmer daylight",
+                        "(torches stay bright) and drifting ash. 0 = the brighter 0.0.4 look, 1 = full dread.")
+                .defineInRange("dread", 1.0, 0.0, 1.0);
+        DARK_HUD = b.comment("In The Vestige, darken the HUD (hearts, hunger, armor, air, XP bar and hotbar) and show a",
+                        "creeping dark vignette.")
+                .define("darkHud", true);
         b.pop();
 
         SPEC = b.build();

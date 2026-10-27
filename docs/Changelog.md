@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.0.4.5.b — Dread
+
+Client-side look and HUD only. No gameplay, recipe or save-data changes.
+
+### A darker Vestige
+- **Sky:** a near-black dome that fades into the fog at the horizon, with faint cold stars that turn red during Convergence. No sun glare and no clouds. The Concordance rings now glow dimly against the dark.
+- **Light:** daylight and ambient light are up to 55% dimmer. Block light (torches, lava, glowing blocks) is as bright as ever, so carrying a light matters. Caves are close to pitch black.
+- **Fog:** dark and close. It starts a few blocks away and is a solid wall at about 72 blocks (52 in Convergence). It turns blood red in Convergence. Hushfield fog now thickens it further (before, the Vestige haze stopped Hushfield fog from applying).
+- **Ambience:** ash drifts through the air around you (follows *Particle density*). Souls rise during Convergence. Every 1.5–4 minutes a distant cave sound comes from somewhere in the fog (follows *Ambience*).
+
+### A darker HUD (while in The Vestige)
+- **Vanilla HUD darkened:** hearts turn blood red, and hunger, armor, air, the XP bar, the hotbar frame and the selected slot are all darker. The darkened textures are made at runtime from your active resource pack, and the originals come back when you leave. The crosshair is not changed.
+- **Dread vignette:** a slowly breathing black vignette with dark veins creeping in from the screen edges (violet, crimson in Convergence). Below 40% health the veins pulse red like a heartbeat.
+- **Cycle and hazard readouts** sit on a dark plate with bone-white text and a crimson Convergence warning.
+
+### Settings (`config/relicweave-client.toml`, `[vestige]`)
+- `dread` (0–1, default 1): how dark The Vestige looks. 0 is the brighter 0.0.4 look.
+- `darkHud` (default true): darkened HUD and the dread vignette.
+
+### Tests
+- 3 new GameTests in `DreadGameTests` cover the fog, light and HUD colour math. 358 in total, all passing.
+
 ## 0.0.4.5 — The Toolkit Update
 
 Minecraft 1.20.1 · Forge 47.3.0+. Adds three pieces of everyday gear. Nothing from 0.0.4 or earlier changes; recipe IDs, items and player data stay valid.

@@ -4,7 +4,7 @@ A Minecraft Forge mod that turns items and catalysts into enchanted books carryi
 
 | | |
 |---|---|
-| Version | `0.0.4.5` |
+| Version | `0.0.4.5.b` |
 | Minecraft | Java Edition `1.20.1` |
 | Forge | `47.3.0+` |
 | Java | `17` |
@@ -173,6 +173,10 @@ Each player receives a written **RelicWeave Guide** (48 pages since 0.0.4.5) onc
 
 Reprisal uses Lapis Lazuli as its catalyst because 8 Copper Ingots + Amethyst Shard is already Oxidation.
 
+### Dread look (0.0.4.5.b)
+
+Client-only, in `vestige/client/dread` and `vestige/client/world`. `DreadPalette` holds the math (pure, tested by `DreadGameTests`). `VestigeDimensionEffects` draws the dark sky dome and stars (`renderSky`), hides clouds and dims the lightmap by sky light only (`adjustLightmapColors`, scaled by block light). `VestigeSky` sets the fog distances and colour. `DreadHudTextures` re-registers darkened copies of `textures/gui/icons.png` and `widgets.png` (built from the active resource pack, crosshair cell untouched) under the vanilla ids while in The Vestige, and restores them on leaving, on `darkHud` off, or on resource reload. Vanilla resets the shader colour before each HUD layer, which is why the HUD is darkened through textures rather than a tint. `DreadOverlay` (registered below every other HUD layer) draws the vignette and veins (`tools/textures/gen_dread.py`). `DreadAmbience` spawns the ash particles and plays the distant cave sounds. Client config: `dread`, `darkHud`.
+
 ### Toolkit (0.0.4.5)
 
 | Part | Code | Notes |
@@ -311,6 +315,8 @@ If a recipe is malformed or out of range, it's rejected and the error is logged 
 You need a JDK 17 or newer to run Gradle. The build compiles with a Java 17 toolchain and downloads one through the Foojay resolver if none is installed.
 
 ## Automated tests
+
+**0.0.4.5.b:** 358 GameTests (`DreadGameTests` adds 3).
 
 **0.0.4.5:** 355 GameTests, all passing; `ToolkitGameTests` (13) covers the Multitool, Super Furnace and Scuba Gear.
 

@@ -60,6 +60,9 @@ Source items are set by item tags (`relicweave:attunement_sources/<name>`), so d
 - The **Celestial Infuser** adds up to 3 different infusions to each Celestial armor piece, for example +1 armor, +2 max health or reduced gravity. There are 13 infusions: 9 attribute infusions that fit any piece and stack across pieces, and 4 effect infusions (0.0.3) that each fit one piece.
 - Both machines now say why they stopped (*Missing ingredient*, *Output full*, *Maximum infusions reached*, …) and play a short sound, particles and a flash when they finish.
 
+### Dread (new in 0.0.4.5.b)
+The Vestige is now dark and oppressive: a near-black sky, close dark fog, dim daylight (torches stay bright), drifting ash and distant sounds. While you are there the HUD darkens too, with blood-red hearts, a dark hotbar and a creeping vignette that pulses at low health. Adjust it with `dread` and `darkHud` in the client config.
+
 ### Toolkit (new in 0.0.4.5)
 - **Multitool** (Iron, Diamond, Netherite, Celestial): a sword, an axe and a pickaxe in one tool. Takes all three tools' enchantments.
 - **Super Furnace**, five tiers (Iron → Gold → Diamond → Netherite → Celestial): 2x to 10x smelting speed, better fuel use, 2x output from ores and raw materials from Diamond up (3x at Celestial), and no fuel at all at Celestial.
@@ -105,7 +108,7 @@ A post-End dimension: the ruins of the Concordance, a civilization that tried to
 
 | | |
 |---|---|
-| Mod version | 0.0.4.5 |
+| Mod version | 0.0.4.5.b |
 | Minecraft | Java Edition 1.20.1 |
 | Mod loader | Forge 47.3.0 or newer |
 | Java | 17 |

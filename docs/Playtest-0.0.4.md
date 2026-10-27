@@ -54,3 +54,10 @@ Tip: a creative world with cheats on makes this faster. `/relicweave gate tp` ta
 - [ ] A Celestial Super Furnace smelts with no fuel and gives 3 ingots per raw ore.
 - [ ] JEI: click a Super Furnace and pick "uses". It shows Smelting and Fuel.
 - [ ] Wear Scuba Gear in the ocean: no air bubbles drop, the water is clear, mining is fast and swimming is quick. The armor bar stays empty.
+
+## 0.0.4.5.b Dread
+- [ ] In The Vestige: the sky is near-black, the fog is close and dark, and ash drifts around you.
+- [ ] Torches still light things up properly. Caves are very dark.
+- [ ] Hearts, hunger, XP bar and hotbar look darker. They go back to normal when you leave.
+- [ ] Drop below 40% health: the screen edges pulse red.
+- [ ] Set `dread = 0` and `darkHud = false` in `relicweave-client.toml`. The old look comes back.
