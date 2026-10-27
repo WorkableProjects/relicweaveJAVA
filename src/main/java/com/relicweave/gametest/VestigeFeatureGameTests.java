@@ -155,7 +155,7 @@ public final class VestigeFeatureGameTests {
         helper.assertTrue(first != null && first.equals(second), "Arrival must be idempotent: " + first + " vs " + second);
         helper.assertTrue(SafeSpot.isSafe(vestige, first), "Arrival spot must be safe");
         VestigeWorldData data = VestigeWorldData.get(vestige);
-        helper.assertTrue(data.plazaVersion() == ArrivalPlaza.CURRENT_VERSION, "Plaza must be version 2, was " + data.plazaVersion());
+        helper.assertTrue(data.plazaVersion() == ArrivalPlaza.CURRENT_VERSION, "Plaza must be the current version, was " + data.plazaVersion());
         BlockPos centre = data.waystone();
         helper.assertTrue(vestige.getBlockState(centre).is(GateRegistry.RETURN_WAYSTONE.get()), "Waystone at the centre");
         helper.assertTrue(vestige.getBlockState(centre.below()).is(VestigeWorldBlocks.RUNE_VESTIGE_BRICKS.get()), "Rune bricks under the waystone");
@@ -201,7 +201,7 @@ public final class VestigeFeatureGameTests {
 
         BlockPos arrival = ArrivalPlaza.arrival(server);
         helper.assertTrue(arrival != null && SafeSpot.isSafe(vestige, arrival), "Arrival must be safe after the upgrade");
-        helper.assertTrue(data.plazaVersion() == 2, "Version must be saved as 2, was " + data.plazaVersion());
+        helper.assertTrue(data.plazaVersion() == ArrivalPlaza.CURRENT_VERSION, "Version must be saved as current, was " + data.plazaVersion());
         helper.assertTrue(data.buildCount() == builds, "An upgrade is not a fresh build: " + builds + " -> " + data.buildCount());
         helper.assertTrue(data.waystone().equals(centre), "The centre must not move");
         helper.assertTrue(vestige.getBlockState(marker).isAir(), "The footprint must be rebuilt in place");

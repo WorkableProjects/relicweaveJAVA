@@ -25,5 +25,10 @@ public final class VestigeFeatures {
     public static final RegistryObject<RootArchFeature> ROOT_ARCH =
             FEATURES.register("root_arch", () -> new RootArchFeature(NoneFeatureConfiguration.CODEC));
 
+    public static final RegistryObject<MirrorPoolFeature> MIRROR_POOL =
+            FEATURES.register("mirror_pool", () -> new MirrorPoolFeature(NoneFeatureConfiguration.CODEC));
+    public static final RegistryObject<ShatteredPlateFeature> SHATTERED_PLATE =
+            FEATURES.register("shattered_plate", () -> new ShatteredPlateFeature(NoneFeatureConfiguration.CODEC));
+
     private VestigeFeatures() {}
 }

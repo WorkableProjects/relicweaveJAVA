@@ -27,18 +27,26 @@ import net.minecraftforge.fml.common.Mod;
 import org.joml.Matrix4f;
 
 /**
- * The Vestige's sky and atmosphere: the "sky-spanning mechanism" of the Concordance — three vast, slowly turning rune
- * rings tinted by the current cycle phase (teal Quiet, gold Resonance, violet Convergence) — plus a soft distance haze
+ * The Vestige's sky and atmosphere: the "sky-spanning mechanism" of the Concordance — four vast concentric rune rings
+ * hanging in the northern sky, each turning tinted by the current cycle phase (teal Quiet, gold Resonance, violet Convergence) — plus a soft distance haze
  * and a phase tint on the fog. Purely cosmetic; shader packs may replace sky and fog with their own.
  */
 @Mod.EventBusSubscriber(modid = RelicWeave.MOD_ID, value = Dist.CLIENT)
 public final class VestigeSky {
-    /** Ring radius, height above the horizon, tilt (degrees), turn speed (degrees per tick), band width. */
+    /**
+     * The mechanism hangs far to the north, high in the sky: concentric rings around one centre (sky-space, so it never
+     * gets closer). Per ring: radius, band half-width, extra tilt (degrees), spin speed (degrees per tick).
+     */
     private static final float[][] RINGS = {
-            {120.0F, 30.0F, 18.0F, 0.010F, 3.2F},
-            {96.0F, 18.0F, -27.0F, -0.016F, 2.2F},
-            {74.0F, 8.0F, 41.0F, 0.024F, 1.6F},
+            {62.0F, 2.6F, 0.0F, 0.020F},
+            {48.0F, 1.8F, 9.0F, -0.032F},
+            {35.0F, 1.4F, -7.0F, 0.045F},
+            {22.0F, 1.0F, 4.0F, -0.060F},
     };
+    /** Centre of the rings in sky space (x east, y up, -z north) and how far the plane leans back from facing you. */
+    private static final float CENTER_Y = 48.0F;
+    private static final float CENTER_Z = -95.0F;
+    private static final float LEAN = 62.0F;
     private static final int SEGMENTS = 128;
 
     private VestigeSky() {}
@@ -83,19 +91,18 @@ public final class VestigeSky {
         BufferBuilder buffer = Tesselator.getInstance().getBuilder();
         for (float[] ring : RINGS) {
             pose.pushPose();
-            pose.mulPose(Axis.XP.rotationDegrees(ring[2]));
+            pose.translate(0.0F, CENTER_Y, CENTER_Z);
+            pose.mulPose(Axis.XP.rotationDegrees(LEAN + ring[2]));
             pose.mulPose(Axis.YP.rotationDegrees(time * ring[3]));
             Matrix4f matrix = pose.last().pose();
             buffer.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR);
-            float radius = ring[0];
-            float y = ring[1];
-            float half = ring[4];
             for (int i = 0; i < SEGMENTS; i++) {
                 float a0 = (float) (i * Math.PI * 2.0 / SEGMENTS);
                 float a1 = (float) ((i + 1) * Math.PI * 2.0 / SEGMENTS);
-                // Rune pattern: brighter dashes every few segments.
-                float alpha = alphaScale * ((i % 8 < 3) ? 0.95F : 0.45F);
-                quad(buffer, matrix, radius, y, half, a0, a1, rgb, alpha);
+                // Rune pattern: brighter dashes every few segments, with a gap so the ring visibly turns.
+                int phase = i % 12;
+                float alpha = phase == 11 ? 0.0F : alphaScale * (phase < 4 ? 1.0F : 0.5F);
+                band(buffer, matrix, ring[0], ring[1], a0, a1, rgb, alpha);
             }
             BufferUploader.drawWithShader(buffer.end());
             pose.popPose();
@@ -106,20 +113,22 @@ public final class VestigeSky {
         RenderSystem.disableBlend();
     }
 
-    private static void quad(BufferBuilder buffer, Matrix4f m, float r, float y, float half, float a0, float a1,
-                             float[] rgb, float alpha) {
+    /** One segment of a flat ring band in the XZ plane: bright along the radius, fading to the inner/outer edges. */
+    private static void band(BufferBuilder buffer, Matrix4f m, float r, float half, float a0, float a1, float[] rgb, float alpha) {
         float c0 = Mth.cos(a0);
         float s0 = Mth.sin(a0);
         float c1 = Mth.cos(a1);
         float s1 = Mth.sin(a1);
-        buffer.vertex(m, c0 * r, y - half, s0 * r).color(rgb[0], rgb[1], rgb[2], 0.0F).endVertex();
-        buffer.vertex(m, c1 * r, y - half, s1 * r).color(rgb[0], rgb[1], rgb[2], 0.0F).endVertex();
-        buffer.vertex(m, c1 * r, y, s1 * r).color(rgb[0], rgb[1], rgb[2], alpha).endVertex();
-        buffer.vertex(m, c0 * r, y, s0 * r).color(rgb[0], rgb[1], rgb[2], alpha).endVertex();
-        buffer.vertex(m, c0 * r, y, s0 * r).color(rgb[0], rgb[1], rgb[2], alpha).endVertex();
-        buffer.vertex(m, c1 * r, y, s1 * r).color(rgb[0], rgb[1], rgb[2], alpha).endVertex();
-        buffer.vertex(m, c1 * r, y + half, s1 * r).color(rgb[0], rgb[1], rgb[2], 0.0F).endVertex();
-        buffer.vertex(m, c0 * r, y + half, s0 * r).color(rgb[0], rgb[1], rgb[2], 0.0F).endVertex();
+        float in = r - half;
+        float out = r + half;
+        buffer.vertex(m, c0 * in, 0.0F, s0 * in).color(rgb[0], rgb[1], rgb[2], 0.0F).endVertex();
+        buffer.vertex(m, c1 * in, 0.0F, s1 * in).color(rgb[0], rgb[1], rgb[2], 0.0F).endVertex();
+        buffer.vertex(m, c1 * r, 0.0F, s1 * r).color(rgb[0], rgb[1], rgb[2], alpha).endVertex();
+        buffer.vertex(m, c0 * r, 0.0F, s0 * r).color(rgb[0], rgb[1], rgb[2], alpha).endVertex();
+        buffer.vertex(m, c0 * r, 0.0F, s0 * r).color(rgb[0], rgb[1], rgb[2], alpha).endVertex();
+        buffer.vertex(m, c1 * r, 0.0F, s1 * r).color(rgb[0], rgb[1], rgb[2], alpha).endVertex();
+        buffer.vertex(m, c1 * out, 0.0F, s1 * out).color(rgb[0], rgb[1], rgb[2], 0.0F).endVertex();
+        buffer.vertex(m, c0 * out, 0.0F, s0 * out).color(rgb[0], rgb[1], rgb[2], 0.0F).endVertex();
     }
 
     /** Distance haze: terrain fog starts closer so far ruins fade into the biome's fog colour. */

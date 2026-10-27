@@ -31,9 +31,11 @@ public final class ArrivalPlaza {
     /** Half width of the plaza floor (17 wide). */
     public static final int HALF = 8;
     /** Current design version stored in {@link VestigeWorldData}. */
-    public static final int CURRENT_VERSION = 2;
+    public static final int CURRENT_VERSION = 3;
     /** Blocks above the waystone level that are cleared. */
     public static final int CLEAR_HEIGHT = 8;
+    /** Half-size of the terraced area around the plaza (terrain above a gentle slope is cut back). */
+    public static final int TERRACE = HALF + 8;
     private static final int FLAGS = Block.UPDATE_CLIENTS;
     private static final int MAX_FILL_DEPTH = 48;
 
@@ -108,6 +110,32 @@ public final class ArrivalPlaza {
         BlockState cracked = VestigeWorldBlocks.CRACKED_VESTIGE_BRICKS.get().defaultBlockState();
         BlockState pillar = VestigeWorldBlocks.VESTIGE_PILLAR.get().defaultBlockState().setValue(RotatedPillarBlock.AXIS, Direction.Axis.Y);
         Put put = new Put(level, x, z);
+
+        // 0. Terrace the surroundings so the plaza never sits in a pit: beyond the steps, terrain higher than a gentle
+        //    1-block-per-ring slope is cut away and its new top is turfed with aureate moss.
+        BlockState turf = VestigeWorldBlocks.AUREATE_MOSS.get().defaultBlockState();
+        for (int dx = -TERRACE; dx <= TERRACE; dx++) {
+            for (int dz = -TERRACE; dz <= TERRACE; dz++) {
+                int m = ring(dx, dz);
+                if (m <= HALF + 1) {
+                    continue;
+                }
+                int limit = y - 2 + (m - HALF - 1);
+                boolean cut = false;
+                for (int yy = y + CLEAR_HEIGHT + 12; yy > limit; yy--) {
+                    BlockPos pos = new BlockPos(x + dx, yy, z + dz);
+                    BlockState existing = level.getBlockState(pos);
+                    if (!existing.isAir() && existing.getFluidState().isEmpty()) {
+                        level.setBlock(pos, air, FLAGS);
+                        cut = true;
+                    }
+                }
+                BlockPos top = new BlockPos(x + dx, limit, z + dz);
+                if (cut && level.getBlockState(top).blocksMotion() && level.getBlockState(top).getFluidState().isEmpty()) {
+                    level.setBlock(top, turf, FLAGS);
+                }
+            }
+        }
 
         // 1. Clear the footprint (floor ring plus the step ring) and the space above it.
         for (int dx = -HALF - 1; dx <= HALF + 1; dx++) {

@@ -108,12 +108,12 @@ for x in range(16):
         img.putpixel((x, y), rgba(MOSS[rng.randint(1, 3)] if y < depth - 1 else GOLD[1]))
 save(img, "block/aureate_moss_side")
 
-img = new(); noise_fill(img, OPAL, 19, 0, 2)
+img = new(); noise_fill(img, INK, 19, 1, 3)
 for y in range(16):
     for x in range(16):
         if (x + 2 * y) % 7 == 0:
-            img.putpixel((x, y), rgba(TEAL[2]))
-speckle(img, OPAL[4], 20, 6)
+            img.putpixel((x, y), rgba(TEAL[1]))
+speckle(img, TEAL[3], 20, 6)
 save(img, "block/echo_clay")
 
 img = new(); noise_fill(img, [BLACK, (30, 26, 34), (52, 44, 58), (74, 62, 80), (96, 82, 100)], 21, 0, 3)
