@@ -63,94 +63,96 @@
   "music.vestige": {
     "sounds": [
       {
-        "name": "minecraft:music.end",
-        "type": "event",
-        "volume": 0.7
+        "name": "minecraft:music/game/floating_dream",
+        "stream": true
       },
       {
-        "name": "minecraft:music.nether.soul_sand_valley",
-        "type": "event",
-        "volume": 0.7
+        "name": "minecraft:music/game/infinite_amethyst",
+        "stream": true
+      },
+      {
+        "name": "minecraft:music/game/echo_in_the_wind",
+        "stream": true
+      },
+      {
+        "name": "minecraft:music/game/ancestry",
+        "stream": true
+      },
+      {
+        "name": "minecraft:music/game/end/end",
+        "stream": true
       }
     ]
   },
   "ambient.vestige.crownfall_basin": {
     "sounds": [
       {
-        "name": "minecraft:ambient.warped_forest.loop",
-        "type": "event",
-        "volume": 0.4,
-        "pitch": 0.8
+        "name": "minecraft:ambient/nether/warped_forest/ambience",
+        "stream": true,
+        "volume": 0.55
       }
     ]
   },
   "ambient.vestige.glassroot_wilds": {
     "sounds": [
       {
-        "name": "minecraft:ambient.crimson_forest.loop",
-        "type": "event",
-        "volume": 0.4,
-        "pitch": 1.0
+        "name": "minecraft:ambient/nether/warped_forest/ambience",
+        "stream": true,
+        "volume": 0.55
       }
     ]
   },
   "ambient.vestige.aurelian_canopy": {
     "sounds": [
       {
-        "name": "minecraft:ambient.warped_forest.loop",
-        "type": "event",
-        "volume": 0.45,
-        "pitch": 1.2
+        "name": "minecraft:ambient/nether/crimson_forest/ambience",
+        "stream": true,
+        "volume": 0.55
       }
     ]
   },
   "ambient.vestige.hushfen": {
     "sounds": [
       {
-        "name": "minecraft:ambient.underwater.loop",
-        "type": "event",
-        "volume": 0.5,
-        "pitch": 0.7
+        "name": "minecraft:ambient/nether/soulsand_valley/ambience",
+        "stream": true,
+        "volume": 0.55
       }
     ]
   },
   "ambient.vestige.sundered_reach": {
     "sounds": [
       {
-        "name": "minecraft:ambient.basalt_deltas.loop",
-        "type": "event",
-        "volume": 0.4,
-        "pitch": 1.0
+        "name": "minecraft:ambient/nether/basalt_deltas/ambience",
+        "stream": true,
+        "volume": 0.55
       }
     ]
   },
   "ambient.vestige.starfall_caldera": {
     "sounds": [
       {
-        "name": "minecraft:ambient.nether_wastes.loop",
-        "type": "event",
-        "volume": 0.45,
-        "pitch": 0.8
+        "name": "minecraft:ambient/nether/basalt_deltas/ambience",
+        "stream": true,
+        "volume": 0.55
       }
     ]
   },
   "ambient.vestige.gloam_archive": {
     "sounds": [
       {
-        "name": "minecraft:ambient.soul_sand_valley.loop",
-        "type": "event",
-        "volume": 0.4,
-        "pitch": 0.8
+        "name": "minecraft:ambient/nether/soulsand_valley/ambience",
+        "stream": true,
+        "volume": 0.55
       }
     ]
   },
   "ambient.vestige.crown_of_concordance": {
     "sounds": [
       {
-        "name": "minecraft:ambient.soul_sand_valley.loop",
-        "type": "event",
-        "volume": 0.5,
-        "pitch": 1.2
+        "name": "minecraft:ambient/nether/crimson_forest/ambience",
+        "stream": true,
+        "volume": 0.55
       }
     ]
   },

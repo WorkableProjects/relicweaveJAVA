@@ -3,30 +3,34 @@
   "temperature": 0.55,
   "downfall": 0.8,
   "effects": {
-    "fog_color": 10800332,
-    "sky_color": 8827084,
+    "fog_color": 11068120,
+    "sky_color": 5225664,
     "water_color": 3844280,
     "water_fog_color": 1462368,
-    "grass_color": 10274956,
-    "foliage_color": 9224372,
+    "grass_color": 9228188,
+    "foliage_color": 8177848,
     "ambient_sound": "relicweave:ambient.vestige.glassroot_wilds",
     "mood_sound": {
-      "sound": "minecraft:ambient.cave",
+      "sound": "minecraft:ambient.warped_forest.mood",
       "tick_delay": 6000,
       "block_search_extent": 8,
       "offset": 2.0
     },
     "music": {
       "sound": "relicweave:music.vestige",
-      "min_delay": 12000,
-      "max_delay": 24000,
+      "min_delay": 2400,
+      "max_delay": 7200,
       "replace_current_music": false
     },
     "particle": {
       "options": {
-        "type": "minecraft:spore_blossom_air"
+        "type": "minecraft:glow"
       },
       "probability": 0.004
+    },
+    "additions_sound": {
+      "sound": "minecraft:ambient.warped_forest.additions",
+      "tick_chance": 0.0111
     }
   },
   "spawners": {

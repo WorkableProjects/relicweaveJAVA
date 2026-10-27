@@ -3,30 +3,34 @@
   "temperature": 1.2,
   "downfall": 0.0,
   "effects": {
-    "fog_color": 10126504,
-    "sky_color": 7102612,
+    "fog_color": 11560026,
+    "sky_color": 4858976,
     "water_color": 5785736,
     "water_fog_color": 2366532,
-    "grass_color": 10258544,
-    "foliage_color": 8943724,
+    "grass_color": 10255456,
+    "foliage_color": 9202776,
     "ambient_sound": "relicweave:ambient.vestige.starfall_caldera",
     "mood_sound": {
-      "sound": "minecraft:ambient.cave",
+      "sound": "minecraft:ambient.basalt_deltas.mood",
       "tick_delay": 6000,
       "block_search_extent": 8,
       "offset": 2.0
     },
     "music": {
       "sound": "relicweave:music.vestige",
-      "min_delay": 12000,
-      "max_delay": 24000,
+      "min_delay": 2400,
+      "max_delay": 7200,
       "replace_current_music": false
     },
     "particle": {
       "options": {
         "type": "minecraft:ash"
       },
-      "probability": 0.006
+      "probability": 0.03
+    },
+    "additions_sound": {
+      "sound": "minecraft:ambient.basalt_deltas.additions",
+      "tick_chance": 0.0111
     }
   },
   "spawners": {

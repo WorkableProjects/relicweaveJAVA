@@ -20,6 +20,7 @@ import com.relicweave.vestige.registry.VestigeMaterials;
 import com.relicweave.vestige.relic.VestigeRelics;
 import com.relicweave.vestige.registry.VestigeSounds;
 import com.relicweave.vestige.world.VestigeWorldBlocks;
+import com.relicweave.vestige.world.feature.VestigeFeatures;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -97,6 +98,7 @@ public final class VestigeBootstrap {
                 VestigeRelics.ITEMS, VestigeRelics.BLOCKS, VestigeRelics.BLOCK_ENTITIES, VestigeRelics.MENUS,
                 GearRegistry.ITEMS, GearRegistry.BLOCKS, GearRegistry.BLOCK_ENTITIES, GearRegistry.MENUS,
                 VestigeEnchantEffects.EFFECTS,
+                VestigeFeatures.FEATURES,
                 BossesA.ENTITIES, BossesA.ITEMS, BossesA.SOUNDS,
                 BossesB.ENTITIES, BossesB.ITEMS, BossesB.SOUNDS,
                 BossesC.ENTITIES, BossesC.ITEMS, BossesC.SOUNDS)) {
