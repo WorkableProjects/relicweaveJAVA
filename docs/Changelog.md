@@ -75,6 +75,24 @@ Waystone Monolith, Archivist's Outpost, Ruined Aether Aqueduct, Gilded Civic Tem
 - Riftwalker and Gravitic Tread share a 50% cap. The 3-infusion limit per Celestial piece is unchanged.
 - JEI shows all the new machine recipes, an info page per source item, and the Reliquary Loom augments.
 
+### Look, sound and recipes (playtest fixes)
+- **Sky:** each biome has its own sky, fog, grass and water colours (teal basin, golden canopy, violet reach, ink-blue archive, ember caldera, opal crown).
+  - Four vast rune rings hang in the northern sky, tinted by the cycle phase (teal / gold / violet) and pulsing during the Convergence warning.
+  - Soft distance haze and a fog tint that follows the phase.
+  - Shader packs may replace the sky and fog with their own.
+- **Landmarks:** floating ruins, monumental broken arches, crystal spires, fallen colossal statues, colonnades, giant root arches, Hushfen mirror pools and Sundered Reach shattered plates.
+- **Arrival Plaza:** rebuilt as a 17×17 plaza with arches, lantern pillars, an obelisk, a raised waystone dais and planters, and the hillside around it is cut back into a gentle slope. Existing worlds upgrade their plaza once.
+- **Sound:**
+  - Biome ambience now plays vanilla Nether ambient loops directly, with extra mood and addition sounds.
+  - Vestige music comes round much more often.
+  - Particles are denser (floating glyphs, ash, motes).
+- **Boss music:** each boss has its own looping track on the Music channel while you are in its arena. It holds back other music and fades out when the fight ends; `bossMusic` in the client config turns it off. The tracks are vanilla music for now.
+- **Recipe book:**
+  - Every RelicWeave recipe now unlocks in the recipe book when you pick up one of its ingredients (96 unlocks).
+  - The Threshold Sigil, Concordance Frame, Gate Keystone and Primer recipes unlock when you defeat the Ender Dragon, and players who already did get them at login.
+- **New recipes** for Gilded and Rune Vestige Bricks, Gloam Stone, Glyph Seal, Mnemonic Filament, Inscribed and Sealed Pages, Reliquary Shard, Aurelian Resin, Echo Clay, Aureate Moss, Fractured Vestige Stone and Starfall Slag.
+- **JEI:** info pages for 23 items that aren't crafted (ores, boss drops, altars and gates) say where to find them.
+
 ### Traveler's Primer and quest line
 - **The Vestige: A Traveler's Primer**, an 11-page, spoiler-free book on how to start:
   - covers the Threshold Sigil, Concordance Frame and Gate Keystone recipes, how to lay out and wake the gate, crossing over, getting home, packing, and general safety;
@@ -96,11 +114,11 @@ Waystone Monolith, Archivist's Outpost, Ruined Aether Aqueduct, Gilded Civic Tem
 - The network gained a separate `relicweave:vestige` channel, so clients and servers must both run 0.0.4.
 
 ### Tests
-- 334 GameTests (102 in 0.0.3), all passing both without Curios and with `-PwithCurios`. They cover the mapping baseline, worldgen, gate travel, the cycle, hazards, all mobs, structures, bosses, gear, the Loom, relics, enchantments, infusions, the quest line and the primer.
+- 342 GameTests (102 in 0.0.3), all passing both without Curios and with `-PwithCurios`. They cover the mapping baseline, worldgen, gate travel, the cycle, hazards, all mobs, structures, bosses, gear, the Loom, relics, enchantments, infusions, the quest line and the primer.
 - A dedicated server boots with no client-only class loading.
 
 ### Known limitations
-- Nothing client-side has been looked at in a running game client yet: models, textures, animations, HUDs, fog, the Loom screen, reveal outlines and JEI layouts. All of it compiles and follows the Forge/JEI APIs.
+- The dimension's sky, fog, landmarks and Arrival Plaza were checked in a real (software-rendered) client. Mob/boss models, HUDs, the Loom screen, reveal outlines and JEI layouts compile and follow the Forge/JEI APIs but have not been looked at yet.
 - Structures and arenas were checked by their generators and GameTests, not walked in-game.
 - GameTest fake players cannot receive advancements, so boss advancements are covered by the framework's design and partial tests, not end-to-end.
 - Sealed Custodian chests can still be emptied by hoppers or explosions. Creative-mode players bypass the seal.
