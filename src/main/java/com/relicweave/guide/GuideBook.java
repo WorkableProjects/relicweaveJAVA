@@ -20,7 +20,7 @@ import net.minecraftforge.fml.common.Mod;
  */
 @Mod.EventBusSubscriber(modid = RelicWeave.MOD_ID)
 public final class GuideBook {
-    public static final int PAGE_COUNT = 45;
+    public static final int PAGE_COUNT = 48;
     public static final String TITLE = "RelicWeave Guide";
     public static final String AUTHOR = "Dutch and Claude";
     /** Stored in Forge's persisted player data, which survives death and respawn. */
@@ -29,9 +29,9 @@ public final class GuideBook {
     private static final String EDITION_TAG = RelicWeave.MOD_ID + ":guide_edition";
     /**
      * 1 = 0.0.1/0.0.2 guide (13 pages; players who have it carry no edition tag), 2 = 0.0.3 Attunement guide (24 pages),
-     * 3 = 0.0.4 Vestige guide (45 pages).
+     * 3 = 0.0.4 Vestige guide (45 pages), 4 = 0.0.4.5 toolkit pages (48 pages).
      */
-    public static final int EDITION = 3;
+    public static final int EDITION = 4;
 
     private GuideBook() {}
 

@@ -180,6 +180,25 @@ adv(T, "totem", "relicweave/first_charm", RW + "diamond_totem", "Not Today",
     "Craft a Diamond, Netherite or Ultra Totem", {t.split(":")[1]: has(t) for t in TOTEMS}, mode="any", xp=50)
 adv(T, "fine_dining", "relicweave/root", RW + "diamond_steak", "Fine Dining",
     "Eat a Diamond or Netherite Steak", {"steak": consumed(RW + "diamond_steak", RW + "netherite_steak")}, xp=30)
+MULTITOOLS = [RW + t + "_multitool" for t in ("iron", "diamond", "netherite", "celestial")]
+SUPER_FURNACES = [RW + t + "_super_furnace" for t in ("iron", "gold", "diamond", "netherite", "celestial")]
+SCUBA = [RW + "scuba_" + p for p in ("mask", "tank", "wetsuit", "flippers")]
+adv(T, "multitool", "relicweave/root", RW + "diamond_multitool", "Jack of All Trades",
+    "Combine a sword, an axe and a pickaxe into a Multitool", {m.split(":")[1]: has(m) for m in MULTITOOLS}, mode="any", xp=30)
+adv(T, "celestial_multitool", "relicweave/multitool", RW + "celestial_multitool", "Master of All",
+    "Upgrade a Multitool to Celestial", {"celestial": has(RW + "celestial_multitool")}, frame="goal", xp=100)
+adv(T, "super_furnace", "relicweave/root", RW + "iron_super_furnace", "Hotter Than Usual",
+    "Build an Iron Super Furnace from a Blast Furnace", {f.split(":")[1]: has(f) for f in SUPER_FURNACES}, mode="any", xp=30)
+adv(T, "doubled_ore", "relicweave/super_furnace", RW + "diamond_super_furnace", "Twice the Ingots",
+    "Upgrade to a Diamond Super Furnace, which doubles ores and raw metal",
+    {f.split(":")[1]: has(f) for f in SUPER_FURNACES[2:]}, mode="any", xp=60)
+adv(T, "celestial_super_furnace", "relicweave/doubled_ore", RW + "celestial_super_furnace", "Starfire",
+    "Upgrade to a Celestial Super Furnace: no fuel, triple output", {"celestial": has(RW + "celestial_super_furnace")},
+    frame="challenge", xp=200)
+adv(T, "scuba", "relicweave/root", RW + "scuba_mask", "Deep Breath",
+    "Craft any piece of Scuba Gear", {s.split(":")[1]: has(s) for s in SCUBA}, mode="any", xp=20)
+adv(T, "scuba_set", "relicweave/scuba", RW + "scuba_tank", "Under the Sea",
+    "Own a full set of Scuba Gear", {s.split(":")[1]: has(s) for s in SCUBA}, frame="goal", xp=60)
 adv(T, "beyond_the_dragon", "relicweave/root", "minecraft:dragon_head", "Rumours Beyond the End",
     "Defeat the Ender Dragon. A Traveler's Primer will find you.",
     {"dragon": killed("minecraft:ender_dragon")}, frame="goal", xp=100)

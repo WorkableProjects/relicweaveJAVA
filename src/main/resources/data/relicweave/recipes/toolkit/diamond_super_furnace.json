@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BDB",
+    "DFD",
+    "BDB"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:blaze_rod"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "F": {
+      "item": "relicweave:gold_super_furnace"
+    }
+  },
+  "result": {
+    "item": "relicweave:diamond_super_furnace"
+  }
+}

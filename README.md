@@ -60,6 +60,11 @@ Source items are set by item tags (`relicweave:attunement_sources/<name>`), so d
 - The **Celestial Infuser** adds up to 3 different infusions to each Celestial armor piece, for example +1 armor, +2 max health or reduced gravity. There are 13 infusions: 9 attribute infusions that fit any piece and stack across pieces, and 4 effect infusions (0.0.3) that each fit one piece.
 - Both machines now say why they stopped (*Missing ingredient*, *Output full*, *Maximum infusions reached*, …) and play a short sound, particles and a flash when they finish.
 
+### Toolkit (new in 0.0.4.5)
+- **Multitool** (Iron, Diamond, Netherite, Celestial): a sword, an axe and a pickaxe in one tool. Takes all three tools' enchantments.
+- **Super Furnace**, five tiers (Iron → Gold → Diamond → Netherite → Celestial): 2x to 10x smelting speed, better fuel use, 2x output from ores and raw materials from Diamond up (3x at Celestial), and no fuel at all at Celestial.
+- **Scuba Gear** (Mask, Air Tank, Wetsuit, Flippers): no armor protection, but endless air, clear underwater vision, full mining speed underwater and faster swimming.
+
 ### The Vestige (new in 0.0.4)
 A post-End dimension: the ruins of the Concordance, a civilization that tried to lock its world into one magical cycle.
 
@@ -100,7 +105,7 @@ A post-End dimension: the ruins of the Concordance, a civilization that tried to
 
 | | |
 |---|---|
-| Mod version | 0.0.4 |
+| Mod version | 0.0.4.5 |
 | Minecraft | Java Edition 1.20.1 |
 | Mod loader | Forge 47.3.0 or newer |
 | Java | 17 |

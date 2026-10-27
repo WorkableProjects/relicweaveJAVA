@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "L L",
+    "IBI",
+    "IKI"
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "B": {
+      "item": "minecraft:bucket"
+    },
+    "K": {
+      "item": "minecraft:dried_kelp"
+    }
+  },
+  "result": {
+    "item": "relicweave:scuba_tank"
+  }
+}

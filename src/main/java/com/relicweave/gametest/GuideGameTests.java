@@ -65,7 +65,7 @@ public final class GuideGameTests {
         persisted.putBoolean(RelicWeave.MOD_ID + ":received_guide", true);
         persisted.putInt(RelicWeave.MOD_ID + ":guide_edition", 2);
         player.getPersistentData().put(Player.PERSISTED_NBT_TAG, persisted);
-        helper.assertTrue(GuideBook.EDITION == 3, "0.0.4 guide is edition 3");
+        helper.assertTrue(GuideBook.EDITION >= 3, "0.0.4 guide is edition 3 or later");
         helper.assertTrue(GuideBook.giveIfFirstJoin(player), "0.0.3 players should get the Vestige guide");
         helper.assertFalse(GuideBook.giveIfFirstJoin(player), "The Vestige guide must only be given once");
         helper.assertTrue(player.getInventory().countItem(Items.WRITTEN_BOOK) == 1, "Exactly one new guide expected");

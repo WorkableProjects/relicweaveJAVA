@@ -1,0 +1,79 @@
+{
+  "parent": "relicweave:relicweave/root",
+  "display": {
+    "icon": {
+      "item": "relicweave:diamond_multitool"
+    },
+    "title": {
+      "translate": "advancements.relicweave.relicweave.multitool.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.relicweave.multitool.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "iron_multitool": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:iron_multitool"
+            ]
+          }
+        ]
+      }
+    },
+    "diamond_multitool": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:diamond_multitool"
+            ]
+          }
+        ]
+      }
+    },
+    "netherite_multitool": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:netherite_multitool"
+            ]
+          }
+        ]
+      }
+    },
+    "celestial_multitool": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_multitool"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "iron_multitool",
+      "diamond_multitool",
+      "netherite_multitool",
+      "celestial_multitool"
+    ]
+  ],
+  "rewards": {
+    "experience": 30
+  }
+}

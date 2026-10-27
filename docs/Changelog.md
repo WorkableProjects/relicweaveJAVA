@@ -1,5 +1,56 @@
 # Changelog
 
+## 0.0.4.5 — The Toolkit Update
+
+Minecraft 1.20.1 · Forge 47.3.0+. Adds three pieces of everyday gear. Nothing from 0.0.4 or earlier changes; recipe IDs, items and player data stay valid.
+
+### Multitool (sword, axe and pickaxe in one)
+- Four tiers: **Iron**, **Diamond**, **Netherite** and **Celestial**.
+- Mines everything a pickaxe or an axe can, at its tier's speed and mining level. Cuts cobwebs like a sword.
+- Hits like a sword: same damage, attack speed and sweeping attack. Can disable shields like an axe.
+- Right-click strips logs, scrapes copper and removes wax, like an axe.
+- Takes every sword, axe and pickaxe enchantment (Sharpness, Sweeping Edge, Looting, Efficiency, Fortune, Silk Touch and so on), at the enchanting table or the anvil.
+- Twice its tier's durability. Each block or hit costs 1.
+- **Recipes:** Iron = Iron Sword + Iron Axe + Iron Pickaxe + Iron Ingot (shapeless). Diamond = the same with Diamond tools and a Diamond. Netherite and Celestial: Smithing Table with a Netherite Upgrade template plus a Netherite Ingot or a Celestial Ingot.
+
+### Super Furnace (five tiers)
+Works like a Furnace: the same slots, recipe book, hopper sides, comparator output and experience. Each tier is crafted from the one before it.
+
+| Tier | Speed | Fuel goes | Ores and raw materials | Experience | Recipe |
+|---|---|---|---|---|---|
+| I Iron | 2x | 1x as far | 1x | 1x | Blast Furnace, 5 Iron Ingots, 3 Smooth Stone |
+| II Gold | 3x | 1.25x | 1x | 2x | Iron Super Furnace, 4 Gold Ingots, 4 Magma Blocks |
+| III Diamond | 4x | 1.5x | **2x** | 2x | Gold Super Furnace, 4 Diamonds, 4 Blaze Rods |
+| IV Netherite | 6x | 2x | **2x** | 3x | Smithing: Diamond Super Furnace + Netherite Ingot |
+| V Celestial | 10x | **no fuel needed** | **3x** | 3x | Smithing: Netherite Super Furnace + Celestial Ingot |
+
+- "Ores and raw materials" means anything tagged `forge:raw_materials` or `forge:ores` (raw iron, raw gold, iron ore and so on), via the new item tag `relicweave:super_furnace_multiplied`. Other smelting (sand, food, logs) gives the normal amount.
+- Netherite and Celestial Super Furnaces are blast-resistant and their items don't burn.
+- The tooltip lists each tier's perks.
+
+### Scuba Gear (no armor protection)
+- **Scuba Mask:** clear underwater vision (no fog wall or water overlay) and full mining speed underwater, even while floating.
+- **Scuba Air Tank:** you never run out of air.
+- **Scuba Wetsuit:** +50% swim speed. **Scuba Flippers:** +100% swim speed. Both also speed up walking underwater.
+- Every piece gives **0 armor and 0 toughness**. Enchantable, repaired with Dried Kelp.
+- **Recipes:** made from Leather, Slime Balls, Dried Kelp, Glass Panes, Iron Ingots and a Bucket.
+
+### JEI
+- All recipes show in JEI's Crafting and Smithing categories.
+- Every Super Furnace is listed as a catalyst for Smelting and Fuel, so clicking one shows everything it can smelt.
+- Info pages for the Multitool, the Super Furnace tiers and Scuba Gear.
+
+### Quests and guide
+- 7 new quests in the *RelicWeave* advancement tab: *Jack of All Trades*, *Master of All*, *Hotter Than Usual*, *Twice the Ingots*, *Starfire*, *Deep Breath* and *Under the Sea*.
+- Recipe-book entries unlock when you hold an ingredient.
+- The RelicWeave Guide gains pages 46-48 (Toolkit). Players with the 0.0.4 guide get the new edition once.
+
+### Fix
+- The Concordance Gate's travel sound pointed at a vanilla sound file that does not exist, so it was silent. It now plays the Enderman teleport sound.
+
+### Tests
+- 13 new GameTests in `ToolkitGameTests` (355 in total, all passing): Multitool mining, enchantments and log stripping; Super Furnace speed, fuel, 2x/3x output, experience and fuel-free Celestial smelting; Scuba Gear breathing, mining speed and zero armor; recipes load.
+
 ## 0.0.4 — The Vestige Update
 
 Minecraft 1.20.1 · Forge 47.3.0+. All 0.0.2 and 0.0.3 items, enchantments, infusions, recipes, recipe IDs and player data are unchanged and stay valid. GameTests freeze every 0.0.2/0.0.3 Transmutation Table and Celestial Infuser recipe, including the Iron Ingot (Golemed) and Nether Star (Upbound) mappings.

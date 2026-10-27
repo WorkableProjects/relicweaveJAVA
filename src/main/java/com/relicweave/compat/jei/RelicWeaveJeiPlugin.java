@@ -13,6 +13,7 @@ import com.relicweave.registry.ModRecipes;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.helpers.IGuiHelper;
+import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.registration.IGuiHandlerRegistration;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
@@ -83,6 +84,24 @@ public class RelicWeaveJeiPlugin implements IModPlugin {
                 ModItems.CELESTIAL_LEGGINGS.get(), ModItems.CELESTIAL_BOOTS.get()}) {
             registration.addIngredientInfo(armor, Component.translatable("jei.relicweave.info.celestial_armor"));
         }
+
+        // 0.0.4.5 toolkit: their crafting/smithing recipes show in the vanilla categories; these pages explain them.
+        registration.addItemStackInfo(stacks(ModItems.IRON_MULTITOOL.get(), ModItems.DIAMOND_MULTITOOL.get(),
+                ModItems.NETHERITE_MULTITOOL.get(), ModItems.CELESTIAL_MULTITOOL.get()),
+                Component.translatable("jei.relicweave.info.multitool"));
+        registration.addItemStackInfo(ModBlocks.SUPER_FURNACES.stream().map(b -> new ItemStack(b.get())).toList(),
+                Component.translatable("jei.relicweave.info.super_furnace"));
+        registration.addItemStackInfo(stacks(ModItems.SCUBA_MASK.get(), ModItems.SCUBA_TANK.get(),
+                ModItems.SCUBA_WETSUIT.get(), ModItems.SCUBA_FLIPPERS.get()),
+                Component.translatable("jei.relicweave.info.scuba"));
+    }
+
+    private static List<ItemStack> stacks(Item... items) {
+        List<ItemStack> list = new ArrayList<>();
+        for (Item item : items) {
+            list.add(new ItemStack(item));
+        }
+        return list;
     }
 
     private static Item pieceFor(InfusionType infusion) {
@@ -98,6 +117,10 @@ public class RelicWeaveJeiPlugin implements IModPlugin {
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
         registration.addRecipeCatalyst(ModBlocks.TRANSMUTATION_TABLE_ITEM.get(), TRANSMUTATION);
         registration.addRecipeCatalyst(ModBlocks.CELESTIAL_INFUSER_ITEM.get(), INFUSION);
+        // Super Furnaces smelt every Furnace recipe and burn every Furnace fuel.
+        for (var furnace : ModBlocks.SUPER_FURNACES) {
+            registration.addRecipeCatalyst(new ItemStack(furnace.get()), RecipeTypes.SMELTING, RecipeTypes.FUELING);
+        }
     }
 
     @Override

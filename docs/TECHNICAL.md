@@ -4,7 +4,7 @@ A Minecraft Forge mod that turns items and catalysts into enchanted books carryi
 
 | | |
 |---|---|
-| Version | `0.0.4` |
+| Version | `0.0.4.5` |
 | Minecraft | Java Edition `1.20.1` |
 | Forge | `47.3.0+` |
 | Java | `17` |
@@ -156,7 +156,7 @@ All crafting, smithing and smelting recipes for RelicWeave items show up in JEI'
 
 ### Guide book
 
-Each player receives a written **RelicWeave Guide** (45 pages since 0.0.4) once, on their first login to a world. It covers the Transmutation Table, the Celestial Infuser, Attunement sources, the new enchantments and infusions, relics, cooldowns, controls and Curios. The received edition is stored in Forge's persisted player data, so it survives death; players who received an older edition (0.0.2: 13 pages, 0.0.3: 24 pages) get the new edition once, with a chat note. The page text lives in the lang file (`book.relicweave.guide.page1` to `page45`).
+Each player receives a written **RelicWeave Guide** (48 pages since 0.0.4.5) once, on their first login to a world. It covers the Transmutation Table, the Celestial Infuser, Attunement sources, the new enchantments and infusions, relics, cooldowns, controls and Curios. The received edition is stored in Forge's persisted player data, so it survives death; players who received an older edition (0.0.2: 13 pages, 0.0.3: 24 pages, 0.0.4: 45 pages) get the new edition once, with a chat note. The page text lives in the lang file (`book.relicweave.guide.page1` to `page48`).
 
 ### Attunement source items (0.0.3)
 
@@ -172,6 +172,16 @@ Each player receives a written **RelicWeave Guide** (45 pages since 0.0.4) once,
 | `reaping` | Oak Sapling | 16 + 1 Amethyst Shard → Reaping I (5 s) | 32 → Anchored |
 
 Reprisal uses Lapis Lazuli as its catalyst because 8 Copper Ingots + Amethyst Shard is already Oxidation.
+
+### Toolkit (0.0.4.5)
+
+| Part | Code | Notes |
+|---|---|---|
+| Multitool | `item/MultitoolItem` | A `DiggerItem` over the block tag `relicweave:mineable/multitool` (= `#minecraft:mineable/pickaxe` + `#minecraft:mineable/axe`), sword damage (3 + tier) and speed (-2.4), sword/axe/pickaxe `ToolAction`s, axe `useOn` (strip, scrape, wax off). `canApplyAtEnchantingTable` accepts any enchantment a Diamond Sword, Axe or Pickaxe accepts. Also in the vanilla `swords`, `axes` and `pickaxes` item tags. |
+| Super Furnace | `block/furnace/*` | `SuperFurnaceBlock` extends `AbstractFurnaceBlock`; `SuperFurnaceBlockEntity` extends `AbstractFurnaceBlockEntity` (so the vanilla `FurnaceMenu`/`FurnaceScreen`, recipe book, hoppers, JEI transfer and experience all work) but ticks with its own `serverTick`, reaching the vanilla fields through `dataAccess`. `SuperFurnaceTier` holds speed, fuel efficiency, raw-output and experience multipliers. One block entity type for all five blocks. |
+| Scuba Gear | `item/ScubaArmorItem`, `item/ScubaEvents`, `client/ScubaClientEvents` | Armor material with 0 defense; Wetsuit/Flippers add `forge:swim_speed`. Air: `LivingBreatheEvent`. Mining: `PlayerEvent.BreakSpeed` undoes the two vanilla /5 penalties. Vision: `ViewportEvent.RenderFog` (water) and `RenderBlockScreenEffectEvent` (water overlay). |
+
+Data comes from `tools/toolkit/gen_toolkit.py` (recipes in `recipes/toolkit/`, tags, loot tables, models, lang) and textures from `tools/textures/gen_toolkit.py`. JEI: the furnaces are catalysts for `RecipeTypes.SMELTING` and `FUELING`, plus info pages.
 
 ### The Vestige (0.0.4)
 
@@ -301,6 +311,8 @@ If a recipe is malformed or out of range, it's rejected and the error is logged 
 You need a JDK 17 or newer to run Gradle. The build compiles with a Java 17 toolchain and downloads one through the Foojay resolver if none is installed.
 
 ## Automated tests
+
+**0.0.4.5:** 355 GameTests, all passing; `ToolkitGameTests` (13) covers the Multitool, Super Furnace and Scuba Gear.
 
 **0.0.4:** 334 GameTests, all passing without Curios and with `-PwithCurios`. The 0.0.4 classes are `MappingBaselineGameTests` (freezes every 0.0.2/0.0.3 machine recipe), `VestigeWorldGameTests`, `GateGameTests`, `CycleGameTests`, `RiftGameTests`, `FieldHazardGameTests`, `SpawnRulesGameTests`, `HumanoidMobGameTests`, `BeastMobGameTests`, `EtherealMobGameTests`, `StructurePart1GameTests`, `StructurePart2GameTests`, `BossesAGameTests`, `BossesBGameTests`, `BossesCGameTests`, `GearGameTests`, `LoomGameTests`, `VestigeRelicGameTests`, `VestigeEnchantmentGameTests`, `VestigeInfusionGameTests` and `QuestGameTests`. GameTests run concurrently in a grid, so tests assert only on the entities they spawned.
 

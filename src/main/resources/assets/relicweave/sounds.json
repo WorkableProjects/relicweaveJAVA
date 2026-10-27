@@ -186,7 +186,7 @@
     "subtitle": "subtitles.relicweave.block.concordance_gate.teleport",
     "sounds": [
       {
-        "name": "minecraft:entity/enderman/teleport",
+        "name": "minecraft:mob/endermen/portal",
         "volume": 0.7,
         "pitch": 0.7
       }

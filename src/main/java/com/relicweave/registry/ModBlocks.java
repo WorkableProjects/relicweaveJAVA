@@ -2,11 +2,14 @@ package com.relicweave.registry;
 
 import com.relicweave.RelicWeave;
 import com.relicweave.block.TransmutationTableBlock;
+import com.relicweave.block.furnace.SuperFurnaceBlock;
+import com.relicweave.block.furnace.SuperFurnaceTier;
 import com.relicweave.block.infuser.CelestialInfuserBlock;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.level.block.AbstractFurnaceBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.SoundType;
@@ -16,6 +19,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.List;
 import java.util.function.Supplier;
 
 public final class ModBlocks {
@@ -66,7 +70,32 @@ public final class ModBlocks {
                     .sound(SoundType.NETHERITE_BLOCK)));
     public static final RegistryObject<Item> CELESTIAL_INFUSER_ITEM = blockItem("celestial_infuser", CELESTIAL_INFUSER, Rarity.RARE);
 
+    // ---- 0.0.4.5: Super Furnaces, one block per tier ----
+    public static final RegistryObject<Block> IRON_SUPER_FURNACE = superFurnace(SuperFurnaceTier.IRON, MapColor.METAL, 5.0F, 6.0F, SoundType.METAL);
+    public static final RegistryObject<Block> GOLD_SUPER_FURNACE = superFurnace(SuperFurnaceTier.GOLD, MapColor.GOLD, 5.0F, 6.0F, SoundType.METAL);
+    public static final RegistryObject<Block> DIAMOND_SUPER_FURNACE = superFurnace(SuperFurnaceTier.DIAMOND, MapColor.DIAMOND, 5.0F, 6.0F, SoundType.METAL);
+    public static final RegistryObject<Block> NETHERITE_SUPER_FURNACE = superFurnace(SuperFurnaceTier.NETHERITE, MapColor.COLOR_BLACK, 50.0F, 1200.0F, SoundType.NETHERITE_BLOCK);
+    public static final RegistryObject<Block> CELESTIAL_SUPER_FURNACE = superFurnace(SuperFurnaceTier.CELESTIAL, MapColor.COLOR_LIGHT_BLUE, 50.0F, 1200.0F, SoundType.NETHERITE_BLOCK);
+    public static final List<RegistryObject<Block>> SUPER_FURNACES = List.of(IRON_SUPER_FURNACE, GOLD_SUPER_FURNACE,
+            DIAMOND_SUPER_FURNACE, NETHERITE_SUPER_FURNACE, CELESTIAL_SUPER_FURNACE);
+
+
     private ModBlocks() {}
+
+    private static RegistryObject<Block> superFurnace(SuperFurnaceTier tier, MapColor color, float hardness, float resistance, SoundType sound) {
+        RegistryObject<Block> block = BLOCKS.register(tier.blockName(), () -> new SuperFurnaceBlock(tier, BlockBehaviour.Properties.of()
+                .mapColor(color)
+                .strength(hardness, resistance)
+                .requiresCorrectToolForDrops()
+                .lightLevel(state -> state.getValue(AbstractFurnaceBlock.LIT) ? 13 : 0)
+                .sound(sound)));
+        boolean fireResistant = tier.level() >= SuperFurnaceTier.NETHERITE.level();
+        ITEMS.register(tier.blockName(), () -> {
+            Item.Properties properties = new Item.Properties().rarity(tier.rarity());
+            return new BlockItem(block.get(), fireResistant ? properties.fireResistant() : properties);
+        });
+        return block;
+    }
 
     private static RegistryObject<Item> blockItem(String name, Supplier<Block> block, Rarity rarity) {
         boolean celestial = name.contains("celestial");

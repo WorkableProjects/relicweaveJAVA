@@ -33,6 +33,11 @@
     "relicweave:false_wall",
     "relicweave:hidden_glyph",
     "relicweave:glyph_seal",
-    "relicweave:reliquary_loom"
+    "relicweave:reliquary_loom",
+    "relicweave:iron_super_furnace",
+    "relicweave:gold_super_furnace",
+    "relicweave:diamond_super_furnace",
+    "relicweave:netherite_super_furnace",
+    "relicweave:celestial_super_furnace"
   ]
 }

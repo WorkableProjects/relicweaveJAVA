@@ -45,3 +45,12 @@ Tip: a creative world with cheats on makes this faster. `/relicweave gate tp` ta
 
 ## Multiplayer (optional)
 - [ ] Two players on a server can both travel to The Vestige and fight a boss together.
+
+## 0.0.4.5 Toolkit
+- [ ] Craft an Iron Multitool. It mines stone and logs, cuts cobwebs, strips a log and does sword damage.
+- [ ] Put Sharpness and Fortune on one Multitool (anvil or enchanting table).
+- [ ] Build an Iron Super Furnace and smelt raw iron. It is twice as fast as a Furnace.
+- [ ] Upgrade to Diamond. Raw iron now gives 2 ingots; sand still gives 1 glass.
+- [ ] A Celestial Super Furnace smelts with no fuel and gives 3 ingots per raw ore.
+- [ ] JEI: click a Super Furnace and pick "uses". It shows Smelting and Fuel.
+- [ ] Wear Scuba Gear in the ocean: no air bubbles drop, the water is clear, mining is fast and swimming is quick. The armor bar stays empty.
