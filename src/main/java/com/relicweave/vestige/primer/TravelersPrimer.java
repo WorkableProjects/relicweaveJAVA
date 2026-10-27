@@ -31,7 +31,17 @@ public final class TravelersPrimer {
     /** Persisted player flag, so the primer is only handed out once. */
     private static final String RECEIVED_TAG = RelicWeave.MOD_ID + ":received_primer";
 
+    /** Recipes unlocked by defeating the Ender Dragon (also granted to players who did so before 0.0.4). */
+    public static final ResourceLocation[] GATE_RECIPES = {
+            RelicWeave.id("vestige/gate/threshold_sigil"), RelicWeave.id("vestige/gate/concordance_frame"),
+            RelicWeave.id("vestige/gate/gate_keystone"), RelicWeave.id("vestige/travelers_primer")};
+
     private TravelersPrimer() {}
+
+    /** Puts the gate recipes in the player's recipe book (no-op for recipes already known). */
+    public static void grantGateRecipes(ServerPlayer player) {
+        player.awardRecipesByKey(GATE_RECIPES);
+    }
 
     public static ItemStack create() {
         ItemStack book = new ItemStack(Items.WRITTEN_BOOK);
@@ -71,6 +81,7 @@ public final class TravelersPrimer {
     public static void onAdvancement(AdvancementEvent.AdvancementEarnEvent event) {
         if (event.getEntity() instanceof ServerPlayer player && event.getAdvancement().getId().equals(DRAGON_ADVANCEMENT)) {
             giveOnce(player);
+            grantGateRecipes(player);
         }
     }
 
@@ -79,6 +90,7 @@ public final class TravelersPrimer {
     public static void onLogin(PlayerEvent.PlayerLoggedInEvent event) {
         if (event.getEntity() instanceof ServerPlayer player && hasKilledDragon(player)) {
             giveOnce(player);
+            grantGateRecipes(player);
         }
     }
 }

@@ -20,6 +20,7 @@ public final class RelicWeaveClientConfig {
     // ---- The Vestige ----
     public static final ForgeConfigSpec.BooleanValue VESTIGE_AMBIENCE;
     public static final ForgeConfigSpec.BooleanValue VESTIGE_MUSIC;
+    public static final ForgeConfigSpec.BooleanValue BOSS_MUSIC;
     public static final ForgeConfigSpec.EnumValue<ParticleDensity> PARTICLE_DENSITY;
     public static final ForgeConfigSpec.DoubleValue DISTORTION_INTENSITY;
     public static final ForgeConfigSpec.EnumValue<HazardHud> HAZARD_HUD;
@@ -38,6 +39,8 @@ public final class RelicWeaveClientConfig {
                 .define("ambience", true);
         VESTIGE_MUSIC = b.comment("Play The Vestige's music pool.")
                 .define("music", true);
+        BOSS_MUSIC = b.comment("Play fight music while you are in a Vestige boss arena during a fight.")
+                .define("bossMusic", true);
         PARTICLE_DENSITY = b.comment("FULL, REDUCED or MINIMAL ambient and hazard particles. Warnings always show at least one marker.")
                 .defineEnum("particleDensity", ParticleDensity.FULL);
         DISTORTION_INTENSITY = b.comment("Strength of screen tint/fog distortion from hazards (0 = off, 1 = full).")

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "BBB",
+    "BDB",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "relicweave:vestige_bricks"
+    },
+    "D": {
+      "item": "relicweave:aetherite_dust"
+    }
+  },
+  "result": {
+    "item": "relicweave:rune_vestige_bricks",
+    "count": 8
+  }
+}

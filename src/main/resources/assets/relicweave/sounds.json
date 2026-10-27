@@ -910,5 +910,53 @@
         "pitch": 0.6
       }
     ]
+  },
+  "music.boss.thorned_regent": {
+    "sounds": [
+      {
+        "name": "minecraft:music/game/nether/crimson_forest/chrysopoeia",
+        "stream": true
+      }
+    ]
+  },
+  "music.boss.choir_unheard": {
+    "sounds": [
+      {
+        "name": "minecraft:music/game/ancestry",
+        "stream": true
+      }
+    ]
+  },
+  "music.boss.gravity_maw": {
+    "sounds": [
+      {
+        "name": "minecraft:music/game/nether/soulsand_valley/so_below",
+        "stream": true
+      }
+    ]
+  },
+  "music.boss.starforged_colossus": {
+    "sounds": [
+      {
+        "name": "minecraft:music/game/nether/nether_wastes/rubedo",
+        "stream": true
+      }
+    ]
+  },
+  "music.boss.warden_of_seals": {
+    "sounds": [
+      {
+        "name": "minecraft:music/game/nether/nether2",
+        "stream": true
+      }
+    ]
+  },
+  "music.boss.archivist_prime": {
+    "sounds": [
+      {
+        "name": "minecraft:music/game/end/boss",
+        "stream": true
+      }
+    ]
   }
 }

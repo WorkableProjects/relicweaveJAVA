@@ -32,6 +32,10 @@ public final class VestigeClientState {
     public static int revealKind;
     public static long revealUntilGameTime;
 
+    // Boss music (BossMusicPacket): the sound event to play while in a boss arena, or null.
+    @org.jetbrains.annotations.Nullable
+    public static net.minecraft.resources.ResourceLocation bossMusic;
+
     private VestigeClientState() {}
 
     public static void reset() {
@@ -46,5 +50,6 @@ public final class VestigeClientState {
         revealed = List.of();
         revealKind = 0;
         revealUntilGameTime = 0;
+        bossMusic = null;
     }
 }

@@ -24,7 +24,8 @@ import java.util.function.Supplier;
  * protocol changes the other. All packets are server -> client display state; the client never sends Vestige state.
  */
 public final class VestigeNetwork {
-    private static final String PROTOCOL_VERSION = "1";
+    /** "2" since boss music. */
+    private static final String PROTOCOL_VERSION = "2";
 
     public static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
             RelicWeave.id("vestige"), () -> PROTOCOL_VERSION, PROTOCOL_VERSION::equals, PROTOCOL_VERSION::equals);
@@ -41,6 +42,27 @@ public final class VestigeNetwork {
         CHANNEL.messageBuilder(RevealPacket.class, 2, NetworkDirection.PLAY_TO_CLIENT)
                 .encoder(RevealPacket::encode).decoder(RevealPacket::decode)
                 .consumerMainThread(RevealPacket::handle).add();
+        CHANNEL.messageBuilder(BossMusicPacket.class, 3, NetworkDirection.PLAY_TO_CLIENT)
+                .encoder(BossMusicPacket::encode).decoder(BossMusicPacket::decode)
+                .consumerMainThread(BossMusicPacket::handle).add();
+    }
+
+    /** Start ({@code music} = sound event id) or stop ({@code ""}) the boss fight music for the local player. */
+    public record BossMusicPacket(String music) {
+        private static final int MAX_LENGTH = 128;
+
+        public void encode(FriendlyByteBuf buf) {
+            buf.writeUtf(music, MAX_LENGTH);
+        }
+
+        public static BossMusicPacket decode(FriendlyByteBuf buf) {
+            return new BossMusicPacket(buf.readUtf(MAX_LENGTH));
+        }
+
+        public void handle(Supplier<NetworkEvent.Context> ctx) {
+            DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> Client.bossMusic(this));
+            ctx.get().setPacketHandled(true);
+        }
     }
 
     public static void send(ServerPlayer player, Object packet) {
@@ -146,6 +168,10 @@ public final class VestigeNetwork {
             VestigeClientState.riftExposure = p.riftExposure();
             VestigeClientState.hazardFlags = p.flags();
             VestigeClientState.riftProtectionPercent = p.riftProtectionPercent();
+        }
+
+        static void bossMusic(BossMusicPacket p) {
+            VestigeClientState.bossMusic = p.music().isEmpty() ? null : net.minecraft.resources.ResourceLocation.tryParse(p.music());
         }
 
         static void reveal(RevealPacket p) {

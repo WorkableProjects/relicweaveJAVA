@@ -46,6 +46,14 @@ public final class VestigeSounds {
     public static final RegistryObject<SoundEvent> AMBIENT_GLOAM_ARCHIVE = register("ambient.vestige.gloam_archive");
     public static final RegistryObject<SoundEvent> AMBIENT_CROWN_OF_CONCORDANCE = register("ambient.vestige.crown_of_concordance");
 
+    // ---- Boss fight music (one per boss; played by the client while the boss bar is shown) ----
+    public static final RegistryObject<SoundEvent> MUSIC_BOSS_THORNED_REGENT = register("music.boss.thorned_regent");
+    public static final RegistryObject<SoundEvent> MUSIC_BOSS_CHOIR_UNHEARD = register("music.boss.choir_unheard");
+    public static final RegistryObject<SoundEvent> MUSIC_BOSS_GRAVITY_MAW = register("music.boss.gravity_maw");
+    public static final RegistryObject<SoundEvent> MUSIC_BOSS_STARFORGED_COLOSSUS = register("music.boss.starforged_colossus");
+    public static final RegistryObject<SoundEvent> MUSIC_BOSS_WARDEN_OF_SEALS = register("music.boss.warden_of_seals");
+    public static final RegistryObject<SoundEvent> MUSIC_BOSS_ARCHIVIST_PRIME = register("music.boss.archivist_prime");
+
     // Later phases append below (mobs, bosses, relics, loom).
 
     private VestigeSounds() {}

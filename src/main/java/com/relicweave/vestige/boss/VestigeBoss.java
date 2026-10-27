@@ -2,6 +2,7 @@ package com.relicweave.vestige.boss;
 
 import com.relicweave.RelicWeave;
 import com.relicweave.vestige.VestigeConfig;
+import com.relicweave.vestige.network.VestigeNetwork;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtUtils;
@@ -200,11 +201,14 @@ public abstract class VestigeBoss extends Monster {
         List<ServerPlayer> players = arenaPlayers();
         for (ServerPlayer player : List.copyOf(bossEvent.getPlayers())) {
             if (!players.contains(player)) {
-                bossEvent.removePlayer(player);
+                untrack(player);
             }
         }
         for (ServerPlayer player : players) {
-            bossEvent.addPlayer(player);
+            if (!bossEvent.getPlayers().contains(player)) {
+                bossEvent.addPlayer(player);
+                VestigeNetwork.send(player, new VestigeNetwork.BossMusicPacket(musicEvent().toString()));
+            }
         }
         if (players.isEmpty()) {
             idleTicks += 10;
@@ -261,14 +265,29 @@ public abstract class VestigeBoss extends Monster {
 
     @Override
     public void remove(RemovalReason reason) {
-        bossEvent.removeAllPlayers();
+        for (ServerPlayer player : List.copyOf(bossEvent.getPlayers())) {
+            untrack(player);
+        }
         super.remove(reason);
     }
 
     @Override
     public void stopSeenByPlayer(ServerPlayer player) {
         super.stopSeenByPlayer(player);
-        bossEvent.removePlayer(player);
+        untrack(player);
+    }
+
+    /** Removes {@code player} from the boss bar and stops their boss music. */
+    private void untrack(ServerPlayer player) {
+        if (bossEvent.getPlayers().contains(player)) {
+            bossEvent.removePlayer(player);
+            VestigeNetwork.send(player, new VestigeNetwork.BossMusicPacket(""));
+        }
+    }
+
+    /** Sound event of this boss's fight music: {@code relicweave:music.boss.<boss path>}. */
+    public ResourceLocation musicEvent() {
+        return RelicWeave.id("music.boss." + bossId().getPath());
     }
 
     @Override

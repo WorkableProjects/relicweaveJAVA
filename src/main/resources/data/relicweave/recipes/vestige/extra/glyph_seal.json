@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "GNG",
+    "NAN",
+    "GNG"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "N": {
+      "item": "relicweave:gloam_stone"
+    },
+    "A": {
+      "item": "relicweave:aetherite_ingot"
+    }
+  },
+  "result": {
+    "item": "relicweave:glyph_seal",
+    "count": 2
+  }
+}
