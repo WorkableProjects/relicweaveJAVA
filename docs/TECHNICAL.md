@@ -4,7 +4,7 @@ A Minecraft Forge mod that turns items and catalysts into enchanted books carryi
 
 | | |
 |---|---|
-| Version | `0.0.3` |
+| Version | `0.0.4.5.b` |
 | Minecraft | Java Edition `1.20.1` |
 | Forge | `47.3.0+` |
 | Java | `17` |
@@ -93,7 +93,7 @@ The table is the only source of these enchantments: they never show up at enchan
 
 - `charmActivation` (server config) is `INVENTORY_OR_EQUIPPED` by default: charms and relics work anywhere in the main inventory, the offhand, or a Curios slot. `EQUIPPED_ONLY` limits them to the offhand and Curios slots.
 - Totems keep their hand requirements. `curiosTotems = true` (off by default) also lets a totem work from a Curios slot.
-- **Cycle Relic** (default `G`) picks the next active relic you carry (Lodestone, Wayfarer's, Echo); the selection is shown left of the hotbar with its key and cooldown. **Activate Relic** (default `R`) sends one packet naming the relic; the server checks that you are alive, carry it in a valid location, and that it is off cooldown.
+- **Cycle Relic** (default `Z`; `G` before 0.0.4) picks the next active relic you carry (Lodestone, Wayfarer's, Echo); the selection is shown left of the hotbar with its key and cooldown. **Activate Relic** (default `R`) sends one packet naming the relic; the server checks that you are alive, carry it in a valid location, and that it is off cooldown.
 - Cooldowns are stored per player and per relic type in Forge's persisted player data as an absolute overworld game time, so moving, dropping, duplicating or re-equipping a relic, dying, respawning, changing dimension, relogging and server restarts never reset them. The vanilla item cooldown overlay is only a visual hint.
 - Guardian Relic, Soulguard and Warding add absorption only through `AbsorptionShields`, so together they never exceed `absorptionCap` (default 8 half-hearts), and any of their absorption left when the shield expires is removed. Absorption from other sources is kept.
 
@@ -156,7 +156,7 @@ All crafting, smithing and smelting recipes for RelicWeave items show up in JEI'
 
 ### Guide book
 
-Each player receives a written **RelicWeave Guide** (24 pages) once, on their first login to a world. It covers the Transmutation Table, the Celestial Infuser, Attunement sources, the new enchantments and infusions, relics, cooldowns, controls and Curios. The received edition is stored in Forge's persisted player data, so it survives death; players who received the 0.0.2 guide (13 pages) get the new edition once, with a chat note. The page text lives in the lang file (`book.relicweave.guide.page1` to `page24`).
+Each player receives a written **RelicWeave Guide** (48 pages since 0.0.4.5) once, on their first login to a world. It covers the Transmutation Table, the Celestial Infuser, Attunement sources, the new enchantments and infusions, relics, cooldowns, controls and Curios. The received edition is stored in Forge's persisted player data, so it survives death; players who received an older edition (0.0.2: 13 pages, 0.0.3: 24 pages, 0.0.4: 45 pages) get the new edition once, with a chat note. The page text lives in the lang file (`book.relicweave.guide.page1` to `page48`).
 
 ### Attunement source items (0.0.3)
 
@@ -172,6 +172,43 @@ Each player receives a written **RelicWeave Guide** (24 pages) once, on their fi
 | `reaping` | Oak Sapling | 16 + 1 Amethyst Shard → Reaping I (5 s) | 32 → Anchored |
 
 Reprisal uses Lapis Lazuli as its catalyst because 8 Copper Ingots + Amethyst Shard is already Oxidation.
+
+### Dread look (0.0.4.5.b)
+
+Client-only, in `vestige/client/dread` and `vestige/client/world`. `DreadPalette` holds the math (pure, tested by `DreadGameTests`). `VestigeDimensionEffects` draws the dark sky dome and stars (`renderSky`), hides clouds and dims the lightmap by sky light only (`adjustLightmapColors`, scaled by block light). `VestigeSky` sets the fog distances and colour. `DreadHudTextures` re-registers darkened copies of `textures/gui/icons.png` and `widgets.png` (built from the active resource pack, crosshair cell untouched) under the vanilla ids while in The Vestige. Hearts and the XP bar are recoloured with `DreadPalette.voidPurple` and re-uploaded every 2 ticks for the shimmer. It restores the originals on leaving, on `darkHud` off, or on resource reload. Vanilla resets the shader colour before each HUD layer, which is why the HUD is darkened through textures rather than a tint. `DreadOverlay` (registered below every other HUD layer) draws the vignette and two counter-pulsing vein layers (`tools/textures/gen_dread.py`). `DreadAmbience` spawns the ash particles and plays the distant cave sounds. Client config: `dread`, `darkHud`.
+
+### Toolkit (0.0.4.5)
+
+| Part | Code | Notes |
+|---|---|---|
+| Multitool | `item/MultitoolItem` | A `DiggerItem` over the block tag `relicweave:mineable/multitool` (= `#minecraft:mineable/pickaxe` + `#minecraft:mineable/axe`), sword damage (3 + tier) and speed (-2.4), sword/axe/pickaxe `ToolAction`s, axe `useOn` (strip, scrape, wax off). `canApplyAtEnchantingTable` accepts any enchantment a Diamond Sword, Axe or Pickaxe accepts. Also in the vanilla `swords`, `axes` and `pickaxes` item tags. |
+| Super Furnace | `block/furnace/*` | `SuperFurnaceBlock` extends `AbstractFurnaceBlock`; `SuperFurnaceBlockEntity` extends `AbstractFurnaceBlockEntity` (so the vanilla `FurnaceMenu`/`FurnaceScreen`, recipe book, hoppers, JEI transfer and experience all work) but ticks with its own `serverTick`, reaching the vanilla fields through `dataAccess`. `SuperFurnaceTier` holds speed, fuel efficiency, raw-output and experience multipliers. One block entity type for all five blocks. |
+| Scuba Gear | `item/ScubaArmorItem`, `item/ScubaEvents`, `client/ScubaClientEvents` | Armor material with 0 defense; Wetsuit/Flippers add `forge:swim_speed`. Air: `LivingBreatheEvent`. Mining: `PlayerEvent.BreakSpeed` undoes the two vanilla /5 penalties. Vision: `ViewportEvent.RenderFog` (water) and `RenderBlockScreenEffectEvent` (water overlay). |
+
+Data comes from `tools/toolkit/gen_toolkit.py` (recipes in `recipes/toolkit/`, tags, loot tables, models, lang) and textures from `tools/textures/gen_toolkit.py`. JEI: the furnaces are catalysts for `RecipeTypes.SMELTING` and `FUELING`, plus info pages.
+
+### The Vestige (0.0.4)
+
+All 0.0.4 code lives under `com.relicweave.vestige` (plus the new rows in `AttunementMapping`, `ModEnchantments`, `InfusionType` and `RelicType`). `VestigeBootstrap` registers every 0.0.4 `DeferredRegister`; each feature area owns its own registry class.
+
+| Area | Package / data | Notes |
+|---|---|---|
+| IDs | `VestigeKeys` | Dimension `relicweave:the_vestige`, 8 biome keys, 14 structure keys, biome/entity/block tags. Never rename them: worlds store them. |
+| Dimension | `data/relicweave/dimension*`, `worldgen/noise_settings/the_vestige.json`, `worldgen/biome/*` | Data-driven. Vanilla overworld noise router, multi-noise source with 8 biomes, `vestige_stone` default block, sea level 48. Client sky and fog in `vestige/client/world`. Terrain blocks: `world/VestigeWorldBlocks`. Data generator: `tools/gen_world_data.py`. |
+| Gate | `vestige/gate` | Keystone ritual (block entity), `GateTravel` (return point in persisted player data, safe-spot search, cooldown), `ArrivalPlaza` + `VestigeWorldData` (built once). Advancement `relicweave:vestige/root`. |
+| Cycle | `vestige/cycle` | `ConcordanceCycle` is a pure function of world game time. `CycleTicker` fires `VestigeCycleEvent.PhaseChanged` and syncs `CycleSyncPacket`. HUD: `vestige/client/cycle`. |
+| Hazards | `vestige/hazard` | `HazardProtection` (contributors combine multiplicatively, capped by `maxHazardProtection`) and `HazardStatus` (HUD flags). Rift Saturation: `hazard/rift` (meter in persisted player data). Gravity, Starfall, Null Pockets, Hush: `hazard/field`. |
+| Network | `vestige/network/VestigeNetwork` | Separate channel `relicweave:vestige`, server → client only: cycle, hazard state and block reveals. |
+| Mobs | `vestige/entity/{humanoid,beast,ethereal}` | `VestigeSpawnRules` is the single natural-spawn gate (rate, elite rate, local cap). `Telegraph` provides wind-up cues. Spawns come from `forge/biome_modifier/spawns_*.json`. |
+| Structures | `tools/structures/nbtgen.py`, `gen_part1.py`, `gen_part2.py` | Python generators write the NBT templates and the jigsaw structure, pool, structure-set and biome-tag JSON. Re-running them reproduces identical files. |
+| Puzzle blocks | `vestige/puzzle/PuzzleBlocks` | False Wall, Hidden Glyph (`#relicweave:hidden_glyphs`), Glyph Seal (`#relicweave:breakable_seals`), Ancient Terminal. |
+| Bosses | `vestige/boss` (framework), `boss/{a,b,c}` | `VestigeBoss`: arena leash, boss bar, reset, scaling, phases. `BossAltarBlockEntity`: summon, rematch cooldown. `BossRewards`: per-player advancement `relicweave:vestige/<boss>`, awarded once. `SealGateBlock`: lets through only players who beat the Warden. |
+| Gear and Loom | `vestige/gear` | Aetherforged tier and perk, smithing recipes, Reliquary Loom (menu buttons validated on the server). JEI: `compat/jei/vestige/VestigeJeiPlugin`. |
+| Relics | `relic/RelicType` (appended), `relic/RelicAugment`, `vestige/relic` | Same activation, cooldown and locator code as 0.0.3. Augments are stored as `{"relicweave:augment":{id,v:1}}`; unknown data reads as no augment. |
+| Quests and primer | `quest/QuestTrigger`, `quest/QuestEvents`, `vestige/primer/TravelersPrimer`, `tools/quests/gen_quests.py` | Advancement tabs `relicweave:relicweave/*` (22) and `relicweave:vestige/*` (35), generated by the script. Custom steps use the `relicweave:quest` trigger with an `event` name, fired from server code. The primer is a written book given once on `minecraft:end/kill_dragon`, and craftable (the recipe result carries NBT). |
+| Enchantments / infusions | `enchantment/vestige`, `infusion/effects/vestige` | Six new `AttunementMapping` rows with source tags and recipes. The 0.0.2/0.0.3 recipes are frozen by `MappingBaselineGameTests`. |
+
+Configs: `relicweave-vestige-server.toml` (`VestigeConfig`: every 0.0.4 balance value) and `relicweave-client.toml` (`RelicWeaveClientConfig`). Resource fragments from parallel work were merged with `tools/merge_fragments.py`. Textures are generated by `tools/textures/gen_*.py` from one shared palette (`vestige_palette.py`).
 
 ### Curios (optional)
 
@@ -194,7 +231,7 @@ Curios is a compile-only dependency and is never bundled or required. With Curio
 |---|---|
 | Purling: Throw Ender Pearl | `V` |
 | Activate Relic | `R` |
-| Cycle Relic | `G` |
+| Cycle Relic | `Z` (was `G` in 0.0.3; moved automatically if it clashes with Curios) |
 
 You can rebind all three keys in game under *Options → Controls → Key Binds → RelicWeave*. Key-binding mods such as [Controlling](https://modrinth.com/mod/controlling) also list them, and you can search for them, rebind, reset, or check for conflicts there. Your choices are saved in `options.txt` as `key_key.relicweave.purling`, `key_key.relicweave.activate_relic` and `key_key.relicweave.cycle_relic`. Tooltips and the relic HUD show the current bindings.
 
@@ -279,7 +316,13 @@ You need a JDK 17 or newer to run Gradle. The build compiles with a Java 17 tool
 
 ## Automated tests
 
-There are 102 Forge GameTests in `com.relicweave.gametest`: `RelicWeaveGameTests` (11), `EnchantmentGameTests`, `RelicGameTests`, `InfuserGameTests`, `CelestialGameTests`, `UpboundGameTests`, `GuideGameTests`, and for 0.0.3 `AttunementGameTests`, `MachineFeedbackGameTests`, `AttunementEnchantmentGameTests`, `AttunementInfusionGameTests` and `AttunementRelicGameTests`. All 102 pass both without Curios and with `-PwithCurios`. They run on a dedicated-server dist, so they also confirm that no client-only class loads on a server. They cover:
+**0.0.4.5.b:** 359 GameTests (`DreadGameTests` adds 4).
+
+**0.0.4.5:** 355 GameTests, all passing; `ToolkitGameTests` (13) covers the Multitool, Super Furnace and Scuba Gear.
+
+**0.0.4:** 334 GameTests, all passing without Curios and with `-PwithCurios`. The 0.0.4 classes are `MappingBaselineGameTests` (freezes every 0.0.2/0.0.3 machine recipe), `VestigeWorldGameTests`, `GateGameTests`, `CycleGameTests`, `RiftGameTests`, `FieldHazardGameTests`, `SpawnRulesGameTests`, `HumanoidMobGameTests`, `BeastMobGameTests`, `EtherealMobGameTests`, `StructurePart1GameTests`, `StructurePart2GameTests`, `BossesAGameTests`, `BossesBGameTests`, `BossesCGameTests`, `GearGameTests`, `LoomGameTests`, `VestigeRelicGameTests`, `VestigeEnchantmentGameTests`, `VestigeInfusionGameTests` and `QuestGameTests`. GameTests run concurrently in a grid, so tests assert only on the entities they spawned.
+
+The 0.0.3 suite had 102 Forge GameTests in `com.relicweave.gametest`: `RelicWeaveGameTests` (11), `EnchantmentGameTests`, `RelicGameTests`, `InfuserGameTests`, `CelestialGameTests`, `UpboundGameTests`, `GuideGameTests`, and for 0.0.3 `AttunementGameTests`, `MachineFeedbackGameTests`, `AttunementEnchantmentGameTests`, `AttunementInfusionGameTests` and `AttunementRelicGameTests`. All 102 pass both without Curios and with `-PwithCurios`. They run on a dedicated-server dist, so they also confirm that no client-only class loads on a server. They cover:
 
 - Both recipes produce exactly one correctly enchanted book after `process_time`, and consume exactly the right ingredients.
 - A full output slot blocks further processing without consuming anything.
@@ -332,6 +375,9 @@ Checked in a single-player dev client: the block model and textures, opening the
 
 ## Known limitations
 
+- **0.0.4 client-side content has not been viewed in a client yet:** Vestige sky and fog, mob and boss models and textures, HUDs, the Loom screen, reveal outlines and JEI pages. Structures were verified by their generators and GameTests, not walked in-game.
+- GameTest fake players cannot receive advancements, so boss and gate advancements are not tested end to end.
+- Sealed Custodian chests can still be emptied by hoppers or explosions.
 - **0.0.3 client-side features are not checked in a client yet:** the relic HUD, key handling, Tidal fog, Steady Draw movement, the machine status line and flash, and the JEI layout compile and follow the APIs, but no one has looked at them in a running client.
 - Wayfarer's Relic: GameTests confirm the channel completes and starts the cooldown, but the test player cannot actually move, so the teleport itself is untested.
 - Echo Charm uses vanilla Glowing, which every player can see.

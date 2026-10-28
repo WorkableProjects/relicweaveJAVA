@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "GSG",
+    "G G",
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "S": {
+      "item": "relicweave:concordant_seal"
+    }
+  },
+  "result": {
+    "item": "relicweave:sealkeepers_signet",
+    "count": 1
+  }
+}

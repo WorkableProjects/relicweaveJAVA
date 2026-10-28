@@ -2,31 +2,961 @@
   "block.transmutation_table.complete": {
     "subtitle": "subtitles.relicweave.block.transmutation_table.complete",
     "sounds": [
-      {"name": "minecraft:block/amethyst/resonate1", "volume": 0.8},
-      {"name": "minecraft:block/amethyst/resonate2", "volume": 0.8},
-      {"name": "minecraft:block/amethyst/resonate3", "volume": 0.8},
-      {"name": "minecraft:block/amethyst/resonate4", "volume": 0.8},
-      {"name": "minecraft:block/enchantment_table/enchant1", "volume": 0.5}
+      {
+        "name": "minecraft:block/amethyst/resonate1",
+        "volume": 0.8
+      },
+      {
+        "name": "minecraft:block/amethyst/resonate2",
+        "volume": 0.8
+      },
+      {
+        "name": "minecraft:block/amethyst/resonate3",
+        "volume": 0.8
+      },
+      {
+        "name": "minecraft:block/amethyst/resonate4",
+        "volume": 0.8
+      },
+      {
+        "name": "minecraft:block/enchantment_table/enchant1",
+        "volume": 0.5
+      }
     ]
   },
   "block.celestial_infuser.resonance": {
     "subtitle": "subtitles.relicweave.block.celestial_infuser.resonance",
     "sounds": [
-      {"name": "minecraft:block/beacon/activate", "volume": 0.6, "pitch": 0.7}
+      {
+        "name": "minecraft:block/beacon/activate",
+        "volume": 0.6,
+        "pitch": 0.7
+      }
     ]
   },
   "block.celestial_infuser.chime": {
     "subtitle": "subtitles.relicweave.block.celestial_infuser.chime",
     "sounds": [
-      {"name": "minecraft:block/amethyst/shimmer", "volume": 0.6},
-      {"name": "minecraft:block/bell/resonate", "volume": 0.3}
+      {
+        "name": "minecraft:block/amethyst/shimmer",
+        "volume": 0.6
+      },
+      {
+        "name": "minecraft:block/bell/resonate",
+        "volume": 0.3
+      }
     ]
   },
   "item.relic.activate": {
     "subtitle": "subtitles.relicweave.item.relic.activate",
     "sounds": [
-      {"name": "minecraft:block/amethyst_cluster/break1", "volume": 0.6},
-      {"name": "minecraft:block/amethyst_cluster/break2", "volume": 0.6}
+      {
+        "name": "minecraft:block/amethyst_cluster/break1",
+        "volume": 0.6
+      },
+      {
+        "name": "minecraft:block/amethyst_cluster/break2",
+        "volume": 0.6
+      }
+    ]
+  },
+  "music.vestige": {
+    "sounds": [
+      {
+        "name": "minecraft:music/game/floating_dream",
+        "stream": true
+      },
+      {
+        "name": "minecraft:music/game/infinite_amethyst",
+        "stream": true
+      },
+      {
+        "name": "minecraft:music/game/echo_in_the_wind",
+        "stream": true
+      },
+      {
+        "name": "minecraft:music/game/ancestry",
+        "stream": true
+      },
+      {
+        "name": "minecraft:music/game/end/end",
+        "stream": true
+      }
+    ]
+  },
+  "ambient.vestige.crownfall_basin": {
+    "sounds": [
+      {
+        "name": "minecraft:ambient/nether/warped_forest/ambience",
+        "stream": true,
+        "volume": 0.55
+      }
+    ]
+  },
+  "ambient.vestige.glassroot_wilds": {
+    "sounds": [
+      {
+        "name": "minecraft:ambient/nether/warped_forest/ambience",
+        "stream": true,
+        "volume": 0.55
+      }
+    ]
+  },
+  "ambient.vestige.aurelian_canopy": {
+    "sounds": [
+      {
+        "name": "minecraft:ambient/nether/crimson_forest/ambience",
+        "stream": true,
+        "volume": 0.55
+      }
+    ]
+  },
+  "ambient.vestige.hushfen": {
+    "sounds": [
+      {
+        "name": "minecraft:ambient/nether/soulsand_valley/ambience",
+        "stream": true,
+        "volume": 0.55
+      }
+    ]
+  },
+  "ambient.vestige.sundered_reach": {
+    "sounds": [
+      {
+        "name": "minecraft:ambient/nether/basalt_deltas/ambience",
+        "stream": true,
+        "volume": 0.55
+      }
+    ]
+  },
+  "ambient.vestige.starfall_caldera": {
+    "sounds": [
+      {
+        "name": "minecraft:ambient/nether/basalt_deltas/ambience",
+        "stream": true,
+        "volume": 0.55
+      }
+    ]
+  },
+  "ambient.vestige.gloam_archive": {
+    "sounds": [
+      {
+        "name": "minecraft:ambient/nether/soulsand_valley/ambience",
+        "stream": true,
+        "volume": 0.55
+      }
+    ]
+  },
+  "ambient.vestige.crown_of_concordance": {
+    "sounds": [
+      {
+        "name": "minecraft:ambient/nether/crimson_forest/ambience",
+        "stream": true,
+        "volume": 0.55
+      }
+    ]
+  },
+  "block.concordance_gate.activate": {
+    "subtitle": "subtitles.relicweave.block.concordance_gate.activate",
+    "sounds": [
+      {
+        "name": "minecraft:block/beacon/activate",
+        "volume": 0.9
+      },
+      {
+        "name": "minecraft:block/amethyst/resonate1",
+        "volume": 0.8
+      }
+    ]
+  },
+  "block.concordance_gate.channel": {
+    "subtitle": "subtitles.relicweave.block.concordance_gate.channel",
+    "sounds": [
+      {
+        "name": "minecraft:block/amethyst/resonate2",
+        "volume": 0.6
+      },
+      {
+        "name": "minecraft:block/amethyst/resonate3",
+        "volume": 0.6
+      }
+    ]
+  },
+  "block.concordance_gate.teleport": {
+    "subtitle": "subtitles.relicweave.block.concordance_gate.teleport",
+    "sounds": [
+      {
+        "name": "minecraft:mob/endermen/portal",
+        "volume": 0.7,
+        "pitch": 0.7
+      }
+    ]
+  },
+  "ambient.vestige.cycle.quiet": {
+    "subtitle": "subtitles.relicweave.ambient.vestige.cycle.quiet",
+    "sounds": [
+      {
+        "name": "minecraft:block/amethyst/resonate1",
+        "volume": 0.8,
+        "pitch": 0.7
+      }
+    ]
+  },
+  "ambient.vestige.cycle.resonance": {
+    "subtitle": "subtitles.relicweave.ambient.vestige.cycle.resonance",
+    "sounds": [
+      {
+        "name": "minecraft:block/beacon/activate",
+        "volume": 0.7,
+        "pitch": 1.0
+      }
+    ]
+  },
+  "ambient.vestige.cycle.convergence": {
+    "subtitle": "subtitles.relicweave.ambient.vestige.cycle.convergence",
+    "sounds": [
+      {
+        "name": "minecraft:block/respawn_anchor/charge1",
+        "volume": 0.9,
+        "pitch": 0.8
+      },
+      {
+        "name": "minecraft:block/respawn_anchor/charge2",
+        "volume": 0.9,
+        "pitch": 0.8
+      }
+    ]
+  },
+  "ambient.vestige.cycle.warning": {
+    "subtitle": "subtitles.relicweave.ambient.vestige.cycle.warning",
+    "sounds": [
+      {
+        "name": "minecraft:block/respawn_anchor/charge3",
+        "volume": 0.9,
+        "pitch": 0.9
+      },
+      {
+        "name": "minecraft:block/amethyst/resonate2",
+        "volume": 0.9,
+        "pitch": 0.9
+      }
+    ]
+  },
+  "hazard.rift.warning": {
+    "subtitle": "subtitles.relicweave.hazard.rift.warning",
+    "sounds": [
+      {
+        "name": "minecraft:block/amethyst/resonate3",
+        "volume": 0.8,
+        "pitch": 0.6
+      },
+      {
+        "name": "minecraft:block/amethyst/resonate4",
+        "volume": 0.8,
+        "pitch": 0.6
+      }
+    ]
+  },
+  "hazard.rift.sickness": {
+    "subtitle": "subtitles.relicweave.hazard.rift.sickness",
+    "sounds": [
+      {
+        "name": "minecraft:block/respawn_anchor/deplete1",
+        "volume": 0.8,
+        "pitch": 1.0
+      },
+      {
+        "name": "minecraft:block/respawn_anchor/deplete2",
+        "volume": 0.8,
+        "pitch": 1.0
+      }
+    ]
+  },
+  "item.ward_salve.drink": {
+    "subtitle": "subtitles.relicweave.item.ward_salve.drink",
+    "sounds": [
+      {
+        "name": "minecraft:random/drink",
+        "volume": 0.8,
+        "pitch": 1.1
+      }
+    ]
+  },
+  "hazard.gravity.telegraph": {
+    "subtitle": "subtitles.relicweave.hazard.gravity.telegraph",
+    "sounds": [
+      {
+        "name": "minecraft:block/beacon/power1",
+        "volume": 0.9,
+        "pitch": 0.6
+      }
+    ]
+  },
+  "hazard.gravity.pulse": {
+    "subtitle": "subtitles.relicweave.hazard.gravity.pulse",
+    "sounds": [
+      {
+        "name": "minecraft:block/beacon/deactivate",
+        "volume": 1.0,
+        "pitch": 0.8
+      }
+    ]
+  },
+  "hazard.starfall.warning": {
+    "subtitle": "subtitles.relicweave.hazard.starfall.warning",
+    "sounds": [
+      {
+        "name": "minecraft:fireworks/launch1",
+        "volume": 1.2,
+        "pitch": 0.5
+      }
+    ]
+  },
+  "hazard.starfall.impact": {
+    "subtitle": "subtitles.relicweave.hazard.starfall.impact",
+    "sounds": [
+      {
+        "name": "minecraft:random/explode1",
+        "volume": 1.0,
+        "pitch": 0.8
+      },
+      {
+        "name": "minecraft:random/explode2",
+        "volume": 1.0,
+        "pitch": 0.8
+      },
+      {
+        "name": "minecraft:random/explode3",
+        "volume": 1.0,
+        "pitch": 0.8
+      },
+      {
+        "name": "minecraft:random/explode4",
+        "volume": 1.0,
+        "pitch": 0.8
+      }
+    ]
+  },
+  "hazard.null_pocket.enter": {
+    "subtitle": "subtitles.relicweave.hazard.null_pocket.enter",
+    "sounds": [
+      {
+        "name": "minecraft:block/respawn_anchor/deplete1",
+        "volume": 0.8,
+        "pitch": 1.2
+      },
+      {
+        "name": "minecraft:block/respawn_anchor/deplete2",
+        "volume": 0.8,
+        "pitch": 1.2
+      }
+    ]
+  },
+  "hazard.hush.alert": {
+    "subtitle": "subtitles.relicweave.hazard.hush.alert",
+    "sounds": [
+      {
+        "name": "minecraft:mob/warden/listening_1",
+        "volume": 0.8,
+        "pitch": 1.0
+      },
+      {
+        "name": "minecraft:mob/warden/listening_2",
+        "volume": 0.8,
+        "pitch": 1.0
+      },
+      {
+        "name": "minecraft:mob/warden/listening_3",
+        "volume": 0.8,
+        "pitch": 1.0
+      },
+      {
+        "name": "minecraft:mob/warden/listening_4",
+        "volume": 0.8,
+        "pitch": 1.0
+      },
+      {
+        "name": "minecraft:mob/warden/listening_5",
+        "volume": 0.8,
+        "pitch": 1.0
+      }
+    ]
+  },
+  "entity.reliquary_sentinel.guard": {
+    "subtitle": "subtitles.relicweave.entity.reliquary_sentinel.guard",
+    "sounds": [
+      {
+        "name": "minecraft:item.shield.block",
+        "type": "event",
+        "pitch": 0.7
+      }
+    ]
+  },
+  "entity.scriptbound_scribe.cast": {
+    "subtitle": "subtitles.relicweave.entity.scriptbound_scribe.cast",
+    "sounds": [
+      {
+        "name": "minecraft:block.enchantment_table.use",
+        "type": "event",
+        "pitch": 1.2
+      }
+    ]
+  },
+  "entity.gilded_husk.crack": {
+    "subtitle": "subtitles.relicweave.entity.gilded_husk.crack",
+    "sounds": [
+      {
+        "name": "minecraft:block.chain.break",
+        "type": "event",
+        "pitch": 0.8
+      }
+    ]
+  },
+  "entity.mirebound_cantor.chant": {
+    "subtitle": "subtitles.relicweave.entity.mirebound_cantor.chant",
+    "sounds": [
+      {
+        "name": "minecraft:block.note_block.flute",
+        "type": "event",
+        "pitch": 0.6
+      }
+    ]
+  },
+  "entity.oathbreaker_knight.sweep": {
+    "subtitle": "subtitles.relicweave.entity.oathbreaker_knight.sweep",
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.sweep",
+        "type": "event",
+        "pitch": 0.6
+      }
+    ]
+  },
+  "entity.oathbreaker_knight.lunge": {
+    "subtitle": "subtitles.relicweave.entity.oathbreaker_knight.lunge",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.roar",
+        "type": "event",
+        "pitch": 1.4,
+        "volume": 0.6
+      }
+    ]
+  },
+  "entity.rift_archer.aim": {
+    "subtitle": "subtitles.relicweave.entity.rift_archer.aim",
+    "sounds": [
+      {
+        "name": "minecraft:block.beacon.power_select",
+        "type": "event",
+        "pitch": 1.6,
+        "volume": 0.6
+      }
+    ]
+  },
+  "entity.echo_weaver.pulse": {
+    "subtitle": "subtitles.relicweave.entity.echo_weaver.pulse",
+    "sounds": [
+      {
+        "name": "minecraft:block.sculk_sensor.clicking",
+        "type": "event",
+        "pitch": 0.8
+      },
+      {
+        "name": "minecraft:block.note_block.chime",
+        "type": "event",
+        "pitch": 0.7
+      }
+    ]
+  },
+  "entity.fracture_wisp.dash": {
+    "subtitle": "subtitles.relicweave.entity.fracture_wisp.dash",
+    "sounds": [
+      {
+        "name": "minecraft:entity.allay.item_thrown",
+        "type": "event"
+      }
+    ]
+  },
+  "entity.nullwing.screech": {
+    "subtitle": "subtitles.relicweave.entity.nullwing.screech",
+    "sounds": [
+      {
+        "name": "minecraft:entity.phantom.swoop",
+        "type": "event"
+      }
+    ]
+  },
+  "entity.concordance_guardian.shockwave": {
+    "subtitle": "subtitles.relicweave.entity.concordance_guardian.shockwave",
+    "sounds": [
+      {
+        "name": "minecraft:entity.iron_golem.attack",
+        "type": "event"
+      }
+    ]
+  },
+  "entity.concordance_guardian.rune_beam": {
+    "subtitle": "subtitles.relicweave.entity.concordance_guardian.rune_beam",
+    "sounds": [
+      {
+        "name": "minecraft:block.beacon.power_select",
+        "type": "event"
+      }
+    ]
+  },
+  "entity.sealed_custodian.slam": {
+    "subtitle": "subtitles.relicweave.entity.sealed_custodian.slam",
+    "sounds": [
+      {
+        "name": "minecraft:entity.iron_golem.attack",
+        "type": "event"
+      }
+    ]
+  },
+  "entity.sealed_custodian.shield": {
+    "subtitle": "subtitles.relicweave.entity.sealed_custodian.shield",
+    "sounds": [
+      {
+        "name": "minecraft:block.beacon.activate",
+        "type": "event"
+      }
+    ]
+  },
+  "entity.rune_warden.awaken": {
+    "subtitle": "subtitles.relicweave.entity.rune_warden.awaken",
+    "sounds": [
+      {
+        "name": "minecraft:block.end_portal.spawn",
+        "type": "event"
+      }
+    ]
+  },
+  "entity.rune_warden.burst": {
+    "subtitle": "subtitles.relicweave.entity.rune_warden.burst",
+    "sounds": [
+      {
+        "name": "minecraft:block.enchantment_table.use",
+        "type": "event"
+      }
+    ]
+  },
+  "entity.rune_warden.volley": {
+    "subtitle": "subtitles.relicweave.entity.rune_warden.volley",
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.prepare_attack",
+        "type": "event"
+      }
+    ]
+  },
+  "entity.cycle_herald.lance": {
+    "subtitle": "subtitles.relicweave.entity.cycle_herald.lance",
+    "sounds": [
+      {
+        "name": "minecraft:block.beacon.power_select",
+        "type": "event"
+      }
+    ]
+  },
+  "entity.glassroot_stalker.reveal": {
+    "subtitle": "subtitles.relicweave.entity.glassroot_stalker.reveal",
+    "sounds": [
+      {
+        "name": "minecraft:block.amethyst_block.resonate",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.8
+      }
+    ]
+  },
+  "entity.shardback_brute.slam": {
+    "subtitle": "subtitles.relicweave.entity.shardback_brute.slam",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.roar",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.7
+      }
+    ]
+  },
+  "entity.shardback_brute.charge": {
+    "subtitle": "subtitles.relicweave.entity.shardback_brute.charge",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.stunned",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.8
+      }
+    ]
+  },
+  "entity.starfall_strider.charge": {
+    "subtitle": "subtitles.relicweave.entity.starfall_strider.charge",
+    "sounds": [
+      {
+        "name": "minecraft:entity.blaze.shoot",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.8
+      }
+    ]
+  },
+  "entity.gravity_leech.pull": {
+    "subtitle": "subtitles.relicweave.entity.gravity_leech.pull",
+    "sounds": [
+      {
+        "name": "minecraft:block.portal.ambient",
+        "type": "event",
+        "volume": 0.6,
+        "pitch": 1.2
+      }
+    ]
+  },
+  "entity.archive_mimic.creak": {
+    "subtitle": "subtitles.relicweave.entity.archive_mimic.creak",
+    "sounds": [
+      {
+        "name": "minecraft:block.chest.open",
+        "type": "event",
+        "volume": 0.7,
+        "pitch": 0.6
+      }
+    ]
+  },
+  "entity.thorned_regent.volley": {
+    "subtitle": "subtitles.relicweave.entity.thorned_regent.volley",
+    "sounds": [
+      {
+        "name": "minecraft:block.composter.fill",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.6
+      }
+    ]
+  },
+  "entity.thorned_regent.wall": {
+    "subtitle": "subtitles.relicweave.entity.thorned_regent.wall",
+    "sounds": [
+      {
+        "name": "minecraft:block.roots.break",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.5
+      }
+    ]
+  },
+  "entity.thorned_regent.strike": {
+    "subtitle": "subtitles.relicweave.entity.thorned_regent.strike",
+    "sounds": [
+      {
+        "name": "minecraft:entity.ravager.roar",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.7
+      }
+    ]
+  },
+  "entity.thorned_regent.call": {
+    "subtitle": "subtitles.relicweave.entity.thorned_regent.call",
+    "sounds": [
+      {
+        "name": "minecraft:block.azalea_leaves.break",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.5
+      }
+    ]
+  },
+  "entity.choir_unheard.lance": {
+    "subtitle": "subtitles.relicweave.entity.choir_unheard.lance",
+    "sounds": [
+      {
+        "name": "minecraft:entity.warden.sonic_charge",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 1.2
+      }
+    ]
+  },
+  "entity.choir_unheard.zones": {
+    "subtitle": "subtitles.relicweave.entity.choir_unheard.zones",
+    "sounds": [
+      {
+        "name": "minecraft:block.sculk_shrieker.shriek",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.7
+      }
+    ]
+  },
+  "entity.choir_unheard.detonate": {
+    "subtitle": "subtitles.relicweave.entity.choir_unheard.detonate",
+    "sounds": [
+      {
+        "name": "minecraft:entity.warden.sonic_boom",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 1.0
+      }
+    ]
+  },
+  "entity.choir_unheard.tone_high": {
+    "subtitle": "subtitles.relicweave.entity.choir_unheard.tone_high",
+    "sounds": [
+      {
+        "name": "minecraft:block.note_block.chime",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 1.6
+      }
+    ]
+  },
+  "entity.choir_unheard.tone_low": {
+    "subtitle": "subtitles.relicweave.entity.choir_unheard.tone_low",
+    "sounds": [
+      {
+        "name": "minecraft:block.note_block.bass",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.6
+      }
+    ]
+  },
+  "entity.warden_of_seals.slam": {
+    "subtitle": "subtitles.relicweave.entity.warden_of_seals.slam",
+    "sounds": [
+      {
+        "name": "minecraft:entity.iron_golem.attack",
+        "type": "event",
+        "volume": 1.5,
+        "pitch": 0.5
+      }
+    ]
+  },
+  "entity.warden_of_seals.lances": {
+    "subtitle": "subtitles.relicweave.entity.warden_of_seals.lances",
+    "sounds": [
+      {
+        "name": "minecraft:block.amethyst_block.resonate",
+        "type": "event",
+        "volume": 1.5,
+        "pitch": 1.4
+      }
+    ]
+  },
+  "entity.warden_of_seals.summon": {
+    "subtitle": "subtitles.relicweave.entity.warden_of_seals.summon",
+    "sounds": [
+      {
+        "name": "minecraft:entity.evoker.prepare_summon",
+        "type": "event",
+        "volume": 1.5,
+        "pitch": 0.8
+      }
+    ]
+  },
+  "entity.seal_node.exposed": {
+    "subtitle": "subtitles.relicweave.entity.seal_node.exposed",
+    "sounds": [
+      {
+        "name": "minecraft:block.amethyst_cluster.break",
+        "type": "event",
+        "volume": 1.5,
+        "pitch": 0.6
+      }
+    ]
+  },
+  "entity.archivist_prime.lances": {
+    "subtitle": "subtitles.relicweave.entity.archivist_prime.lances",
+    "sounds": [
+      {
+        "name": "minecraft:block.amethyst_block.resonate",
+        "type": "event",
+        "volume": 1.5,
+        "pitch": 1.7
+      }
+    ]
+  },
+  "entity.archivist_prime.volley": {
+    "subtitle": "subtitles.relicweave.entity.archivist_prime.volley",
+    "sounds": [
+      {
+        "name": "minecraft:item.book.page_turn",
+        "type": "event",
+        "volume": 1.5,
+        "pitch": 0.6
+      }
+    ]
+  },
+  "entity.archivist_prime.rings": {
+    "subtitle": "subtitles.relicweave.entity.archivist_prime.rings",
+    "sounds": [
+      {
+        "name": "minecraft:block.beacon.power_select",
+        "type": "event",
+        "volume": 1.5,
+        "pitch": 0.7
+      }
+    ]
+  },
+  "entity.archivist_prime.cycle_shift": {
+    "subtitle": "subtitles.relicweave.entity.archivist_prime.cycle_shift",
+    "sounds": [
+      {
+        "name": "minecraft:block.beacon.activate",
+        "type": "event",
+        "volume": 2.0,
+        "pitch": 1.4
+      }
+    ]
+  },
+  "entity.archivist_prime.final_seal": {
+    "subtitle": "subtitles.relicweave.entity.archivist_prime.final_seal",
+    "sounds": [
+      {
+        "name": "minecraft:block.end_portal.spawn",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 1.0
+      }
+    ]
+  },
+  "entity.gravity_maw.inhale": {
+    "subtitle": "subtitles.relicweave.entity.gravity_maw.inhale",
+    "sounds": [
+      {
+        "name": "minecraft:entity.warden.sonic_charge",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.6
+      }
+    ]
+  },
+  "entity.gravity_maw.repulse": {
+    "subtitle": "subtitles.relicweave.entity.gravity_maw.repulse",
+    "sounds": [
+      {
+        "name": "minecraft:entity.warden.sonic_boom",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.8
+      }
+    ]
+  },
+  "entity.gravity_maw.bite": {
+    "subtitle": "subtitles.relicweave.entity.gravity_maw.bite",
+    "sounds": [
+      {
+        "name": "minecraft:entity.warden.attack_impact",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.7
+      }
+    ]
+  },
+  "entity.gravity_maw.debris": {
+    "subtitle": "subtitles.relicweave.entity.gravity_maw.debris",
+    "sounds": [
+      {
+        "name": "minecraft:entity.generic.explode",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.5
+      }
+    ]
+  },
+  "entity.starforged_colossus.overheat": {
+    "subtitle": "subtitles.relicweave.entity.starforged_colossus.overheat",
+    "sounds": [
+      {
+        "name": "minecraft:block.fire.ambient",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.6
+      }
+    ]
+  },
+  "entity.starforged_colossus.slam": {
+    "subtitle": "subtitles.relicweave.entity.starforged_colossus.slam",
+    "sounds": [
+      {
+        "name": "minecraft:entity.iron_golem.attack",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.5
+      }
+    ]
+  },
+  "entity.starforged_colossus.heat_pulse": {
+    "subtitle": "subtitles.relicweave.entity.starforged_colossus.heat_pulse",
+    "sounds": [
+      {
+        "name": "minecraft:entity.blaze.shoot",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.6
+      }
+    ]
+  },
+  "entity.starforged_colossus.barrage": {
+    "subtitle": "subtitles.relicweave.entity.starforged_colossus.barrage",
+    "sounds": [
+      {
+        "name": "minecraft:entity.firework_rocket.launch",
+        "type": "event",
+        "volume": 1.0,
+        "pitch": 0.6
+      }
+    ]
+  },
+  "music.boss.thorned_regent": {
+    "sounds": [
+      {
+        "name": "minecraft:music/game/nether/crimson_forest/chrysopoeia",
+        "stream": true
+      }
+    ]
+  },
+  "music.boss.choir_unheard": {
+    "sounds": [
+      {
+        "name": "minecraft:music/game/ancestry",
+        "stream": true
+      }
+    ]
+  },
+  "music.boss.gravity_maw": {
+    "sounds": [
+      {
+        "name": "minecraft:music/game/nether/soulsand_valley/so_below",
+        "stream": true
+      }
+    ]
+  },
+  "music.boss.starforged_colossus": {
+    "sounds": [
+      {
+        "name": "minecraft:music/game/nether/nether_wastes/rubedo",
+        "stream": true
+      }
+    ]
+  },
+  "music.boss.warden_of_seals": {
+    "sounds": [
+      {
+        "name": "minecraft:music/game/nether/nether2",
+        "stream": true
+      }
+    ]
+  },
+  "music.boss.archivist_prime": {
+    "sounds": [
+      {
+        "name": "minecraft:music/game/end/boss",
+        "stream": true
+      }
     ]
   }
 }

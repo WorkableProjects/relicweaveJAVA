@@ -1,0 +1,9 @@
+{
+  "type": "relicweave:infusion",
+  "ingredient": {
+    "tag": "relicweave:attunement_sources/glyphfinder"
+  },
+  "count": 16,
+  "infusion": "relicweave:riftward",
+  "process_time": 200
+}

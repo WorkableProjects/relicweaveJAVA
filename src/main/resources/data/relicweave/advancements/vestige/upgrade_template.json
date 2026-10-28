@@ -1,0 +1,40 @@
+{
+  "parent": "relicweave:vestige/warden_of_seals",
+  "display": {
+    "icon": {
+      "item": "relicweave:vestige_upgrade_template"
+    },
+    "title": {
+      "translate": "advancements.relicweave.vestige.upgrade_template.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.vestige.upgrade_template.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "template": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:vestige_upgrade_template"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "template"
+    ]
+  ],
+  "rewards": {
+    "experience": 80
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "parent": "relicweave:relicweave/root",
+  "display": {
+    "icon": {
+      "item": "relicweave:copper_charm"
+    },
+    "title": {
+      "translate": "advancements.relicweave.relicweave.first_charm.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.relicweave.first_charm.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "copper_charm": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:copper_charm"
+            ]
+          }
+        ]
+      }
+    },
+    "iron_charm": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:iron_charm"
+            ]
+          }
+        ]
+      }
+    },
+    "gold_charm": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:gold_charm"
+            ]
+          }
+        ]
+      }
+    },
+    "diamond_charm": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:diamond_charm"
+            ]
+          }
+        ]
+      }
+    },
+    "netherite_charm": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:netherite_charm"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "copper_charm",
+      "iron_charm",
+      "gold_charm",
+      "diamond_charm",
+      "netherite_charm"
+    ]
+  ],
+  "rewards": {
+    "experience": 20
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "parent": "relicweave:vestige/aetherite",
+  "display": {
+    "icon": {
+      "item": "minecraft:enchanted_book"
+    },
+    "title": {
+      "translate": "advancements.relicweave.vestige.vestige_book.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.vestige.vestige_book.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "riftwalker": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:enchanted_book"
+            ],
+            "stored_enchantments": [
+              {
+                "enchantment": "relicweave:riftwalker"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "glyphfinder": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:enchanted_book"
+            ],
+            "stored_enchantments": [
+              {
+                "enchantment": "relicweave:glyphfinder"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "sovereigns_bane": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:enchanted_book"
+            ],
+            "stored_enchantments": [
+              {
+                "enchantment": "relicweave:sovereigns_bane"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "cyclebound": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:enchanted_book"
+            ],
+            "stored_enchantments": [
+              {
+                "enchantment": "relicweave:cyclebound"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "sealbreaker": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:enchanted_book"
+            ],
+            "stored_enchantments": [
+              {
+                "enchantment": "relicweave:sealbreaker"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "archivists_mark": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:enchanted_book"
+            ],
+            "stored_enchantments": [
+              {
+                "enchantment": "relicweave:archivists_mark"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "riftwalker",
+      "glyphfinder",
+      "sovereigns_bane",
+      "cyclebound",
+      "sealbreaker",
+      "archivists_mark"
+    ]
+  ],
+  "rewards": {
+    "experience": 60
+  }
+}

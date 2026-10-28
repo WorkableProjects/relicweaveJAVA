@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "item": "relicweave:gate_keystone"
+    },
+    "title": {
+      "translate": "advancements.relicweave.vestige.root.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.vestige.root.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false,
+    "background": "relicweave:textures/block/vestige_bricks.png"
+  },
+  "criteria": {
+    "enter_vestige": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "relicweave:the_vestige"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "enter_vestige"
+    ]
+  ],
+  "rewards": {
+    "experience": 50,
+    "loot": [
+      "relicweave:quests/first_crossing"
+    ]
+  }
+}

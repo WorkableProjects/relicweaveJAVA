@@ -1,0 +1,399 @@
+{
+  "parent": "relicweave:vestige/elite_slayer",
+  "display": {
+    "icon": {
+      "item": "minecraft:writable_book"
+    },
+    "title": {
+      "translate": "advancements.relicweave.vestige.bestiary.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.vestige.bestiary.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "reliquary_sentinel": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "relicweave:reliquary_sentinel"
+            }
+          }
+        ]
+      }
+    },
+    "scriptbound_scribe": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "relicweave:scriptbound_scribe"
+            }
+          }
+        ]
+      }
+    },
+    "gilded_husk": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "relicweave:gilded_husk"
+            }
+          }
+        ]
+      }
+    },
+    "mirebound_cantor": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "relicweave:mirebound_cantor"
+            }
+          }
+        ]
+      }
+    },
+    "oathbreaker_knight": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "relicweave:oathbreaker_knight"
+            }
+          }
+        ]
+      }
+    },
+    "vestige_drifter": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "relicweave:vestige_drifter"
+            }
+          }
+        ]
+      }
+    },
+    "rift_archer": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "relicweave:rift_archer"
+            }
+          }
+        ]
+      }
+    },
+    "echo_weaver": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "relicweave:echo_weaver"
+            }
+          }
+        ]
+      }
+    },
+    "glassroot_stalker": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "relicweave:glassroot_stalker"
+            }
+          }
+        ]
+      }
+    },
+    "ruin_hound": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "relicweave:ruin_hound"
+            }
+          }
+        ]
+      }
+    },
+    "aether_grazer": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "relicweave:aether_grazer"
+            }
+          }
+        ]
+      }
+    },
+    "shardback_brute": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "relicweave:shardback_brute"
+            }
+          }
+        ]
+      }
+    },
+    "starfall_strider": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "relicweave:starfall_strider"
+            }
+          }
+        ]
+      }
+    },
+    "gravity_leech": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "relicweave:gravity_leech"
+            }
+          }
+        ]
+      }
+    },
+    "archive_mimic": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "relicweave:archive_mimic"
+            }
+          }
+        ]
+      }
+    },
+    "fracture_wisp": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "relicweave:fracture_wisp"
+            }
+          }
+        ]
+      }
+    },
+    "nullwing": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "relicweave:nullwing"
+            }
+          }
+        ]
+      }
+    },
+    "eclipse_moth": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "relicweave:eclipse_moth"
+            }
+          }
+        ]
+      }
+    },
+    "concordance_guardian": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "relicweave:concordance_guardian"
+            }
+          }
+        ]
+      }
+    },
+    "sealed_custodian": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "relicweave:sealed_custodian"
+            }
+          }
+        ]
+      }
+    },
+    "rune_warden": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "relicweave:rune_warden"
+            }
+          }
+        ]
+      }
+    },
+    "cycle_herald": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "relicweave:cycle_herald"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "reliquary_sentinel"
+    ],
+    [
+      "scriptbound_scribe"
+    ],
+    [
+      "gilded_husk"
+    ],
+    [
+      "mirebound_cantor"
+    ],
+    [
+      "oathbreaker_knight"
+    ],
+    [
+      "vestige_drifter"
+    ],
+    [
+      "rift_archer"
+    ],
+    [
+      "echo_weaver"
+    ],
+    [
+      "glassroot_stalker"
+    ],
+    [
+      "ruin_hound"
+    ],
+    [
+      "aether_grazer"
+    ],
+    [
+      "shardback_brute"
+    ],
+    [
+      "starfall_strider"
+    ],
+    [
+      "gravity_leech"
+    ],
+    [
+      "archive_mimic"
+    ],
+    [
+      "fracture_wisp"
+    ],
+    [
+      "nullwing"
+    ],
+    [
+      "eclipse_moth"
+    ],
+    [
+      "concordance_guardian"
+    ],
+    [
+      "sealed_custodian"
+    ],
+    [
+      "rune_warden"
+    ],
+    [
+      "cycle_herald"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  }
+}

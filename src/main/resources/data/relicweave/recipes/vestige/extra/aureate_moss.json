@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:moss_block"
+    },
+    {
+      "item": "relicweave:aetherite_dust"
+    }
+  ],
+  "result": {
+    "item": "relicweave:aureate_moss",
+    "count": 1
+  }
+}

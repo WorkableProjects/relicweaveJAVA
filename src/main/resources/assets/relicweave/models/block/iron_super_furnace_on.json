@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "relicweave:block/iron_super_furnace_top",
+    "front": "relicweave:block/iron_super_furnace_front_on",
+    "side": "relicweave:block/iron_super_furnace_side"
+  }
+}

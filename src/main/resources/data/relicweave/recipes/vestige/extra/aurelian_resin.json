@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "relicweave:canopy_leaves"
+    },
+    {
+      "item": "relicweave:canopy_leaves"
+    },
+    {
+      "item": "minecraft:honeycomb"
+    }
+  ],
+  "result": {
+    "item": "relicweave:aurelian_resin",
+    "count": 2
+  }
+}

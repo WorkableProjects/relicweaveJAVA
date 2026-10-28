@@ -1,0 +1,65 @@
+{
+  "has_precipitation": false,
+  "temperature": 0.25,
+  "downfall": 0.1,
+  "effects": {
+    "fog_color": 3424878,
+    "sky_color": 1581646,
+    "water_color": 3428488,
+    "water_fog_color": 1055808,
+    "grass_color": 5268634,
+    "foliage_color": 4479116,
+    "ambient_sound": "relicweave:ambient.vestige.gloam_archive",
+    "mood_sound": {
+      "sound": "minecraft:ambient.soul_sand_valley.mood",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2.0
+    },
+    "music": {
+      "sound": "relicweave:music.vestige",
+      "min_delay": 2400,
+      "max_delay": 7200,
+      "replace_current_music": false
+    },
+    "particle": {
+      "options": {
+        "type": "minecraft:enchant"
+      },
+      "probability": 0.02
+    },
+    "additions_sound": {
+      "sound": "minecraft:ambient.soul_sand_valley.additions",
+      "tick_chance": 0.0111
+    }
+  },
+  "spawners": {
+    "monster": [],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [
+      "relicweave:vestige_ruined_colonnade_gloam"
+    ],
+    [],
+    [
+      "relicweave:vestige_ore_aetherite"
+    ]
+  ]
+}

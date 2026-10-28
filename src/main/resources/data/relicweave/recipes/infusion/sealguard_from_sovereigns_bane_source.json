@@ -1,0 +1,9 @@
+{
+  "type": "relicweave:infusion",
+  "ingredient": {
+    "tag": "relicweave:attunement_sources/sovereigns_bane"
+  },
+  "count": 2,
+  "infusion": "relicweave:sealguard",
+  "process_time": 200
+}

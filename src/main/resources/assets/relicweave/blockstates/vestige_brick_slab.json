@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "relicweave:block/vestige_brick_slab"
+    },
+    "type=top": {
+      "model": "relicweave:block/vestige_brick_slab_top"
+    },
+    "type=double": {
+      "model": "relicweave:block/vestige_bricks"
+    }
+  }
+}

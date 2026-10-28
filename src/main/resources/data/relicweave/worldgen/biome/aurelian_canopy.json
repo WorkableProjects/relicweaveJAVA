@@ -1,0 +1,72 @@
+{
+  "has_precipitation": false,
+  "temperature": 0.85,
+  "downfall": 0.7,
+  "effects": {
+    "fog_color": 15915164,
+    "sky_color": 14198872,
+    "water_color": 5023888,
+    "water_fog_color": 2119752,
+    "grass_color": 14465096,
+    "foliage_color": 15251512,
+    "ambient_sound": "relicweave:ambient.vestige.aurelian_canopy",
+    "mood_sound": {
+      "sound": "minecraft:ambient.crimson_forest.mood",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2.0
+    },
+    "music": {
+      "sound": "relicweave:music.vestige",
+      "min_delay": 2400,
+      "max_delay": 7200,
+      "replace_current_music": false
+    },
+    "particle": {
+      "options": {
+        "type": "minecraft:falling_spore_blossom"
+      },
+      "probability": 0.004
+    },
+    "additions_sound": {
+      "sound": "minecraft:ambient.crimson_forest.additions",
+      "tick_chance": 0.0111
+    }
+  },
+  "spawners": {
+    "monster": [],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [
+      "relicweave:vestige_floating_ruin",
+      "relicweave:vestige_broken_arch"
+    ],
+    [],
+    [
+      "relicweave:vestige_ore_aetherite"
+    ],
+    [],
+    [],
+    [
+      "relicweave:vestige_canopy_tree",
+      "relicweave:vestige_aurelian_bloom_dense"
+    ]
+  ]
+}

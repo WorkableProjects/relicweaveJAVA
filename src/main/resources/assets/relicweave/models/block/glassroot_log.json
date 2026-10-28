@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "relicweave:block/glassroot_log_top",
+    "side": "relicweave:block/glassroot_log"
+  }
+}

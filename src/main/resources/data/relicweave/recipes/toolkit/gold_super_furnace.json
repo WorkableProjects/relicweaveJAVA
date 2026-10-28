@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "MGM",
+    "GFG",
+    "MGM"
+  ],
+  "key": {
+    "M": {
+      "item": "minecraft:magma_block"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "F": {
+      "item": "relicweave:iron_super_furnace"
+    }
+  },
+  "result": {
+    "item": "relicweave:gold_super_furnace"
+  }
+}

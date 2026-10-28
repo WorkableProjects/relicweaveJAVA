@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "relicweave:vestige_upgrade_template"
+  },
+  "base": {
+    "item": "minecraft:netherite_leggings"
+  },
+  "addition": {
+    "item": "relicweave:concordant_alloy"
+  },
+  "result": {
+    "item": "relicweave:aetherforged_leggings"
+  }
+}

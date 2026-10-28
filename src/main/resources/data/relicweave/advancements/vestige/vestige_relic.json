@@ -1,0 +1,105 @@
+{
+  "parent": "relicweave:vestige/root",
+  "display": {
+    "icon": {
+      "item": "relicweave:surveyors_lens"
+    },
+    "title": {
+      "translate": "advancements.relicweave.vestige.vestige_relic.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.vestige.vestige_relic.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "surveyors_lens": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:surveyors_lens"
+            ]
+          }
+        ]
+      }
+    },
+    "gravity_nail": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:gravity_nail"
+            ]
+          }
+        ]
+      }
+    },
+    "cycle_dial": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:cycle_dial"
+            ]
+          }
+        ]
+      }
+    },
+    "riftglass_lantern": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:riftglass_lantern"
+            ]
+          }
+        ]
+      }
+    },
+    "mnemonic_spindle": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:mnemonic_spindle"
+            ]
+          }
+        ]
+      }
+    },
+    "sealkeepers_signet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:sealkeepers_signet"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "surveyors_lens",
+      "gravity_nail",
+      "cycle_dial",
+      "riftglass_lantern",
+      "mnemonic_spindle",
+      "sealkeepers_signet"
+    ]
+  ],
+  "rewards": {
+    "experience": 50
+  }
+}

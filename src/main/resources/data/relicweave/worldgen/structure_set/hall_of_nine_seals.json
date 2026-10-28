@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "relicweave:hall_of_nine_seals",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 48,
+    "separation": 16,
+    "salt": 40400204
+  }
+}

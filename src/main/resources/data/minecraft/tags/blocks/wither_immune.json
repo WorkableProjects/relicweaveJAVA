@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "relicweave:null_ward",
+    "relicweave:boss_altar",
+    "relicweave:seal_gate",
+    "relicweave:ancient_terminal"
+  ]
+}

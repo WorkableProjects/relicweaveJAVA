@@ -1,0 +1,85 @@
+{
+  "parent": "relicweave:relicweave/celestial_gear",
+  "display": {
+    "icon": {
+      "item": "relicweave:celestial_chestplate"
+    },
+    "title": {
+      "translate": "advancements.relicweave.relicweave.celestial_set.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.relicweave.celestial_set.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "celestial_helmet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_helmet"
+            ]
+          }
+        ]
+      }
+    },
+    "celestial_chestplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_chestplate"
+            ]
+          }
+        ]
+      }
+    },
+    "celestial_leggings": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_leggings"
+            ]
+          }
+        ]
+      }
+    },
+    "celestial_boots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_boots"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "celestial_helmet"
+    ],
+    [
+      "celestial_chestplate"
+    ],
+    [
+      "celestial_leggings"
+    ],
+    [
+      "celestial_boots"
+    ]
+  ],
+  "rewards": {
+    "experience": 150
+  }
+}

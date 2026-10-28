@@ -1,0 +1,73 @@
+{
+  "has_precipitation": false,
+  "temperature": 0.7,
+  "downfall": 0.3,
+  "effects": {
+    "fog_color": 14865582,
+    "sky_color": 6269104,
+    "water_color": 4169370,
+    "water_fog_color": 1722962,
+    "grass_color": 12370016,
+    "foliage_color": 11577416,
+    "ambient_sound": "relicweave:ambient.vestige.crownfall_basin",
+    "mood_sound": {
+      "sound": "minecraft:ambient.warped_forest.mood",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2.0
+    },
+    "music": {
+      "sound": "relicweave:music.vestige",
+      "min_delay": 2400,
+      "max_delay": 7200,
+      "replace_current_music": false
+    },
+    "particle": {
+      "options": {
+        "type": "minecraft:white_ash"
+      },
+      "probability": 0.012
+    },
+    "additions_sound": {
+      "sound": "minecraft:ambient.warped_forest.additions",
+      "tick_chance": 0.0111
+    }
+  },
+  "spawners": {
+    "monster": [],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [
+      "relicweave:vestige_floating_ruin",
+      "relicweave:vestige_broken_arch",
+      "relicweave:vestige_fallen_statue",
+      "relicweave:vestige_ruined_colonnade"
+    ],
+    [],
+    [
+      "relicweave:vestige_ore_aetherite"
+    ],
+    [],
+    [],
+    [
+      "relicweave:vestige_aurelian_bloom"
+    ]
+  ]
+}

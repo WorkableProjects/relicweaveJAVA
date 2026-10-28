@@ -1,0 +1,31 @@
+{
+  "parent": "relicweave:vestige/gravity_maw",
+  "display": {
+    "icon": {
+      "item": "relicweave:starforged_core"
+    },
+    "title": {
+      "translate": "advancements.relicweave.vestige.starforged_colossus.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.vestige.starforged_colossus.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "defeated": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "defeated"
+    ]
+  ],
+  "rewards": {
+    "experience": 350
+  }
+}

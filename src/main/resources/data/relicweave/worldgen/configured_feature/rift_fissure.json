@@ -1,0 +1,54 @@
+{
+  "type": "minecraft:ore",
+  "config": {
+    "size": 3,
+    "discard_chance_on_air_exposure": 0.0,
+    "targets": [
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "relicweave:vestige_stone"
+        },
+        "state": {
+          "Name": "relicweave:rift_fissure"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "relicweave:concordant_paving"
+        },
+        "state": {
+          "Name": "relicweave:rift_fissure"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "relicweave:fractured_vestige_stone"
+        },
+        "state": {
+          "Name": "relicweave:rift_fissure"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "relicweave:starfall_slag"
+        },
+        "state": {
+          "Name": "relicweave:rift_fissure"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:tag_match",
+          "tag": "minecraft:base_stone_overworld"
+        },
+        "state": {
+          "Name": "relicweave:rift_fissure"
+        }
+      }
+    ]
+  }
+}

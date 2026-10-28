@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "key": {
+    "S": {
+      "item": "relicweave:gloam_stone"
+    }
+  },
+  "result": {
+    "item": "relicweave:gloam_bricks",
+    "count": 4
+  }
+}

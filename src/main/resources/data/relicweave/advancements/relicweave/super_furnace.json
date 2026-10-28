@@ -1,0 +1,92 @@
+{
+  "parent": "relicweave:relicweave/root",
+  "display": {
+    "icon": {
+      "item": "relicweave:iron_super_furnace"
+    },
+    "title": {
+      "translate": "advancements.relicweave.relicweave.super_furnace.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.relicweave.super_furnace.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "iron_super_furnace": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:iron_super_furnace"
+            ]
+          }
+        ]
+      }
+    },
+    "gold_super_furnace": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:gold_super_furnace"
+            ]
+          }
+        ]
+      }
+    },
+    "diamond_super_furnace": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:diamond_super_furnace"
+            ]
+          }
+        ]
+      }
+    },
+    "netherite_super_furnace": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:netherite_super_furnace"
+            ]
+          }
+        ]
+      }
+    },
+    "celestial_super_furnace": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_super_furnace"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "iron_super_furnace",
+      "gold_super_furnace",
+      "diamond_super_furnace",
+      "netherite_super_furnace",
+      "celestial_super_furnace"
+    ]
+  ],
+  "rewards": {
+    "experience": 30
+  }
+}

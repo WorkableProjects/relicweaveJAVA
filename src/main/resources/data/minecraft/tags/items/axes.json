@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "relicweave:iron_multitool",
+    "relicweave:diamond_multitool",
+    "relicweave:netherite_multitool",
+    "relicweave:celestial_multitool"
+  ]
+}

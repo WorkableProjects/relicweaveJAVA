@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "relicweave:block/vestige_pillar_top",
+    "side": "relicweave:block/vestige_pillar"
+  }
+}

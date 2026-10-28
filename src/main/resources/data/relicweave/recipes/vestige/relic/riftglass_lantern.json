@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IRI",
+    "RLR",
+    "IRI"
+  ],
+  "key": {
+    "I": {
+      "item": "relicweave:aetherite_ingot"
+    },
+    "R": {
+      "item": "relicweave:riftglass"
+    },
+    "L": {
+      "item": "minecraft:lantern"
+    }
+  },
+  "result": {
+    "item": "relicweave:riftglass_lantern",
+    "count": 1
+  }
+}

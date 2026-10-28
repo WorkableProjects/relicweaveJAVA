@@ -1,0 +1,31 @@
+{
+  "parent": "relicweave:vestige/starforged_colossus",
+  "display": {
+    "icon": {
+      "item": "relicweave:concordant_seal"
+    },
+    "title": {
+      "translate": "advancements.relicweave.vestige.warden_of_seals.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.vestige.warden_of_seals.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "defeated": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "defeated"
+    ]
+  ],
+  "rewards": {
+    "experience": 400
+  }
+}

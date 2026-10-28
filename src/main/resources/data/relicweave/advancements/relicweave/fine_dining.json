@@ -1,0 +1,39 @@
+{
+  "parent": "relicweave:relicweave/root",
+  "display": {
+    "icon": {
+      "item": "relicweave:diamond_steak"
+    },
+    "title": {
+      "translate": "advancements.relicweave.relicweave.fine_dining.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.relicweave.fine_dining.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "steak": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "relicweave:diamond_steak",
+            "relicweave:netherite_steak"
+          ]
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "steak"
+    ]
+  ],
+  "rewards": {
+    "experience": 30
+  }
+}

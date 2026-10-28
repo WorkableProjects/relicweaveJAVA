@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "BBB",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "relicweave:vestige_bricks"
+    }
+  },
+  "result": {
+    "item": "relicweave:vestige_brick_wall",
+    "count": 6
+  }
+}

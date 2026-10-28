@@ -19,7 +19,7 @@ Either clone it:
 ```
 git clone https://github.com/WorkableProjects/relicweaveJAVA.git
 cd relicweaveJAVA
-git checkout claude/inspiring-einstein-efvbbg
+git checkout claude/relaxed-faraday-dqdd80
 ```
 
 or on GitHub choose the branch, then **Code → Download ZIP**, and unzip it.
@@ -38,7 +38,7 @@ Wait for `BUILD SUCCESSFUL`.
 The finished mod is at:
 
 ```
-build/libs/relicweave-0.0.3.jar
+build/libs/relicweave-0.0.4.jar
 ```
 
 That file is ready to upload to CurseForge or to install. The file name follows `mod_version` in `gradle.properties`.
@@ -46,10 +46,12 @@ That file is ready to upload to CurseForge or to install. The file name follows 
 ## 5. Install it (to test)
 
 1. Install **Forge 47.3.0 or newer** for **Minecraft 1.20.1**.
-2. Copy `relicweave-0.0.3.jar` into the `mods` folder of your Minecraft instance (and of your server, for multiplayer).
+2. Copy `relicweave-0.0.4.jar` into the `mods` folder of your Minecraft instance (and of your server, for multiplayer).
 3. Start Minecraft with the Forge profile.
 
 ## Troubleshooting
+
+- **macOS: build hangs on `processResources`, or fails with "Cannot access a file in the destination directory" / "Failed to create MD5 hash" / `last-build.bin (Operation timed out)`:** the project is in a folder that iCloud Drive syncs, usually `Documents` or `Desktop` (GitHub Desktop clones into `~/Documents/GitHub` by default). iCloud offloads files, and Gradle then times out reading them. Clone the project into a folder iCloud doesn't sync, for example `~/dev`, and build there.
 
 - **`JAVA_HOME is not set` / `java not found`:** Java isn't installed or isn't on your PATH. Reinstall the JDK and tick "Set JAVA_HOME" in the installer.
 - **Download errors or timeouts:** run the build again. Gradle resumes where it stopped.

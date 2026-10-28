@@ -1,0 +1,13 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "relicweave:aurelian_canopy",
+    "relicweave:starfall_caldera"
+  ],
+  "spawners": {
+    "type": "relicweave:rift_archer",
+    "weight": 12,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}

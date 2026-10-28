@@ -1,0 +1,40 @@
+{
+  "parent": "relicweave:relicweave/celestial_ingot",
+  "display": {
+    "icon": {
+      "item": "relicweave:celestial_infuser"
+    },
+    "title": {
+      "translate": "advancements.relicweave.relicweave.celestial_infuser.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.relicweave.celestial_infuser.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "infuser": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_infuser"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "infuser"
+    ]
+  ],
+  "rewards": {
+    "experience": 40
+  }
+}

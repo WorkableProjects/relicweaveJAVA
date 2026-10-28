@@ -1,0 +1,316 @@
+{
+  "parent": "relicweave:relicweave/celestial_infuser",
+  "display": {
+    "icon": {
+      "item": "minecraft:nether_star"
+    },
+    "title": {
+      "translate": "advancements.relicweave.relicweave.first_infusion.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.relicweave.first_infusion.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "cobbled": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_helmet",
+              "relicweave:celestial_chestplate",
+              "relicweave:celestial_leggings",
+              "relicweave:celestial_boots"
+            ],
+            "nbt": "{RelicWeaveInfusions:[\"relicweave:cobbled\"]}"
+          }
+        ]
+      }
+    },
+    "oxidized": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_helmet",
+              "relicweave:celestial_chestplate",
+              "relicweave:celestial_leggings",
+              "relicweave:celestial_boots"
+            ],
+            "nbt": "{RelicWeaveInfusions:[\"relicweave:oxidized\"]}"
+          }
+        ]
+      }
+    },
+    "conductive": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_helmet",
+              "relicweave:celestial_chestplate",
+              "relicweave:celestial_leggings",
+              "relicweave:celestial_boots"
+            ],
+            "nbt": "{RelicWeaveInfusions:[\"relicweave:conductive\"]}"
+          }
+        ]
+      }
+    },
+    "golemed": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_helmet",
+              "relicweave:celestial_chestplate",
+              "relicweave:celestial_leggings",
+              "relicweave:celestial_boots"
+            ],
+            "nbt": "{RelicWeaveInfusions:[\"relicweave:golemed\"]}"
+          }
+        ]
+      }
+    },
+    "piglinified": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_helmet",
+              "relicweave:celestial_chestplate",
+              "relicweave:celestial_leggings",
+              "relicweave:celestial_boots"
+            ],
+            "nbt": "{RelicWeaveInfusions:[\"relicweave:piglinified\"]}"
+          }
+        ]
+      }
+    },
+    "villagers_best_friend": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_helmet",
+              "relicweave:celestial_chestplate",
+              "relicweave:celestial_leggings",
+              "relicweave:celestial_boots"
+            ],
+            "nbt": "{RelicWeaveInfusions:[\"relicweave:villagers_best_friend\"]}"
+          }
+        ]
+      }
+    },
+    "necromancer": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_helmet",
+              "relicweave:celestial_chestplate",
+              "relicweave:celestial_leggings",
+              "relicweave:celestial_boots"
+            ],
+            "nbt": "{RelicWeaveInfusions:[\"relicweave:necromancer\"]}"
+          }
+        ]
+      }
+    },
+    "necromanced": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_helmet",
+              "relicweave:celestial_chestplate",
+              "relicweave:celestial_leggings",
+              "relicweave:celestial_boots"
+            ],
+            "nbt": "{RelicWeaveInfusions:[\"relicweave:necromanced\"]}"
+          }
+        ]
+      }
+    },
+    "upbound": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_helmet",
+              "relicweave:celestial_chestplate",
+              "relicweave:celestial_leggings",
+              "relicweave:celestial_boots"
+            ],
+            "nbt": "{RelicWeaveInfusions:[\"relicweave:upbound\"]}"
+          }
+        ]
+      }
+    },
+    "tidal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_helmet",
+              "relicweave:celestial_chestplate",
+              "relicweave:celestial_leggings",
+              "relicweave:celestial_boots"
+            ],
+            "nbt": "{RelicWeaveInfusions:[\"relicweave:tidal\"]}"
+          }
+        ]
+      }
+    },
+    "warding": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_helmet",
+              "relicweave:celestial_chestplate",
+              "relicweave:celestial_leggings",
+              "relicweave:celestial_boots"
+            ],
+            "nbt": "{RelicWeaveInfusions:[\"relicweave:warding\"]}"
+          }
+        ]
+      }
+    },
+    "pursuit": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_helmet",
+              "relicweave:celestial_chestplate",
+              "relicweave:celestial_leggings",
+              "relicweave:celestial_boots"
+            ],
+            "nbt": "{RelicWeaveInfusions:[\"relicweave:pursuit\"]}"
+          }
+        ]
+      }
+    },
+    "anchored": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_helmet",
+              "relicweave:celestial_chestplate",
+              "relicweave:celestial_leggings",
+              "relicweave:celestial_boots"
+            ],
+            "nbt": "{RelicWeaveInfusions:[\"relicweave:anchored\"]}"
+          }
+        ]
+      }
+    },
+    "riftward": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_helmet",
+              "relicweave:celestial_chestplate",
+              "relicweave:celestial_leggings",
+              "relicweave:celestial_boots"
+            ],
+            "nbt": "{RelicWeaveInfusions:[\"relicweave:riftward\"]}"
+          }
+        ]
+      }
+    },
+    "sealguard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_helmet",
+              "relicweave:celestial_chestplate",
+              "relicweave:celestial_leggings",
+              "relicweave:celestial_boots"
+            ],
+            "nbt": "{RelicWeaveInfusions:[\"relicweave:sealguard\"]}"
+          }
+        ]
+      }
+    },
+    "cycleweave": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_helmet",
+              "relicweave:celestial_chestplate",
+              "relicweave:celestial_leggings",
+              "relicweave:celestial_boots"
+            ],
+            "nbt": "{RelicWeaveInfusions:[\"relicweave:cycleweave\"]}"
+          }
+        ]
+      }
+    },
+    "gravitic_tread": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_helmet",
+              "relicweave:celestial_chestplate",
+              "relicweave:celestial_leggings",
+              "relicweave:celestial_boots"
+            ],
+            "nbt": "{RelicWeaveInfusions:[\"relicweave:gravitic_tread\"]}"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "cobbled",
+      "oxidized",
+      "conductive",
+      "golemed",
+      "piglinified",
+      "villagers_best_friend",
+      "necromancer",
+      "necromanced",
+      "upbound",
+      "tidal",
+      "warding",
+      "pursuit",
+      "anchored",
+      "riftward",
+      "sealguard",
+      "cycleweave",
+      "gravitic_tread"
+    ]
+  ],
+  "rewards": {
+    "experience": 50
+  }
+}

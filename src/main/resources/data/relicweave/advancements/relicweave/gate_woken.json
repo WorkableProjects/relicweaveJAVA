@@ -1,0 +1,34 @@
+{
+  "parent": "relicweave:relicweave/threshold_sigil",
+  "display": {
+    "icon": {
+      "item": "relicweave:gate_keystone"
+    },
+    "title": {
+      "translate": "advancements.relicweave.relicweave.gate_woken.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.relicweave.gate_woken.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "woken": {
+      "trigger": "relicweave:quest",
+      "conditions": {
+        "event": "gate_activated"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "woken"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  }
+}

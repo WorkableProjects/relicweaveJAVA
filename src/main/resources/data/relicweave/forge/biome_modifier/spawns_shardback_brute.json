@@ -1,0 +1,13 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "relicweave:sundered_reach",
+    "relicweave:starfall_caldera"
+  ],
+  "spawners": {
+    "type": "relicweave:shardback_brute",
+    "weight": 10,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}

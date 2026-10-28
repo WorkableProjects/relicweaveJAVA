@@ -30,3 +30,4 @@ run-data
 # plan-and-delegate working files
 .claude/delegation/
 .claude/worktrees/
+__pycache__/

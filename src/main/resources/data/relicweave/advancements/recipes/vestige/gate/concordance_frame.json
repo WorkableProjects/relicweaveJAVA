@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "relicweave:vestige/gate/concordance_frame"
+      }
+    },
+    "defeated_dragon": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "minecraft:ender_dragon"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "defeated_dragon"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "relicweave:vestige/gate/concordance_frame"
+    ]
+  },
+  "sends_telemetry_event": false
+}

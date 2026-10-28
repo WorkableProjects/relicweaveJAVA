@@ -1,0 +1,40 @@
+{
+  "parent": "relicweave:relicweave/doubled_ore",
+  "display": {
+    "icon": {
+      "item": "relicweave:celestial_super_furnace"
+    },
+    "title": {
+      "translate": "advancements.relicweave.relicweave.celestial_super_furnace.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.relicweave.celestial_super_furnace.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "celestial": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_super_furnace"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "celestial"
+    ]
+  ],
+  "rewards": {
+    "experience": 200
+  }
+}

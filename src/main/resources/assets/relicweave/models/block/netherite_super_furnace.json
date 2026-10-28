@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "relicweave:block/netherite_super_furnace_top",
+    "front": "relicweave:block/netherite_super_furnace_front",
+    "side": "relicweave:block/netherite_super_furnace_side"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "relicweave:hushfen",
+    "relicweave:gloam_archive"
+  ],
+  "spawners": {
+    "type": "relicweave:echo_weaver",
+    "weight": 20,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}

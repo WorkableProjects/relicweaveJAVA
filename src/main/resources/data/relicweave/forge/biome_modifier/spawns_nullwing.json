@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "relicweave:aurelian_canopy"
+  ],
+  "spawners": {
+    "type": "relicweave:nullwing",
+    "weight": 25,
+    "minCount": 1,
+    "maxCount": 2
+  }
+}

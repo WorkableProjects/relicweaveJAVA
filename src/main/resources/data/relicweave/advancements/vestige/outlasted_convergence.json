@@ -1,0 +1,34 @@
+{
+  "parent": "relicweave:vestige/witnessed_resonance",
+  "display": {
+    "icon": {
+      "item": "minecraft:recovery_compass"
+    },
+    "title": {
+      "translate": "advancements.relicweave.vestige.outlasted_convergence.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.vestige.outlasted_convergence.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "outlasted": {
+      "trigger": "relicweave:quest",
+      "conditions": {
+        "event": "outlasted_convergence"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "outlasted"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  }
+}

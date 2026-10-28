@@ -1,0 +1,135 @@
+{
+  "parent": "relicweave:relicweave/first_book",
+  "display": {
+    "icon": {
+      "item": "minecraft:prismarine_shard"
+    },
+    "title": {
+      "translate": "advancements.relicweave.relicweave.attuned.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.relicweave.attuned.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "reaping": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:enchanted_book"
+            ],
+            "stored_enchantments": [
+              {
+                "enchantment": "relicweave:reaping"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "undertow": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:enchanted_book"
+            ],
+            "stored_enchantments": [
+              {
+                "enchantment": "relicweave:undertow"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "resonance": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:enchanted_book"
+            ],
+            "stored_enchantments": [
+              {
+                "enchantment": "relicweave:resonance"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "soulguard": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:enchanted_book"
+            ],
+            "stored_enchantments": [
+              {
+                "enchantment": "relicweave:soulguard"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "steady_draw": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:enchanted_book"
+            ],
+            "stored_enchantments": [
+              {
+                "enchantment": "relicweave:steady_draw"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "reprisal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:enchanted_book"
+            ],
+            "stored_enchantments": [
+              {
+                "enchantment": "relicweave:reprisal"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "reaping",
+      "undertow",
+      "resonance",
+      "soulguard",
+      "steady_draw",
+      "reprisal"
+    ]
+  ],
+  "rewards": {
+    "experience": 40
+  }
+}

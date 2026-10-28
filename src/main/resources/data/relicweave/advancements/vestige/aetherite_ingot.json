@@ -1,0 +1,40 @@
+{
+  "parent": "relicweave:vestige/aetherite",
+  "display": {
+    "icon": {
+      "item": "relicweave:aetherite_ingot"
+    },
+    "title": {
+      "translate": "advancements.relicweave.vestige.aetherite_ingot.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.vestige.aetherite_ingot.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:aetherite_ingot"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "ingot"
+    ]
+  ],
+  "rewards": {
+    "experience": 30
+  }
+}

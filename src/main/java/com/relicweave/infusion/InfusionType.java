@@ -42,7 +42,17 @@ public enum InfusionType {
     /** Leggings: a brief speed burst after killing a hostile mob. */
     PURSUIT("pursuit", EquipmentSlot.LEGS),
     /** Boots: crouching greatly reduces incoming knockback. */
-    ANCHORED("anchored", EquipmentSlot.FEET);
+    ANCHORED("anchored", EquipmentSlot.FEET),
+
+    // 0.0.4 Vestige effect infusions (one armor piece each; see com.relicweave.infusion.effects.vestige)
+    /** Helmet: slower Rift Saturation build-up (never full immunity). */
+    RIFTWARD("riftward", EquipmentSlot.HEAD),
+    /** Chestplate: cancels one Starfall Impact hit, then recharges. */
+    SEALGUARD("sealguard", EquipmentSlot.CHEST),
+    /** Leggings: a brief mobility burst when the Concordance Cycle changes phase. */
+    CYCLEWEAVE("cycleweave", EquipmentSlot.LEGS),
+    /** Boots: weaker Gravity Shear pulls; shares a combined cap with Riftwalker. */
+    GRAVITIC_TREAD("gravitic_tread", EquipmentSlot.FEET);
 
     private final ResourceLocation id;
     @Nullable

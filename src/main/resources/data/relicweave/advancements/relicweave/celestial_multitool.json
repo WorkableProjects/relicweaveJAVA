@@ -1,0 +1,40 @@
+{
+  "parent": "relicweave:relicweave/multitool",
+  "display": {
+    "icon": {
+      "item": "relicweave:celestial_multitool"
+    },
+    "title": {
+      "translate": "advancements.relicweave.relicweave.celestial_multitool.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.relicweave.celestial_multitool.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "celestial": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:celestial_multitool"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "celestial"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "parent": "relicweave:relicweave/first_book",
+  "display": {
+    "icon": {
+      "item": "minecraft:bookshelf"
+    },
+    "title": {
+      "translate": "advancements.relicweave.relicweave.bookworm.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.relicweave.bookworm.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "keen_edge": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:enchanted_book"
+            ],
+            "stored_enchantments": [
+              {
+                "enchantment": "relicweave:keen_edge"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "purling": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:enchanted_book"
+            ],
+            "stored_enchantments": [
+              {
+                "enchantment": "relicweave:purling"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "cobbled_up": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:enchanted_book"
+            ],
+            "stored_enchantments": [
+              {
+                "enchantment": "relicweave:cobbled_up"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "oxidation": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:enchanted_book"
+            ],
+            "stored_enchantments": [
+              {
+                "enchantment": "relicweave:oxidation"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "conductive": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:enchanted_book"
+            ],
+            "stored_enchantments": [
+              {
+                "enchantment": "relicweave:conductive"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "golemed": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:enchanted_book"
+            ],
+            "stored_enchantments": [
+              {
+                "enchantment": "relicweave:golemed"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "piglinified": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:enchanted_book"
+            ],
+            "stored_enchantments": [
+              {
+                "enchantment": "relicweave:piglinified"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "villagers_best_friend": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:enchanted_book"
+            ],
+            "stored_enchantments": [
+              {
+                "enchantment": "relicweave:villagers_best_friend"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "the_necromancer": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:enchanted_book"
+            ],
+            "stored_enchantments": [
+              {
+                "enchantment": "relicweave:the_necromancer"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "necromanced": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:enchanted_book"
+            ],
+            "stored_enchantments": [
+              {
+                "enchantment": "relicweave:necromanced"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "upbound": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:enchanted_book"
+            ],
+            "stored_enchantments": [
+              {
+                "enchantment": "relicweave:upbound"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "keen_edge"
+    ],
+    [
+      "purling"
+    ],
+    [
+      "cobbled_up"
+    ],
+    [
+      "oxidation"
+    ],
+    [
+      "conductive"
+    ],
+    [
+      "golemed"
+    ],
+    [
+      "piglinified"
+    ],
+    [
+      "villagers_best_friend"
+    ],
+    [
+      "the_necromancer"
+    ],
+    [
+      "necromanced"
+    ],
+    [
+      "upbound"
+    ]
+  ],
+  "rewards": {
+    "experience": 250
+  }
+}

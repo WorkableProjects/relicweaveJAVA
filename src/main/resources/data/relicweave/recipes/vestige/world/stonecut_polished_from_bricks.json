@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "relicweave:vestige_bricks"
+  },
+  "result": "relicweave:polished_vestige_stone",
+  "count": 1
+}

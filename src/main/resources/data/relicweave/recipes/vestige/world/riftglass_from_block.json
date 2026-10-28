@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "relicweave:riftglass_block"
+    }
+  ],
+  "result": {
+    "item": "relicweave:riftglass",
+    "count": 4
+  }
+}

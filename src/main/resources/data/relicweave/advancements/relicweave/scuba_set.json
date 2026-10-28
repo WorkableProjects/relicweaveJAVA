@@ -1,0 +1,85 @@
+{
+  "parent": "relicweave:relicweave/scuba",
+  "display": {
+    "icon": {
+      "item": "relicweave:scuba_tank"
+    },
+    "title": {
+      "translate": "advancements.relicweave.relicweave.scuba_set.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.relicweave.scuba_set.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "scuba_mask": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:scuba_mask"
+            ]
+          }
+        ]
+      }
+    },
+    "scuba_tank": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:scuba_tank"
+            ]
+          }
+        ]
+      }
+    },
+    "scuba_wetsuit": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:scuba_wetsuit"
+            ]
+          }
+        ]
+      }
+    },
+    "scuba_flippers": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:scuba_flippers"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "scuba_mask"
+    ],
+    [
+      "scuba_tank"
+    ],
+    [
+      "scuba_wetsuit"
+    ],
+    [
+      "scuba_flippers"
+    ]
+  ],
+  "rewards": {
+    "experience": 60
+  }
+}

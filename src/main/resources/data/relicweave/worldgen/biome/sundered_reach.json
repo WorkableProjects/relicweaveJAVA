@@ -1,0 +1,66 @@
+{
+  "has_precipitation": false,
+  "temperature": 0.3,
+  "downfall": 0.2,
+  "effects": {
+    "fog_color": 12892384,
+    "sky_color": 8154304,
+    "water_color": 5015728,
+    "water_fog_color": 1850456,
+    "grass_color": 11577488,
+    "foliage_color": 10524832,
+    "ambient_sound": "relicweave:ambient.vestige.sundered_reach",
+    "mood_sound": {
+      "sound": "minecraft:ambient.basalt_deltas.mood",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2.0
+    },
+    "music": {
+      "sound": "relicweave:music.vestige",
+      "min_delay": 2400,
+      "max_delay": 7200,
+      "replace_current_music": false
+    },
+    "particle": {
+      "options": {
+        "type": "minecraft:reverse_portal"
+      },
+      "probability": 0.008
+    },
+    "additions_sound": {
+      "sound": "minecraft:ambient.basalt_deltas.additions",
+      "tick_chance": 0.0111
+    }
+  },
+  "spawners": {
+    "monster": [],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave"
+    ]
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [
+      "relicweave:vestige_floating_ruin_frequent",
+      "relicweave:vestige_shattered_plate"
+    ],
+    [],
+    [
+      "relicweave:vestige_ore_aetherite"
+    ]
+  ]
+}

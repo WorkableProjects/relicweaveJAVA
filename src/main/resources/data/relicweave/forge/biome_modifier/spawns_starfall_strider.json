@@ -1,0 +1,12 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "relicweave:starfall_caldera"
+  ],
+  "spawners": {
+    "type": "relicweave:starfall_strider",
+    "weight": 30,
+    "minCount": 1,
+    "maxCount": 2
+  }
+}

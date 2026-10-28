@@ -6,8 +6,10 @@ import com.relicweave.item.CelestialMaterials;
 import com.relicweave.item.CharmItem;
 import com.relicweave.item.CharmType;
 import com.relicweave.item.ModFoods;
+import com.relicweave.item.MultitoolItem;
 import com.relicweave.item.RelicItem;
 import com.relicweave.item.RelicTotemItem;
+import com.relicweave.item.ScubaArmorItem;
 import com.relicweave.item.TotemTier;
 import com.relicweave.relic.RelicType;
 import net.minecraft.world.item.ArmorItem;
@@ -18,6 +20,8 @@ import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.Tiers;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -80,6 +84,21 @@ public final class ModItems {
     public static final RegistryObject<Item> CELESTIAL_LEGGINGS = armor("celestial_leggings", ArmorItem.Type.LEGGINGS);
     public static final RegistryObject<Item> CELESTIAL_BOOTS = armor("celestial_boots", ArmorItem.Type.BOOTS);
 
+    // ---- 0.0.4.5: Multitools (sword + axe + pickaxe) ----
+    public static final RegistryObject<Item> IRON_MULTITOOL = multitool("iron_multitool", Tiers.IRON, new Item.Properties());
+    public static final RegistryObject<Item> DIAMOND_MULTITOOL = multitool("diamond_multitool", Tiers.DIAMOND, new Item.Properties());
+    public static final RegistryObject<Item> NETHERITE_MULTITOOL = multitool("netherite_multitool", Tiers.NETHERITE,
+            new Item.Properties().fireResistant());
+    public static final RegistryObject<Item> CELESTIAL_MULTITOOL = multitool("celestial_multitool", CelestialMaterials.TIER,
+            celestialGear());
+
+    // ---- 0.0.4.5: Scuba Gear (no protection) ----
+    public static final RegistryObject<Item> SCUBA_MASK = scuba("scuba_mask", ArmorItem.Type.HELMET);
+    public static final RegistryObject<Item> SCUBA_TANK = scuba("scuba_tank", ArmorItem.Type.CHESTPLATE);
+    public static final RegistryObject<Item> SCUBA_WETSUIT = scuba("scuba_wetsuit", ArmorItem.Type.LEGGINGS);
+    public static final RegistryObject<Item> SCUBA_FLIPPERS = scuba("scuba_flippers", ArmorItem.Type.BOOTS);
+
+
     private ModItems() {}
 
     private static RegistryObject<Item> charm(String name, CharmType type, Rarity rarity) {
@@ -92,6 +111,14 @@ public final class ModItems {
 
     private static RegistryObject<Item> armor(String name, ArmorItem.Type type) {
         return ITEMS.register(name, () -> new CelestialArmorItem(type, celestialGear()));
+    }
+
+    private static RegistryObject<Item> multitool(String name, Tier tier, Item.Properties properties) {
+        return ITEMS.register(name, () -> new MultitoolItem(tier, properties));
+    }
+
+    private static RegistryObject<Item> scuba(String name, ArmorItem.Type type) {
+        return ITEMS.register(name, () -> new ScubaArmorItem(type, new Item.Properties()));
     }
 
     private static Item.Properties celestialGear() {

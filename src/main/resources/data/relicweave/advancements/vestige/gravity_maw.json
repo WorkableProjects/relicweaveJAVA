@@ -1,0 +1,31 @@
+{
+  "parent": "relicweave:vestige/choir_unheard",
+  "display": {
+    "icon": {
+      "item": "relicweave:gravity_heart"
+    },
+    "title": {
+      "translate": "advancements.relicweave.vestige.gravity_maw.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.vestige.gravity_maw.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "defeated": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "defeated"
+    ]
+  ],
+  "rewards": {
+    "experience": 300
+  }
+}

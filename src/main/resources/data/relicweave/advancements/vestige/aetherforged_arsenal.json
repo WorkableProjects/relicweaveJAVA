@@ -1,0 +1,160 @@
+{
+  "parent": "relicweave:vestige/aetherforged",
+  "display": {
+    "icon": {
+      "item": "relicweave:aetherforged_chestplate"
+    },
+    "title": {
+      "translate": "advancements.relicweave.vestige.aetherforged_arsenal.title"
+    },
+    "description": {
+      "translate": "advancements.relicweave.vestige.aetherforged_arsenal.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "aetherforged_sword": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:aetherforged_sword"
+            ]
+          }
+        ]
+      }
+    },
+    "aetherforged_pickaxe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:aetherforged_pickaxe"
+            ]
+          }
+        ]
+      }
+    },
+    "aetherforged_axe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:aetherforged_axe"
+            ]
+          }
+        ]
+      }
+    },
+    "aetherforged_shovel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:aetherforged_shovel"
+            ]
+          }
+        ]
+      }
+    },
+    "aetherforged_hoe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:aetherforged_hoe"
+            ]
+          }
+        ]
+      }
+    },
+    "aetherforged_helmet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:aetherforged_helmet"
+            ]
+          }
+        ]
+      }
+    },
+    "aetherforged_chestplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:aetherforged_chestplate"
+            ]
+          }
+        ]
+      }
+    },
+    "aetherforged_leggings": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:aetherforged_leggings"
+            ]
+          }
+        ]
+      }
+    },
+    "aetherforged_boots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "relicweave:aetherforged_boots"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "aetherforged_sword"
+    ],
+    [
+      "aetherforged_pickaxe"
+    ],
+    [
+      "aetherforged_axe"
+    ],
+    [
+      "aetherforged_shovel"
+    ],
+    [
+      "aetherforged_hoe"
+    ],
+    [
+      "aetherforged_helmet"
+    ],
+    [
+      "aetherforged_chestplate"
+    ],
+    [
+      "aetherforged_leggings"
+    ],
+    [
+      "aetherforged_boots"
+    ]
+  ],
+  "rewards": {
+    "experience": 400
+  }
+}
